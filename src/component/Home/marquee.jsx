@@ -5,7 +5,7 @@ import img4 from '../../assets/images/marquee/4.png'
 import img5 from '../../assets/images/marquee/5.png'
 // import img6 from '../../assets/images/marquee/6.png'
 export default function Marquee() {
-    const items=["Easy Exchange",{img:img1,name:"Karatmeter"},{img:img2,name:"Trust of TATA"},{img:img3,name:'Quick checkout'},{img:img4,name:'Online shopping'}]
+    const items=[{img:img2,name:"Easy Exchange"},{img:img3,name:"Karatmeter"},{img:img1,name:"Trust of TATA"},{img:img4,name:'Quick checkout'},{img:img5,name:'Online shopping'}]
     return <>
      <marquee className="my-4 w-full flex justify-around  "  >
        
