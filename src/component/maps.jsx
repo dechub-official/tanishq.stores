@@ -1,47 +1,64 @@
-import React from "react";
-import GoogleMapReact from 'google-map-react';
-export default function Maps(props) {
-  //(props);
-    const AnyReactComponent = ({ text }) => <div>{text}</div>;
-//(props.center);
-   
-      const defaultProps = {
-       
-        zoom: 11
-      };
-      const renderMarkers = (map, maps) => {
-        let marker=[];
-        //("maps");
-        props.center.map((data,index)=>{
-          //(data.lat);
-          marker[index] = new maps.Marker({
-            position: { lat: data.lat, lng: data.lng },
-            map,
-            title: data.name
-            });
-        })
-       
-       
-        return marker;
-       };
-      return (
-        // Important! Always set the container height explicitly
-        <div style={{ maxHeight:props.remaxh?props.remaxh:'100%',height: props.maxh?props.maxh:'100%', width: '100%',borderRadius:"40px" }} className="rounded-[50px]">
-          
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: "AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w" }}
-            defaultCenter={props.center[0]}
-            defaultZoom={defaultProps.zoom}
-            center={props.center[0]}
-            onGoogleApiLoaded={({ map, maps }) =>  renderMarkers(map, maps)}
-          >
-            <AnyReactComponent
-              lat={59.955413}
-              lng={30.337844}
-              text="My Marker"
-            />
-           
-          </GoogleMapReact>
-        </div>
-      );
+import React, { useEffect, useState } from "react";
+
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+export  function Maps(props) {
+ 
+  console.log(props.center[0]);
+ 
+  const containerStyle = {
+    position: 'relative',  
+    width: '100%',
+    height: '100%'
+  }
+
+  const[refresh,setRefersh]=useState(true)
+  useEffect(()=>{setRefersh(!refresh)
+ 
+  },[props.center])
+return<React.Fragment>
+
+ <div className={"rounded-[50px] h-[100%] max-h-full relative "+props.style}>
+ {
+ !props.isStore?props.center.length&&
+//  <Map google={props.google}
+//  dummy={refresh} 
+// initialCenter={{lat:props?.center[0]?.lat,lng:props?.center[0]?.lng}}
+// // initialCenter={cordinate}
+// style={containerStyle} zoom={11}>
+ 
+
+
+// {
+
+// props.center?.map((data,index)=>{
+//           //(data.lat);
+//           if(data.lat&&data.lat!=0)
+//         return <Marker position={{lat:data.lat,lng:data.lng}} 
+//         name={data.title} />
+//         })}
+
+// <InfoWindow onClose={"onInfoWindowClose"}>
+//     <div className="h-[100%]">
+//       <h1>{"Tanishq Stores"}</h1>
+//     </div>
+// </InfoWindow>
+// </Map>:
+<></>:
+<>
+{console.log(props.loclink.replace("https://www.google.com/maps/place/",""))}
+<iframe
+  
+  frameborder="0" style={containerStyle}
+  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w&q=${props.center[0].lat+","+props.center[0].lng}`}
+  allowfullscreen>
+</iframe>
+{/* src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w&q=${props.center[0].lat+","+props.center[0].lng}`} */}
+{/* <iframe width="600" height="450"  loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/search?q=Tanishq&key=AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w"></iframe> */}
+</>
 }
+</div>
+</React.Fragment>
+}
+export default GoogleApiWrapper({
+  apiKey: ("AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w")
+})(Maps)

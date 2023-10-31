@@ -1,9 +1,10 @@
 import axios from "axios"
-import { json } from "react-router-dom";
 
-const key = 'key=AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w';
-const baseURL = 'https://maps.googleapis.com/maps/api/place';
-const proxy="https://cors-anywhere.herokuapp.com/"
+
+const key = 'key=mapskeyplaceholder';
+// const baseURL = 'http://localhost:8129/stores/tanishq/googleMaps?url=https://maps.googleapis.com/maps/api/place';
+const baseURL='https://uat-stores.tanishq.co.in/stores/tanishq/googleMaps?url=https://maps.googleapis.com/maps/api/place'
+
 // const proxy=""
 const apiRequest = async (method, endpoint) => {
 
@@ -13,7 +14,7 @@ const apiRequest = async (method, endpoint) => {
     let config = {
       method:  method,
       maxBodyLength: Infinity,
-      url:proxy+baseURL+endpoint+'&'+key,
+      url:baseURL+endpoint+'%26'+key,
     
       headers: { 
         'Accept': 'application/json', 
