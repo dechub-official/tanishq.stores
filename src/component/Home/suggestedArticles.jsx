@@ -9,17 +9,17 @@ export default function SuggestArtical() {
         </div>
         <div>
         <div className='flex justify-start items-start my-2'>
-            <img src={bullent} alt="" className='mr-5 w-[12px]' />
+            <img src={bullent} alt="" className='mr-2 max-w-[8px] mt-[2px]' />
            <Link to="https://www.tanishq.co.in/blog/beginner-guide-to-gold-jewellery-exchange-what-you-need-to-know.html?lang=en_IN"> <p className='underline text-[15px] font-[400] cursor-pointer'>A Beginner's Guide to Gold Jewellery Exchange</p></Link>
 
         </div>
         <div className='flex justify-start items-start my-2'>
-            <img src={bullent} alt="" className='mr-5 w-[12px]' />
+            <img src={bullent} alt="" className='mr-2 max-w-[8px] mt-[2px]' />
           <Link to="https://www.tanishq.co.in/blog/why-are-women-mostly-inclined-to-buy-earrings.html?lang=en_IN"> <p className='underline text-[15px] font-[400] cursor-pointer'>Why Are Women Mostly Inclined to Buy Earrings</p></Link> 
 
         </div>
         <div className='flex justify-start items-start my-2'>
-            <img src={bullent} alt="" className='mr-5 w-[12px]' />
+            <img src={bullent} alt="" className='mr-2 max-w-[8px] mt-[2px]' />
            <Link to="https://www.tanishq.co.in/blog/top-five-factors-for-choosing-a-gold-exchange-near-me-blog.html?lang=en_IN"> <p className='underline text-[15px] font-[400] cursor-pointer'>5 Factors To Consider When Selecting A Gold Exchange Near Me</p></Link>
 
         </div>

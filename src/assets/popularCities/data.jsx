@@ -52,7 +52,7 @@ const image = [{
 
 
 }, {
-    name: "kolkata",
+    name: "Kolkata",
     img: Kolkata
 
 

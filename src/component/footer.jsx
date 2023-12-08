@@ -178,17 +178,18 @@ export default function Footer() {
                 </div>
 
             </div>
-            <div className="bank flex  justify-between md:mx-16 my-6 border-[#414042] border-t-2 pt-9 pb-2 flex-wrap-reverse ">
-                <div className="bank flex justify-around md:w-[70%] flex-wrap ">
-                    <img src={b9} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0  ' />
-                    <img src={b1} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
-                    <img src={b2} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
-                    <img src={b3} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
-                    <img src={b4} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
-                    <img src={b5} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
-                    <img src={b6} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
-                    <img src={b7} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
-                    <img src={b8} alt="" className='md:w-[56px] w-[50px] md:h-[25px] mr-5 my-4 md:my-0' />
+            <div className="bank flex  justify-between md:mx-16 my-6 border-[#414042] border-t-2 pt-8 pb-2 flex-wrap-reverse ">
+                <div className="bank flex justify-around items-center md:w-[70%] flex-wrap ">
+                    <img src={b1} alt="" className='min-w-[50px] max-w-[50px] h-fit mr-5 my-4 md:my-0  ' />
+                    <img src={b2} alt="" className='min-w-[40px] max-w-[40px] h-fit mr-5 my-4 md:my-0' />
+                    <img src={b3} alt="" className='min-w-[70px] max-w-[70px] h-fit mr-5 my-4 md:my-0' />
+                    <img src={b4} alt="" className='min-w-[40px] max-w-[40px] h-fit mr-5 my-4 md:my-0' />
+                  
+                    <img src={b5} alt="" className='min-w-[70px] max-w-[70px] h-fit mr-5 my-4 md:my-0' />
+                    <img src={b6} alt="" className='min-w-[80px] max-w-[80px] h-fit mr-5 my-4 md:my-0' />
+                    <img src={b7} alt="" className='min-w-[80px] max-w-[80px] h-fit mr-5 my-4 md:my-0' />
+                    <img src={b8} alt="" className='min-w-[60px] max-w-[60px] h-fit mr-5 my-4 md:my-0' />
+                    <img src={b9} alt="" className='min-w-[80px] max-w-[80px] h-fit mr-5 my-4 md:my-0' />
                     {/* <img src={b9} alt="" /> */}
 
 

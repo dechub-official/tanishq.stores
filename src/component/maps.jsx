@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 export  function Maps(props) {
- 
-  console.log(props.center[0]);
+
  
   const containerStyle = {
     position: 'relative',  
@@ -19,7 +18,7 @@ return<React.Fragment>
 
  <div className={"rounded-[50px] h-[100%] max-h-full relative "+props.style}>
  {
- !props.isStore?props.center.length&&
+ !props.isStore?props.center?.length&&
 //  <Map google={props.google}
 //  dummy={refresh} 
 // initialCenter={{lat:props?.center[0]?.lat,lng:props?.center[0]?.lng}}
@@ -45,11 +44,11 @@ return<React.Fragment>
 // </Map>:
 <></>:
 <>
-{console.log(props.loclink.replace("https://www.google.com/maps/place/",""))}
+
 <iframe
   
   frameborder="0" style={containerStyle}
-  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w&q=${props.center[0].lat+","+props.center[0].lng}`}
+  src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w&q=${props.center[0]?.lat+","+props.center[0]?.lng}`}
   allowfullscreen>
 </iframe>
 {/* src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w&q=${props.center[0].lat+","+props.center[0].lng}`} */}

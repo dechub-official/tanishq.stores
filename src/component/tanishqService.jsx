@@ -3,9 +3,9 @@ import Button from "../component/button";
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export default function TanishqService({img,name,subheading,link}) {
+export default function TanishqService({img,name,subheading,link,disablelink}) {
     return <>
-    <div className="flex flex-col z-10 relative justify-center items-center max-w-[350px] min-h-[150px] md:min-h-[250px]" onClick={()=>{window.location.href="http://www.tanishq.co.in/shop/kakatiya"}}>
+    <div className="flex flex-col z-10 relative justify-center items-center max-w-[350px] min-h-[150px] md:min-h-[250px]" onClick={()=>{if(!disablelink)window.location.href="http://www.tanishq.co.in/shop/kakatiya"}}>
         <img src={img} alt={name} className="max-w-[600px] max-h-[150px] md:min-h-[250px] h-[150px] rounded-t-[20px] hover:shadow-none transition-all duration-500 cursor-pointer shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]
 " />
 

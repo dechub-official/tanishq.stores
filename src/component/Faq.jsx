@@ -29,7 +29,7 @@ export default function FAQ(props) {
               className="flex flex-row  items-center font-semibold p-3 cursor-pointer"
               onClick={()=>{handleChange(i)}}
             >
-           {open[i]=="0"?   <svg xmlns="http://www.w3.org/2000/svg"   onClick={()=>{handleChange(i)}} width="34" height="34" viewBox="0 0 34 34" fill="none">
+           {open[i]=="0"?   <svg xmlns="http://www.w3.org/2000/svg"  className="max-w-[30px] min-w-[30px]" onClick={()=>{handleChange(i)}} width="34" height="34" viewBox="0 0 34 34" fill="none">
 <g filter="url(#filter0_d_58_2403)">
   <circle cx="16.6597" cy="12.6301" r="12.4595" transform="rotate(90 16.6597 12.6301)" fill="white"/>
 </g>
@@ -46,7 +46,7 @@ export default function FAQ(props) {
     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_58_2403" result="shape"/>
   </filter>
 </defs>
-</svg>:<svg xmlns="http://www.w3.org/2000/svg" onClick={()=>{handleChange(i)}}  width="34" height="34" viewBox="0 0 34 34" fill="none">
+</svg>:<svg xmlns="http://www.w3.org/2000/svg" className="max-w-[30px] min-w-[30px]" onClick={()=>{handleChange(i)}}  width="34" height="34" viewBox="0 0 34 34" fill="none">
 <g filter="url(#filter0_d_58_2414)">
   <circle cx="12.4595" cy="12.4595" r="12.4595" transform="matrix(0 -1 -1 0 29.1191 25.6909)" fill="white"/>
 </g>
@@ -64,7 +64,7 @@ export default function FAQ(props) {
   </filter>
 </defs>
 </svg>}
-              <span className="ml-2">{data.question}</span>
+              <span onClick={()=>{handleChange(i)}} className="ml-2">{data.question}</span>
             
             </h2>
            {open[i]=="fit"&& <div
