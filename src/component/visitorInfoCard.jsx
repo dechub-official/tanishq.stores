@@ -30,7 +30,7 @@ export default function VisitorInfoCard(props) {
 
 
     }
-    return <>   {<div  className="box bg-[#F2F2F2] overflow-hidden md:min-w-[45%] md:max-w-[45%] max-h-[330px] md:min-h-[330px] min-h-[300px]   my-4  rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+    return <>   {<div  className="box bg-[#F2F2F2] overflow-hidden md:min-w-[45%] md:max-w-[450px] lg:max-w-[45%] max-h-[350px] md:min-h-[350px] min-h-[300px]   my-4  rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
          {props.notClose&& <div className="relative">
             <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[#803335] " onClick={() =>props.onClose()}>X</div>
         </div>}
@@ -54,7 +54,7 @@ export default function VisitorInfoCard(props) {
             <h2 className=' text-center text-red-900 text-[15px] md:text-[18px] mx-2  font-medium md:w-[80%]'>Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq!</h2>
             <input type="tel" min={"10"} value={mno} id="tel1" onChange={(e) => setmno(e.target.value)} placeholder='Enter Mobile Number' className='appearance-none  px-4 my-5 h-[50px] bg-[#F2F2F2] w-[88%] rounded-[7px] border border-black py-2' />
             <div className=" w-[88%]">
-                <div className="md:w-[30%] w-[40%]">
+                <div className="md:w-[30%] mt-3 mb-2 w-[40%]">
                     <button type="button" onClick={() => {
                         getUpdates()
                     }} className={" w-full  mx-auto flex justify-center  md:px-5 mb-4 md:mb-0  py-2 text-[white] bg-[#832729] font-500 md:text-[15px] text-[10px] rounded-[6px] items-center  hover:shadow-none transition-all duration-500 cursor-pointer  shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] "}>Submit

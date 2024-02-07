@@ -9,14 +9,7 @@ import SearchBox from "../component/search"
 import Button from "../component/button"
 import filledStar from '../assets/images/starFilled.png'
 import unfilledStar from '../assets/images/starUnfilled.png'
-import cash from '../assets/images/detailed/paymentOptions/cash.png'
-import cheque from '../assets/images/detailed/paymentOptions/cheque.png'
-import credit from '../assets/images/detailed/paymentOptions/credit.png'
-import debit from '../assets/images/detailed/paymentOptions/debit.png'
-import gold from '../assets/images/detailed/paymentOptions/gold.png'
-import netBanking from '../assets/images/detailed/paymentOptions/netBanking.png'
-import upi from '../assets/images/detailed/paymentOptions/upi.png'
-import airpay from '../assets/images/detailed/paymentOptions/airpay.png'
+
 
 import { useNavigate, useParams } from "react-router-dom"
 import relocate from '../assets/images/relocate.png'
@@ -185,7 +178,7 @@ export default function Detailed() {
         </svg>
          )
         setpayments([...pay,...unText])
-console.log(data.data.result[0]);
+
            
             setPosition([{lat:data.data.result[0].storeLatitude,lng:data.data.result[0].storeLongitude}])
             setFaq([{ question: `Which gold jewellery shop is best in ${data.data.result[0].storeName}?`,
@@ -330,10 +323,10 @@ console.log(data.data.result[0]);
             clearInterval(interval);
         };
     }, []);
-    useEffect(()=>{
-        ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Deep Store Page" });
-    },[])
+
     useEffect(() => {
+        console.log("page call");
+        ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Deep Store Page" });
         window.scrollTo({top: 0, behavior: 'smooth'});
         loadData(id)
 
@@ -369,7 +362,7 @@ console.log(data.data.result[0]);
         if (newWindow) newWindow.opener = null;
 
     }
-    const reviewsandratings = [{ name: "Reliability", width: "80%", rating: 4 }, { name: "Positive Solution", width: "70%", rating: 3 }, { name: "Payout Rating", width: "90%", rating: 4.5 }, { name: "Customer satisfaction", width: "60%", rating: 2.6 }]
+    // const reviewsandratings = [{ name: "Reliability", width: "80%", rating: 4 }, { name: "Positive Solution", width: "70%", rating: 3 }, { name: "Payout Rating", width: "90%", rating: 4.5 }, { name: "Customer satisfaction", width: "60%", rating: 2.6 }]
     return <>
 {storeDetail.storeName&&<Helmet>
   
@@ -434,8 +427,8 @@ console.log(data.data.result[0]);
                                                { GoogleStore && GoogleStore?.opening_hours&&<h1 className="text-[#832729] md:mt-2 font-[700] underline text-[19px] md:text-[18px]">Business Hours</h1>}
                                                 <div className=" md:block flex justify-around">
                                                     <div className="text-left md:text-[17px] text-[17px] text-[#343434]">
-                                                        {GoogleStore && GoogleStore?.opening_hours?.weekday_text.map((data) => {
-                                                            return <p>{data}</p>
+                                                        {GoogleStore && GoogleStore?.opening_hours?.weekday_text.map((data,i) => {
+                                                            return <p key={i}>{data}</p>
                                                         })}
                                                     </div>
                                              
@@ -444,8 +437,8 @@ console.log(data.data.result[0]);
                                                 <h1 className="text-[#832729]  mt-5 font-[700] md:mt-0 underline text-[19px] md:text-[18px]">Parking Options</h1>
 
                                                 <div className="text-left md:mt-0 mt-2 md:text-[17px] text-[17px] text-[#343434]">
-                                                   {storeDetail&&storeDetail.parking?.map((data)=>{
-                                                    return <p>{data}</p>
+                                                   {storeDetail&&storeDetail.parking?.map((data,i)=>{
+                                                    return <p key={i}>{data}</p>
                                                    })}
                                                 </div>
                                                 </>
@@ -459,7 +452,7 @@ console.log(data.data.result[0]);
                                                     {
                                                         storeDetail&&storeDetail.languages?.map((data,i)=>{
                                                             if(i<(storeDetail.length-1)/2){
-                                                                return <p className="flex m-2 w-[40%] md:mr-2 ml-0 items-center"><svg xmlns="http://www.w3.org/2000/svg" className="min-w-[16px]" width="16" height="13" viewBox="0 0 16 13" fill="none">
+                                                                return <p key={i} className="flex m-2 w-[40%] md:mr-2 ml-0 items-center"><svg xmlns="http://www.w3.org/2000/svg" className="min-w-[16px]" width="16" height="13" viewBox="0 0 16 13" fill="none">
                                                                     <circle cx="6.5" cy="6.5" r="6.5" fill="#D9D9D9" />
                                                                     <path d="M4 5.59375L7.28125 8.875L14.5 1" stroke="#832729" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                                 </svg>&nbsp;{data}</p>
@@ -507,7 +500,7 @@ console.log(data.data.result[0]);
                             <div className="mt-6  w-[90%]">
                                 <div className="flex justify-around flex-wrap w-full">
                                 {GoogleStore.reviews && GoogleStore.reviews?.slice(0, 4).map((data, i) => {
-                                    return <div className="mb-4 md:w-[48%] border-2 rounded-[17px] px-8 py-5">
+                                    return <div key={i} className="mb-4 md:w-[48%] border-2 rounded-[17px] px-8 py-5">
                                         {i == 0 && <p className="text-[#832729] text-[18px] font-[700]">Total Reviews <span className="text-[#66686C]">{GoogleStore.user_ratings_total}</span></p>}
                                         <div className="flex justify-between items-baseline">
                                             <div>
@@ -541,12 +534,12 @@ console.log(data.data.result[0]);
                             {NearByStore.length>1&&<div className="my-4 md:w-[80%] w-[90%] border-2 rounded-[17px] md:px-8 px-5 py-5 max-h-[500px]  overflow-y-scroll">
                                 <h1 className="text-[#832729] font-[700] underline text-[18px]  ">Other Tanishq Stores Nearby  </h1>
                                 <div className=" grid md:grid-cols-3 grid-cols-1 gap-4">
-                                    {NearByStore.map((data) => {
+                                    {NearByStore.map((data,i) => {
                                        
                                        if(id==data.storeCode){
                                        
                                         return;}
-                                        return <div key={data} onClick={()=>nav(`/store-locator/jewellery-stores/${data.storeState.toLowerCase()?.replace(" ","-")}/${data.storeCity.toLowerCase()?.replace(" ","-")}/${data.storeName.toLowerCase().split("- ")[1]?data.storeName.toLowerCase().split("- ")[1]?.replace(/ /g,"-").replace(",","-"):data.storeName.toLowerCase().replace(" ","-").replace(",","-")}-${data.storeCode}`)} className=" col-auto max-h-[60px] w-fit cursor-pointer md:px-6 px-2 md:m-4 h-fit py-4 my-2 mx-auto rounded-[7px] bg-[#832729]  flex justify-between items-start">
+                                        return <div key={i} onClick={()=>nav(`/store-locator/jewellery-stores/${data.storeState.toLowerCase()?.replace(" ","-")}/${data.storeCity.toLowerCase()?.replace(" ","-")}/${data.storeName.toLowerCase().split("- ")[1]?data.storeName.toLowerCase().split("- ")[1]?.replace(/ /g,"-").replace(",","-"):data.storeName.toLowerCase().replace(" ","-").replace(",","-")}-${data.storeCode}`)} className=" col-auto max-h-[60px] w-fit cursor-pointer md:px-6 px-2 md:m-4 h-fit py-4 my-2 mx-auto rounded-[7px] bg-[#832729]  flex justify-between items-start">
                                             <img src={relocate} alt="" className="md:w-[30px] w-[20px] mr-2" />
                                             <p className="text-[#FFF] whitespace-nowrap overflow-hidden text-ellipsis font-[500] text-[15px] max-w-[250px] min-w-[250px] md:text-[16px] leading-4">{data.storeName} <br /><span className="text-[13px] max-w-[20px] overflow-hidden">{data.storeAddress} </span></p>
                                         </div>

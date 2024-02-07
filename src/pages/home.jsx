@@ -7,7 +7,7 @@ import Marquee from "../component/Home/marquee";
 import LatestCollection from "../component/Home/latestCollection";
 import cl1 from '../assets/images/latestCollection/image1.png'
 import cl2 from '../assets/images/latestCollection/image3.jpg'
-import cl3 from '../assets/images/latestCollection/image2.jpg'
+import cl3 from '../assets/images/latestCollection/markYourMoment.png'
 import SuggestArtical from "../component/Home/suggestedArticles";
 import { Helmet } from "react-helmet";
 
@@ -31,7 +31,7 @@ export default function Home() {
             content="Tanishq store locator will guide you to the nearest stores. Check out all contact details, directions through Store Locator. Visit now."
         /></Helmet>
         <div className="af-bl">
-            {/* <SubHome/> */}
+         
             <div className="flex flex-col items-center">
 
                 <Heading heading={"Welcome to Tanishq!"} subHeading={"Shop from a wide range of exquisite designs for all occasions. All backed by the Trust of TATA"} />
@@ -97,7 +97,7 @@ export default function Home() {
                         className="mySwiper"
                     >
 
-                        {[{ img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' }, { img: cl2, link: 'https://www.tanishq.co.in/string-it' }, { img: cl3, link: '/store-locator/jewellery-stores/collections/kakatiya' }, { img: cl2, link: 'https://www.tanishq.co.in/string-it' }].map((data, i) => {
+                        {[{ img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' },{ img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' }, { img: cl2, link: 'https://www.tanishq.co.in/string-it' },  { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' }].map((data, i) => {
                             if ((i == 3 && window.screen.width > 767)) return
                             return <SwiperSlide  >  <LatestCollection key={i} img={data.img} link={data.link} name={"mumbai"} /> </SwiperSlide>
                         })}

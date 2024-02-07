@@ -163,7 +163,7 @@ navigation={true}
                             </a></SwiperSlide>
 
                        
-                       
+{/*                        
                         <SwiperSlide>
                         <a href="https://www.tanishq.co.in/Celeste" className="w-full" target="_blank"><img src={crousal2} className='w-full   ' alt="" srcset="" />
                         </a></SwiperSlide>
@@ -172,7 +172,7 @@ navigation={true}
                         </a></SwiperSlide>
                         <SwiperSlide>
                         <a href="https://www.tanishq.co.in/Celeste" className="w-full" target="_blank"><img src={crousal4} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide>
+                        </a></SwiperSlide> */}
 
                     </Swiper>
                 </div>
@@ -199,7 +199,7 @@ navigation={true}
                             </a></SwiperSlide>
 
                             
-                        <SwiperSlide>
+                        {/* <SwiperSlide>
                             <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal2} className='w-full   ' alt="" srcset="" />
                             </a></SwiperSlide>
                             
@@ -209,7 +209,7 @@ navigation={true}
                             
                         <SwiperSlide>
                             <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal4} className='w-full   ' alt="" srcset="" />
-                            </a></SwiperSlide>
+                            </a></SwiperSlide> */}
                         {/* <SwiperSlide>  <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal2} className='w-full   ' alt="" srcset="" />
                         </a>
                         </SwiperSlide> */}
@@ -229,7 +229,7 @@ navigation={true}
                 </div>
             </div>
             <Marquee/>
-            <div className="md:block hidden">
+            {/* <div className="md:block hidden">
             <Heading heading={<u className="text-[25px]">Explore Collection Online</u>}/>
             <div className="flex w-full justify-center">
             <div className="py-4 w-full md:w-[88%]">
@@ -263,21 +263,21 @@ return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} dis
            
            
             </Swiper>
-            </div>
+            </div> 
             
 </div>
-</div>
-<div className="flex justify-center my-5">
+</div> */}
+{/* <div className="flex justify-center my-5">
 
     <div className="txt px-24 rounded-[10px] py-3 md:block hidden bg-[#F2E9E9] text-[20px] cursor-pointer font-[700] break-keep whitespace-nowrap text-[#832729]" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know More About the Celeste Collection</div>
     <div className="txt px-10 py-2 block md:hidden   rounded-[10px] bg-[#F2E9E9] text-center text-[#832729]  font-[700] break-keep whitespace-nowrap  cursor-pointer" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know more about the <br />Celeste Collection</div>
 
-</div>
+</div> */}
 <div className="md:block hidden">
-<Heading heading={<u className="text-[20px] break-keep">Celeste Collections Exclusively Available at {data.length} Stores</u>}/>
+<Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>}/>
 </div>
 <div className="block md:hidden">
-<Heading heading={<p className="text-[20px]">Celeste Collections <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores</span></p>}/>
+<Heading heading={<p className="text-[20px]">Celeste Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores</span></p>}/>
 </div>
             <div className="flex flex-wrap justify-around items-start w-full">
 
