@@ -243,7 +243,7 @@ centeredSlides={true}
             <img src={diamonds_img} onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")} className='w-[25px] mx-auto ' alt="" />
             Diamonds</p>
           <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/blog-home.html?lang=en_IN")}>
-            <img src={blog_img} className='w-[19px] mx-auto ' onClick={() => VisitOutside("https://www.tanishq.co.in/blog-home.html?lang=en_IN")} alt="" />
+            <img src={blog_img} className='w-[19px] mx-auto ' onClick={() => VisitOutside("https://blog.tanishq.co.in/")} alt="" />
             Blogs</p>
           <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => nav("/")}>
             <img src={store_img} className='w-[19px] mx-auto ' alt="" />
