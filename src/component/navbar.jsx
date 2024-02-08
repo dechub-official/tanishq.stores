@@ -126,7 +126,7 @@ centeredSlides={true}
                   Diamonds</p></Link>
                   {/* <div className='border-b-2 my-2 mx-2 rounded-[20px] bg-[#F2DFDF]  h-[5px]'></div> */}
                 </li>
-                <li className='mx-6 flex gap-[7px] cursor-pointer border my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="https://www.tanishq.co.in/blog-home.html?lang=en_IN"><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' >
+                <li className='mx-6 flex gap-[7px] cursor-pointer border my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="https://blog.tanishq.co.in/"><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' >
                   <img src={blog_img} className='w-[20px] mr-3 h-[20px] mx-3  ' alt="" />
                   Blogs</p>
                 </Link>
@@ -242,7 +242,7 @@ centeredSlides={true}
           <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")}>
             <img src={diamonds_img} onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")} className='w-[25px] mx-auto ' alt="" />
             Diamonds</p>
-          <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/blog-home.html?lang=en_IN")}>
+          <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://blog.tanishq.co.in/")}>
             <img src={blog_img} className='w-[19px] mx-auto ' onClick={() => VisitOutside("https://blog.tanishq.co.in/")} alt="" />
             Blogs</p>
           <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => nav("/")}>
