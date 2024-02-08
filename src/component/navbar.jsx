@@ -10,9 +10,7 @@ import profile_img from '../assets/images/navbar/profile.png'
 import shop_img from '../assets/images/navbar/shop.png'
 import store_img from '../assets/images/navbar/stores.png'
 import wishlist_img from '../assets/images/navbar/wishlist.png'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
-import CountdownTimer from './countdown'
+
 import { useState } from 'react'
 export default function NavBar() {
   const nav = useNavigate()
@@ -53,7 +51,7 @@ export default function NavBar() {
   return <>
 
     {/* Sticky Header */}
-    <div className="sticky top-0 max-w-[100%] overflow-hidden z-50">
+    <div className="sticky top-0 max-w-[100%] z-50 " >
 
       {/* --------------------------------- */}
       {/* Offer slider strip */}
