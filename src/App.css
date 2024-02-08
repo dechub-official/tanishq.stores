@@ -167,6 +167,11 @@
    transform: translate3d(0,0,0);
    /* transform: translateZ(40); */
  }
+ .nav-swiper .swiper-wrapper{
+  /* display: flex;
+  justify-content: center; */
+  margin: 0 auto;
+ }
   #menu
   {
     position: fixed;
