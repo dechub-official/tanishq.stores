@@ -13,7 +13,7 @@ export default function StorePlate({data}) {
 
     }
     return <>
-     <div className="box bg-[#F2F2F2] md:min-w-[500px] min-w-[90%] sm:min-w-[310px] max-w-[310px] md:max-w-[500px] min-h-[350px] md:max-h-[350px]  my-4 px-2 mx-4 md:px-8 p-4 rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+     <div className="box bg-[#F2F2F2] md:min-w-[500px] min-w-[90%] sm:min-w-[310px] max-w-[310px] md:max-w-[500px] min-h-[350px] md:max-h-[350px]  my-4 px-2  md:px-8 p-4 rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
                                 <h2 className='text-[#832729] py-2 md:text-[18px] text-[15px] font-[700]'>{`Tanishq Jewellery - ${data.storeName}`}</h2>
                                 <p className='pb-4 font-[700] text-[#832729]  border-b-[#832729] border-b-[3px] cursor-pointer' onClick={() => Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)}>Visit Store Page{">>>"}</p>
                                 <p className='my-2 text-[15px] max-w-[300px] min-h-[55px] max-h-[55px] font-[500]'>{data.storeAddress}</p>
