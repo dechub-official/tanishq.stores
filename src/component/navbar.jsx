@@ -317,8 +317,9 @@ centeredSlides={true}
                         breakpoints={{
 
                             1500: { slidesPerView: 4,spaceBetween:30, autoplay: true }, 
-                            1200: { slidesPerView: 3.2,spaceBetween:30, autoplay: true }, 
-                            568: { slidesPerView: 3.2,spaceBetween:30, autoplay: true }, 
+                            1200: { slidesPerView: 3.2,spaceBetween:0, autoplay: true }, 
+                            568: { slidesPerView: 3.1,spaceBetween:0, autoplay: true },
+                            400: { slidesPerView: 2.2,spaceBetween:0, autoplay: true }, 
                             0: { slidesPerView: 1.5, spaceBetween:5,slidesPerGroup: 1 }
                         }}
 
