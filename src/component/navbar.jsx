@@ -318,8 +318,8 @@ centeredSlides={true}
 
                             1500: { slidesPerView: 4,spaceBetween:30, autoplay: true }, 
                             1200: { slidesPerView: 3.2,spaceBetween:30, autoplay: true }, 
-                            768: { slidesPerView: 2.2,spaceBetween:30, autoplay: true }, 
-                            0: { slidesPerView: 2.1, spaceBetween:5,slidesPerGroup: 1 }
+                            568: { slidesPerView: 3.2,spaceBetween:30, autoplay: true }, 
+                            0: { slidesPerView: 1.5, spaceBetween:5,slidesPerGroup: 1 }
                         }}
 
                         className="mySwiper nav-swiper"
