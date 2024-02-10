@@ -30,11 +30,11 @@ export default function VisitorInfoCard(props) {
 
 
     }
-    return <>   {<div  className="box bg-[#F2F2F2] overflow-hidden md:min-w-[45%] md:max-w-[450px] lg:max-w-[45%] max-h-[350px] md:min-h-[350px] min-h-[300px]   my-4  rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+    return <>   {<div  className="box bg-[#F2F2F2] md:min-w-[450px] min-w-[90%]  max-w-[500px] md:max-w-[450px] min-h-[350px] lg:max-h-[350px]  my-4 px-2 md:px-0 p-4 rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
          {props.notClose&& <div className="relative">
             <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[#803335] " onClick={() =>props.onClose()}>X</div>
         </div>}
-    {success.visible == false ? <><div className="flex px-2 md:px-8 p-4 justify-center items-center">
+    {success.visible == false ? <><div className="flex px-2 md:py-2 md:px-2 p-4 justify-center items-center">
         <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
         <svg xmlns="http://www.w3.org/2000/svg" className='mx-3 mb-4' width="60" height="50" viewBox="0 0 60 50" fill="none">
             <path d="M34.9499 6C34.9843 5.76589 35.0011 5.52926 34.9999 5.29234C34.9999 3.88872 34.4732 2.5426 33.5355 1.55009C32.5978 0.557584 31.326 0 30 0C28.6739 0 27.4021 0.557584 26.4645 1.55009C25.5268 2.5426 25 3.88872 25 5.29234C25.0001 5.52927 25.0173 5.76585 25.0514 6L26.4643 5.76411C26.4403 5.60814 26.4284 5.45036 26.4286 5.29234C26.4286 4.28976 26.8048 3.32824 27.4746 2.6193C28.1444 1.91037 29.0528 1.5121 30 1.5121C30.9472 1.5121 31.8556 1.91037 32.5253 2.6193C33.1951 3.32824 33.5714 4.28976 33.5714 5.29234C33.5713 5.45029 33.5599 5.60801 33.5371 5.76411L34.9499 6Z" fill="black" />
@@ -51,7 +51,7 @@ export default function VisitorInfoCard(props) {
         <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
     </div>
         <div className="flex justify-center items-center flex-col">
-            <h2 className=' text-center text-red-900 text-[15px] md:text-[18px] mx-2  font-medium md:w-[80%]'>Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq!</h2>
+            <h2 className=' text-center text-red-900 text-[15px] md:text-[18px] mx-2  font-medium md:w-[90%]'>Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq!</h2>
             <input type="tel" min={"10"} value={mno} id="tel1" onChange={(e) => setmno(e.target.value)} placeholder='Enter Mobile Number' className='appearance-none  px-4 my-5 h-[50px] bg-[#F2F2F2] w-[88%] rounded-[7px] border border-black py-2' />
             <div className=" w-[88%]">
                 <div className="md:w-[30%] mt-3 mb-2 w-[40%]">

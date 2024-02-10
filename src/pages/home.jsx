@@ -54,7 +54,7 @@ export default function Home() {
                     return <div className="col-span-1"><PopularCity key={data} img={Mumbai} name={"mumbai"} /></div>
                 })}
             </div> */}
-            <div className="hidden md:grid md:grid-rows-1 grid-rows-4 grid-flow-col gap-4 ">
+            <div className="hidden md:grid lg:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 ">
                 {PopularCityDetail.map((data, index) => {
 
                     return <div className="col-span-1"><PopularCity key={index} img={data.img} name={data.name} /></div>
@@ -114,75 +114,7 @@ export default function Home() {
 
 
 
-            {/* <Heading heading="Exclusively available on select stores" />
-            <div className="flex justify-center w-[75%]">
-                {[...Array(2)].map((data) => {
-                    return <div className="ml-6"><LatestCollection key={data} img={cl1} name={"mumbai"} /></div>
-                })}
-            </div> */}
-            {/* <Heading heading="Dream your next jewellery" subHeading="Some options to make your dream come true!" /> */}
-            {/* <div className=" af-bl flex  flex-col  overflow-hidden  pb-2  w-[78%] items-center justify-center ">
-                <div className=''>
-                    <Swiper
-                        slidesPerView={'auto'}
-                        spaceBetween={30}
-                        pagination={{
-                            clickable: true,
-                        }}
-                        speed={2000}
-                        autoplay={{
-                            delay: 2500,
-                            speed:300,
-                            disableOnInteraction: false,
-                        }}
-navigation={true}
-                        modules={[ Autoplay,Navigation]}
-                        className="mySwiper"
-                    >
-                       
-                        <SwiperSlide>
-                            <div className="relative">
-                           <img src={crousal1} className='w-full   ' alt="" srcset="" />
-                           <div className="absolute bottom-2 flex justify-center w-full">
-                          <Button name={"Know More"} onclick={()=>{nav("/store-locator/jewellery-stores/collections/kakatiya")}} />
-                          </div>
-                          </div>
-                            </SwiperSlide>
-                        <SwiperSlide> <div className="relative">
-                           <img src={crousal2} className='w-full   ' alt="" srcset="" />
-                           <div className="absolute bottom-2 flex justify-center w-full">
-                          <Button name={"Know More"} onclick={()=>{nav("/store-locator/jewellery-stores/collections/kakatiya")}} />
-                          </div>
-                          </div></SwiperSlide>
-                        <SwiperSlide> <div className="relative">
-                           <img src={crousal3} className='w-full   ' alt="" srcset="" />
-                           <div className="absolute bottom-2 flex justify-center w-full">
-                          <Button name={"Know More"} onclick={()=>{nav("/store-locator/jewellery-stores/collections/kakatiya")}} />
-                          </div>
-                          </div></SwiperSlide>
-                        <SwiperSlide> <div className="relative">
-                           <img src={crousal4} className='w-full   ' alt="" srcset="" />
-                           <div className="absolute bottom-2 flex justify-center w-full">
-                          <Button name={"Know More"} onclick={()=>{nav("/store-locator/jewellery-stores/collections/kakatiya")}} />
-                          </div>
-                          </div></SwiperSlide>
-                        <SwiperSlide> <div className="relative">
-                           <img src={crousal5} className='w-full   ' alt="" srcset="" />
-                           <div className="absolute bottom-2 flex justify-center w-full">
-                          <Button name={"Know More"} onclick={()=>{nav("/store-locator/jewellery-stores/collections/kakatiya")}} />
-                          </div>
-                          </div></SwiperSlide>
-                       
-                        <SwiperSlide> <div className="relative">
-                           <img src={crousal6} className='w-full   ' alt="" srcset="" />
-                           <div className="absolute bottom-2 flex justify-center w-full">
-                          <Button name={"Know More"} onclick={()=>{nav("/store-locator/jewellery-stores/collections/kakatiya")}} />
-                          </div>
-                          </div></SwiperSlide>
-
-                    </Swiper>
-                </div>
-            </div> */}
+          
             <SuggestArtical />
 
         </div>

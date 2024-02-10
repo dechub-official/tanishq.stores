@@ -307,7 +307,7 @@ centeredSlides={true}
     
     </div> */}
     <div className="flex w-[100%] justify-center">
-     <div className="py-4 md:flex  md:mt-5 justify-center w-full md:w-[60%] mx-auto ">
+     <div className="py-5 md:flex  md:mt-5 justify-center w-full lg:w-[60%] lg:max-w-[60rem] mx-auto ">
                     <Swiper
                         // slidesPerView={2.2}
                         // spaceBetween={30}
@@ -316,7 +316,8 @@ centeredSlides={true}
                         
                         breakpoints={{
 
-                            768: { slidesPerView: 4,spaceBetween:30, autoplay: true }, 
+                            1500: { slidesPerView: 4,spaceBetween:30, autoplay: true }, 
+                            1200: { slidesPerView: 3.2,spaceBetween:30, autoplay: true }, 
                             0: { slidesPerView: 2.1, spaceBetween:5,slidesPerGroup: 1 }
                         }}
 
@@ -329,7 +330,8 @@ centeredSlides={true}
 
                 
    
-    <SwiperSlide className='min-w-[180px] max-w-[180px] md:min-w-[200px]' >
+    <SwiperSlide  >
+      <div className='flex justify-center w-full'>
       <div className="flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center justify-center  px-2.5 py-1.5 rounded-[9px] border-solid border-[#832729] items-center" onClick={() => VisitOutside("  https://www.tanishq.co.in/shop/diamond?lang=en_IN")}>
         <svg className='mb-2' xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
           <g clip-path="url(#clip0_759_7)">
@@ -346,8 +348,10 @@ centeredSlides={true}
         </svg>
         <p className='whitespace-nowrap text-[16px]   text-[#832729]'>All Diamonds</p>
       </div>
+      </div>
       </SwiperSlide>
-      <SwiperSlide className='min-w-[180px] max-w-[180px] md:min-w-[200px]' >
+      <SwiperSlide  >
+        <div className='flex justify-center w-full'>
       <div className="flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center justify-center  px-2.5 py-1.5 rounded-[9px] border-solid border-[#832729] items-center" onClick={() => VisitOutside("https://www.tanishq.co.in/search?lang=en_IN&q=%20Pendants")}>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 13 12" fill="none">
           <path d="M7.47008 7.34124C7.65329 7.20964 7.80257 7.03637 7.90561 6.83571C8.00864 6.63505 8.06248 6.41276 8.06268 6.18719C8.06268 5.50639 7.10441 4.40862 6.16391 4.01181C6.13552 3.99983 6.10414 3.99688 6.07401 4.00335C6.04389 4.00982 6.01648 4.0254 5.99552 4.04798C5.97455 4.07055 5.96104 4.09903 5.95681 4.12956C5.95259 4.16008 5.95785 4.19116 5.9719 4.21858C6.24645 4.75515 5.94985 5.08255 5.63592 5.429C5.42812 5.65842 5.2132 5.89556 5.2132 6.18719C5.21339 6.41277 5.26723 6.63506 5.37029 6.83573C5.47334 7.03639 5.62265 7.20966 5.80588 7.34124C3.56736 7.50897 3.06665 8.36548 3.06665 9.09647C3.06665 10.4116 4.65964 12 6.63802 12C8.61641 12 10.2095 10.4116 10.2095 9.09647C10.2095 8.36548 9.70852 7.50897 7.47008 7.34124ZM9.49068 10.2394C8.35627 9.8302 7.40814 9.26068 6.74518 8.58735C6.73121 8.57316 6.71456 8.56189 6.69619 8.5542C6.67782 8.54651 6.65811 8.54255 6.6382 8.54255C6.61828 8.54255 6.59857 8.54651 6.5802 8.5542C6.56183 8.56189 6.54518 8.57316 6.53121 8.58735C5.868 9.26051 4.91986 9.83012 3.78571 10.2393C3.69726 10.1164 3.61974 9.98601 3.55406 9.84959C4.96284 9.36227 6.04457 8.62407 6.63811 7.74543C7.23157 8.62407 8.31338 9.36227 9.72224 9.84959C9.65654 9.986 9.57906 10.1164 9.49068 10.2394ZM6.63802 7.07347C6.52385 6.85733 6.46118 6.61773 6.45493 6.37337C6.46121 6.12881 6.52396 5.88903 6.63828 5.67275C6.75252 5.88902 6.81504 6.12885 6.82094 6.37337C6.81465 6.61767 6.75205 6.85731 6.63802 7.07347ZM5.51349 6.18744C5.51349 6.01165 5.68105 5.82667 5.85848 5.63097C6.11741 5.34509 6.45485 4.97273 6.36639 4.45143C7.1214 4.90084 7.76239 5.73684 7.76239 6.18744C7.76206 6.44644 7.67247 6.6974 7.50872 6.89806C7.34498 7.09872 7.11708 7.23681 6.86341 7.28907C7.02467 7.01023 7.11318 6.6953 7.1208 6.37328C7.10815 5.98483 6.98191 5.6086 6.75771 5.29113C6.74374 5.27246 6.7256 5.25731 6.70475 5.24688C6.6839 5.23644 6.66091 5.23101 6.6376 5.23101C6.61428 5.23101 6.59129 5.23644 6.57044 5.24688C6.54959 5.25731 6.53145 5.27246 6.51748 5.29113C6.29319 5.60857 6.16689 5.9848 6.15422 6.37328C6.16199 6.69535 6.25068 7.01028 6.41212 7.28907C6.15852 7.23674 5.9307 7.09862 5.76702 6.89797C5.60334 6.69731 5.5138 6.44639 5.51349 6.18744Z" fill="#832729" />
@@ -357,8 +361,10 @@ centeredSlides={true}
         </svg>
         <p className='whitespace-nowrap text-[16px]   text-[#832729]'>Popular pendants</p>
       </div>
+      </div>
       </SwiperSlide>
-      <SwiperSlide className='min-w-[180px] max-w-[180px] md:min-w-[200px]' >
+      <SwiperSlide  >
+        <div className='flex justify-center w-full'>
       <div className="flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center justify-center  px-2.5 py-1.5 rounded-[9px] border-solid border-[#832729] items-center" onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond-earrings?lang=en_IN")}>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 13 13" fill="none">
           <g clip-path="url(#clip0_759_28)">
@@ -373,13 +379,16 @@ centeredSlides={true}
         </svg>
         <p className='whitespace-nowrap text-[16px]   text-[#832729]'>Diamond Earrings</p>
       </div>
+      </div>
       </SwiperSlide>
-      <SwiperSlide className='min-w-[180px] max-w-[180px] md:min-w-[200px]' >
+      <SwiperSlide  >
+        <div className='flex justify-center w-full'>
       <div className="flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center justify-center  px-2.5 py-1.5 rounded-[9px] border-solid border-[#832729] items-center" onClick={() => VisitOutside("https://www.tanishq.co.in/shop/jewellery?lang=en_IN")}>
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16" fill="none">
           <path d="M11.3692 9.875C11.3692 12.9816 8.89076 15.5 5.83344 15.5C2.77613 15.5 0.297729 12.9816 0.297729 9.875C0.297729 7.56462 1.67108 5.58387 3.63134 4.71812L3.84797 4.88937L4.79999 5.64175C2.92609 6.11525 1.52789 7.82638 1.52789 9.875C1.52789 12.2874 3.45936 14.25 5.83344 14.25C8.20753 14.25 10.139 12.2874 10.139 9.875C10.139 7.82638 8.7408 6.11525 6.8669 5.64175L8.03555 4.71825C9.99581 5.584 11.3692 7.56462 11.3692 9.875ZM5.83344 4.875L8.90884 2.44438L7.67868 0.5H3.98821L2.75805 2.44438L4.60329 3.90275L5.83344 4.875Z" fill="#832729" />
         </svg>
         <p className='whitespace-nowrap text-[16px]   text-[#832729]'>All Jewellery</p>
+      </div>
       </div>
       </SwiperSlide>
     
