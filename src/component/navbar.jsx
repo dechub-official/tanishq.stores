@@ -307,7 +307,7 @@ centeredSlides={true}
     
     </div> */}
     <div className="flex w-[100%] justify-center">
-     <div className="py-5 md:flex  md:mt-5 justify-center w-full lg:w-[60%] lg:max-w-[60rem] mx-auto ">
+     <div className="py-5 md:flex  md:mt-5 justify-center w-full lg:w-[60%] md:min-w-[60rem] sm:min-w-[40rem] md:max-w-[100%] lg:max-w-[60rem] mx-auto ">
                     <Swiper
                         // slidesPerView={2.2}
                         // spaceBetween={30}
@@ -316,8 +316,9 @@ centeredSlides={true}
                         
                         breakpoints={{
 
-                            1500: { slidesPerView: 4,spaceBetween:30, autoplay: true }, 
-                            1200: { slidesPerView: 3.2,spaceBetween:0, autoplay: true }, 
+                            1500: { slidesPerView: 4,spaceBetween:20, autoplay: true }, 
+                            1300: { slidesPerView: 4,spaceBetween:20, autoplay: true },
+                            950: { slidesPerView: 4,spaceBetween:0, autoplay: true }, 
                             568: { slidesPerView: 3.1,spaceBetween:0, autoplay: true },
                             400: { slidesPerView: 2.2,spaceBetween:0, autoplay: true }, 
                             360: { slidesPerView: 2, spaceBetween:20,slidesPerGroup: 1 },
