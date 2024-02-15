@@ -54,7 +54,7 @@ export default function Home() {
                     return <div className="col-span-1"><PopularCity key={data} img={Mumbai} name={"mumbai"} /></div>
                 })}
             </div> */}
-            <div className="hidden md:grid lg:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 ">
+            <div className="hidden md:grid lg:grid lg:grid-rows-1 xl:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 lg:gap-x-2 ">
                 {PopularCityDetail.map((data, index) => {
 
                     return <div className="col-span-1"><PopularCity key={index} img={data.img} name={data.name} /></div>

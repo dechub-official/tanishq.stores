@@ -113,7 +113,7 @@ export default function SearchBox() {
                 <img src={locationIcon} alt="location" width={100} className='w-[35px]' />
 
             </div>
-            <div className="absolute top-[10px] md:left-[62%] left-[80%] float-right   flex flex-row-reverse ">
+            <div className="absolute top-[10px] md:left-[61%] left-[80%] float-right   flex flex-row-reverse ">
                 <img src={searchIcon} alt="search" width={100} className='w-[35px]' />
 
             </div>

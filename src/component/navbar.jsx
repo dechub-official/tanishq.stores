@@ -43,7 +43,7 @@ export default function NavBar() {
     }
     else {
       document.getElementsByTagName("body")[0].style.overflow = "scroll"
-      document.getElementById("menuToggle").style.top = "20px"
+      // document.getElementById("menuToggle").style.top = "20px"
     }
   }
   const VisitOutside = (url) => {
@@ -56,57 +56,11 @@ export default function NavBar() {
     {/* Sticky Header */}
     <div className="sticky top-0 max-w-[100%] z-50 " >
 
-      {/* --------------------------------- */}
-      {/* Offer slider strip */}
-      {/* --------------------------------------- */}
-
-
-      {/* <div className="w-full text-center text-black bg-[linear-gradient(90deg,rgba(75,37,37,1)0%,rgba(200,8,123,1)66%,rgba(184,106,106,1)100%)] flex justify-center items-center text-[13.5px] px-2 md:text-[14px] font-[500]  py-1 "  >
-    <Swiper
-    style={{backgroundColor:"linear-gradient(90deg,rgba(75,37,37,1)0%,rgba(200,8,123,1)66%,rgba(184,106,106,1)100%)",maxHeight:"35px"}}
-      slidesPerView={2}
-      spaceBetween={30}
-     direction='vertical'
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-        infinite: true
-      }}
-centeredSlides={true}
-      loop={true}
-      loopFillGroupWithBlank={true}
-      modules={[Autoplay]}
-      breakpoints={{
-
-       
-      }}
-
-     
-    >
-
-
-
-      <SwiperSlide  style={{backgroundColor:"transparent",fontSize:"18px"}} >    <p className='text-white md:w-auto bg-transparent  text-[13.5px] px-2 md:text-[16px] font-[600]  py-1 '> festive offer ending on Nov 15th 11:59PM  </p></SwiperSlide>
-
-     
-      <SwiperSlide   style={{backgroundColor:"transparent",fontSize:"18px"}}>   <p className='text-white md:w-auto  bg-transparent  text-[13.5px] px-2 md:text-[16px] font-[600]  py-1 '>Next day delivery on select pincodes.* <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/festive?lang=en_IN" }}> Buy now!</u></p> </SwiperSlide>
       
-      <SwiperSlide  style={{backgroundColor:"transparent",fontSize:"18px"}} >    <p className='text-white md:w-auto bg-transparent  text-[13.5px] px-2 md:text-[16px] font-[600]  py-1 '> festive offer ending on Nov 15th 11:59PM  </p> </SwiperSlide>
-
-      <SwiperSlide   style={{backgroundColor:"transparent", fontSize:"18px"}}>   <p className='text-white md:w-auto text-[13.5px] px-2 md:text-[16px] font-[600]  py-1'>Next day delivery on select pincodes.* <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/festive?lang=en_IN" }}> Buy now!</u></p> </SwiperSlide>
-     
-
-     
-    </Swiper>
-    </div> */}
-
-      {/* <div className="w-full text-center text-white bg-[#832729] flex justify-center items-center text-[13.5px] px-2 md:text-[14px] font-[500]  py-1 "  >
-      <p className=' md:w-auto'> Diwali magic awaits - up to 20% off on making charges. <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/festive?lang=en_IN" }}> Buy now!</u></p>
-    </div> */}
       <div className="w-full flex justify-between bg-[#F2E9E9] p-2 ">
 
-        <div className="w-[30%] justify-between flex">
-          <div className="md:hidden block">
+        <div className="w-[40%] max-w-[8rem] justify-between  items-center flex">
+          <div className="lg:hidden block">
 
 
 
@@ -114,7 +68,7 @@ centeredSlides={true}
 
 
 
-            <div id="menuToggle">
+            <div id="menuToggle" className='top-0'>
 
               <input type="checkbox" onChange={stopScorl} />
               <span></span>
@@ -155,18 +109,7 @@ centeredSlides={true}
               </div> */}
                   <div className='border-b-2 my-2 mx-2 rounded-[20px] bg-[#F2DFDF]  h-[5px]'></div>
                   <p className="text-neutral-700 my-2 text-base font-semibold font-['Nunito'] underline">Categories to Explore</p>
-                  {/* <div className="flex my-5 items-center gap-[7px] " onClick={() => VisitOutside("https://www.tanishq.co.in/festive?lang=en_IN")}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
-                    <path d="M10.1639 9.89816C10.1174 9.76908 9.97506 9.70217 9.84601 9.74868C9.71694 9.7952 9.65002 9.93753 9.69653 10.0666C9.69768 10.0697 9.69889 10.0729 9.70017 10.076C9.92671 10.6672 9.94311 11.1193 9.74488 11.318C9.50443 11.558 8.90552 11.483 8.14243 11.1178C7.1208 10.5874 6.19218 9.89437 5.39285 9.06601C3.4471 7.12001 2.64426 5.21053 3.14082 4.71397C3.29927 4.58884 3.50522 4.54077 3.70271 4.58282C3.83951 4.59288 3.95859 4.4901 3.96865 4.35329C3.97837 4.22105 3.88252 4.10448 3.7509 4.08849C3.40552 4.02738 3.05117 4.12808 2.78957 4.36174C1.87942 5.27164 3.27073 7.64514 5.0416 9.41626C5.88062 10.2845 6.85554 11.0102 7.92806 11.5647C8.12228 11.6577 3.81815 7.25729 3.81815 7.25729L2.78957 5.62066C3.07265 3.52979 2.32715 4.87516 2.32715 5.76629C2.30588 5.63076 2.16748 6.76961 2.03194 6.79088C1.89641 6.81215 1.80375 6.93927 1.82502 7.0748C1.86402 7.32321 1.91619 7.57161 1.98002 7.81455C2.55204 9.98184 4.05864 11.7823 6.09111 12.7275L3.18627 13.8267C3.17295 13.8044 3.15619 13.7845 3.13659 13.7675C2.39834 13.1748 1.93513 12.3056 1.85483 11.3623L1.73957 9.96647C1.7305 9.83125 2.11528 7.40773 1.98002 7.41679L1.83047 7.10895C1.69372 7.11982 1.27006 9.78177 1.28092 9.91851L1.24276 10.0077L1.36001 11.403C1.44732 12.4113 1.91768 13.3478 2.67431 14.0199L2.4151 13.7675L1.58164 11.7303C1.61415 11.5969 1.49337 9.80723 1.36001 9.77472C1.22665 9.74221 0.524347 13.0241 0.491838 13.1575L0.00720166 15.1447C-0.0254634 15.2779 0.0560751 15.4124 0.189344 15.4451C0.238217 15.4571 0.289544 15.4539 0.336585 15.4361L9.52753 11.9584C9.54215 11.9513 9.55597 11.9426 9.56876 11.9326C9.76767 11.902 9.95208 11.8101 10.0961 11.6695C10.3423 11.4234 10.5541 10.9159 10.1639 9.89816Z" fill="#832729" />
-                    <path d="M12.5083 9.25741C11.1654 8.7547 9.71403 8.61376 8.29955 8.84878L7.41201 8.99783C7.27728 9.02372 7.18906 9.15392 7.21496 9.28865C7.23999 9.41881 7.36279 9.5064 7.49398 9.48768L8.38128 9.33988C9.70968 9.11902 11.0728 9.25148 12.3339 9.72391C12.3619 9.73382 12.3914 9.73878 12.4211 9.73857C12.5583 9.73878 12.6697 9.62778 12.6699 9.49057C12.6701 9.3867 12.6056 9.29371 12.5083 9.25741Z" fill="#832729" />
-                    <path d="M6.0332 2.2336C6.00587 2.09916 5.87475 2.01231 5.7403 2.03963C5.60585 2.06696 5.519 2.19808 5.54632 2.33253C5.54691 2.33551 5.5476 2.33846 5.54831 2.34141C5.86273 3.7461 5.73316 5.2138 5.17744 6.54167L4.81627 7.40835C4.76407 7.53464 4.82366 7.67936 4.94966 7.73227C4.97984 7.74497 5.01229 7.75146 5.04505 7.7514C5.14531 7.7514 5.23573 7.69116 5.27432 7.59863L5.63575 6.73294C6.23114 5.31055 6.37003 3.73834 6.0332 2.2336Z" fill="#832729" />
-                    <path d="M5.46556 1.54134C5.73994 1.54134 5.96237 1.31892 5.96237 1.04454C5.96237 0.770158 5.73994 0.547729 5.46556 0.547729C5.19118 0.547729 4.96875 0.770158 4.96875 1.04454C4.96875 1.31892 5.19118 1.54134 5.46556 1.54134Z" fill="#832729" />
-                    <path d="M14.988 6.08359C14.9588 5.99373 14.8811 5.92827 14.7876 5.91467L14.0585 5.8086L13.7333 5.1481C13.6609 5.02504 13.5024 4.98403 13.3793 5.0565C13.3415 5.07876 13.31 5.11028 13.2877 5.1481L12.9611 5.8086L12.232 5.91467C12.0962 5.93426 12.002 6.06024 12.0216 6.19602C12.0294 6.25008 12.0548 6.30004 12.0939 6.3382L12.6212 6.8524L12.497 7.57848C12.4732 7.71358 12.5634 7.84244 12.6985 7.86629C12.7529 7.87588 12.8089 7.86709 12.8577 7.84129L13.5098 7.4975L14.1618 7.8403C14.2833 7.90414 14.4335 7.85747 14.4973 7.73603C14.5227 7.68768 14.5315 7.63232 14.5223 7.57848L14.3981 6.8524L14.9257 6.3382C14.9932 6.27209 15.0174 6.17342 14.988 6.08359Z" fill="#832729" />
-                    <path d="M10.4508 3.59414L10.4503 3.59502L10.2668 3.61428C9.2403 3.7235 8.30423 4.25124 7.67943 5.07301C7.59914 5.18426 7.62424 5.33953 7.73549 5.41982C7.84297 5.49739 7.99241 5.47691 8.07505 5.37328C8.5267 4.78107 9.16803 4.36197 9.89175 4.18609C9.76533 4.58702 9.81716 5.02292 10.0341 5.38302C10.334 5.8426 10.9496 5.97204 11.4092 5.67215C11.8688 5.37227 11.9982 4.75662 11.6983 4.29704C11.5712 4.11487 11.4036 3.96457 11.2087 3.85791C11.6714 3.80232 12.1251 4.01661 12.3761 4.40933C12.4481 4.52614 12.6011 4.56253 12.7179 4.49059C12.8347 4.41865 12.8711 4.26563 12.7991 4.14882C12.7968 4.14508 12.7944 4.14141 12.7919 4.13777C12.284 3.35745 11.2506 3.1175 10.4508 3.59414ZM11.2823 4.56792C11.4334 4.79698 11.3702 5.10512 11.1411 5.25617C10.9121 5.40723 10.6039 5.34404 10.4529 5.11499C10.452 5.11371 10.4512 5.11242 10.4503 5.11114C10.306 4.86978 10.2784 4.57607 10.3755 4.3121C10.3945 4.27331 10.4232 4.24007 10.4587 4.21552C10.6598 4.08428 11.1141 4.31015 11.2823 4.56792Z" fill="#832729" />
-
-                  </svg>
-                  <p className='w-[135px] h-5 text-red-900 text-[17px] font-medium  capitalize'>Festive delights</p>
-                </div> */}
+                 
                   <div className="flex my-5 items-center gap-[7px] " onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")}>
                     <svg className='' xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="none">
                       <g clip-path="url(#clip0_759_7)">
@@ -183,14 +126,7 @@ centeredSlides={true}
                     </svg>
                     <p className='w-[135px] h-5 text-red-900 text-[17px] font-medium  capitalize'>All Diamonds</p>
                   </div>
-                  {/* <div className="flex my-5 items-center gap-[7px] " onClick={() => VisitOutside("https://www.tanishq.co.in/gifting-guide?lang=en_IN")}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
-                    <path d="M8.25643 6.76482C8.59994 6.51808 8.87985 6.19319 9.07304 5.81695C9.26624 5.44071 9.36719 5.02392 9.36755 4.60098C9.36755 3.32448 7.57081 1.26617 5.80736 0.522147C5.75414 0.499687 5.69529 0.494145 5.63881 0.506276C5.58232 0.518406 5.53094 0.54762 5.49162 0.589953C5.45231 0.632287 5.42698 0.68569 5.41905 0.742916C5.41113 0.800142 5.42101 0.85842 5.44734 0.909841C5.96212 1.91591 5.406 2.52979 4.81738 3.17938C4.42775 3.60954 4.02478 4.05418 4.02478 4.60098C4.02514 5.02394 4.1261 5.44075 4.31932 5.81699C4.51255 6.19323 4.7925 6.51812 5.13606 6.76482C0.93883 7.07932 0 8.68527 0 10.0559C0 12.5217 2.98685 15.5 6.69633 15.5C10.4058 15.5 13.3928 12.5217 13.3928 10.0559C13.3928 8.68527 12.4535 7.07932 8.25643 6.76482ZM12.0451 12.1988C9.91805 11.4316 8.14028 10.3638 6.89725 9.10128C6.87106 9.07468 6.83983 9.05355 6.80539 9.03913C6.77095 9.0247 6.73398 9.01727 6.69665 9.01727C6.65931 9.01727 6.62235 9.0247 6.58791 9.03913C6.55347 9.05355 6.52224 9.07468 6.49604 9.10128C5.25253 10.3635 3.47477 11.4315 1.34824 12.1986C1.18238 11.9683 1.03705 11.7238 0.913896 11.468C3.55536 10.5542 5.5836 9.17013 6.69649 7.52268C7.80922 9.17013 9.83761 10.5542 12.4792 11.468C12.356 11.7238 12.2108 11.9683 12.0451 12.1988ZM6.69633 6.26275C6.48224 5.8575 6.36475 5.40824 6.35303 4.95006C6.36479 4.49153 6.48245 4.04192 6.69681 3.63641C6.911 4.04192 7.02824 4.49159 7.0393 4.95006C7.02749 5.40813 6.91012 5.85746 6.69633 6.26275ZM4.58782 4.60146C4.58782 4.27184 4.902 3.92501 5.23467 3.55806C5.72017 3.02205 6.35287 2.32388 6.18702 1.34644C7.60266 2.18907 8.80451 3.75658 8.80451 4.60146C8.80388 5.08707 8.63591 5.55762 8.32889 5.93386C8.02186 6.3101 7.59455 6.56902 7.11893 6.66701C7.42128 6.14419 7.58725 5.55369 7.60153 4.9499C7.5778 4.22155 7.34112 3.51613 6.92074 2.92086C6.89454 2.88587 6.86054 2.85746 6.82144 2.8379C6.78235 2.81833 6.73924 2.80815 6.69552 2.80815C6.65181 2.80815 6.60869 2.81833 6.5696 2.8379C6.5305 2.85746 6.49651 2.88587 6.4703 2.92086C6.04976 3.51606 5.81295 4.22151 5.78919 4.9499C5.80376 5.55378 5.97006 6.14428 6.27276 6.66701C5.79726 6.56889 5.37009 6.30991 5.06319 5.93369C4.7563 5.55746 4.58841 5.08698 4.58782 4.60146Z" fill="#832729" />
-                    <path d="M8.25643 6.76482C8.59994 6.51808 8.87985 6.19319 9.07304 5.81695C9.26624 5.44071 9.36719 5.02392 9.36755 4.60098C9.36755 3.32448 7.57081 1.26617 5.80736 0.522147C5.75414 0.499687 5.69529 0.494145 5.63881 0.506276C5.58232 0.518406 5.53094 0.54762 5.49162 0.589953C5.45231 0.632287 5.42698 0.68569 5.41905 0.742916C5.41113 0.800142 5.42101 0.85842 5.44734 0.909841C5.96212 1.91591 5.406 2.52979 4.81738 3.17938C4.42775 3.60954 4.02478 4.05418 4.02478 4.60098C4.02514 5.02394 4.1261 5.44075 4.31932 5.81699C4.51255 6.19323 4.7925 6.51812 5.13606 6.76482C0.93883 7.07932 0 8.68527 0 10.0559C0 12.5217 2.98685 15.5 6.69633 15.5C10.4058 15.5 13.3928 12.5217 13.3928 10.0559C13.3928 8.68527 12.4535 7.07932 8.25643 6.76482ZM12.0451 12.1988C9.91805 11.4316 8.14028 10.3638 6.89725 9.10128C6.87106 9.07468 6.83983 9.05355 6.80539 9.03913C6.77095 9.0247 6.73398 9.01727 6.69665 9.01727C6.65931 9.01727 6.62235 9.0247 6.58791 9.03913C6.55347 9.05355 6.52224 9.07468 6.49604 9.10128C5.25253 10.3635 3.47477 11.4315 1.34824 12.1986C1.18238 11.9683 1.03705 11.7238 0.913896 11.468C3.55536 10.5542 5.5836 9.17013 6.69649 7.52268C7.80922 9.17013 9.83761 10.5542 12.4792 11.468C12.356 11.7238 12.2108 11.9683 12.0451 12.1988ZM6.69633 6.26275C6.48224 5.8575 6.36475 5.40824 6.35303 4.95006C6.36479 4.49153 6.48245 4.04192 6.69681 3.63641C6.911 4.04192 7.02824 4.49159 7.0393 4.95006C7.02749 5.40813 6.91012 5.85746 6.69633 6.26275ZM4.58782 4.60146C4.58782 4.27184 4.902 3.92501 5.23467 3.55806C5.72017 3.02205 6.35287 2.32388 6.18702 1.34644C7.60266 2.18907 8.80451 3.75658 8.80451 4.60146C8.80388 5.08707 8.63591 5.55762 8.32889 5.93386C8.02186 6.3101 7.59455 6.56902 7.11893 6.66701C7.42128 6.14419 7.58725 5.55369 7.60153 4.9499C7.5778 4.22155 7.34112 3.51613 6.92074 2.92086C6.89454 2.88587 6.86054 2.85746 6.82144 2.8379C6.78235 2.81833 6.73924 2.80815 6.69552 2.80815C6.65181 2.80815 6.60869 2.81833 6.5696 2.8379C6.5305 2.85746 6.49651 2.88587 6.4703 2.92086C6.04976 3.51606 5.81295 4.22151 5.78919 4.9499C5.80376 5.55378 5.97006 6.14428 6.27276 6.66701C5.79726 6.56889 5.37009 6.30991 5.06319 5.93369C4.7563 5.55746 4.58841 5.08698 4.58782 4.60146Z" fill="black" fill-opacity="0.2" />
-                    <path d="M6.94302 10.908C6.91879 10.8636 6.88306 10.8266 6.83958 10.8008C6.79611 10.775 6.74648 10.7614 6.69592 10.7614C6.64537 10.7614 6.59574 10.775 6.55226 10.8008C6.50878 10.8266 6.47306 10.8636 6.44883 10.908L5.63596 12.397C5.61339 12.4384 5.60156 12.4848 5.60156 12.5319C5.60156 12.5791 5.61339 12.6255 5.63596 12.6669L6.44883 14.1559C6.47306 14.2003 6.50878 14.2373 6.55226 14.2631C6.59574 14.2889 6.64537 14.3025 6.69592 14.3025C6.74648 14.3025 6.79611 14.2889 6.83958 14.2631C6.88306 14.2373 6.91879 14.2003 6.94302 14.1559L7.75573 12.6669C7.7783 12.6255 7.79012 12.5791 7.79012 12.5319C7.79012 12.4848 7.7783 12.4384 7.75573 12.397L6.94302 10.908ZM6.69592 13.4336L6.20383 12.5327L6.69592 11.6319L7.1877 12.5327L6.69592 13.4336Z" fill="white" />
-                  </svg>
-                  <p className='w-[135px] h-5 text-red-900 text-[17px] font-medium  capitalize'>diwali gifting</p>
-                </div> */}
+                 
                   <div className="flex my-5 items-center gap-[7px] " onClick={() => VisitOutside("https://www.tanishq.co.in/search?lang=en_IN&q=%20Pendants")}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
                       <path d="M8.50429 9.67655C8.73329 9.51206 8.9199 9.29546 9.0487 9.04463C9.17749 8.79381 9.24479 8.51595 9.24503 8.23398C9.24503 7.38299 8.04721 6.01078 6.87158 5.51476C6.83609 5.49979 6.79686 5.4961 6.7592 5.50418C6.72155 5.51227 6.68729 5.53175 6.66108 5.55997C6.63488 5.58819 6.61798 5.62379 6.6127 5.66194C6.60742 5.70009 6.614 5.73895 6.63156 5.77323C6.97475 6.44394 6.604 6.85319 6.21159 7.28625C5.95184 7.57303 5.68318 7.86946 5.68318 8.23398C5.68342 8.51596 5.75073 8.79383 5.87955 9.04466C6.00837 9.29549 6.195 9.51208 6.42404 9.67655C3.62589 9.88621 3 10.9568 3 11.8706C3 13.5144 4.99123 15.5 7.46422 15.5C9.9372 15.5 11.9285 13.5144 11.9285 11.8706C11.9285 10.9568 11.3023 9.88621 8.50429 9.67655ZM11.03 13.2992C9.61203 12.7878 8.42686 12.0759 7.59817 11.2342C7.5807 11.2165 7.55989 11.2024 7.53693 11.1928C7.51397 11.1831 7.48932 11.1782 7.46443 11.1782C7.43954 11.1782 7.4149 11.1831 7.39194 11.1928C7.36898 11.2024 7.34816 11.2165 7.3307 11.2342C6.50168 12.0756 5.31651 12.7876 3.89883 13.2991C3.78826 13.1455 3.69136 12.9825 3.60926 12.812C5.37024 12.2028 6.7224 11.2801 7.46432 10.1818C8.20614 11.2801 9.55841 12.2028 11.3195 12.812C11.2374 12.9825 11.1405 13.1455 11.03 13.2992ZM7.46422 9.34183C7.32149 9.07167 7.24317 8.77216 7.23535 8.46671C7.24319 8.16102 7.32163 7.86128 7.46454 7.59094C7.60734 7.86128 7.68549 8.16106 7.69287 8.46671C7.685 8.77209 7.60675 9.07164 7.46422 9.34183ZM6.05855 8.23431C6.05855 8.01456 6.268 7.78334 6.48978 7.53871C6.81345 7.18137 7.23525 6.71592 7.12468 6.06429C8.06844 6.62605 8.86967 7.67105 8.86967 8.23431C8.86926 8.55805 8.75727 8.87175 8.55259 9.12257C8.34791 9.3734 8.06303 9.54601 7.74595 9.61134C7.94752 9.26279 8.05816 8.86913 8.06769 8.4666C8.05187 7.98103 7.89408 7.51075 7.61383 7.11391C7.59636 7.09058 7.57369 7.07164 7.54763 7.0586C7.52157 7.04556 7.49283 7.03876 7.46368 7.03876C7.43454 7.03876 7.40579 7.04556 7.37973 7.0586C7.35367 7.07164 7.33101 7.09058 7.31354 7.11391C7.03317 7.51071 6.8753 7.981 6.85946 8.4666C6.86917 8.86919 6.98004 9.26285 7.18184 9.61134C6.86484 9.54593 6.58006 9.37327 6.37546 9.12246C6.17086 8.87164 6.05894 8.55799 6.05855 8.23431Z" fill="#832729" />
@@ -236,78 +172,44 @@ centeredSlides={true}
 
 
           </div>
-          <div className=" cursor-pointer  md:w-[20%] w-[70px]"><img src={logo} className='w-full ' alt="" onClick={() => VisitOutside("https://www.tanishq.co.in/")} /></div>
+          <div className=" cursor-pointer "><img src={logo} className=' w-[80px]' alt="" onClick={() => VisitOutside("https://www.tanishq.co.in/")} /></div>
         </div>
-        <div className='list flex  justify-around items-end md:my-0 my-3 md:items-center w-[40%] md:w-[55%] cursor-pointer'>
+        <div className='list flex  justify-around items-center md:my-0 my-3 md:items-center w-[40%] max-w-[12rem] md:max-w-[55%]  md:w-[55%] cursor-pointer'>
           <p className=' block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/homepage?lang=en_IN")}>
             <img src={shop_img} className='w-[19px] mx-auto ' alt="" />
-            <span className='hidden md:block'> Shop Online</span></p>
-          <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")}>
+            <span className='hidden lg:block'> Shop Online</span></p>
+          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")}>
             <img src={diamonds_img} onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")} className='w-[25px] mx-auto ' alt="" />
             Diamonds</p>
-          <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://blog.tanishq.co.in/")}>
+          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://blog.tanishq.co.in/")}>
             <img src={blog_img} className='w-[19px] mx-auto ' onClick={() => VisitOutside("https://blog.tanishq.co.in/")} alt="" />
             Blogs</p>
-          <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => nav("/")}>
+          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => nav("/")}>
             <img src={store_img} className='w-[19px] mx-auto ' alt="" />
             Stores</p>
 
-          <p className='hidden md:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#Wishlist")}>
+          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#Wishlist")}>
             <img src={wishlist_img} className='w-[19px] mx-auto ' alt="" />
             WishList</p>
           <p className='block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/cart?lang=en_IN")}>
             <img src={cart_img} className='w-[19px] mx-auto ' alt="" />
-            <span className='hidden md:block'>Cart</span> </p>
+            <span className='hidden lg:block'>Cart</span> </p>
           <p className=' hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#AccountOverview")}>
             <img src={profile_img} className='w-[19px] mx-auto ' alt="" />
-            <span className='hidden md:block'>Account</span>  </p>
-          <p className='hidden md:block  text-[15px] text-[#832729]  font-[400]  cursor-pointer af-bl' >
+            <span className='hidden lg:block'>Account</span>  </p>
+          <p className='hidden lg:block  text-[15px] text-[#832729]  font-[400]  cursor-pointer af-bl' >
             <img src={qr} className='w-[19px]  transition-all duration-150  hover:scale-[2.8] mx-auto' alt="" />
             GET THE APP</p>
-          {/* <div className=" hidden md:block hover:scale-[2.8] transition-all duration-150 box w-[30px] h-[30px] bg-[#D9D9D9] cursor-pointer af-bl"> <img src={qr} alt="" /></div> */}
+          {/* <div className=" hidden lg:block hover:scale-[2.8] transition-all duration-150 box w-[30px] h-[30px] bg-[#D9D9D9] cursor-pointer af-bl"> <img src={qr} alt="" /></div> */}
 
           {/* <div className="w-[30px] cursor-pointer"><img src={profile}  onClick={()=>VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#AccountOverview")}  alt="" /></div> */}
         </div>
 
       </div>
     </div>
-    {/* <div className="py-2 md:flex hidden justify-around mx-auto w-[80%]">
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/shop/jewellery?lang=en_IN"} className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>ALL JEWELLERY </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/shop/gold-1?lang=en_IN"}  className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>GOLD </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/shop/diamond?lang=en_IN"}  className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>DIAMOND </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/shop/earring?lang=en_IN"}  className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>EARRINGS </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/shop/finger-rings?lang=en_IN"}  className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>RINGS </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/mia?lang=en_IN"}  className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>MIA </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/rivaah?lang=en_IN"}  className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>RIVAAH </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-      <p onClick={()=>window.location.href="https://www.tanishq.co.in/gifting-guide?lang=en_IN"}  className='hover:text-[#832729] cursor-pointer nav-cat-txt py-2  text-[#696969]'>
-        <span className='mb-5'>GIFTING </span>
-        <hr className='border-b-4 mt-2 opacity-0 duration-500 hover:block rounded-[13px] border-[#832729]'/>
-      </p>
-    
-    </div> */}
+   
     <div className="flex w-[100%] justify-center">
-     <div className="py-5 md:flex  md:mt-5 justify-center w-full lg:w-[60%] md:min-w-[60rem] sm:min-w-[40rem] md:max-w-[100%] lg:max-w-[60rem] mx-auto ">
+     <div className="py-5 md:flex  md:mt-5 justify-center w-full lg:w-[60%] md:min-w-[100%] md:max-w-[100%] sm:min-w-[40rem] lg:max-w-[60rem] mx-auto ">
                     <Swiper
                         // slidesPerView={2.2}
                         // spaceBetween={30}
@@ -319,7 +221,7 @@ centeredSlides={true}
                             1500: { slidesPerView: 4,spaceBetween:20, autoplay: true }, 
                             1300: { slidesPerView: 4,spaceBetween:20, autoplay: true },
                             950: { slidesPerView: 4,spaceBetween:0, autoplay: true }, 
-                            568: { slidesPerView: 3.1,spaceBetween:0, autoplay: true },
+                            568: { slidesPerView: 3,spaceBetween:0, autoplay: true },
                             400: { slidesPerView: 2.2,spaceBetween:0, autoplay: true }, 
                             360: { slidesPerView: 2, spaceBetween:20,slidesPerGroup: 1 },
                             300: { slidesPerView: 1.8, spaceBetween:20,slidesPerGroup: 1 },
