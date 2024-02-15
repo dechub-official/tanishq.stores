@@ -20,7 +20,7 @@ import { get } from "../services/apiHandler"
 
 import { Helmet } from "react-helmet"
 import SuggestArtical from "../component/Home/suggestedArticles"
-import { googleget } from "../services/GoogleApiHandler"
+
 import ReactGA from 'react-ga4'
 import Banner from "../component/Home/Banner"
 import VisitorInfoCard from "../component/visitorInfoCard"

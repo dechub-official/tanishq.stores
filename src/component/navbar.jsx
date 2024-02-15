@@ -209,7 +209,7 @@ export default function NavBar() {
     </div>
    
     <div className="flex w-[100%] justify-center">
-     <div className="py-5 md:flex  md:mt-5 justify-center w-full lg:w-[60%] md:min-w-[100%] md:max-w-[100%] sm:min-w-[40rem] lg:max-w-[60rem] mx-auto ">
+     <div className="py-5 md:flex  md:mt-5 justify-center w-full lg:min-w-[60rem] md:min-w-[100%] md:max-w-[100%] sm:min-w-[40rem] lg:max-w-[60rem] mx-auto ">
                     <Swiper
                         // slidesPerView={2.2}
                         // spaceBetween={30}
