@@ -9,6 +9,7 @@ import b6 from '../assets/images/footer/6.png'
 import b7 from '../assets/images/footer/7.png'
 import b8 from '../assets/images/footer/8.png'
 import b9 from '../assets/images/footer/9.png'
+import qr from '../assets/images/getapp_qr.png'
 import { useState } from 'react'
 const VisitOutside = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
@@ -154,7 +155,10 @@ export default function Footer() {
 
                 </div>
                 <div className="us-link text-center">
-                    <h1 className="text-[#832729] text-[20px] font-[600]">Download the Tanishq App Now</h1>
+                    <h1 className="text-[#832729] text-[20px] mb-5 font-[600]">Download the Tanishq App Now</h1>
+                    <div className="flex justify-center my-2">
+                        <img src={qr} alt="tanishq app qr" className='w-[200px]' />
+                    </div>
                     <div className="flex justify-around my-4">
                         <img src={gplay} onClick={()=>VisitOutside("https://play.google.com/store/apps/details?id=com.titancompany.tanishqapp&pli=1")} alt="" className='w-[126px] cursor-pointer' />
                         <img src={astore} onClick={()=>VisitOutside("https://apps.apple.com/in/app/tanishq-a-tata-product/id1494086207")} alt="" className='w-[126px] cursor-pointer' />
