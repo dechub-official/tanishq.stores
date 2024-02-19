@@ -11,29 +11,17 @@ import shop_img from '../assets/images/navbar/shop.png'
 import store_img from '../assets/images/navbar/stores.png'
 import wishlist_img from '../assets/images/navbar/wishlist.png'
 
-import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useState } from 'react'
+import QrCodeExpander from './qrCodeExpander'
 
-import { Autoplay } from 'swiper/modules'
+
 export default function NavBar() {
   const nav = useNavigate()
   // const[beginDate,setbeginDate]=useState({time:'2023-11-09T22:19:00',text:"begins"})
-  const [beginDate, setbeginDate] = useState({ time: '2023-11-10T12:35:00', text: "begins" })
+ 
+const [qrExpand,setQrExpand]=useState(false)
 
-  const updatTimer = () => {
-    const currentDate = new Date();
-
-    // Extract the individual components of the date
-    // const year = currentDate.getFullYear();
-    // const month = currentDate.getMonth() + 1; // Months are zero-based, so we add 1
-    // const day = currentDate.getDate();
-    // const hours = currentDate.getHours();
-    // const minutes = currentDate.getMinutes();
-    // if(day==10&&month==11&&year==2023&&hours>=12&&minutes>=35){
-    setbeginDate({ time: '2023-11-11T01:57:00', text: "ends" })
-
-    // }
-  }
   const stopScorl = (e) => {
 
     if (e.target.checked) {
@@ -54,7 +42,7 @@ export default function NavBar() {
   return <>
 
     {/* Sticky Header */}
-    <div className="sticky top-0 max-w-[100%] z-50 " >
+    <div className="sticky top-[-2px] max-w-[100%] z-50 " >
 
       
       <div className="w-full flex justify-between bg-[#F2E9E9] p-2 ">
@@ -197,7 +185,7 @@ export default function NavBar() {
           <p className=' hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#AccountOverview")}>
             <img src={profile_img} className='w-[19px] mx-auto ' alt="" />
             <span className='hidden lg:block'>Account</span>  </p>
-          <p className='hidden lg:block  text-[15px] text-[#832729]  font-[400]  cursor-pointer af-bl' >
+          <p onClick={()=>setQrExpand(true)} className='hidden lg:block  text-[15px] text-[#832729]  font-[400]  cursor-pointer af-bl' >
             <img src={qr} className='w-[19px]  transition-all duration-150  hover:scale-[2.8] mx-auto' alt="" />
             GET THE APP</p>
           {/* <div className=" hidden lg:block hover:scale-[2.8] transition-all duration-150 box w-[30px] h-[30px] bg-[#D9D9D9] cursor-pointer af-bl"> <img src={qr} alt="" /></div> */}
@@ -302,5 +290,6 @@ export default function NavBar() {
     </Swiper>
     </div>
     </div>
+   {qrExpand&& <QrCodeExpander img={qr} onClose={()=>setQrExpand(false)}/>}
   </>
 }
