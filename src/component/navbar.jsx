@@ -186,7 +186,7 @@ const [qrExpand,setQrExpand]=useState(false)
             <img src={profile_img} className='w-[19px] mx-auto ' alt="" />
             <span className='hidden lg:block'>Account</span>  </p>
           <p onClick={()=>setQrExpand(true)} className='hidden lg:block  text-[15px] text-[#832729]  font-[400]  cursor-pointer af-bl' >
-            <img src={qr} className='w-[19px]  transition-all duration-150  hover:scale-[2.8] mx-auto' alt="" />
+            <img src={qr} className='w-[30px]  transition-all duration-150  hover:scale-[2.8] mx-auto' alt="" />
             GET THE APP</p>
           {/* <div className=" hidden lg:block hover:scale-[2.8] transition-all duration-150 box w-[30px] h-[30px] bg-[#D9D9D9] cursor-pointer af-bl"> <img src={qr} alt="" /></div> */}
 
