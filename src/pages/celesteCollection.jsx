@@ -281,7 +281,7 @@ return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} dis
 </div>
             <div className="flex flex-wrap justify-around items-start w-full">
 
-                <div className="my-4  w-[88%] flex flex-wrap justify-around items-center border-[1px] border-[#CBC9C9;] rounded-[17px]  shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] py-5 px-4 md:px-6 md:max-h-[900px] max-h-[500px] overflow-y-scroll">
+                <div className="my-4  w-[88%] flex flex-wrap justify-around items-center border-[1px] border-[#CBC9C9;] rounded-[17px]  shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] py-5 px-4 md:px-6  ">
 
                     {data.map((data, i) => {
                         return <StorePlate key={i} data={data}/>
