@@ -4,19 +4,21 @@ import searchIcon from '../assets/images/Search.png'
 import currentLocationIcon from '../assets/images/search/currentPointer.png'
 import qr from '../assets/images/getapp_qr.png'
 import { get } from '../services/apiHandler'
-import { useRef, useState } from 'react'
-import jsonp from 'jsonp';
+import {  useEffect, useRef, useState } from 'react'
+
 import { useNavigate } from 'react-router-dom'
-import { googleget } from '../services/GoogleApiHandler'
+
+import { Typewriter } from 'react-simple-typewriter'
 export default function SearchBox() {
     const searchRef = useRef([])
+  
     const searchResultRef = useRef()
     const navigate = useNavigate()
 
     const [search, setsearch] = useState()
     const [active, setActive] = useState(false)
     const [searchResult, setsearchResult] = useState([])
-
+   
     const searchVal = async (e) => {
         setsearch(e.target.value)
         clearTimeout(closeActive)
@@ -44,42 +46,7 @@ export default function SearchBox() {
         }
     }
 
-    // //();
-// NearBy search |_
-    // const getCurrentLocation = () => {
-    //   setActive(true);
-    //   [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //     element.style.filter = "blur(5px)";
-    // });
-    //   setTimeout(() => {
-    //     [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //         element.style.filter = "blur(5px)";
-    //     });
-       
-    // }, 310);
-    //     const successCallback = async (position) => {
-    //         [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //             element.style.filter = "blur(5px)";
-    //         });
-    //         //(position.coords);
-    //       const data= await googleget("/nearbysearch/json?keyword=tanishq jewellery%26location="+position.coords.latitude+","+position.coords.longitude+"%26rankby=distance")
-        
-    //       if(data.response)
-    //       navigate("/store-locator/jewellery-stores/city/nearbysearch",{state:{data}}); 
-            
-    //     };
-
-    //     const errorCallback = (error) => {
-    //         //(error);
-    //         [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //             element.style.filter = "blur(0px)";
-    //         });
-    //     };
-    //     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-    //     [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //         element.style.filter = "blur(5px)";
-    //     });
-    // }
+  
     const VisitOutside=(url)=>{
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
   if (newWindow) newWindow.opener = null;
@@ -105,10 +72,38 @@ export default function SearchBox() {
         }, 300);
 
     }
+
+    const getLocation=(e)=>{
+console.log(e);
+    }
+    
+   useEffect(()=>{
+    navigator.geolocation.getCurrentPosition(getLocation, ()=>{});
+   },[])
+  
+  
+   
+  
     return <>
+    
         <div className=" relative flex flex-col w-full">
             <div className="flex justify-center">
-                <input type="text" placeholder='Where do you want to shop?' value={search} className="md:w-[30%] w-[90%] left-[34%] search-box p-4 px-12  border-[1px] border-black rounded-[15px]" ref={searchRef} onBlur={closeActive} onChange={searchVal} onFocus={() => setActive(true)} /></div>
+               
+                <input type="text"  value={search } className="md:w-[30%] w-[90%] left-[34%] search-box p-4 px-12  border-[1px] border-black rounded-[15px]" ref={searchRef} onBlur={closeActive} onChange={searchVal} onFocus={() => setActive(true)} /></div>
+                <div onClick={() =>{searchRef.current.select(); setActive(true)}} className="absolute  top-[18px] md:left-[38%] left-[15%] float-right">
+           {!active&& <Typewriter
+            words={['Where do you want to shop?', 'Search By City', 'Search By Area', 'Search By Pin Code']}
+            loop={Infinity}
+            cursor
+            style={{color:'red'}}
+            cursorStyle='|'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            onLoopDone={()=>{}}
+            // onType={handleType}
+          />}
+          </div>
             <div className="absolute top-[10px] md:left-[35.5%] left-[8%] float-right">
                 <img src={locationIcon} alt="location" width={100} className='w-[35px]' />
 

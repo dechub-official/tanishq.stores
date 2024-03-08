@@ -81,7 +81,7 @@ export default function CityPage() {
     }]
     useEffect(() => {
         console.log("page View");
-        ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "City Page" });
+        ReactGA.send({ hitType: "storeLocator", page: window.location.pathname, title: "City Page" });
     }, [id])
     const loadData = async () => {
         if (id != "nearbysearch") {
