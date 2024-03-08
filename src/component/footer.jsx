@@ -9,7 +9,7 @@ import b6 from '../assets/images/footer/6.png'
 import b7 from '../assets/images/footer/7.png'
 import b8 from '../assets/images/footer/8.png'
 import b9 from '../assets/images/footer/9.png'
-import qr from '../assets/images/getapp_qr.png'
+import qr from '../assets/images/getapp_qr.webp'
 import { useState } from 'react'
 const VisitOutside = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
