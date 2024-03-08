@@ -2,7 +2,7 @@ import axios from 'axios'
 import locationIcon from '../assets/images/Location.png'
 import searchIcon from '../assets/images/Search.png'
 import currentLocationIcon from '../assets/images/search/currentPointer.png'
-import qr from '../assets/images/getapp_qr.png'
+import qr from '../assets/images/getapp_qr.webp'
 import { get } from '../services/apiHandler'
 import {  useEffect, useRef, useState } from 'react'
 
