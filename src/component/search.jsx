@@ -91,8 +91,8 @@ console.log(e);
                
                 <input type="text"  value={search } className="md:w-[30%] w-[90%] left-[34%] search-box p-4 px-12  border-[1px] border-black rounded-[15px]" ref={searchRef} onBlur={closeActive} onChange={searchVal} onFocus={() => setActive(true)} /></div>
                 <div onClick={() =>{searchRef.current.select(); setActive(true)}} className="absolute  top-[18px] md:left-[38%] left-[19%] float-right">
-           {!active&& <Typewriter
-            words={['Where do you want to shop?', 'Search By City', 'Search By Area', 'Search By Pin Code']}
+           {!active&&!search&& <>Search By<Typewriter
+            words={[' City', ' Pin Code', ' Area', ]}
             loop={Infinity}
             cursor
             style={{color:'red'}}
@@ -102,7 +102,7 @@ console.log(e);
             delaySpeed={1000}
             onLoopDone={()=>{}}
             // onType={handleType}
-          />}
+          /></>}
           </div>
             <div className="absolute top-[10px] md:left-[35.5%] left-[8%] float-right">
                 <img src={locationIcon} alt="location" width={100} className='w-[35px]' />
