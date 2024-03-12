@@ -81,13 +81,14 @@ export default function Home() {
                         modules={[Autoplay]}
                         breakpoints={{
 
-                            768: { slidesPerView: 3, autoplay: true }, 0: { slidesPerView: 2, slidesPerGroup: 1 }
+                            768: { slidesPerView: 2, autoplay: true }, 0: { slidesPerView: 2, slidesPerGroup: 1 }
                         }}
 
                         className="mySwiper"
                     >
-
-                        {[{ img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' },{ img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' }, { img: cl2, link: 'https://www.tanishq.co.in/string-it' },  { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' }].map((data, i) => {
+{/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
+{/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
+                        {[{ img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' }, { img: cl2, link: 'https://www.tanishq.co.in/string-it' }].map((data, i) => {
                             if ((i == 3 && window.screen.width > 767)) return
                             return <SwiperSlide  >  <LatestCollection key={i} img={data.img} link={data.link} name={"mumbai"} /> </SwiperSlide>
                         })}

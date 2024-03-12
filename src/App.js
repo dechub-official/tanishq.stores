@@ -16,7 +16,7 @@ ReactGa.initialize(Tracking_Id)
 function App() {
   return ( <>
   <BrowserRouter basename='/'>
-    <SubHome/>
+    {/* <SubHome/> */}
   <NavBar/>
   <Routing/>
   <Footer/>
