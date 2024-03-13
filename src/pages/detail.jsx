@@ -401,13 +401,6 @@ export default function Detailed() {
                     </div>
                     <div className="flex md:w-[40%] justify-center items-center">
                         <p className=" font-[400] md:text-[18px] text-[12px]">Working Hours {storeDetail.storeOpeningTime?.replace(/.\d+ (\w\w)$/, '$1')} -  {storeDetail.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')}</p>
-                        {/* <div className="rating flex ml-4">
-                            {[...Array(5)].map((_, ind) => {
-
-                                return Math.round(GoogleStore.rating&& GoogleStore.rating) >= ind + 1 ? <img  className="w-[15px] h-[15px] mr-1" src={filledStar} /> : <img className="mr-1 w-[15px] h-[15px]" src={unfilledStar} />
-                            })}
-                        </div> */}
-
                     </div>
                 </div>
                 <div className="flex w-[100%] flex-wrap justify-center mt-8">
