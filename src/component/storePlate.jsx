@@ -4,6 +4,8 @@ import ReactGA from 'react-ga4'
 import { useNavigate } from "react-router-dom";
 import map from '../assets/images/detailed/buttons/map.png'
 import calender from '../assets/images/detailed/buttons/calender.png'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 export default function StorePlate({data}) {
     const Navigate = useNavigate()
     const [Clicks, setClicks] = useState({ Bookan: 0, getDir: 0 })
@@ -28,6 +30,37 @@ export default function StorePlate({data}) {
 </svg>
 <span className="text-[#832729] md:text-[15px] text-[13px]">Upto <strong>20% </strong>off *</span> <span className="md:text-[15px] text-[13px] max-w-[300px] font-[500]">on Diamond Jewellery value</span>
 </p>  */}
+ <div className="w-full bg-[#F2F2F2] text-center text-white flex  items-center   "  >
+
+
+<Swiper
+    slidesPerView={1}
+    spaceBetween={30}
+
+    autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+        infinite: true
+    }}
+
+    loop={true}
+    loopFillGroupWithBlank={true}
+    modules={[Autoplay]}
+    breakpoints={{
+
+
+    }}
+    direction='vertical'
+    className="mySwiper !bg-[#F2F2F2] text-[#373632] font-[600] max-h-[30px]  !my-auto"
+>
+
+
+    <SwiperSlide className='!bg-[#F2F2F2] !items-start text-[#373632] font-[600]' >   <p className='bg-[#F2F2F2] text-[#373632] font-[600] text-[13.5px] px-2 md:text-[14px]   md:w-auto'> Exchange gold bought from any jeweller. </p></SwiperSlide>
+    <SwiperSlide className='!bg-[#F2F2F2] !items-start text-[#373632] font-[600]' >   <p className='bg-[#F2F2F2] text-[#373632] font-[600] text-left text-[13.5px] px-2 md:text-[14px]   md:w-auto'>Get 100%* value. Trusted by over 2.6 Million Indians. </p></SwiperSlide>
+    {/* <SwiperSlide >  <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={chain}/></SwiperSlide> */}
+
+</Swiper>
+</div>
                                 <div className="flex mb-2 mt-3  ">
 
                                     <div className="flex w-[100%] ">
