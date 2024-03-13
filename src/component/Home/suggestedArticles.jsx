@@ -20,7 +20,7 @@ export default function SuggestArtical() {
         </div>
         <div className='flex justify-start items-start my-2'>
             <img src={bullent} alt="" className='mr-2 max-w-[8px] mt-[2px]' />
-           <Link to=" https://blog.tanishq.co.in/mixing-and-matching-earring-styles-for-every-occasion/"> <p className='underline text-[15px] font-[400] cursor-pointer'>Mixing and Matching Earring Styles for Every Occasion</p></Link>
+           <Link to="https://blog.tanishq.co.in/mixing-and-matching-earring-styles-for-every-occasion/"> <p className='underline text-[15px] font-[400] cursor-pointer'>Mixing and Matching Earring Styles for Every Occasion</p></Link>
 
         </div>
        
