@@ -10,17 +10,17 @@ export default function SuggestArtical() {
         <div>
         <div className='flex justify-start items-start my-2'>
             <img src={bullent} alt="" className='mr-2 max-w-[8px] mt-[2px]' />
-           <Link to="https://www.tanishq.co.in/blog/beginner-guide-to-gold-jewellery-exchange-what-you-need-to-know.html?lang=en_IN"> <p className='underline text-[15px] font-[400] cursor-pointer'>A Beginner's Guide to Gold Jewellery Exchange</p></Link>
+           <Link to="https://blog.tanishq.co.in/stories-from-tanishq-exchange-a-journey-of-trust-loyalty-and-cherished-memories/"> <p className='underline text-[15px] font-[400] cursor-pointer'>Stories from Tanishq Exchange: A Journey of Trust, Loyalty, and Cherished Memories</p></Link>
 
         </div>
         <div className='flex justify-start items-start my-2'>
             <img src={bullent} alt="" className='mr-2 max-w-[8px] mt-[2px]' />
-          <Link to="https://www.tanishq.co.in/blog/why-are-women-mostly-inclined-to-buy-earrings.html?lang=en_IN"> <p className='underline text-[15px] font-[400] cursor-pointer'>Why Are Women Mostly Inclined to Buy Earrings</p></Link> 
+          <Link to="https://blog.tanishq.co.in/the-heart-of-rivaah-what-tanishqs-wedding-brand-stands-for/"> <p className='underline text-[15px] font-[400] cursor-pointer'>The Heart of Rivaah: What Tanishq’s wedding brand stands for</p></Link> 
 
         </div>
         <div className='flex justify-start items-start my-2'>
             <img src={bullent} alt="" className='mr-2 max-w-[8px] mt-[2px]' />
-           <Link to="https://www.tanishq.co.in/blog/top-five-factors-for-choosing-a-gold-exchange-near-me-blog.html?lang=en_IN"> <p className='underline text-[15px] font-[400] cursor-pointer'>5 Factors To Consider When Selecting A Gold Exchange Near Me</p></Link>
+           <Link to=" https://blog.tanishq.co.in/mixing-and-matching-earring-styles-for-every-occasion/"> <p className='underline text-[15px] font-[400] cursor-pointer'>Mixing and Matching Earring Styles for Every Occasion</p></Link>
 
         </div>
        

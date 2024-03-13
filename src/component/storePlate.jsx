@@ -17,7 +17,7 @@ export default function StorePlate({data}) {
     return <>
      <div className="box bg-[#F2F2F2] md:min-w-[500px] min-w-[90%] sm:min-w-[310px] max-w-[310px] md:max-w-[500px] min-h-[370px] md:max-h-[370px]  my-4 px-2  md:px-8 p-4 rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
                                 <h2 className='text-[#832729] py-2 md:text-[18px] text-[15px] font-[700]'>{`Tanishq Jewellery - ${data.storeName}`}</h2>
-                                <p className='pb-4 font-[700] text-[#832729]  border-b-[#832729] border-b-[3px] cursor-pointer' onClick={() => Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)}>Visit Store Page{">>>"}</p>
+                                <p className='pb-4 font-[700] text-[#832729]  border-b-[#832729] border-b-[3px] cursor-pointer' onClick={() => Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)}>View Store Page{">>>"}</p>
                                 <p className='my-2 text-[15px] max-w-[300px] min-h-[60px]  font-[500]'>{data.storeAddress}</p>
                                 <p className='my-2 text-[15px] max-w-[300px] font-[500]'>Phone: {data.storePhoneNoOne}</p>
                                 <p className='my-2 py-2 pb-0  mb-2 text-[15px] max-w-[300px] font-[500]'>{`Working Hours: ${data.storeOpeningTime?.replace(/.\d{2}\s/, ' ')} - ${data.storeClosingTime?.replace(/.\d{2}\s/, ' ')}`}</p>
@@ -33,7 +33,7 @@ export default function StorePlate({data}) {
  <div className="w-full bg-[#F2F2F2] text-center text-white flex  items-center   "  >
 
 
-<Swiper
+{/* <Swiper
     slidesPerView={1}
     spaceBetween={30}
 
@@ -51,15 +51,15 @@ export default function StorePlate({data}) {
 
     }}
     direction='vertical'
-    className="mySwiper !bg-[#F2F2F2] text-[#373632] font-[600] max-h-[30px]  !my-auto"
+    className="mySwiper !bg-[#a37f29] text-[white] font-[600] max-h-[30px]  !my-auto"
 >
 
 
-    <SwiperSlide className='!bg-[#F2F2F2] !items-start text-[#373632] font-[600]' >   <p className='bg-[#F2F2F2] text-[#373632] font-[600] text-[13.5px] px-2 md:text-[14px]   md:w-auto'> Exchange gold bought from any jeweller. </p></SwiperSlide>
-    <SwiperSlide className='!bg-[#F2F2F2] !items-start text-[#373632] font-[600]' >   <p className='bg-[#F2F2F2] text-[#373632] font-[600] text-left text-[13.5px] px-2 md:text-[14px]   md:w-auto'>Get 100%* value. Trusted by over 2.6 Million Indians. </p></SwiperSlide>
-    {/* <SwiperSlide >  <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={chain}/></SwiperSlide> */}
+    <SwiperSlide className='!bg-[#a37f29] !items-start text-[white] font-[600]' >   <p className='bg-[#a37f29] text-[white] font-[600] text-[13.5px] px-2 md:text-[14px]   md:w-auto'> Exchange gold bought from any jeweller. </p></SwiperSlide>
+    <SwiperSlide className='!bg-[#a37f29] !items-start text-[white] font-[600]' >   <p className='bg-[#a37f29] text-[white] font-[600] text-left text-[13.5px] px-2 md:text-[14px]   md:w-auto'>Get 100%* value. Trusted by over 2.6 Million Indians. </p></SwiperSlide>
+  
 
-</Swiper>
+</Swiper> */}
 </div>
                                 <div className="flex mb-2 mt-3  ">
 

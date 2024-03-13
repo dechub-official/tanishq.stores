@@ -26,12 +26,12 @@ export default function SubHome() {
 
                 }}
                 direction='vertical'
-                className="mySwiper !bg-[#e5d5b4] text-[#373632] font-[600] max-h-[30px]  !my-auto"
+                className="mySwiper !bg-[#a37f29] text-[white] font-[600] max-h-[30px]  !my-auto"
             >
 
 
-                <SwiperSlide className='!bg-[#e5d5b4] text-[#373632] font-[600]' >   <p className='!bg-[#e5d5b4] text-[#373632] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'> Trusted by over 2.6 Million Indians. Exchange gold bought from any jeweller on Tanishq </p></SwiperSlide>
-                <SwiperSlide className='!bg-[#e5d5b4] text-[#373632] font-[600]' >   <p className='!bg-[#e5d5b4] text-[#373632] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'>Get 100%* value.&nbsp; <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/exchange" }}>Read more</u></p></SwiperSlide>
+                <SwiperSlide className='!bg-[#a37f29] text-[white] font-[600]' >   <p className='!bg-[#a37f29] text-[white] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'> Trusted by over 2.6 Million Indians. Exchange gold bought from any jeweller on Tanishq </p></SwiperSlide>
+                <SwiperSlide className='!bg-[#a37f29] text-[white] font-[600]' >   <p className='!bg-[#a37f29] text-[white] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'>Get 100%* value.&nbsp; <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/exchange" }}>Read more</u></p></SwiperSlide>
                 {/* <SwiperSlide >  <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={chain}/></SwiperSlide> */}
 
             </Swiper>
@@ -44,7 +44,7 @@ export default function SubHome() {
                 spaceBetween={30}
 
                 autoplay={{
-                    delay: 2500,
+                    delay: 4000,
                     disableOnInteraction: false,
                     infinite: true
                 }}
@@ -57,13 +57,13 @@ export default function SubHome() {
 
                 }}
                 direction='vertical'
-                className="mySwiper !bg-[#e5d5b4] text-[#373632] font-[600] max-h-[30px]  !my-auto"
+                className="mySwiper !bg-[#a37f29] text-[white] font-[600] max-h-[30px]  !my-auto"
             >
 
 
-                <SwiperSlide className='!bg-[#e5d5b4] text-[#373632] font-[600]' >   <p className='!bg-[#e5d5b4] text-[#373632] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'> Trusted by over 2.6 Million Indians. </p></SwiperSlide>
-                <SwiperSlide className='!bg-[#e5d5b4] text-[#373632] font-[600]' >   <p className='!bg-[#e5d5b4] text-[#373632] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'>Exchange gold bought from any jeweller on Tanishq  </p></SwiperSlide> 
-                <SwiperSlide className='!bg-[#e5d5b4] text-[#373632] font-[600]' >   <p className='!bg-[#e5d5b4] text-[#373632] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'>Get 100%* value.&nbsp; <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/exchange" }}>Read more</u></p></SwiperSlide>
+                <SwiperSlide className='!bg-[#a37f29] text-[white] font-[600]' >   <p className='!bg-[#a37f29] text-[white] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'> Trusted by over 2.6 Million Indians. </p></SwiperSlide>
+                <SwiperSlide className='!bg-[#a37f29] text-[white] font-[600]' >   <p className='!bg-[#a37f29] text-[white] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'>Exchange gold bought from any jeweller on Tanishq  </p></SwiperSlide> 
+                <SwiperSlide className='!bg-[#a37f29] text-[white] font-[600]' >   <p className='!bg-[#a37f29] text-[white] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'>Get 100%* value.&nbsp; <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/exchange" }}>Read more</u></p></SwiperSlide>
                 {/* <SwiperSlide >  <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={chain}/></SwiperSlide> */}
 
             </Swiper>
