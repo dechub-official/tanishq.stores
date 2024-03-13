@@ -77,9 +77,9 @@ export default function SearchBox() {
 console.log(e);
     }
     
-   useEffect(()=>{
-    navigator.geolocation.getCurrentPosition(getLocation, ()=>{});
-   },[])
+//    useEffect(()=>{
+//     navigator.geolocation.getCurrentPosition(getLocation, ()=>{});
+//    },[])
   
   
    
