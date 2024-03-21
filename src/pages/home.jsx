@@ -16,12 +16,21 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode, Navigation } from "swiper/modules";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ReactGA from 'react-ga4'
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 export default function Home() {
-    const nav = useNavigate()
+    const [noIndex,setNoindex]=useState(false)
+    const loc=useLocation()
+    useEffect(()=>{
+        if(loc.pathname=="/app-moduleeb61394"){
+            console.log("enter");
+          setNoindex(true)
+          }
+    },[])
+    
+
     useEffect(() => {
         ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Home Page" });
     }, [])
@@ -30,6 +39,9 @@ export default function Home() {
             name="description"
             content="Tanishq store locator will guide you to the nearest stores. Check out all contact details, directions through Store Locator. Visit now."
         /></Helmet>
+       {noIndex&& <Helmet>
+        <meta name="robots" content="noindex"/> 
+        </Helmet>}
         <div className="af-bl">
          
             <div className="flex flex-col items-center">
