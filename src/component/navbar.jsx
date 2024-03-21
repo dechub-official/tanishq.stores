@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
 import gplay from '../assets/images/googleplay.png'
 import astore from '../assets/images/appstore.png'
@@ -12,16 +12,21 @@ import store_img from '../assets/images/navbar/stores.png'
 import wishlist_img from '../assets/images/navbar/wishlist.png'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import QrCodeExpander from './qrCodeExpander'
 
 
 export default function NavBar() {
   const nav = useNavigate()
   // const[beginDate,setbeginDate]=useState({time:'2023-11-09T22:19:00',text:"begins"})
- 
-const [qrExpand,setQrExpand]=useState(false)
+  const loc=useLocation()
 
+
+const [qrExpand,setQrExpand]=useState(false)
+if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
+  localStorage.setItem("nav-hide",true)
+  return
+}
   const stopScorl = (e) => {
 
     if (e.target.checked) {

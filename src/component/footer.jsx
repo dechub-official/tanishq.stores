@@ -11,12 +11,14 @@ import b8 from '../assets/images/footer/8.png'
 import b9 from '../assets/images/footer/9.png'
 import qr from '../assets/images/getapp_qr.webp'
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 const VisitOutside = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
 
 }
 export default function Footer() {
+  
     const data = [{
         head: <h1 className="text-[#832729] text-[18px] mb-2 font-[700]">Useful Links</h1>, links: <> <p className="text-[#414042] text-[16px] my-2" onClick={() => VisitOutside("https://www.tanishq.co.in/delivery-information.html?lang=en_IN")}>Delivery Information </p>
             <p className="text-[#414042] text-[16px] my-2" onClick={() => VisitOutside("https://www.tanishq.co.in/international-shipping.html?lang=en_IN")}>International Shipping </p>
@@ -50,6 +52,11 @@ export default function Footer() {
         }
 
     }
+    const loc=useLocation()
+    if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
+        localStorage.setItem("nav-hide",true)
+        return
+      }
     return <>
         <div className="w-full bg-[#F2E9E9] p-4 py-11 ">
             <div className="flex md:flex-row flex-col md:items-start items-center justify-around flex-wrap">
