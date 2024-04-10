@@ -25,7 +25,7 @@ export default function Home() {
     const loc=useLocation()
     useEffect(()=>{
         if(loc.pathname=="/app-moduleeb61394"){
-            console.log("enter");
+         
           setNoindex(true)
           }
     },[])
