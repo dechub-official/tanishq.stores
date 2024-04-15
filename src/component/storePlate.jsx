@@ -15,7 +15,7 @@ export default function StorePlate({data}) {
 
     }
     const handleAppPopup = () => {
-        console.log(window.location)
+        // console.log(window.location)
        window.location.href=window.location.origin+window.location.pathname+"#bookAnAppointment"
 
     }
