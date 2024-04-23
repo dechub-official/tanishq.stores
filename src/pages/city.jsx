@@ -210,7 +210,17 @@ export default function CityPage() {
         loadData()
     }, [id])
 
-    
+    const [visitCardShow, setvisitCardShow] = useState(false);
+
+    useEffect(() => {
+        const interval = setTimeout(() => {
+           setvisitCardShow(true)
+        }, 6000);
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
     return <>
         <Helmet>
             <title>Jewellery Shops in {id} </title>
@@ -243,12 +253,18 @@ export default function CityPage() {
 
                     {data.map((data, i) => {
                         return <>
-                         {i==1&&<VisitorInfoCard/>}
+                         {/* {i==1&&<VisitorInfoCard/>} */}
 <StorePlate key={i} data={data}/>
                            
                         </>
                     })}
-  {data.length <= 1&&<VisitorInfoCard/>}
+  {/* {data.length <= 1&&<VisitorInfoCard/>} */}
+  {visitCardShow&&<div id="default-modal"  class=" overflow-x-hidden  flex  overflow-y-auto fixed px-2 w-full h-full  top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+           <div className="md:w-[80%] flex justify-center items-center ">
+                <VisitorInfoCard notClose={true} data={data} storeCity={id} onClose={()=>setvisitCardShow(false)}/>
+              </div>
+                </div>}
+  
                    
 </div>
             </div>

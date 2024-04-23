@@ -386,7 +386,7 @@ export default function Detailed() {
 
             {visitCardShow&&<div id="default-modal"  class=" overflow-x-hidden  flex  overflow-y-auto fixed px-2 w-full h-full  top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
            <div className="md:w-[80%] flex justify-center items-center ">
-                <VisitorInfoCard notClose={true} onClose={()=>setvisitCardShow(false)}/>
+                <VisitorInfoCard notClose={true} storeName={storeDetail.storeName} storeCity={storeDetail.storeCity} storeCode={storeDetail.storeCode} storeAddress={storeDetail.storeAddress} onClose={()=>setvisitCardShow(false)}/>
               </div>
                 </div>}
             <section className="af-bl">

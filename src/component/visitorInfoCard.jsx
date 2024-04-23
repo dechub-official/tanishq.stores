@@ -1,22 +1,102 @@
-import { useState } from "react";
-import { get } from "../services/apiHandler";
-import img from '../assets/images/successimage.jpg'
+import { useEffect, useState } from "react";
+import { get, post } from "../services/apiHandler";
+import img from '../assets/images/popupImage.png'
+import axios from "axios";
 export default function VisitorInfoCard(props) {
     const [progress, setProgress] = useState(false)
     const [success, setSuccess] = useState({ success: false, visible: false })
-    const [mno, setmno] = useState()
-    const getUpdates = async () => {
+    const [mno, setmno] = useState({})
+    useEffect(()=>{
+console.log(props.data);
+    },[])
+    const sendForm=async()=>{
+       
         var phoneno = /^\d{10}$/;
         if (progress) return
         setProgress(true)
-        if ((mno && mno.match(phoneno))) {
+      
+        if ((mno.tel!="" && mno.tel.match(phoneno)&&mno.name!="")) {
             setSuccess({ ...success, visible: false })
+            const payload={
+             BookingReferenceId:  "",
+             Message:  "",
+             Source:  "",
+             stlocId: "",
+             TicketType: "service",
+             Collection: "",
+             Phone: mno.tel,
+             StoreName: props.storeName,
+             address: props.storeAddress,
+             LastName: "",
+             AppointmentTime: "",
+             SKU_Code: "",
+             SKU_Url: "",
+             muid: "",
+             notificationFlag: "",
+             Subbrand: "",
+             FirstName:mno.tel.name,
+             EmailId: "",
+             Brand: "Tanishq",
+             City: props.storeCity,
+             AppointmentDate: "",
+             storeIdentifier: "",
+             Store_code: props.storeCode,
+             VisitorID: "",
+            }
+            
 
-            const data = await get("/storeUserDetails?mobileNo="+mno)
+           
+
+            try {
+                var basicAuth = 'Basic ' + btoa("Titan_Mule" + ':' + "admin_t!tan_mule");
+                let config = {
+                  method:  "POST",
+                  maxBodyLength: Infinity,
+                  url:"https://acemule.titan.in/ecomm/bookAnAppointment",
+                  data:payload,
+                
+                  auth: {
+                    username: "Titan_Mule",
+                    password: "admin_t!tan_mule"
+                 }
+                };
+                let data=await axios.request(config)
+                console.log(data);
+                if (data.data?.message == "SUCCESS") {
+    
+                    setSuccess({ success: true, visible: true })
+                    setProgress(false)
+                    setmno("")
+                    // document.getElementById("tel1")?.value=""
+                    // document.getElementById("tel2").?value=""
+                }
+            }
+            catch{
+                setProgress(false)
+                setSuccess({ success: true, visible: true })
+
+            }
+              
+          
+        }
+        else {
+            setSuccess({ success: false,error:true, visible: true })
+            setProgress(false)
+        }
+
+    }
+    const getUpdates = async () => {
+        var phoneno = /^\S+@\S+\.\S+$/;
+        if (progress) return
+        setProgress(true)
+        if ((mno.email!="" && mno.email.match(phoneno))) {
+            // setSuccess({ ...success, visible: false })
+
+            const data = await get("/storeUserDetails?mobileNo="+mno.email)
             console.log(data);
             if (data.data?.message == "SUCCESS") {
 
-                setSuccess({ success: true, visible: true })
+                setSuccess({ success: false, visible: true })
                 setProgress(false)
                 setmno("")
                 // document.getElementById("tel1")?.value=""
@@ -30,13 +110,17 @@ export default function VisitorInfoCard(props) {
 
 
     }
-    return <>   {<div  className="box bg-[#F2F2F2] md:min-w-[500px] min-w-[90%] sm:min-w-[310px] max-w-[310px] md:max-w-[500px] min-h-[370px] lg:max-h-[370px]  my-4 px-2 md:px-0 p-4 rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+    return <>   {<div  className="box bg-[#F2F2F2] md:min-w-[400px]   min-w-[310px]   md:max-w-[400px]  my-4 px-0 md:px-0 md:py-0 overflow-hidden  rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
          {props.notClose&& <div className="relative">
-            <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[#803335] " onClick={() =>props.onClose()}>X</div>
+            <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[white] " onClick={() =>props.onClose()}>X</div>
         </div>}
+        <div className="flex w-full justify-center  items-center">
+            <img src={img} className=' w-full md:h-[300px] h-[200px] object-top object-cover' alt="" />
+
+        </div>
     {success.visible == false ? <><div className="flex px-2 md:py-2 md:px-2 p-4 justify-center items-center">
-        <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
-        <svg xmlns="http://www.w3.org/2000/svg" className='mx-3 mb-4' width="60" height="50" viewBox="0 0 60 50" fill="none">
+        {/* <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div> */}
+        {/* <svg xmlns="http://www.w3.org/2000/svg" className='mx-3 mb-4' width="60" height="50" viewBox="0 0 60 50" fill="none">
             <path d="M34.9499 6C34.9843 5.76589 35.0011 5.52926 34.9999 5.29234C34.9999 3.88872 34.4732 2.5426 33.5355 1.55009C32.5978 0.557584 31.326 0 30 0C28.6739 0 27.4021 0.557584 26.4645 1.55009C25.5268 2.5426 25 3.88872 25 5.29234C25.0001 5.52927 25.0173 5.76585 25.0514 6L26.4643 5.76411C26.4403 5.60814 26.4284 5.45036 26.4286 5.29234C26.4286 4.28976 26.8048 3.32824 27.4746 2.6193C28.1444 1.91037 29.0528 1.5121 30 1.5121C30.9472 1.5121 31.8556 1.91037 32.5253 2.6193C33.1951 3.32824 33.5714 4.28976 33.5714 5.29234C33.5713 5.45029 33.5599 5.60801 33.5371 5.76411L34.9499 6Z" fill="black" />
             <path d="M28 4.94805V5L29.3333 4.94805C29.3333 4.77583 29.4036 4.61067 29.5286 4.48889C29.6536 4.36711 29.8232 4.2987 30 4.2987C30.0916 4.30048 30.1819 4.32022 30.2654 4.35676C30.349 4.39329 30.4241 4.44586 30.4864 4.51133C30.5486 4.57679 30.5967 4.65381 30.6276 4.73777C30.6586 4.82174 30.6719 4.91092 30.6667 5L32 4.94805C32 4.4314 31.7893 3.9359 31.4142 3.57057C31.0391 3.20524 30.5304 3 30 3C29.4696 3 28.9609 3.20524 28.5858 3.57057C28.2107 3.9359 28 4.4314 28 4.94805Z" fill="black" />
             <path d="M15.4465 21.6947V25.3684C15.4479 28.8341 14.6079 32.2474 13 35.3093L14.2836 36C16.0038 32.7255 16.9028 29.0751 16.9018 25.3684V21.6947C16.9018 18.1872 18.2818 14.8233 20.7382 12.3431C23.1946 9.86284 26.5261 8.46947 30 8.46947C33.4739 8.46947 36.8054 9.86284 39.2618 12.3431C41.7182 14.8233 43.0982 18.1872 43.0982 21.6947V25.3684C43.093 29.0758 43.9927 32.7273 45.7178 36L47 35.3093C45.389 32.2486 44.5488 28.8345 44.5536 25.3684V21.6947C44.5536 17.7974 43.0202 14.0598 40.2909 11.304C37.5616 8.54819 33.8598 7 30 7C26.1402 7 22.4384 8.54819 19.7091 11.304C16.9798 14.0598 15.4465 17.7974 15.4465 21.6947Z" fill="black" />
@@ -47,16 +131,17 @@ export default function VisitorInfoCard(props) {
             <path d="M8.38013 32.0722C8.57406 31.8538 8.72874 31.5924 8.83516 31.3034C8.94157 31.0145 8.99758 30.7036 8.99992 30.3891C9.00227 30.0747 8.95089 29.7628 8.8488 29.4717C8.74671 29.1806 8.59594 28.9161 8.4053 28.6937C8.21466 28.4713 7.98796 28.2955 7.73842 28.1764C7.48889 28.0573 7.22153 27.9974 6.95193 28.0001C6.68233 28.0028 6.41589 28.0682 6.16817 28.1923C5.92045 28.3164 5.69641 28.4969 5.5091 28.7231L3.59509 30.9559C3.40648 31.1758 3.25686 31.4369 3.15475 31.7242C3.05265 32.0116 3.00006 32.3196 3 32.6307C2.99994 32.9417 3.0524 33.2498 3.15439 33.5372C3.25638 33.8246 3.4059 34.0858 3.59441 34.3058C3.78293 34.5258 4.00674 34.7004 4.25308 34.8195C4.49942 34.9386 4.76346 34.9999 5.03012 35C5.29678 35.0001 5.56085 34.9389 5.80724 34.8199C6.05362 34.7009 6.27751 34.5265 6.46611 34.3066L8.38013 32.0722ZM4.5521 33.1902C4.48907 33.1169 4.43906 33.0297 4.40494 32.9338C4.37082 32.8379 4.35326 32.7351 4.35326 32.6312C4.35326 32.5274 4.37082 32.4246 4.40494 32.3286C4.43906 32.2327 4.48907 32.1456 4.5521 32.0722L6.46611 29.8395C6.52855 29.7641 6.60323 29.7039 6.68581 29.6625C6.76838 29.6212 6.85719 29.5994 6.94705 29.5985C7.03692 29.5976 7.12604 29.6175 7.20922 29.6572C7.2924 29.6969 7.36797 29.7556 7.43151 29.8297C7.49506 29.9038 7.54532 29.992 7.57935 30.089C7.61338 30.186 7.6305 30.29 7.62972 30.3948C7.62894 30.4997 7.61027 30.6033 7.5748 30.6996C7.53933 30.7959 7.48776 30.883 7.42312 30.9559L5.5091 33.1902C5.38018 33.3338 5.20882 33.4138 5.0306 33.4138C4.85239 33.4138 4.68102 33.3338 4.5521 33.1902Z" fill="#832729" />
             <path d="M6.46611 13.5943C6.27751 13.4059 6.05362 13.2563 5.80724 13.1544C5.56085 13.0524 5.29678 12.9999 5.03012 13C4.76346 13.0001 4.49942 13.0526 4.25308 13.1547C4.00674 13.2568 3.78293 13.4064 3.59441 13.595C3.4059 13.7836 3.25638 14.0075 3.15439 14.2538C3.0524 14.5002 2.99994 14.7642 3 15.0309C3.00006 15.2975 3.05265 15.5615 3.15475 15.8078C3.25686 16.0541 3.40648 16.2779 3.59509 16.4664L5.5091 18.3802C5.69641 18.5741 5.92045 18.7288 6.16817 18.8352C6.41589 18.9416 6.68233 18.9976 6.95193 18.9999C7.22153 19.0023 7.48889 18.9509 7.73842 18.8488C7.98796 18.7467 8.21466 18.596 8.4053 18.4054C8.59594 18.2147 8.74671 17.9881 8.8488 17.7386C8.95089 17.4891 9.00227 17.2217 8.99992 16.9522C8.99758 16.6826 8.94157 16.4162 8.83516 16.1685C8.72874 15.9208 8.57406 15.6968 8.38013 15.5095L6.46611 13.5943ZM7.42312 17.4233C7.2942 17.5463 7.12284 17.615 6.94462 17.615C6.7664 17.615 6.59504 17.5463 6.46611 17.4233L4.5521 15.5095C4.48917 15.4467 4.43923 15.3721 4.40515 15.2899C4.37106 15.2078 4.35348 15.1198 4.35341 15.0309C4.35329 14.8513 4.42451 14.679 4.55142 14.5519C4.67833 14.4248 4.85052 14.3534 5.03012 14.3533C5.20972 14.3531 5.38202 14.4244 5.5091 14.5512L7.42312 16.4664C7.55 16.5933 7.62129 16.7654 7.62129 16.9449C7.62129 17.1243 7.55 17.2964 7.42312 17.4233Z" fill="#832729" />
             <path d="M0 24C0 24.5304 0.221249 25.0391 0.615075 25.4142C1.0089 25.7893 1.54305 26 2.1 26H4.9C5.45695 26 5.9911 25.7893 6.38492 25.4142C6.77875 25.0391 7 24.5304 7 24C7 23.4696 6.77875 22.9609 6.38492 22.5858C5.9911 22.2107 5.45695 22 4.9 22H2.1C1.54305 22 1.0089 22.2107 0.615075 22.5858C0.221249 22.9609 0 23.4696 0 24ZM5.6 24C5.6 24.1768 5.52625 24.3464 5.39498 24.4714C5.2637 24.5964 5.08565 24.6667 4.9 24.6667H2.1C1.91435 24.6667 1.7363 24.5964 1.60502 24.4714C1.47375 24.3464 1.4 24.1768 1.4 24C1.4 23.8232 1.47375 23.6536 1.60502 23.5286C1.7363 23.4036 1.91435 23.3333 2.1 23.3333H4.9C5.08565 23.3333 5.2637 23.4036 5.39498 23.5286C5.52625 23.6536 5.6 23.8232 5.6 24Z" fill="#832729" />
-        </svg>
-        <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
+        </svg> */}
+        {/* <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div> */}
     </div>
         <div className="flex justify-center items-center flex-col">
-            <h2 className=' text-center text-red-900 text-[15px] md:text-[18px] mx-2  font-medium md:w-[90%]'>Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq!</h2>
-            <input type="tel" min={"10"} value={mno} id="tel1" onChange={(e) => setmno(e.target.value)} placeholder='Enter Mobile Number' className='appearance-none  px-4 my-5 h-[50px] bg-[#F2F2F2] w-[88%] rounded-[7px] border border-black py-2' />
-            <div className=" w-[88%]">
-                <div className="md:w-[30%] mt-3 mb-2 w-[40%]">
+            {/* <h2 className=' text-center text-red-900 text-[15px] md:text-[18px] mx-2  font-medium md:w-[90%]'>Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq!</h2> */}
+            <input type="text" value={mno.name}  onChange={(e) => setmno({...mno,name:e.target.value})} placeholder='Enter Your Name' className='appearance-none  px-4 my-2 h-[50px] bg-[#F2F2F2] w-[88%] rounded-[7px] border border-black py-2' />
+            <input type="tel" min={"10"} value={mno.tel} id="tel1" onChange={(e) => setmno({...mno,tel:e.target.value})} placeholder='Enter Mobile Number' className='appearance-none  px-4 my-2 h-[50px] bg-[#F2F2F2] w-[88%] rounded-[7px] border border-black py-2' />
+            <div className="mx-auto w-[88%]">
+                <div className="md:w-[88%] mx-auto mt-3 mb-3 w-[40%]">
                     <button type="button" onClick={() => {
-                        getUpdates()
+                        sendForm()
                     }} className={" w-full  mx-auto flex justify-center  md:px-5 mb-4 md:mb-0  py-2 text-[white] bg-[#832729] font-500 md:text-[15px] text-[10px] rounded-[6px] items-center  hover:shadow-none transition-all duration-500 cursor-pointer  shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] "}>Submit
 
                         {progress && <svg version="1.1" id="L9" height={"25px"} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
@@ -85,17 +170,49 @@ export default function VisitorInfoCard(props) {
        {!props.notClose&& <div className="relative">
             <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[#803335] " onClick={() => setSuccess({ ...success, visible: false })}>X</div>
         </div>}
-        <div className="flex w-full justify-center  items-center">
-            <img src={img} className=' w-full ' alt="" />
+       
+        {success.success ? <div className="flex flex-col justify-center h-full mt-[5px] md:mt-[10px] items-center">
+            <h3 className="text-[#832729] font-[500] text-[20px] md:text-[25px]">Thank you For !</h3>
+            <h3 className=" font-[500] my-2 text-[15px] mx-2 text-center md:text-[15px]">Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq! </h3>
+            <div className="flex justify-center items-center flex-col">
+            {/* <h2 className=' text-center text-red-900 text-[15px] md:text-[18px] mx-2  font-medium md:w-[90%]'>Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq!</h2> */}
+            <input type="email" value={mno.email}  onChange={(e) => setmno({...mno,email:e.target.value})} placeholder='Enter Your Email' className='appearance-none  px-4 my-2 h-[50px] bg-[#F2F2F2] w-[88%] rounded-[7px] border border-black py-2' />
+            {/* <input type="tel" min={"10"} value={mno.tel} id="tel1" onChange={(e) => setmno({...mno,tel:e.target.value})} placeholder='Enter Mobile Number' className='appearance-none  px-4 my-2 h-[50px] bg-[#F2F2F2] w-[88%] rounded-[7px] border border-black py-2' /> */}
+            <div className="mx-auto w-[88%]">
+                <div className="w-[88%] mx-auto mt-3 mb-3 ">
+                    <button type="button" onClick={() => {
+                        getUpdates()
+                    }} className={" w-full  mx-auto flex justify-center  md:px-5 mb-4 md:mb-0  py-2 text-[white] bg-[#832729] font-500 md:text-[15px] text-[10px] rounded-[6px] items-center  hover:shadow-none transition-all duration-500 cursor-pointer  shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] "}>Submit
 
+                        {progress && <svg version="1.1" id="L9" height={"25px"} xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                            viewBox="0 0 100 100" enable-background="new 0 0 0 0" >
+                            <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    dur="1s"
+                                    from="0 50 50"
+                                    to="360 50 50"
+                                    repeatCount="indefinite" />
+                            </path>
+                        </svg>}
+                    </button>
+                </div>
+            </div>
         </div>
-        {success.success ? <div className="flex flex-col justify-center h-full mt-[13%] md:mt-[10px] items-center">
-            <h3 className="text-[#832729] font-[500] text-[20px] md:text-[25px]">Thank you!</h3>
-            <h3 className=" font-[500] my-2 text-[15px] mx-2 text-center md:text-[15px]">We will keep you notified. Browse through your favorite categories <a className='text-[#803335] underline' href="https://www.tanishq.co.in">here.</a> </h3>
-        </div> : <div className="flex flex-col justify-center mt-[13%] md:mt-[10px] items-center">
+        </div> : success.error?<div className="flex flex-col justify-center mt-[13%] md:mt-[10px] items-center">
             <h3 className="text-[#832729] font-[500] text-[20px] md:text-[25px]">Check your phone number</h3>
-            <h3 className=" font-[500] my-2 text-[15px] text-center md:mx-3 mx-2"> You can also try with a different number and get notified of the best offers, gold rates, and other benefits from Tanishq! Try again?</h3>
-        </div>}
+            <h3 className=" font-[500] my-2 text-[15px] text-center md:mx-3 mx-2"> You can also try with a different number and get notified of the best offers, gold rates, and other benefits from Tanishq! <span className='text-[#803335] underline cursor-pointer' onClick={()=> setSuccess({ success: false, visible: false })}>Try again?</span></h3>
+       
+        </div>: <div className="flex flex-col justify-center mt-[13%] md:mt-[10px] items-center">
+            <h3 className="text-[#832729] font-[500] text-[20px] md:text-[25px]"> Thank you!</h3>
+            <h3 className=" font-[500] my-2 text-[15px] text-center md:mx-3 mx-2">We will keep you notified. Browse through your favorite categories <a className='text-[#803335] underline' href="https://www.tanishq.co.in">here.</a></h3>
+       
+        </div>
+       
+}
+
 
     </>
     }</div>}</>
