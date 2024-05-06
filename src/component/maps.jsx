@@ -16,7 +16,7 @@ export  function Maps(props) {
   },[props.center])
 return<React.Fragment>
 
- <div className={"rounded-[50px] h-[100%] max-h-full relative "+props.style}>
+ <div className={"rounded-[50px] shadow-[rgba(0,0,0,0.24)_0px_3px_8px] h-[100%] max-h-full relative "+props.style}>
  {
  !props.isStore?props.center?.length&&
 //  <Map google={props.google}

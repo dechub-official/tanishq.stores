@@ -56,10 +56,10 @@ export default function Home() {
       
         <div className="flex justify-center w-full">
            
-            <div className="hidden md:grid lg:grid lg:grid-rows-1 xl:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 lg:gap-x-2 ">
+            <div className="hidden md:grid lg:grid lg:grid-rows-1 xl:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 lg:gap-x-4 ">
                 {PopularCityDetail.map((data, index) => {
 
-                    return <div className="col-span-1"><PopularCity key={index} img={data.img} name={data.name} /></div>
+                    return <div className="col-span-1"><PopularCity key={index} img={data.img} name={data.name} totalStore={data.store} /></div>
                 })}
             </div>
             <div className="flex md:hidden flex-wrap justify-center">
