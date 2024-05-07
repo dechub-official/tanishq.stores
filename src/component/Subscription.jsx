@@ -30,7 +30,7 @@ export default function Subscription(props) {
 
 
     }
-    return <>   {<div  className="box bg-[white] md:min-w-[500px] min-w-[90%] sm:min-w-[310px] max-w-[310px] md:max-w-[500px] min-h-[370px] lg:max-h-[370px]  my-4 px-2 md:px-0 overflow-hidden rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+    return <>   {<div  className="box bg-[white] md:min-w-[500px] min-w-[90%] max-w-[90%] sm:min-w-[310px]  md:max-w-[500px] min-h-[370px] lg:max-h-[370px]  my-4 px-2 md:px-0 overflow-hidden rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
          {props.notClose&& <div className="relative">
             <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[#803335] " onClick={() =>props.onClose()}>X</div>
         </div>}
