@@ -11,6 +11,7 @@ import Bangalore from '../images/popularCities/Bangalore.png'
 const image = [{
     name: "Mumbai",
     img: Mumbai,
+    store:30
 
 
 },
@@ -18,6 +19,7 @@ const image = [{
     name: "Delhi",
     img:Delhi
     ,
+    store:17
 
 
 },
@@ -25,46 +27,52 @@ const image = [{
     name: "Bangalore",
     img: Bangalore
     ,
+    store:22
 
 
 }, {
     name: "Hyderabad",
     img:Hyderabad 
     ,
-
+store:14
 
 }, {
     name: "Lucknow",
     img:Lucknow
     ,
-
+store:7
 
 }, {
     name: "Chennai",
     img:chennai
     ,
+    store:20
 
 
 }, {
     name: "Pune",
     img:Pune
     ,
+    store:13
 
 
 }, {
     name: "Kolkata",
-    img: Kolkata
+    img: Kolkata,
+    store:15
 
 
 }, {
     name: "Patna",
-   img: Patna
+   img: Patna,
+   store:7
 
 
 }, {
     name: "Jaipur",
    img: Jaipur
     ,
+    store:3
 
 
 }]

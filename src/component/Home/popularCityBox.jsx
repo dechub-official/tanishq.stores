@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-export default function PopularCity({img,name}) {
+export default function PopularCity({img,name,totalStore}) {
     const nav=useNavigate()
     return <>
     {/* border-radius: 14px;
@@ -9,7 +9,7 @@ background: #ECECEC; */}
        
         <img src={img} className="md:w-full align-bottom block mt-2 " />
         <p className="text-[#832729] absolute bottom-2  text-[15px] font-[600]">{name}</p>
-        <p className="text-[#514e4e] w-full absolute top-0 origin-top-left  bg-gradient-to-r from-red-200 via-[#ece4e5] to-rose-50 py-1 px-1 text-[13px] font-normal">127 stores</p>
+        <p className="text-[#514e4e] w-full absolute top-0 origin-top-left  bg-gradient-to-r from-red-200 via-[#ece4e5] to-rose-50 py-1 px-1 text-[13px] font-normal">{totalStore} stores</p>
     </div>
     </>
 }
