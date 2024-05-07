@@ -65,7 +65,7 @@ export default function Home() {
             <div className="flex md:hidden flex-wrap justify-center">
                 {PopularCityDetail.map((data, index) => {
 
-                    return <div className="col-span-1"><PopularCity key={index} img={data.img} name={data.name} /></div>
+                    return <div className="col-span-1"><PopularCity key={index} img={data.img} totalStore={data.store}  name={data.name} /></div>
                 })}
             </div>
         </div>
