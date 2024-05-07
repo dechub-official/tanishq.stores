@@ -407,14 +407,14 @@ export default function Detailed() {
                     <div className="w-full flex flex-col items-center ">
                         <div className="flex flex-wrap w-full md:w-[90%] justify-center md:justify-around">
                             <div className="box md:w-[40%] w-[90%]">
-                                <div className="w-full shadow-[rgba(0,0,0,0.24)_0px_3px_8px] rounded-[17px] md:px-10  py-2 md:py-5">
+                                <div className="w-full shadow-[rgba(0,0,0,0.24)_0px_3px_8px] px-3 rounded-[17px] md:px-10  py-3 md:py-5">
                                     <h1 className="text-[#832729] text-[22px] font-[600]   border-b-2  ">{storeDetail.storeName}</h1>
                                     {storeDetail.storeAddress && <p className="font-[500] text-[17px] md:text-[17px] my-2">{storeDetail.storeAddress}</p>}
                                     {storeDetail.storePhoneNoOne && <p className="font-[500] text-[17px] md:text-[17px] my-2">Phone: {storeDetail.storePhoneNoOne}</p>}
                                     {storeDetail.storeClosingTime && <p className="font-[500] text-[17px] md:text-[17px] my-2">Open Until {storeDetail.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')}</p>}
                                 </div>
-                                <div className="md:mt-9 w-full">
-                                    <div className=" w-full shadow-[rgba(0,0,0,0.24)_0px_3px_8px] rounded-[17px] md:px-10 md:py-5">
+                                <div className="md:mt-9 mt-5 w-full">
+                                    <div className=" w-full shadow-[rgba(0,0,0,0.24)_0px_3px_8px]  p-3  rounded-[17px] md:px-10 md:py-5">
                                         <div className="flex md:flex-nowrap flex-wrap justify-between">
                                             <div className="md:w-[45%] ">
                                                { GoogleStore && GoogleStore?.opening_hours&&<h1 className="text-[#832729] md:mt-2 font-[700] underline text-[19px] md:text-[18px]">Business Hours</h1>}

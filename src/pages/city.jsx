@@ -227,6 +227,11 @@ export default function CityPage() {
             <meta name="description" content={`Tanishq stores in ${id} are the one of the well known jewellery stores for all gold and diamond jewelleries. Visit our stores for the latest jewellery collections.`}>
             </meta>
         </Helmet>
+        {visitCardShow&&<div id="default-modal"  class=" overflow-x-hidden   flex  overflow-y-auto fixed px-2 w-full h-full bg-[#0b090900]  top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+           <div className="md:w-[80%] flex justify-center items-center ">
+                <VisitorInfoCard notClose={true} data={data} storeCity={id} onClose={()=>setvisitCardShow(false)}/>
+              </div>
+                </div>}
         <div className="flex justify-center items-center">
             {/* {success.visible&&  <SuccessPopup isSuccess={success.success} close={()=>setSuccess({...success,visible:false})}/>
       
@@ -259,11 +264,7 @@ export default function CityPage() {
                         </>
                     })}
   {/* {data.length <= 1&&<VisitorInfoCard/>} */}
-  {visitCardShow&&<div id="default-modal"  class=" overflow-x-hidden  flex  overflow-y-auto fixed px-2 w-full h-full  top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
-           <div className="md:w-[80%] flex justify-center items-center ">
-                <VisitorInfoCard notClose={true} data={data} storeCity={id} onClose={()=>setvisitCardShow(false)}/>
-              </div>
-                </div>}
+  
   
                    
 </div>
