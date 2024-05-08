@@ -14,6 +14,7 @@ import wishlist_img from '../assets/images/navbar/wishlist.png'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useEffect, useState } from 'react'
 import QrCodeExpander from './qrCodeExpander'
+import SubHome from './subHome'
 
 
 export default function NavBar() {
@@ -48,7 +49,7 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
 
     {/* Sticky Header */}
     <div className="sticky top-[-2px] max-w-[100%] z-50 " >
-
+<SubHome/>
       
       <div className="w-full flex justify-between bg-[#F2E9E9] p-2 ">
 

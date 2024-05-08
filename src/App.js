@@ -19,7 +19,7 @@ function App() {
 
   return ( <>
   <BrowserRouter basename='/'>
-    <SubHome/>
+    {/* <SubHome/> */}
  <NavBar/>
   <Routing />
  <Footer/>
