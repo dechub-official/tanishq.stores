@@ -119,7 +119,7 @@ export default function StorePlate({data}) {
 <rect width="14" height="14" fill="white"/>
 </clipPath>
 </defs>
-</svg> Open until {data.storeClosingTime?.replace(/.\d{2}\s/, ' ')} </p>
+</svg> Open until <span className="uppercase">{data.storeClosingTime?.replace(/.\d{2}\s/, '')} </span> </p>
                             </div>
     </>
 }
