@@ -101,6 +101,25 @@ export default function StorePlate({data}) {
 
                                     </div>
                                 </div>
+                                <p className="flex gap-x-2 font-[700] text-[#832729] text-[18px] items-center  "><svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_561_548)">
+<path d="M7 4.66663V6.99996L8.45833 8.45829" stroke="url(#paint0_linear_561_548)" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.08366 1.94702C4.94167 1.45069 5.93784 1.16663 7.00032 1.16663C10.222 1.16663 12.8337 3.7783 12.8337 6.99996C12.8337 10.2216 10.222 12.8333 7.00032 12.8333C3.77866 12.8333 1.16699 10.2216 1.16699 6.99996C1.16699 5.93748 1.45106 4.9413 1.94739 4.08329" stroke="url(#paint1_linear_561_548)" stroke-linecap="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_561_548" x1="7.72917" y1="4.66663" x2="7.72917" y2="8.45829" gradientUnits="userSpaceOnUse">
+<stop stop-color="#700606"/>
+<stop offset="1" stop-color="#D60C0C"/>
+</linearGradient>
+<linearGradient id="paint1_linear_561_548" x1="7.00032" y1="1.16663" x2="7.00032" y2="12.8333" gradientUnits="userSpaceOnUse">
+<stop stop-color="#700606"/>
+<stop offset="1" stop-color="#D60C0C"/>
+</linearGradient>
+<clipPath id="clip0_561_548">
+<rect width="14" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg> Open until {data.storeClosingTime?.replace(/.\d{2}\s/, ' ')} </p>
                             </div>
     </>
 }
