@@ -102,7 +102,7 @@ export default function StorePlate({data}) {
 
                                     </div>
                                 </div>
-                              
+{/*                               
                                 <p className="flex flex-grow gap-x-1 font-[700] text-[#832729] text-[16px] items-center  "><svg width="16" height="16" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_561_548)">
 <path d="M7 4.66663V6.99996L8.45833 8.45829" stroke="url(#paint0_linear_561_548)" stroke-linecap="round" stroke-linejoin="round"/>
@@ -121,7 +121,7 @@ export default function StorePlate({data}) {
 <rect width="14" height="14" fill="white"/>
 </clipPath>
 </defs>
-</svg> Open until <span className="uppercase">{data.storeClosingTime?.replace(/.\d{2}\s/, '')} </span> </p>
+</svg> Open until <span className="uppercase">{data.storeClosingTime?.replace(/.\d{2}\s/, '')} </span> </p> */}
                            
                             </div>
     </>
