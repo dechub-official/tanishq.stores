@@ -6,9 +6,7 @@ import Footer from './component/footer';
 import {BrowserRouter} from 'react-router-dom'
 import Routing from './Routing';
 import ReactGa from 'react-ga4'
-import SubHome from './component/subHome';
-import AppPopUp from './component/appPopUp';
-import { useEffect, useState } from 'react';
+
 
 
 const Tracking_Id="G-LK5M8GFCJ5"
@@ -17,19 +15,19 @@ ReactGa.initialize(Tracking_Id)
 
 
 function App() {
-  const [appPopUp,setAppPopup]=useState(true)
-const closeAppPopUp=()=>{
-setAppPopup(false)
-}
-useEffect(()=>{
-  if(window.location.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")||window.screen.width>768){
-   setAppPopup(false)
-  }
-},[])
+  // const [appPopUp,setAppPopup]=useState(true)
+// const closeAppPopUp=()=>{
+// setAppPopup(false)
+// }
+// useEffect(()=>{
+//   if(window.location.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")||window.screen.width>768){
+//    setAppPopup(false)
+//   }
+// },[])
   return ( <>
   <BrowserRouter basename='/'>
     {/* <SubHome/> */}
-    {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>}
+    {/* {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>} */}
  <NavBar/>
   <Routing />
  <Footer/>
