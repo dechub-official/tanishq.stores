@@ -1,10 +1,10 @@
 import axios from "axios"
 
 
-const baseURL = 'https://stores.tanishq.co.in/stores/tanishq';
+// const baseURL = 'https://stores.tanishq.co.in/stores/tanishq';
 // const baseURL = 'https://localhost:8129/stores/tanishq';   //local
-// const baseURL='https://5ac4-2401-4900-4a96-f5bf-bd9e-74fa-fade-aba4.ngrok.io/stores/tanishq'
-// const baseURL = 'http://127.0.0.1:8000/'; //vpn
+const baseURL='https://a81d-103-168-164-118.ngrok-free.app/stores/tanishq'
+// const baseURL = 'https://uat-stores.tanishq.co.in'; //vpn
 
 const apiRequest = async (method, endpoint,data) => {
 
