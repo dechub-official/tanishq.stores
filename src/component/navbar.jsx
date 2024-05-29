@@ -10,8 +10,7 @@ import profile_img from '../assets/images/navbar/profile.png'
 import shop_img from '../assets/images/navbar/shop.png'
 import store_img from '../assets/images/navbar/stores.png'
 import wishlist_img from '../assets/images/navbar/wishlist.png'
-import banner_img from '../assets/images/Banner/storeBanner.png'
-import mobbanner_img from '../assets/images/Banner/mobile-banner.png'
+
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useEffect, useState } from 'react'
@@ -298,12 +297,7 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
     </Swiper>
     </div>
     </div> */}
-    <div className="flex container mt-5 mx-auto home-top-banner" id="dashBanner">
-      <img src={banner_img} className='w-full md:block hidden' alt="" />
-      <img src={mobbanner_img} className='w-full block md:hidden' alt="" />
-
-
-    </div>
+    
 
    {qrExpand&& <QrCodeExpander img={qr} onClose={()=>setQrExpand(false)}/>}
   </>

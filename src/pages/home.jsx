@@ -8,6 +8,8 @@ import LatestCollection from "../component/Home/latestCollection";
 import cl1 from '../assets/images/latestCollection/glam.jpg'
 import cl2 from '../assets/images/latestCollection/image3.jpg'
 import cl3 from '../assets/images/latestCollection/image3.png'
+import banner_img from '../assets/images/Banner/goldexchange-desktop.jpg'
+import mobbanner_img from '../assets/images/Banner/goldexchange-mobile.jpg'
 import SuggestArtical from "../component/Home/suggestedArticles";
 import { Helmet } from "react-helmet";
 
@@ -42,6 +44,12 @@ export default function Home() {
        {noIndex&& <Helmet>
         <meta name="robots" content="noindex"/> 
         </Helmet>}
+        <div className="flex container mt-5 mx-auto home-top-banner" id="dashBanner">
+      <img src={banner_img} className='w-full md:block hidden' alt="" />
+      <img src={mobbanner_img} className='w-full block md:hidden' alt="" />
+
+
+    </div>
         <div className="af-bl">
          
             <div className="flex flex-col items-center">
@@ -49,6 +57,7 @@ export default function Home() {
                 <Heading heading={"Welcome to Tanishq!"} subHeading={"Shop from a wide range of exquisite designs for all occasions. All backed by the Trust of TATA"} />
             </div>
         </div>
+
         <SearchBox />
       
 
