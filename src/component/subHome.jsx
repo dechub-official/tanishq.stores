@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import bg from '../assets/images/navbar/background.webp'
-import kalsh from '../assets/images/navbar/kalsh.png'
+import bg from '../assets/images/navbar/strip.jpg'
+import kalsh from '../assets/images/navbar/exchange.png'
 import { useState } from 'react'
 // import SubHomeexp from '../assets/images/subhomeExpender.png'
 export default function SubHome() {
@@ -11,7 +11,8 @@ export default function SubHome() {
     return <>
       { open&& <div className="w-full  text-center text-white flex  justify-center items-center   relative"  >
 
-        <p className='md:text-[white] text-[#ffffffe2] absolute right-1 md:right-5 cursor-pointer md:text-[16px] text-[14px] z-50 font-[600]' onClick={()=>setOpen(false)}>X</p>
+        {/* <p className='md:text-[white] text-[#ffffffe2] absolute right-1 md:right-5 cursor-pointer md:text-[16px] text-[14px] z-50 font-[600]' onClick={()=>setOpen(false)}>X</p> */}
+        <img src={kalsh} className='md:max-w-[40px] z-50 absolute left-3  max-w-[20px] max-h-[16px] md:max-h-[30px] mr-1' alt="" /> 
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -30,14 +31,15 @@ export default function SubHome() {
 
                 }}
                 direction='vertical'
-                className="mySwiper  !bg-[100%,100%]  !bg-transparent  text-[white] font-[600] max-h-[40px]  !my-auto"
+                id="dashBanner" 
+                className="mySwiper  !bg-[100%,100%]  home-top-banner !bg-transparent  text-[white] font-[600] max-h-[40px]  !my-auto"
                 style={{backgroundImage:'url('+bg+')'}}
             >
 
 
-                <SwiperSlide   className=' !bg-[100%,100%]  !bg-transparent !flex text-[white]  font-[600]' ><div className="flex items-center relative"> <img src={kalsh} className='md:max-w-[20px] max-w-[16px] max-h-[16px] md:max-h-[20px] mr-1' alt="" />  <p  className='bg-transparent text-[yellow] whitespace-nowrap  text-[10px] md:px-2 md:text-[16px] md:font-[300]  md:w-auto'> AKSHAYA TRITYA OFFER IS LIVE.&nbsp; &nbsp; <span className='text-[white]'>UP TO 20% OFF* ! <span onClick={()=>{window.location.href = "https://www.tanishq.co.in/dailywear?lang=en_IN" }} className='cursor-pointer underline'>SHOP NOW</span> </span>
- </p></div></SwiperSlide>
-                {/* <SwiperSlide  className='!bg-[100%,100%] !bg-transparent text-[white] font-[600]' >   <p  className='bg-transparent text-[white] font-[600] text-[13.5px] px-2 md:text-[14px] font-[500]  md:w-auto'>Get 100%* value.&nbsp; <u className='font-[600] cursor-pointer' onClick={() => { window.location.href = "https://www.tanishq.co.in/exchange" }}>Read more</u></p></SwiperSlide> */}
+                <SwiperSlide   className=' !bg-[100%,10%]  max-h-[40px]  !bg-transparent !flex text-[white]  font-[600]' ><div className="flex items-center w-full justify-center  max-h-[40px] ">
+                      <p  className='bg-transparent text-white whitespace-nowrap  text-[10px] md:px-2 md:text-[16px] md:font-[600]  md:w-auto'> Tanishq Festival of exchange is live </p></div></SwiperSlide>
+                <SwiperSlide  className='!bg-[100%,100%]  max-h-[40px] !bg-transparent text-[white] font-[600]' >   <p  className='bg-transparent text-[white] font-[600] text-[13.5px] px-2 md:text-[14px]   max-h-[40px]  md:w-auto'>Get 100% value. Click to get more details.</p></SwiperSlide>
                 {/* <SwiperSlide >  <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={chain}/></SwiperSlide> */}
 
             </Swiper>

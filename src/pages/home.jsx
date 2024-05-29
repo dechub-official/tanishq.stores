@@ -44,12 +44,12 @@ export default function Home() {
        {noIndex&& <Helmet>
         <meta name="robots" content="noindex"/> 
         </Helmet>}
-        <div className="flex container mt-5 mx-auto home-top-banner" id="dashBanner">
+        {/* <div className="flex container mt-5 mx-auto home-top-banner" id="dashBanner">
       <img src={banner_img} className='w-full md:block hidden' alt="" />
       <img src={mobbanner_img} className='w-full block md:hidden' alt="" />
 
 
-    </div>
+    </div> */}
         <div className="af-bl">
          
             <div className="flex flex-col items-center">
