@@ -9,7 +9,7 @@ export default function SubHome() {
     // const nav=useNavigate()
     const [open,setOpen]=useState(true)
     return <>
-      { open&& <div className="w-full  text-center text-white flex  justify-center items-center   relative"  >
+      { open&& <div    id="dashBanner"  className="w-full home-top-banner cursor-pointer text-center text-white flex  justify-center items-center   relative"  >
 
         {/* <p className='md:text-[white] text-[#ffffffe2] absolute right-1 md:right-5 cursor-pointer md:text-[16px] text-[14px] z-50 font-[600]' onClick={()=>setOpen(false)}>X</p> */}
         <img src={kalsh} className='md:max-w-[40px] z-50 absolute left-3  max-w-[20px] max-h-[16px] md:max-h-[30px] mr-1' alt="" /> 
@@ -31,8 +31,8 @@ export default function SubHome() {
 
                 }}
                 direction='vertical'
-                id="dashBanner" 
-                className="mySwiper  !bg-[100%,100%]  home-top-banner !bg-transparent  text-[white] font-[600] max-h-[40px]  !my-auto"
+             
+                className="mySwiper  !bg-[100%,100%]   !bg-transparent  text-[white] font-[600] max-h-[40px]  !my-auto"
                 style={{backgroundImage:'url('+bg+')'}}
             >
 
