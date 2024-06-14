@@ -24,6 +24,7 @@ import SuggestArtical from "../component/Home/suggestedArticles"
 import ReactGA from 'react-ga4'
 import Banner from "../component/Home/Banner"
 import VisitorInfoCard from "../component/visitorInfoCard"
+import ButtonCur from "../component/buttonCur"
 export default function Detailed() {
     const { storename } = useParams()
     const id=storename.split('-')[storename.split('-').length-1]
@@ -394,13 +395,27 @@ export default function Detailed() {
                 <Banner name={storeDetail.storeName}/>
                 <Heading heading={<>Shop from <span className="text-[#832729]">{storeDetail.storeName}</span></>}></Heading>
                 <div className="flex flex-col  items-center">
-                    <div className="flex justify-around md:w-[40%] w-full mb-4">
+                    <div className="md:flex hidden justify-around lg:w-[45%] max-w-[500px] w-full mb-4">
                        <a href={"tel:"+storeDetail?.storePhoneNoOne}><Button name={callbtn} style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={call} onclick={copyText} /></a> 
                         <Button name="Get Directions" style={"mt-0 text-[12px]"} iconstyle={"mt-0 mr-1 max-w-[13px]"} onclick={getDirection} icon={map} />
                         <Button name="Book an Appointment" style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={calender} onclick={BookAppointment} />
                     </div>
+                    <div className="flex md:hidden justify-around lg:w-[45%] max-w-[500px] w-full mb-4">
+                       <a href={"tel:"+storeDetail?.storePhoneNoOne}><ButtonCur name={callbtn} style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={call} onclick={copyText} /></a> 
+                        <ButtonCur name="Get Directions" style={"mt-0 text-[12px]"} iconstyle={"mt-0 mr-1 max-w-[13px]"} onclick={getDirection} icon={map} />
+                        <ButtonCur name="Book an Appointment" style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={calender} onclick={BookAppointment} />
+                    </div>
                     <div className="flex md:w-[40%] justify-center items-center">
                         <p className=" font-[400] md:text-[18px] text-[12px]">Working Hours {storeDetail.storeOpeningTime?.replace(/.\d+ (\w\w)$/, '$1')} -  {storeDetail.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')}</p>
+                    </div>
+                    <div className="box flex gap-x-2 mt-3">
+                        <div className="bg-gradient-to-b from-[#AB3853] to-[#932B42] flex items-center gap-x-1 py-0 pl-3 pr-2 rounded-md">
+                            <p className="text-white text-[14px] font-[600]">{storeDetail&&storeDetail.rating}</p><svg width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 0.5L7.34708 4.6459H11.7063L8.17963 7.2082L9.52671 11.3541L6 8.7918L2.47329 11.3541L3.82037 7.2082L0.293661 4.6459H4.65292L6 0.5Z" fill="white"/>
+</svg>
+                        </div>
+                       <p className="text-[#300708] font-[600] md:text-[18px] text-[12px]">{storeDetail&&storeDetail.numberOfRatings} Reviews</p> 
+
                     </div>
                 </div>
                 <div className="flex w-[100%] flex-wrap justify-center mt-8">
@@ -524,9 +539,9 @@ export default function Detailed() {
                                 </div> */}
 
                             </div>
-                            {NearByStore.length>1&&<div className="my-4 md:w-[80%] w-[90%] shadow-[rgba(0,0,0,0.24)_0px_3px_8px] rounded-[17px] md:px-8 px-5 py-5 max-h-[500px]  overflow-y-scroll">
+                            {NearByStore.length>1&&<div className="my-4 md:w-[85%] w-[90%] shadow-[rgba(0,0,0,0.24)_0px_3px_8px] rounded-[17px] md:px-8 px-5 py-5 max-h-[500px]  overflow-y-auto">
                                 <h1 className="text-[#832729] font-[700] underline text-[18px]  ">Other Tanishq Stores Nearby  </h1>
-                                <div className=" grid md:grid-cols-3 grid-cols-1 gap-4">
+                                <div className=" flex flex-wrap justify-center gap-4">
                                     {NearByStore.map((data,i) => {
                                        
                                        if(id==data.storeCode){
