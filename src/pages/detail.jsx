@@ -393,7 +393,12 @@ export default function Detailed() {
             <section className="af-bl">
 
                 <Banner name={storeDetail.storeName}/>
+                <div className="md:block hidden">
                 <Heading heading={<>Shop from <span className="text-[#832729]">{storeDetail.storeName}</span></>}></Heading>
+                </div>
+                <div className="md:hidden block">
+                <Heading heading={<> <span className="text-[14px]">Shop from </span> <br /><span className="text-[#832729]">{storeDetail.storeName}</span></>}></Heading>
+                </div>
                 <div className="flex flex-col  items-center">
                     <div className="md:flex hidden justify-around lg:w-[45%] max-w-[500px] w-full mb-4">
                        <a href={"tel:"+storeDetail?.storePhoneNoOne}><Button name={callbtn} style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={call} onclick={copyText} /></a> 
@@ -406,7 +411,7 @@ export default function Detailed() {
                         <ButtonCur name="Book an Appointment" style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={calender} onclick={BookAppointment} />
                     </div>
                     <div className="flex md:w-[40%] justify-center items-center">
-                        <p className=" font-[400] md:text-[18px] text-[12px]">Working Hours {storeDetail.storeOpeningTime?.replace(/.\d+ (\w\w)$/, '$1')} -  {storeDetail.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')}</p>
+                        <p className=" font-[400] md:text-[18px] text-[15px]">Working Hours {storeDetail.storeOpeningTime?.replace(/.\d+ (\w\w)$/, '$1')} -  {storeDetail.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')}</p>
                     </div>
                     <div className="box flex items-center gap-x-2 mt-3">
                         <div className="bg-gradient-to-b from-[#AB3853] to-[#932B42] flex items-center gap-x-1 py-0 pl-3 pr-2 rounded-md">
