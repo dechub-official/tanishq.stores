@@ -408,13 +408,13 @@ export default function Detailed() {
                     <div className="flex md:w-[40%] justify-center items-center">
                         <p className=" font-[400] md:text-[18px] text-[12px]">Working Hours {storeDetail.storeOpeningTime?.replace(/.\d+ (\w\w)$/, '$1')} -  {storeDetail.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')}</p>
                     </div>
-                    <div className="box flex gap-x-2 mt-3">
+                    <div className="box flex items-center gap-x-2 mt-3">
                         <div className="bg-gradient-to-b from-[#AB3853] to-[#932B42] flex items-center gap-x-1 py-0 pl-3 pr-2 rounded-md">
                             <p className="text-white text-[14px] font-[600]">{storeDetail&&storeDetail.rating}</p><svg width="15" height="15" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6 0.5L7.34708 4.6459H11.7063L8.17963 7.2082L9.52671 11.3541L6 8.7918L2.47329 11.3541L3.82037 7.2082L0.293661 4.6459H4.65292L6 0.5Z" fill="white"/>
 </svg>
                         </div>
-                       <p className="text-[#300708] font-[600] md:text-[18px] text-[12px]">{storeDetail&&storeDetail.numberOfRatings} Reviews</p> 
+                       <p className="text-[#300708] font-[700] md:text-[18px] text-[15px]">{storeDetail&&storeDetail.numberOfRatings} Reviews</p> 
 
                     </div>
                 </div>
