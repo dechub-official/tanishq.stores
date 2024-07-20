@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import bg from '../assets/images/navbar/strip.gif'
@@ -47,11 +47,12 @@ export default function SubHome() {
             </Swiper>
         </div>}  */}
         {/* <img src={bg} className='font-[600] max-h-[40px] w-full !my-auto' alt="" /> */}
+        <Link to={"https://www.tanishq.co.in/diamonds "}>
         <div className='home-top-banner cursor-pointer' id="dashBanner">
         <img src={bg} className='max-h-[40px] md:block hidden w-full object-cover' ></img>
         <img src={mobile_bg} className='max-h-[40px] md:hidden block w-full object-cover' ></img>
         </div>
-       
+        </Link>
         {/* <div className="w-full  text-center text-white flex md:hidden justify-center items-center   "  >
 
 
