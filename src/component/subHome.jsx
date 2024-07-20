@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import bg from '../assets/images/navbar/strip.mp4'
-import mobile_bg from '../assets/images/navbar/mobile.mp4'
+import bg from '../assets/images/navbar/strip.gif'
+import mobile_bg from '../assets/images/navbar/mobile-strip.gif'
 import goldbg from '../assets/images/navbar/strip.jpg'
 import kalsh from '../assets/images/navbar/exchange.png'
 import { useState } from 'react'
@@ -48,8 +48,8 @@ export default function SubHome() {
         </div>}  */}
         {/* <img src={bg} className='font-[600] max-h-[40px] w-full !my-auto' alt="" /> */}
         <div className='home-top-banner cursor-pointer' id="dashBanner">
-        <video src={bg} className='max-h-[40px] md:block hidden w-full object-cover' muted loop  autoPlay></video>
-        <video src={mobile_bg} className='max-h-[40px] md:hidden block w-full object-cover' muted loop  autoPlay></video>
+        <img src={bg} className='max-h-[40px] md:block hidden w-full object-cover' ></img>
+        <img src={mobile_bg} className='max-h-[40px] md:hidden block w-full object-cover' ></img>
         </div>
        
         {/* <div className="w-full  text-center text-white flex md:hidden justify-center items-center   "  >
