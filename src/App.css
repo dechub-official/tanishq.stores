@@ -13,6 +13,9 @@
 .swiper,.swiper *{
   z-index: 0 !important;
 }
+.closeGoldRibbon{
+  display: none !important;
+}
 .swiper-button-prev {
 
   background: url(../src/assets/images/nextbtn.png);
