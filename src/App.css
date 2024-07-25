@@ -13,7 +13,7 @@
 .swiper,.swiper *{
   z-index: 0 !important;
 }
-.closeGoldRibbon{
+.goldRibbonBanner{
   display: none !important;
 }
 .swiper-button-prev {
