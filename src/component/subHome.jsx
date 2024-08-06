@@ -49,7 +49,7 @@ export default function SubHome() {
         {/* <img src={bg} className='font-[600] max-h-[40px] w-full !my-auto' alt="" /> */}
         <Link to={"https://www.tanishq.co.in/shop/jewellery?lang=en_IN"}>
         <div className='home-top-banner cursor-pointer' id="dashBanner">
-        <img src={bg} className='max-h-[40px] md:block hidden w-full object-cover' ></img>
+        <img src={bg} className='max-h-[40px] md:block hidden min-w-full object-cover' ></img>
         <img src={mobile_bg} className='max-h-[40px] md:hidden block w-full object-cover' ></img>
         </div>
         </Link>
