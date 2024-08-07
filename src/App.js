@@ -6,6 +6,7 @@ import Footer from './component/footer';
 import {BrowserRouter} from 'react-router-dom'
 import Routing from './Routing';
 import ReactGa from 'react-ga4'
+import Assurance from './component/assurance';
 
 
 
@@ -30,6 +31,7 @@ function App() {
     {/* {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>} */}
  <NavBar/>
   <Routing />
+
  <Footer/>
   </BrowserRouter>
   </>

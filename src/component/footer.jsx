@@ -12,6 +12,7 @@ import b9 from '../assets/images/footer/9.png'
 import qr from '../assets/images/getapp_qr.webp'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import Assurance from './assurance'
 const VisitOutside = (url) => {
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
@@ -58,6 +59,7 @@ export default function Footer() {
         return
       }
     return <>
+   
         <div className="w-full bg-[#F2E9E9] p-4 py-11 ">
             <div className="flex md:flex-row flex-col md:items-start items-center justify-around flex-wrap">
 

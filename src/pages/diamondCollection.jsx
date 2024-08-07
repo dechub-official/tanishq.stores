@@ -36,26 +36,27 @@ import Heading from "../component/heading";
 import StorePlate from "../component/storePlate";
 import FanSwiper from "../component/fanSwiper";
 import DiamondStorePlate from "../component/diamondStorePlate";
+import Assurance from "../component/assurance";
 export default function DiamondCollection() {
 
     const nav = useNavigate()
     const [Position, setPosition] = useState([])
     const [data, setData] = useState([])
 
-    const city=[{
-        name:"Mumbai"
-    },{
-        name:"Bangalore"
-    },{
-        name:"Chennai"
-    },{
-        name:"Delhi"
-    },{
-        name:"Kolkata"
-    },{
-        name:"Hyderabad"
-    },{
-        name:"Pune"
+    const city = [{
+        name: "Mumbai"
+    }, {
+        name: "Bangalore"
+    }, {
+        name: "Chennai"
+    }, {
+        name: "Delhi"
+    }, {
+        name: "Kolkata"
+    }, {
+        name: "Hyderabad"
+    }, {
+        name: "Pune"
     }]
 
     const loadData = async () => {
@@ -158,7 +159,7 @@ export default function DiamondCollection() {
                         </a></SwiperSlide>
 
 
-                                </Swiper>
+                </Swiper>
             </div>
         </div>
         <div className="flex md:hidden flex-col  overflow-hidden    w-full items-center justify-center ">
@@ -185,9 +186,9 @@ export default function DiamondCollection() {
             </div>
         </div>
         {/* <Marquee /> */}
-        <h1 className="text-white fraunces text-center underline md:text-[35px] text-[25px] font-[400] my-5">Find out <br className="md:hidden" /> Your Favorite Outfit</h1>
+        <h1 className="text-white fraunces text-center md:underline md:text-[35px] text-[25px] font-[400] my-5"><span className="md:text-[35px] text-[20px]">Find out </span> <br className="md:hidden" /> Your Favorite Outfit</h1>
         <FanSwiper />
-         <button className="pl-6 pr-2 translate-y-[-20%] bg-white fraunces mx-auto flex gap-x-2 items-center justify-center text-[18px] hover:translate-y-[-50%]  duration-200 text-[rgb(30,42,76)] rounded-full py-2">Know More <span className="md:inline hidden">About Enchanted Trails</span> <span className="min-w-[30px]  flex justify-center items-center min-h-[30px]  rounded-full text-white bg-black ">{">"}</span> </button>           
+        <button className="pl-6 pr-2 translate-y-[-20%] bg-white fraunces mx-auto flex gap-x-2 items-center justify-center text-[18px] hover:translate-y-[-50%]  duration-200 text-[rgb(30,42,76)] rounded-full py-2">Know More <span className="md:inline hidden">About Enchanted Trails</span> <span className="min-w-[30px]  flex justify-center items-center min-h-[30px]  rounded-full text-white bg-black ">{">"}</span> </button>
 
 
 
@@ -195,19 +196,22 @@ export default function DiamondCollection() {
             <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
         </div> */}
         <div >
-            <h2 className="text-white fraunces text-center text-[20px] md:text-[25px] font-[400] my-5 underline">Enchanted Trails Collections Exclusively Available in Following Stores</h2>
+            <h2 className="text-white fraunces text-center text-[20px] md:block hidden md:text-[25px] font-[400] my-5 underline">Enchanted Trails Collections Exclusively Available in Following Stores</h2>
+        </div>
+        <div>
+            <h2 className="text-white fraunces text-center text-[20px] md:text-[25px] font-[400] my-5 block md:hidden"> <span className="md:text-[25px] text-[18px]">The Collections Exclusively</span> <br className="md:hidden" />  Available in Following Stores</h2>
         </div>
 
-        <div className="flex justify-around flex-wrap gap-x-2  gap-y-3  mt-10 container md:max-w-[80%] mx-auto">
+        <div className="flex md:justify-around justify-center flex-wrap gap-x-1 md:gap-x-2   md:gap-y-3 gap-y-5 px-2  mt-10 container md:max-w-[80%] md:mx-auto">
             {
-                city.map((ele)=>{
-                    return  <div className="box border-2 px-4 py-1 fraunces gap-x-5 text-[16px] border-solid border-white rounded-lg flex justify-center items-center text-white">
-                    {ele.name} <input className="custom-radio" name="store" type="radio" />
-    
-                </div>
+                city.map((ele) => {
+                    return <div className="box border-2 px-4 py-1 fraunces gap-x-5 text-[16px] border-solid border-white rounded-lg flex justify-center items-center text-white">
+                        {ele.name} <input className="custom-radio" name="store" type="radio" />
+
+                    </div>
                 })
             }
-           
+
 
         </div>
         <div className="flex flex-wrap justify-around items-start w-full">
@@ -218,8 +222,9 @@ export default function DiamondCollection() {
                     return <DiamondStorePlate key={i} data={data} />
                 })}
             </div>
-                 </div>
-        <FAQ data={faq} />
-        <SuggestArtical />
+        </div>
+        {/* <Assurance/> */}
+        {/* <FAQ data={faq} /> */}
+        {/* <SuggestArtical /> */}
     </div>
 }

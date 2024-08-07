@@ -25,6 +25,7 @@ import ReactGA from 'react-ga4'
 import Banner from "../component/Home/Banner"
 import VisitorInfoCard from "../component/visitorInfoCard"
 import ButtonCur from "../component/buttonCur"
+import Assurance from "../component/assurance"
 export default function Detailed() {
     const { storename } = useParams()
     const id=storename.split('-')[storename.split('-').length-1]
@@ -564,6 +565,7 @@ export default function Detailed() {
                     </div>
 
                 </div>
+                <Assurance/>
                 <FAQ data={FaqData} />
                 <SuggestArtical />
             </section>

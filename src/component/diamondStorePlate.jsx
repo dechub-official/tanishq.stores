@@ -48,7 +48,7 @@ export default function DiamondStorePlate({ data }) {
                             });
                             setClicks({ ...Clicks, getDir: Clicks.getDir + 1 })
                             BookAppointment(data.storeLocationLink)
-                        }} className="pl-6 pr-2  md:bg-[#0D1323] bg-white fraunces flex gap-x-2 items-center justify-center md:text-[15px] text-[12px] hover:translate-y-[-5%]  duration-200 md:text-[white] text-[#0D1323] rounded-full py-2  md:py-1">Get Directions <span className="md:min-w-[25px]  flex justify-center md:bg-white bg-[#0D1323] items-center md:min-h-[25px] min-h-[25px] min-w-[25px]  md:text-[15px] text-[12px] rounded-full text-white md:text-black mr-2 ">{">"}</span> </button>
+                        }} className="pl-6 pr-2  md:bg-[#0D1323] bg-white fraunces flex gap-x-2 items-center justify-center md:text-[15px] text-[10px] hover:translate-y-[-5%]  duration-200 md:text-[white] text-[#0D1323] rounded-full py-2  md:py-1">Get Directions <span className="md:min-w-[25px]  flex justify-center md:bg-white bg-[#0D1323] items-center md:min-h-[25px] min-h-[25px] min-w-[25px]  md:text-[15px] text-[12px] rounded-full text-white md:text-black mr-2 ">{">"}</span> </button>
 
 
                     </div>
@@ -67,7 +67,7 @@ export default function DiamondStorePlate({ data }) {
                             }
                             else
                                 BookAppointment("https://www.tanishq.co.in/book-an-appointment")
-                        }} className="pl-6 pr-2  md:bg-[#0D1323] bg-white fraunces flex gap-x-2 items-center justify-center md:text-[15px] text-[12px] hover:translate-y-[-5%]  duration-200 md:text-[white] text-[#0D1323] rounded-full py-2 md:py-1">Book an Appointment <span className="md:min-w-[25px]  flex justify-center md:bg-white bg-[#0D1323] items-center md:min-h-[25px] min-h-[25px] min-w-[25px]  rounded-full text-white md:text-black mr-2 whitespace-nowrap">{">"}</span> </button>
+                        }} className="pl-6 pr-2  md:bg-[#0D1323] bg-white fraunces flex gap-x-2 items-center justify-center md:text-[15px] text-[10px] hover:translate-y-[-5%]  duration-200 md:text-[white] text-[#0D1323] rounded-full py-2 md:py-2">Book an Appointment <span className="md:min-w-[25px]  shadow-xl flex justify-center md:bg-white bg-[#0D1323] items-center md:min-h-[25px] min-h-[25px] min-w-[25px]  rounded-full text-white md:text-black mr-2 whitespace-nowrap">{">"}</span> </button>
                     </div>
 
                 </div>

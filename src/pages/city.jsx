@@ -21,6 +21,7 @@ import Banner from '../component/Home/Banner'
 import VisitorInfoCard from '../component/visitorInfoCard';
 import StorePlate from '../component/storePlate';
 import Subscription from '../component/Subscription';
+import Assurance from '../component/assurance';
 
 
 export default function CityPage() {
@@ -274,6 +275,7 @@ export default function CityPage() {
 
           
         </div>
+        <Assurance/>
         <FAQ data={faq} />
         <SuggestArtical />
     </>

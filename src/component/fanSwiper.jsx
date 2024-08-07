@@ -51,7 +51,7 @@ const FanSwiper = () => {
     return (
         <div className="my-carousel bg-darker">
             <Swiper
-                className="my-carousel__swiper md:pb-[150px]"
+                className="my-carousel__swiper md:!pb-[150px] !pb-[50px]"
                 loop={true}
                 grabCursor={true}
                 centeredSlides={true}

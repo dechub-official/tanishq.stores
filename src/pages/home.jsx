@@ -22,6 +22,7 @@ import { useEffect, useState } from "react";
 import ReactGA from 'react-ga4'
 
 import { useLocation, useNavigate } from "react-router-dom";
+import Assurance from "../component/assurance";
 export default function Home() {
     const [noIndex,setNoindex]=useState(false)
     const loc=useLocation()
@@ -126,7 +127,7 @@ export default function Home() {
 
 
 
-          
+            <Assurance/>
             <SuggestArtical />
 
         </div>
