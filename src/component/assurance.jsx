@@ -25,7 +25,7 @@ export default function Assurance() {
              <div className="col-span-1">
                 <div className='flex justify-between h-full items-center flex-col'>
                 <img src={gr2} alt="" className='w-[80px] md:w-[150px]' />
-                <p className='text-[#300708] fraunces text-center mt-5 text-[18px] md:text-[20px] font-[600]'>916 Puritybr <br />
+                <p className='text-[#300708] fraunces text-center mt-5 text-[18px] md:text-[20px] font-[600]'>916 Purity <br />
                 Guarantee</p>
                 </div>
            
