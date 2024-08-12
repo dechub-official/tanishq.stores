@@ -23,16 +23,44 @@ import ReactGA from 'react-ga4'
 
 import { useLocation, useNavigate } from "react-router-dom";
 import Assurance from "../component/assurance";
+import { get, post } from "../services/apiHandler";
 export default function Home() {
     const [noIndex,setNoindex]=useState(false)
+    const [popularCityDetail,setPopularCityDetail]=useState([])
     const loc=useLocation()
     useEffect(()=>{
         if(loc.pathname=="/app-moduleeb61394"){
          
           setNoindex(true)
           }
+          getStoresCount()
     },[])
     
+    const getStoresCount=async()=>{
+        const apiStores=await get("/storeCount")
+        // console.log(apiStores);
+        const storeCount=apiStores.data.result
+        // const pre=
+        const obj=storeCount.reduce((pre,cur)=>{
+            console.log(pre);
+            
+            return {...pre,[cur.storeCity]:cur.storeCount}
+
+        },{[storeCount[0].storeCity]:storeCount[0].storeCity})
+        console.log(obj);
+        
+        const updatedCity=PopularCityDetail.map((ele)=>{
+            const count=obj[ele.name]
+            return {
+                ...ele,
+                store:count
+            }
+        })
+        console.log(updatedCity);
+        
+        setPopularCityDetail([...updatedCity])
+        
+    }
 
     useEffect(() => {
         ReactGA.send({ hitType: "pageview", page: window.location.pathname, title: "Home Page" });
@@ -66,14 +94,14 @@ export default function Home() {
       
         <div className="flex justify-center w-full">
            
-            <div className="hidden md:grid lg:grid lg:grid-rows-1 xl:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 lg:gap-x-4 ">
-                {PopularCityDetail.map((data, index) => {
+          {popularCityDetail&&  <div className="hidden md:grid lg:grid lg:grid-rows-1 xl:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 lg:gap-x-4 ">
+                {popularCityDetail?.map((data, index) => {
 
                     return <div className="col-span-1"><PopularCity key={index} img={data.img} name={data.name} totalStore={data.store} /></div>
                 })}
-            </div>
+            </div>}
             <div className="flex md:hidden flex-wrap justify-center">
-                {PopularCityDetail.map((data, index) => {
+                {popularCityDetail.map((data, index) => {
 
                     return <div className="col-span-1"><PopularCity key={index} img={data.img} totalStore={data.store}  name={data.name} /></div>
                 })}

@@ -79,7 +79,7 @@ const FanSwiper = () => {
                             <div>
                                 <img src={data.img} className='drop-shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]' alt="" />
                                 <p className='ibm-plex font-[400]  text-[20px]'> {data.heading}</p>
-                                <p className='ibm-plex font-[400] text-[14px]'> {data.subHeading}</p>
+                                {/* <p className='ibm-plex font-[400] text-[14px]'> {data.subHeading}</p> */}
                             </div>
                         </div></SwiperSlide>
                     })

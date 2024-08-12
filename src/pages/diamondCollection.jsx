@@ -111,7 +111,7 @@ export default function DiamondCollection() {
                 >
 
                     <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank" className="min-w-full"><img src={crousal1} className='w-full   ' alt="" srcset="" />
+                        <a href="https://www.tanishq.co.in/shop/enchanted-trails?lang=en_IN#home" target="_blank" className="min-w-full"><img src={crousal1} className='w-full object-cover   ' alt="" srcset="" />
                         </a></SwiperSlide>
 
 
@@ -144,7 +144,7 @@ export default function DiamondCollection() {
         {/* <Marquee /> */}
         <h1 className="text-white fraunces text-center md:underline md:text-[35px] text-[25px] font-[400] my-5"><span className="md:text-[35px] text-[20px]">Find out </span> <br className="md:hidden" /> Your Favorite Outfit</h1>
         <FanSwiper />
-        <button className="pl-6 pr-2 translate-y-[-20%] bg-white fraunces mx-auto flex gap-x-2 items-center justify-center text-[18px] hover:translate-y-[-50%]  duration-200 text-[rgb(30,42,76)] rounded-full py-2">Know More <span className="md:inline hidden">About Enchanted Trails</span> <span className="min-w-[30px]  flex justify-center items-center min-h-[30px]  rounded-full text-white bg-black ">{">"}</span> </button>
+        {/* <button className="pl-6 pr-2 translate-y-[-20%] bg-white fraunces mx-auto flex gap-x-2 items-center justify-center text-[18px] hover:translate-y-[-50%]  duration-200 text-[rgb(30,42,76)] rounded-full py-2">Know More <span className="md:inline hidden">About Enchanted Trails</span> <span className="min-w-[30px]  flex justify-center items-center min-h-[30px]  rounded-full text-white bg-black ">{">"}</span> </button> */}
 
 
 
