@@ -86,7 +86,7 @@ console.log(props.data);
 
             try {
               
-                let data=await get(`/bookAnAppoitment?FirstName=${fname}&LastName=${lname}&Phone=${mno.tel}&EmailId=${mno.email||""} `)
+                let data=await get(`/bookAnAppointment?FirstName=${fname}&LastName=${lname}&Phone=${mno.tel}&EmailId=${mno.email||""} `)
                 console.log(data);
                 props.onClose()
                 if (data.data?.message == "SUCCESS") {
