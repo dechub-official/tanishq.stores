@@ -57,12 +57,6 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
         <div className="w-[40%] max-w-[8rem] justify-between  items-center flex">
           <div className="lg:hidden block">
 
-
-
-
-
-
-
             <div id="menuToggle" className='top-0'>
 
               <input type="checkbox" onChange={stopScorl} />
