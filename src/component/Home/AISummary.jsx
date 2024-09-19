@@ -27,11 +27,11 @@ export default function AISummary() {
         getAISummaryDetails()
     },[])
     return <>
-        {SummarizedData?<div className="w-full relative my-5 bg-white shadow-sequreShadow rounded-2xl pb-5">
-            <div className="header w-full flex-wrap flex items-center gap-3  bg-liteLimeBg md:px-10 md:py-5">
+        {SummarizedData?<div className="w-full relative my-5 bg-white sequreShadow rounded-2xl pb-5">
+            <div className="header w-full flex-wrap flex items-center gap-3  liteLimeBg md:px-10 md:py-5">
                 <div className='flex gap-x-3'>
                 <img src={AIBook} className='w-[30px]' alt="" />
-                <div className="box px-3 py-3 gap-x-2 flex bg-tanishqAIBg rounded-xl">
+                <div className="box px-3 py-3 gap-x-2 flex tanishqAIBg rounded-xl">
                     <img src={AILook} className='w-[15px]' alt="" />
                     <p className='text-white md:text-[14px] text-[12px]  font-normal uppercase'>Introducing tanishq ai</p>
 
