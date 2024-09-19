@@ -1,6 +1,7 @@
 import BannerImg from '../../assets/images/Banner/storeBanner.png'
 import MobileBanner from '../../assets/images/Banner/mobile-banner.png'
 import AISummary from './AISummary'
+import Envelope from './Review'
 // import DiwaliBannerImg from '../../assets/images/Banner/diwaliStoreBanner.png'
 // import DiwaliMobileBanner from '../../assets/images/Banner/diwalimobileBanner.png'
 
@@ -19,6 +20,7 @@ export default function Banner({name}) {
                        
                     </div>
                     <AISummary/>
+                    {/* <Envelope/> */}
                 </div>
               
     </>
