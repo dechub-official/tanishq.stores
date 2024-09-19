@@ -75,7 +75,7 @@ export default function AISummary() {
             <div className="absolute md:bottom-10 bottom-0 right-8">
                 <img src={AIshuffle} onClick={getAISummaryDetails} className='w-[30px] cursor-pointer' alt="" />
             </div>
-        </div>:<div className="w-full relative my-5 bg-gray-100 animate-pulse rounded-2xl pb-5">
+        </div>:<div className="w-full relative my-5 bg-gray-100 animate-pulse rounded-2xl p-5 md:px-0 md:pt-0 pb-5">
   <div className="header w-full flex-wrap flex items-center gap-3 bg-gray-300 md:px-10 md:py-5 rounded-md">
     <div className="flex gap-x-3">
       <div className="w-[30px] h-[30px] bg-gray-200 rounded-full"></div>
