@@ -33,3 +33,18 @@
 .txtc{
   color: #832729 !important;
 }
+
+/* Define background gradients */
+.tanishqAIBg {
+  background-image: linear-gradient(90deg, rgba(216,70,88,1) 0%, rgba(114,37,46,1) 100%);
+}
+@media (min-width: 768px) {
+.liteLimeBg {
+  background-image: linear-gradient(9deg, rgba(249,242,229,0.49) 0%, rgba(249,242,229,1) 100%);
+}
+
+/* Define box shadow */
+.sequreShadow {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+}
