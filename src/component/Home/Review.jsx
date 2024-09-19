@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../assets/css/envelope.css"; 
+// import "../../assets/css/envelope.css"; 
 
 const Envelope = () => {
   const [isOpen, setIsOpen] = useState(true);
