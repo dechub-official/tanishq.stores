@@ -7,6 +7,7 @@ export default function Subscription(props) {
     const [success, setSuccess] = useState({ success: false, visible: false })
     const [mno, setmno] = useState()
     const getUpdates = async () => {
+      setSuccess({ success: true, visible: true })
         var phoneno = /^\d{10}$/;
         if (progress) return
         setProgress(true)
@@ -25,86 +26,88 @@ export default function Subscription(props) {
             }
         }
         else {
-            setSuccess({ success: false, visible: true })
+            // setSuccess({ success: false, visible: true })
             setProgress(false)
         }
 
 
     }
-    return <>    <div class="col storeCard md:max-w-[550px]">
-    <div
-      class="card border round shadow-sm subscription-block"
+    return <>    <div className="col storeCard md:max-w-[550px]">
+    {!success.success && <div className="card border round shadow-sm subscription-block"
       id="subscription-block"
     >
-      <div class="flex items-center mb-1 p-3 stag">
-        <i class="bi bi-bell me-2"></i>
+      <div className="flex items-center mb-1 p-3 stag">
+        <i className="bi bi-bell me-2"></i>
        
       </div>
-      <div class="px-3">
-        <p>
+      <div className="px-3">
+        <p className="text-center text-[15px]">
           Subscribe for exclusive offers on your favorite jewellery
           designs, gold rate updates, & festive benefits from Tanishq!
         </p>
       </div>
       <form id="subscription-form">
-        <div class="input-group mb-2 px-3">
-          <div class="border p-1 px-3 rounded">
-            <i class="bi bi-person me-2"></i>
-            <input type="text" class="border-0" placeholder="Name" />
+        <div className="input-group mb-2 px-3">
+          <div className="border p-1 px-3 mt-3 rounded-lg">
+            <i className="bi bi-person me-2"></i>
+            <input type="text" className="border-0 !outline-none  !py-1 !my-2 rounded-2xl !bg-white" placeholder="Name" />
           </div>
-          <div class="border p-1 px-3 rounded ms-4">
-            <i class="bi bi-telephone me-2"></i>
+          <div className="border p-1 px-3 mt-4 rounded-lg ">
+            <i className="bi bi-telephone me-2"></i>
             <input
               type="tel"
-              class="border-0"
+              value={mno}  onChange={(e) => setmno(e.target.value)}
+              className="border-0  !py-1 !my-2 rounded-2xl bg-transparent"
               placeholder="Enter Mobile Number"
             />
           </div>
         </div>
-        <div class="flex px-3">
+        <div className="flex px-3">
           <button
-            type="submit"
-            id="subscribe-btn"
-            class="btn border-0 gap-1 rounded-pill flex justify-content-between items-center p-2"
+            type="button"
+            onClick={() => {
+              getUpdates()
+          }}
+            className="btn border-0 gap-1 rounded-pill flex justify-content-between items-center p-2"
           >
-            <span class="p-1">GET IN TOUCH</span>
-            <i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
+            <span className="p-1">GET IN TOUCH</span>
+            <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
           </button>
         </div>
       </form>
-    </div>
+    </div>}
 
    
-    <div
-      class="card border round shadow-sm hidden success-message"
+  {success.success&&  <div
+      className="card border round shadow-sm  success-message"
       id="success-message"
     >
-      <div class="flex items-center mb-1 p-3 stag">
-        <i class="bi bi-bell me-2"></i>
+      <div className="flex items-center mb-1 p-3 stag">
+        <i className="bi bi-bell me-2"></i>
        
       </div>
-      <div class="px-3">
+      <div className="px-3">
         <p>Yay! Thank You for Your Interest</p>
       </div>
-      <div class="input-group mb-2 px-3">
-        <div class="border p-1 px-3 rounded">
-          <i class="bi bi-telephone me-2"></i>
+      <div className="input-group mb-2 mt-4 rounded-lg  px-3">
+        <div className="border p-1 px-3 rounded">
+          <i className="bi bi-telephone me-2"></i>
           <input
             type="tel"
-            class="border-0 input-lg"
+            className="border-0  !py-1 !my-2 rounded-2xl bg-transparent"
             placeholder="Share your e-mail id (optional)"
           />
         </div>
       </div>
-      <div class="flex px-3">
+      <div className="flex px-3">
         <button
-          class="btn border-0 gap-1 rounded-pill flex justify-content-between items-center p-2"
+          className="btn border-0 gap-1 rounded-pill flex justify-content-between items-center p-2"
         >
-          <span class="p-1">SUBMIT DETAILS</span>
-          <i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
+          <span className="p-1">SUBMIT DETAILS</span>
+          <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
         </button>
       </div>
-    </div>
+    </div>}
   </div>
     
     
@@ -113,7 +116,7 @@ export default function Subscription(props) {
             <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[#803335] " onClick={() =>props.onClose()}>X</div>
         </div>}
     {success.visible == false ? <><div className="flex px-2 md:py-2 md:px-2 p-4 justify-center items-center">
-        <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
+        <div className="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
         <svg xmlns="http://www.w3.org/2000/svg" className='mx-3 mb-4' width="60" height="50" viewBox="0 0 60 50" fill="none">
             <path d="M34.9499 6C34.9843 5.76589 35.0011 5.52926 34.9999 5.29234C34.9999 3.88872 34.4732 2.5426 33.5355 1.55009C32.5978 0.557584 31.326 0 30 0C28.6739 0 27.4021 0.557584 26.4645 1.55009C25.5268 2.5426 25 3.88872 25 5.29234C25.0001 5.52927 25.0173 5.76585 25.0514 6L26.4643 5.76411C26.4403 5.60814 26.4284 5.45036 26.4286 5.29234C26.4286 4.28976 26.8048 3.32824 27.4746 2.6193C28.1444 1.91037 29.0528 1.5121 30 1.5121C30.9472 1.5121 31.8556 1.91037 32.5253 2.6193C33.1951 3.32824 33.5714 4.28976 33.5714 5.29234C33.5713 5.45029 33.5599 5.60801 33.5371 5.76411L34.9499 6Z" fill="black" />
             <path d="M28 4.94805V5L29.3333 4.94805C29.3333 4.77583 29.4036 4.61067 29.5286 4.48889C29.6536 4.36711 29.8232 4.2987 30 4.2987C30.0916 4.30048 30.1819 4.32022 30.2654 4.35676C30.349 4.39329 30.4241 4.44586 30.4864 4.51133C30.5486 4.57679 30.5967 4.65381 30.6276 4.73777C30.6586 4.82174 30.6719 4.91092 30.6667 5L32 4.94805C32 4.4314 31.7893 3.9359 31.4142 3.57057C31.0391 3.20524 30.5304 3 30 3C29.4696 3 28.9609 3.20524 28.5858 3.57057C28.2107 3.9359 28 4.4314 28 4.94805Z" fill="black" />
@@ -126,7 +129,7 @@ export default function Subscription(props) {
             <path d="M6.46611 13.5943C6.27751 13.4059 6.05362 13.2563 5.80724 13.1544C5.56085 13.0524 5.29678 12.9999 5.03012 13C4.76346 13.0001 4.49942 13.0526 4.25308 13.1547C4.00674 13.2568 3.78293 13.4064 3.59441 13.595C3.4059 13.7836 3.25638 14.0075 3.15439 14.2538C3.0524 14.5002 2.99994 14.7642 3 15.0309C3.00006 15.2975 3.05265 15.5615 3.15475 15.8078C3.25686 16.0541 3.40648 16.2779 3.59509 16.4664L5.5091 18.3802C5.69641 18.5741 5.92045 18.7288 6.16817 18.8352C6.41589 18.9416 6.68233 18.9976 6.95193 18.9999C7.22153 19.0023 7.48889 18.9509 7.73842 18.8488C7.98796 18.7467 8.21466 18.596 8.4053 18.4054C8.59594 18.2147 8.74671 17.9881 8.8488 17.7386C8.95089 17.4891 9.00227 17.2217 8.99992 16.9522C8.99758 16.6826 8.94157 16.4162 8.83516 16.1685C8.72874 15.9208 8.57406 15.6968 8.38013 15.5095L6.46611 13.5943ZM7.42312 17.4233C7.2942 17.5463 7.12284 17.615 6.94462 17.615C6.7664 17.615 6.59504 17.5463 6.46611 17.4233L4.5521 15.5095C4.48917 15.4467 4.43923 15.3721 4.40515 15.2899C4.37106 15.2078 4.35348 15.1198 4.35341 15.0309C4.35329 14.8513 4.42451 14.679 4.55142 14.5519C4.67833 14.4248 4.85052 14.3534 5.03012 14.3533C5.20972 14.3531 5.38202 14.4244 5.5091 14.5512L7.42312 16.4664C7.55 16.5933 7.62129 16.7654 7.62129 16.9449C7.62129 17.1243 7.55 17.2964 7.42312 17.4233Z" fill="#832729" />
             <path d="M0 24C0 24.5304 0.221249 25.0391 0.615075 25.4142C1.0089 25.7893 1.54305 26 2.1 26H4.9C5.45695 26 5.9911 25.7893 6.38492 25.4142C6.77875 25.0391 7 24.5304 7 24C7 23.4696 6.77875 22.9609 6.38492 22.5858C5.9911 22.2107 5.45695 22 4.9 22H2.1C1.54305 22 1.0089 22.2107 0.615075 22.5858C0.221249 22.9609 0 23.4696 0 24ZM5.6 24C5.6 24.1768 5.52625 24.3464 5.39498 24.4714C5.2637 24.5964 5.08565 24.6667 4.9 24.6667H2.1C1.91435 24.6667 1.7363 24.5964 1.60502 24.4714C1.47375 24.3464 1.4 24.1768 1.4 24C1.4 23.8232 1.47375 23.6536 1.60502 23.5286C1.7363 23.4036 1.91435 23.3333 2.1 23.3333H4.9C5.08565 23.3333 5.2637 23.4036 5.39498 23.5286C5.52625 23.6536 5.6 23.8232 5.6 24Z" fill="#832729" />
         </svg>
-        <div class="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
+        <div className="w-[40%] h-0.5 bg-neutral-700 rounded-md"></div>
     </div>
         <div className="flex justify-center items-center flex-col">
             <h2 className=' text-center text-red-900 text-[15px] md:text-[18px] mx-2  font-medium md:w-[90%]'>Subscribe for exclusive offers on your favorite jewellery designs, gold rate updates, and festive benefits from Tanishq!</h2>
