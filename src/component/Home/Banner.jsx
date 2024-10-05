@@ -9,6 +9,7 @@ import Envelope from './Review'
 export default function Banner({name}) {
     return <>
      <div className="flex flex-col w-[88%] mx-auto  justify-center af-bl">
+        
                     <div className=" flex flex-col mt-8  my-6 relative">
                         <img src={BannerImg} className="md:block hidden" alt="" />
                         {/* <img src={OfferBannerImg} className="md:block hidden" alt="" /> */}
