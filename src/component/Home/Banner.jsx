@@ -1,14 +1,14 @@
 import BannerImg from '../../assets/images/Banner/storeBanner.png'
 import MobileBanner from '../../assets/images/Banner/mobile-banner.png'
 import AISummary from './AISummary'
-// import Envelope from './Review'
+import Envelope from './Review'
 // import DiwaliBannerImg from '../../assets/images/Banner/diwaliStoreBanner.png'
 // import DiwaliMobileBanner from '../../assets/images/Banner/diwalimobileBanner.png'
 
 
 export default function Banner({name}) {
     return <>
-     <div className="flex flex-col w-[88%]  justify-center af-bl">
+     <div className="flex flex-col w-[88%] mx-auto  justify-center af-bl">
                     <div className=" flex flex-col mt-8  my-6 relative">
                         <img src={BannerImg} className="md:block hidden" alt="" />
                         {/* <img src={OfferBannerImg} className="md:block hidden" alt="" /> */}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { get } from "../services/apiHandler";
 import img from '../assets/images/successimage.jpg'
+import '../assets/css/storeCard.css'
 export default function Subscription(props) {
     const [progress, setProgress] = useState(false)
     const [success, setSuccess] = useState({ success: false, visible: false })
@@ -30,7 +31,84 @@ export default function Subscription(props) {
 
 
     }
-    return <>   {<div  className="box bg-[white] md:min-w-[500px] min-w-[90%] max-w-[90%] sm:min-w-[310px]  md:max-w-[500px] min-h-[370px] lg:max-h-[370px]  my-4 px-2 md:px-0 overflow-hidden rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
+    return <>    <div class="col storeCard md:max-w-[550px]">
+    <div
+      class="card border round shadow-sm subscription-block"
+      id="subscription-block"
+    >
+      <div class="flex items-center mb-1 p-3 stag">
+        <i class="bi bi-bell me-2"></i>
+       
+      </div>
+      <div class="px-3">
+        <p>
+          Subscribe for exclusive offers on your favorite jewellery
+          designs, gold rate updates, & festive benefits from Tanishq!
+        </p>
+      </div>
+      <form id="subscription-form">
+        <div class="input-group mb-2 px-3">
+          <div class="border p-1 px-3 rounded">
+            <i class="bi bi-person me-2"></i>
+            <input type="text" class="border-0" placeholder="Name" />
+          </div>
+          <div class="border p-1 px-3 rounded ms-4">
+            <i class="bi bi-telephone me-2"></i>
+            <input
+              type="tel"
+              class="border-0"
+              placeholder="Enter Mobile Number"
+            />
+          </div>
+        </div>
+        <div class="flex px-3">
+          <button
+            type="submit"
+            id="subscribe-btn"
+            class="btn border-0 gap-1 rounded-pill flex justify-content-between items-center p-2"
+          >
+            <span class="p-1">GET IN TOUCH</span>
+            <i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+   
+    <div
+      class="card border round shadow-sm hidden success-message"
+      id="success-message"
+    >
+      <div class="flex items-center mb-1 p-3 stag">
+        <i class="bi bi-bell me-2"></i>
+       
+      </div>
+      <div class="px-3">
+        <p>Yay! Thank You for Your Interest</p>
+      </div>
+      <div class="input-group mb-2 px-3">
+        <div class="border p-1 px-3 rounded">
+          <i class="bi bi-telephone me-2"></i>
+          <input
+            type="tel"
+            class="border-0 input-lg"
+            placeholder="Share your e-mail id (optional)"
+          />
+        </div>
+      </div>
+      <div class="flex px-3">
+        <button
+          class="btn border-0 gap-1 rounded-pill flex justify-content-between items-center p-2"
+        >
+          <span class="p-1">SUBMIT DETAILS</span>
+          <i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+    
+    
+    {/* {<div  className="box bg-[white] md:min-w-[500px] min-w-[90%] max-w-[90%] sm:min-w-[310px]  md:max-w-[500px] min-h-[370px] lg:max-h-[370px]  my-4 px-2 md:px-0 overflow-hidden rounded-[22px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
          {props.notClose&& <div className="relative">
             <div className=" absolute right-3 top-2 overflow-hidden  cursor-pointer font-[600] text-[#803335] " onClick={() =>props.onClose()}>X</div>
         </div>}
@@ -98,5 +176,7 @@ export default function Subscription(props) {
         </div>}
 
     </>
-    }</div>}</>
+    }</div>} */}
+    
+    </>
 }

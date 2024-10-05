@@ -256,7 +256,8 @@ export default function CityPage() {
                 <div className="flex justify-center w-full">
                     <h2 className="text-[20px] w-fit border-b-[3px] border-[#832729] pb-2 leading-10  font-[700] text-center text-[#832729] mb-2">Tanishq Stores in {id || "NearBy Search"}</h2>
                 </div>
-                <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  "> 
+                <div class="row grid-rows-1 grid md:grid-cols-2 gap-4">
+                {/* <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  ">  */}
 
                     {data.map((data, i) => {
                         return <>

@@ -2,6 +2,7 @@ import AIBook from '../../assets/images/AISummary/AIText.png'
 import AIStar from '../../assets/images/AISummary/aiStar.png'
 import AILook from '../../assets/images/AISummary/AIlook.png'
 import AIshuffle from '../../assets/images/AISummary/shuffle.png'
+import thumb from '../../assets/images/like-thumb.png'
 import { get } from '../../services/apiHandler'
 import { useEffect, useState } from 'react'
 
@@ -9,7 +10,11 @@ import { useEffect, useState } from 'react'
 
 export default function AISummary() {
     const [SummarizedData,setSummarized]=useState()
+    const BookAppointment = () => {
+      const newWindow = window.open('https://www.tanishq.co.in/book-an-appointment', '_blank', 'noopener,noreferrer');
+      if (newWindow) newWindow.opener = null;
 
+  }
     const getAISummaryDetails=async()=>{
         try {
             setSummarized()
@@ -27,7 +32,8 @@ export default function AISummary() {
         getAISummaryDetails()
     },[])
     return <>
-        {SummarizedData?<div className="w-full relative my-5 bg-white sequreShadow rounded-2xl pb-5">
+        {SummarizedData?
+        <div className='my-5 md:mb-10'><div className="w-full relative  bg-white sequreShadow rounded-2xl pb-5">
             <div className="header w-full flex-wrap flex items-center gap-3  liteLimeBg md:px-10 md:py-5">
                 <div className='flex gap-x-3'>
                 <img src={AIBook} className='w-[30px]' alt="" />
@@ -69,13 +75,17 @@ export default function AISummary() {
                 <p className='md:text-[#300708] text-[#56544E] text-[15px] md:text-[18px]'>{SummarizedData.reviewText}</p>
             </div>
             <div className='mt-5'>
-                <p className='text-[#56544E] font-normal md:text-[18px] text-[14px]'>Smartly summarized from over lakhs of customer reviews at stores. <span className='text-[#56544E] font-bold underline'>Book An Appointment</span> at your nearest store. </p>
+                <p className='text-[#56544E] font-normal md:text-[18px] text-[14px]'>Smartly summarized from over lakhs of customer reviews at stores. <span onClick={BookAppointment} className='text-[#56544E] cursor-pointer font-bold underline'>Book An Appointment</span> at your nearest store. </p>
             </div>
             </div>
             <div className="absolute md:bottom-10 bottom-0 right-8">
                 <img src={AIshuffle} onClick={getAISummaryDetails} className='w-[30px] cursor-pointer' alt="" />
             </div>
-        </div>:<div className="w-full relative my-5 bg-gray-100 animate-pulse rounded-2xl  pb-5">
+        </div>
+        <p className='text-[14px] ml-10 mt-5 flex gap-x-5 items-center text-[#56544E]'>Is this review snippet helpful?
+          <div className="flex gap-x-2"> <img src={thumb} className='w-[20px] hover:animate-bounce cursor-pointer' alt="" />  <img src={thumb} className='w-[20px] cursor-pointer rotate-180' alt="" /></div>
+        <span className='text-[#56544ebf]'>10028 people found this helpful</span>
+        </p></div>:<div className="w-full relative my-5 bg-gray-100  animate-pulse rounded-2xl  pb-5">
   <div className="header w-full flex-wrap flex items-center gap-3 bg-gray-300 md:px-10 md:py-5 px-3 py-2 rounded-md">
     <div className="flex gap-x-3">
       <div className="w-[30px] h-[30px] bg-gray-200 rounded-full"></div>

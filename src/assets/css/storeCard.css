@@ -1,0 +1,195 @@
+.storeCard *{
+   
+    font-family: "Fraunces", serif !important;
+  }
+  
+  nav {
+    padding: 15px;
+  }
+  
+  .ser {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px 10px;
+    outline: none;
+  }
+  
+  input[type="search"],
+  input[type="tel"] {
+    border: none;
+    padding: 3px;
+    outline: none;
+  }
+  
+  .nav-icons i {
+    margin: 0 10px;
+    color: #490a0c;
+    cursor: pointer;
+  }
+  
+  .icons i {
+    margin: 0 5px;
+    color: #490a0c;
+    cursor: pointer;
+  }
+  
+  .navbar-logo img {
+    max-height: 50px;
+  }
+  
+  .headings {
+    color: #832729;
+    border-bottom: 1px solid #832729;
+  }
+  
+  .btn {
+    backdrop-filter: blur(24px);
+    background: linear-gradient(
+      90deg,
+      rgba(131, 39, 41, 0.6) 0%,
+      rgba(99, 21, 23, 0.6) 100%
+    );
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #fff;
+    height: 48px;
+    border-radius: 50rem;
+    margin-bottom: 16px;
+  }
+  
+  .btn span {
+    padding-left: 18px !important;
+  }
+  
+  .ic-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50rem;
+    box-shadow: inset 16px 16px 16px 4px rgba(99, 21, 23, 0.31),
+      inset -1px -1px 4px 0 #a76767;
+    background: #a76767;
+  }
+  
+  .btn:hover {
+    backdrop-filter: blur(24px);
+    background: linear-gradient(90deg, #832729 0%, #631517 100%);
+    color: #fff;
+  }
+  
+  .btn:hover .ic-btn {
+    box-shadow: inset 16px 16px 16px 4px rgba(73, 10, 12, 0.57),
+      inset -1px -1px 4px 0 rgba(131, 39, 40, 0.6);
+    background: #832729;
+  }
+  
+  /* Store Section */
+  .stores {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .stag {
+    color: #85591c;
+    background: linear-gradient(0deg, #ffffff, #f9f2e5);
+  }
+  .stage i {
+    height: 18px;
+  }
+  
+  .stag p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+    color: #85591c;
+  }
+  
+  .status {
+    color: #85591c;
+    font-weight: 500;
+  }
+  
+  .addre {
+    font-family: sans-serif;
+  }
+  
+  .round {
+    border-radius: 10px;
+  }
+  
+  /* Add smooth transitions */
+  .subscription-block,
+  .success-message {
+    transition: opacity 0.5s ease-in-out, height 0.5s ease-in-out;
+    opacity: 1;
+    height: auto;
+  }
+  
+  /* Hide the elements smoothly */
+  .fade-out {
+    opacity: 0;
+    height: 0;
+    overflow: hidden; /* Ensure smooth collapse of height */
+  }
+  
+  .fade-in {
+    opacity: 1;
+    height: auto;
+  }
+  
+  .col {
+    width: 100%;
+  }
+  
+  .card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  .custom-flex {
+    display: flex;
+    gap: 0.5rem; /* Replace with desired gap */
+    margin-top: 0.25rem; /* Replace with desired margin-top */
+    padding-left: 1rem; /* Replace with desired padding-left */
+    padding-right: 1rem; /* Replace with desired padding-right */
+}
+
+.custom-button {
+    border: none;
+    border-radius: 50px; /* Rounded pill */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem; /* Replace with desired padding */
+}
+
+.custom-span {
+    padding: 0.25rem; /* Replace with desired padding */
+}
+
+.custom-icon {
+    font-size: 1rem; /* Adjust icon size */
+    padding: 0.5rem; /* Replace with desired padding */
+    border-radius: 50%; /* Rounded circle */
+    /* Add icon background or color if needed */
+}
+  
+  
+  
+  
+  
+ 
+  
+ 
+  
+  .text-muted {
+    color: #6c757d;
+  }
+  
