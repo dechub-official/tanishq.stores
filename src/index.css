@@ -36,7 +36,7 @@
 
 /* Define background gradients */
 .tanishqAIBg {
-  background-image: linear-gradient(90deg, rgba(216,70,88,1) 0%, rgba(114,37,46,1) 100%);
+  background-image: linear-gradient(90deg, #72252E 0%, #D84658 100%);
 }
 @media (min-width: 768px) {
 .liteLimeBg {

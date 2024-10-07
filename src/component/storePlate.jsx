@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./button";
 import ReactGA from 'react-ga4'
 import { useNavigate } from "react-router-dom";
@@ -15,6 +15,90 @@ export default function StorePlate({ data }) {
         if (newWindow) newWindow.opener = null;
 
     }
+    const normalizeTimeString = (timeStr) => {
+      // Replace dots with colons, and normalize to hh:mm:ss AM/PM format
+      timeStr = timeStr.replace(/\./g, ":");
+
+      // Check if it's in 12-hour or 24-hour format
+      const hasAmPm = timeStr.match(/(AM|PM)$/i);
+
+      if (!hasAmPm) {
+        // If no AM/PM, assume 24-hour format
+        if (!timeStr.includes(":")) {
+          timeStr += ":00:00"; // Assume only hours were provided, e.g. "22" -> "22:00:00"
+        } else if (timeStr.split(":").length === 2) {
+          timeStr += ":00"; // Add seconds if missing
+        }
+        return timeStr; // Already 24-hour format
+      }
+
+      // If AM/PM format is present, add missing parts
+      const timeParts = timeStr.split(" ");
+      let timePart = timeParts[0];
+
+      if (timePart.split(":").length === 1) {
+        timePart += ":00:00"; // If only hours are provided (e.g. "10 AM")
+      } else if (timePart.split(":").length === 2) {
+        timePart += ":00"; // If hours and minutes are provided but no seconds
+      }
+
+      return timePart + " " + timeParts[1]; // Return normalized 12-hour format
+    };
+
+    const convertTime12to24 = (time12h) => {
+      // Parse the time string: "hh:mm:ss AM/PM"
+      const [time, modifier] = time12h.split(" ");
+
+      let [hours, minutes, seconds] = time.split(":").map(Number);
+
+      // Convert 12-hour format to 24-hour format
+      if (modifier === "PM" && hours !== 12) {
+        hours += 12;
+      }
+      if (modifier === "AM" && hours === 12) {
+        hours = 0;
+      }
+
+      return { hours, minutes, seconds };
+    };
+
+    const checkTime = (timeString) => {
+      // Get the current time
+      const currentTime = new Date();
+
+      // Normalize the dynamic time string
+      const normalizedTimeString = normalizeTimeString(timeString);
+      // console.log("normalizedTimeString",normalizedTimeString);
+      
+
+      let comparisonTime;
+      if (normalizedTimeString.includes("AM") || normalizedTimeString.includes("PM")) {
+        // If the time is in 12-hour format
+        const { hours, minutes, seconds } = convertTime12to24(normalizedTimeString);
+        comparisonTime = new Date();
+        comparisonTime.setHours(hours, minutes, seconds, 0);
+      } else {
+        // If the time is in 24-hour format
+        const [hours, minutes, seconds] = normalizedTimeString.split(":").map(Number);
+        comparisonTime = new Date();
+        comparisonTime.setHours(hours, minutes || 0, seconds || 0, 0);
+      }
+
+      // Compare current time with the dynamic time
+      console.log(comparisonTime);
+      
+      if (currentTime < comparisonTime) {
+        return true
+      } else {
+       return false
+      }
+    };
+
+
+    // useEffect(()=>{
+    //   console.log(checkTime());
+      
+    // },[])
     const handleAppPopup = () => {
 
         window.location.href = window.location.origin + window.location.pathname + "#bookAnAppointment"
@@ -31,8 +115,8 @@ export default function StorePlate({ data }) {
               <span class="stores mb-2"
                 >{`Tanishq Jewellery - ${data.storeName}`}</span>
               <span class="addre md:min-h-[50px]">{data.storeAddress}</span>
-              <p class="text-[#6c757d] addre">
-                <span class="status">Open Now</span> closes {data.storeClosingTime?.replace(/.\d{2}\s/, ' ')}
+              <p class="text-[#6c757d] md:mt-0 mt-4 addre">
+                <span class="status"> {checkTime(data.storeClosingTime?.replace(/.\d{2}\s/, ' '))?<>Open Now <span className="text-[#56544E]">closes  {data.storeClosingTime?.replace(/.\d{2}\s/, ' ')}</span></>: <><span className="text-[#56544E]">Closed now </span> Open at {data.storeOpeningTime?.replace(/.\d{2}\s/, ' ')}</>}</span> 
               </p>
             </div>
             <div class="flex gap-2 mt-8 px-1 md:px-3">

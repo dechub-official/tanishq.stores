@@ -19,7 +19,7 @@ export default function FAQ(props) {
       <div className="flex justify-center items-start my-2">
         <div className="w-full sm:w-10/12 md:w-1/2 my-1 ">
        <div className="flex justify-center w-full">
-          <h2 className="text-[20px] w-fit border-b-[3px] border-[#832729] pb-2 leading-10  font-[700] text-center text-[#832729] mb-2">Frequently Asked Questions</h2>
+          <h2 className="text-[20px] w-fit border-b-[3px] border-[#832729] pb-2 leading-10  font-semibold font-fraunces  text-center text-[#832729] mb-2">Frequently Asked Questions</h2>
           </div>
           <ul className="flex flex-col">
            {props.data?.map((data,i)=>{

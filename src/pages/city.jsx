@@ -322,7 +322,7 @@ export default function CityPage() {
         {/* shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-[1px] border-[#CBC9C9;]*/}
         <div className="flex flex-wrap  justify-around items-start w-full">
           <div className="flex justify-center w-full">
-            <h2 className="underline text-[35px] w-fit pb-2 leading-10  text-center text-[#832729] font-[600] font-fraunces mb-2">
+            <h2 className="underline md:text-[35px] text-[21px] w-fit pb-2 leading-10  text-center text-[#832729] font-[600] font-fraunces mb-2">
               Tanishq Stores in {id || "NearBy Search"}
             </h2>
           </div>

@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function AISummary() {
   const [SummarizedData, setSummarized] = useState();
+  const [like, setLike] = useState(0);
   const BookAppointment = () => {
     const newWindow = window.open(
       "https://www.tanishq.co.in/book-an-appointment",
@@ -26,9 +27,17 @@ export default function AISummary() {
       setSummarized({ ...data.data, reviewHighlight: highlight });
     } catch (error) {}
   };
+  const handleLike=()=>{
+    if(localStorage.getItem("isLiked")){
+      return
+    }
+    setLike(like+1)
+    localStorage.setItem("isLiked",true)
+  }
   useEffect(() => {
+    if(SummarizedData)return
     getAISummaryDetails();
-  }, []);
+  }, [SummarizedData]);
   return (
     <>
       {SummarizedData ? (
@@ -37,19 +46,19 @@ export default function AISummary() {
             <div className="header w-full flex-wrap flex items-center gap-3  liteLimeBg md:px-10 md:py-5">
               <div className="flex gap-x-3">
                 <img src={AIBook} className="w-[30px]" alt="" />
-                <div className="box px-3 py-3 gap-x-2 flex tanishqAIBg rounded-xl">
+                <div className="box px-3 py-3 gap-x-2 flex tanishqAIBg items-center rounded-xl">
                   <img src={AILook} className="w-[15px]" alt="" />
-                  <p className="text-white md:text-[14px] text-[12px]  font-normal uppercase">
-                    Introducing tanishq ai
+                  <p className="text-white md:text-[11px] text-[12px]  font-[700] uppercase">
+                  Introducing Echoes
                   </p>
                 </div>
               </div>
               <div>
-                <p className="text-[#832729] text-[18px] font-bold ">
-                  Review Summary -
-                  <span className="text-[#2B2A26] font-normal">
+                <p className="text-[black] font-fraunces text-[18px] font-[500] ">
+                Powered by Tanishq AI -
+                  <span className="text-[#56544E] font-normal">
                     {" "}
-                    What our customers say across the nation!
+                     Customer voices across India, summarised!
                   </span>
                 </p>
               </div>
@@ -79,17 +88,17 @@ export default function AISummary() {
                   {SummarizedData.reviewText}
                 </p>
               </div>
-              <div className="mt-5">
+              <div className="my-5">
                 <p className="text-[#56544E] font-light md:text-[17px] text-[14px]">
-                  Smartly summarized from over lakhs of customer reviews at
-                  stores.{" "}
+                  Smartly summarized from over lakhs of customer reviews.  &nbsp;
+                  
                   <span
                     onClick={BookAppointment}
                     className="text-[#56544E] cursor-pointer font-bold underline"
                   >
-                    Book An Appointment
+                   Book An Appointment
                   </span>{" "}
-                  at your nearest store.{" "}
+                   nearest store.{" "}
                 </p>
               </div>
             </div>
@@ -102,25 +111,22 @@ export default function AISummary() {
               />
             </div>
           </div>
-          <p className="text-[14px] ml-10 mt-5 flex gap-x-2 items-center text-[#56544E]">
+          {/* <p className="text-[14px] ml-10 mt-5 flex gap-x-2 items-center text-[#56544E]">
             Is this review snippet helpful?
             <div className="flex gap-x-2">
               {" "}
               <img
                 src={thumb}
+                onClick={()=>handleLike()}
                 className="w-[20px] hover:animate-bounce cursor-pointer"
                 alt=""
               />{" "}
-              {/* <img
-                src={thumb}
-                className="w-[20px] cursor-pointer rotate-180"
-                alt=""
-              /> */}
+             
             </div>
             <span className="text-[#56544ebf]">
-              10028 people found this helpful
+              {like} people found this helpful
             </span>
-          </p>
+          </p> */}
         </div>
       ) : (
         <div className="w-full relative my-5 bg-gray-100  animate-pulse rounded-2xl  pb-5">

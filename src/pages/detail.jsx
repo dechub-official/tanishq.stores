@@ -395,10 +395,10 @@ export default function Detailed() {
 
                 <Banner name={storeDetail.storeName}/>
                 <div className="md:block hidden">
-                <Heading heading={<>Shop from <span className="text-[#832729]">{storeDetail.storeName}</span></>}></Heading>
+                <Heading heading={<>Shop from <span className="text-[#832729] font-fraunces">{storeDetail.storeName}</span></>}></Heading>
                 </div>
                 <div className="md:hidden block">
-                <Heading heading={<> <span className="text-[14px]">Shop from </span> <br /><span className="text-[#832729]">{storeDetail.storeName}</span></>}></Heading>
+                <Heading heading={<> <span className="text-[14px] font-fraunces">Shop from </span> <br /><span className="text-[#832729] font-fraunces">{storeDetail.storeName}</span></>}></Heading>
                 </div>
                 <div className="flex flex-col  items-center">
                     <div className="md:flex hidden justify-around lg:w-[45%] max-w-[500px] w-full mb-4">
@@ -546,7 +546,7 @@ export default function Detailed() {
 
                             </div>
                             {NearByStore.length>1&&<div className="my-4 md:w-[85%] w-[90%] shadow-[rgba(0,0,0,0.24)_0px_3px_8px] rounded-[17px] md:px-8 px-5 py-5 max-h-[500px]  overflow-y-auto">
-                                <h1 className="text-[#832729] font-[700] underline text-[18px]  ">Other Tanishq Stores Nearby  </h1>
+                                <h1 className="text-[#832729] font-[700] underline text-[18px]  font-fraunces">Other Tanishq Stores Nearby  </h1>
                                 <div className=" flex flex-wrap justify-center gap-4">
                                     {NearByStore.map((data,i) => {
                                        
