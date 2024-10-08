@@ -161,7 +161,7 @@ export default function Subscription(props) {
               <div className="border flex items-center p-1 px-3 rounded">
                 <i className="bi bi-envelope me-2"></i>
                 <input
-                  type="tel"
+                  type="email"
                   className="border-0  !py-1 w-full rounded-2xl bg-transparent"
                   placeholder="Share your e-mail id (optional)"
                   onChange={(e) => setEmail(e.target.value)}
