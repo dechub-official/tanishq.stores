@@ -98,7 +98,7 @@ export default function AISummary() {
                   >
                    Book An Appointment
                   </span>{" "}
-                   nearest store.{" "}
+                 at your nearest store.{" "}
                 </p>
               </div>
             </div>
