@@ -1,7 +1,7 @@
 import AIBook from "../../assets/images/AISummary/AIText.png";
 import AIStar from "../../assets/images/AISummary/aiStar.png";
 import AILook from "../../assets/images/AISummary/AIlook.png";
-import AIshuffle from "../../assets/images/AISummary/shuffle.png";
+import AIshuffle from "../../assets/images/AISummary/loader.svg";
 import thumb from "../../assets/images/like-thumb.png";
 import { get } from "../../services/apiHandler";
 import { useEffect, useState } from "react";
@@ -27,15 +27,15 @@ export default function AISummary() {
       setSummarized({ ...data.data, reviewHighlight: highlight });
     } catch (error) {}
   };
-  const handleLike=()=>{
-    if(localStorage.getItem("isLiked")){
-      return
+  const handleLike = () => {
+    if (localStorage.getItem("isLiked")) {
+      return;
     }
-    setLike(like+1)
-    localStorage.setItem("isLiked",true)
-  }
+    setLike(like + 1);
+    localStorage.setItem("isLiked", true);
+  };
   useEffect(() => {
-    if(SummarizedData)return
+    if (SummarizedData) return;
     getAISummaryDetails();
   }, [SummarizedData]);
   return (
@@ -43,22 +43,22 @@ export default function AISummary() {
       {SummarizedData ? (
         <div className="my-5 md:mb-10">
           <div className="w-full relative p-4 bg-white sequreShadow rounded-2xl pb-7 md:pb-5">
-            <div className="header w-full flex-wrap flex items-center gap-3  liteLimeBg md:px-10 md:py-5">
+            <div className="header w-full flex-wrap flex items-center gap-3 md:px-10 md:py-5">
               <div className="flex gap-x-3">
                 <img src={AIBook} className="w-[30px]" alt="" />
                 <div className="box px-3 py-3 gap-x-2 flex tanishqAIBg items-center rounded-xl">
                   <img src={AILook} className="w-[15px]" alt="" />
                   <p className="text-white md:text-[11px] text-[12px]  font-[700] uppercase">
-                  Introducing Echoes
+                    Introducing Echoes
                   </p>
                 </div>
               </div>
               <div>
                 <p className="text-[black] font-fraunces text-[18px] font-[500] ">
-                Powered by Tanishq AI -
+                  Powered by Tanishq AI -
                   <span className="text-[#56544E] font-normal">
                     {" "}
-                     Customer voices across India, summarised!
+                    Customer voices across India, summarised!
                   </span>
                 </p>
               </div>
@@ -90,15 +90,14 @@ export default function AISummary() {
               </div>
               <div className="my-5">
                 <p className="text-[#56544E] font-light md:text-[17px] text-[14px]">
-                  Smartly summarized from over lakhs of customer reviews.  &nbsp;
-                  
+                  Smartly summarized from over lakhs of customer reviews. &nbsp;
                   <span
                     onClick={BookAppointment}
                     className="text-[#56544E] cursor-pointer font-bold underline"
                   >
-                   Book An Appointment
+                    Book An Appointment
                   </span>{" "}
-                 at your nearest store.{" "}
+                  at your nearest store.{" "}
                 </p>
               </div>
             </div>
@@ -106,7 +105,7 @@ export default function AISummary() {
               <img
                 src={AIshuffle}
                 onClick={getAISummaryDetails}
-                className="w-[30px] cursor-pointer"
+                className="w-[18px] cursor-pointer"
                 alt=""
               />
             </div>

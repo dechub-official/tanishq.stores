@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;0,700;1,300&family=Nunito:wght@200;300;500;600;700&family=Open+Sans:wght@300;500;600;700&family=Sacramento&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;0,700;1,300&family=Nunito:wght@200;300;500;600;700&family=Open+Sans:wght@300;500;600;700&family=Sacramento&display=swap");
 
-
-*{
+* {
   /* font-family: 'Montserrat', sans-serif; */
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   /* font-family: 'Open Sans', sans-serif;
   font-family: 'Sacramento', cursive; */
 }
@@ -30,23 +29,27 @@
   height: 100%;
   /* object-fit: cover; */
 }
-.txtc{
+.txtc {
   color: #832729 !important;
 }
 
 /* Define background gradients */
 .tanishqAIBg {
-  background-image: linear-gradient(90deg, #72252E 0%, #D84658 100%);
+  background-image: linear-gradient(90deg, #72252e 0%, #d84658 100%);
 }
 @media (min-width: 768px) {
-.liteLimeBg {
-  background: rgb(249,242,229);
-  background: linear-gradient(183deg, rgba(249,242,229,1) 21%, rgba(249, 242, 229, 0.255) 57%);
-}
+  .liteLimeBg {
+    background: rgb(249, 242, 229);
+    background: linear-gradient(
+      183deg,
+      rgba(249, 242, 229, 1) 21%,
+      rgba(249, 242, 229, 0.255) 57%
+    );
+  }
 
-/* Define box shadow */
-
+  /* Define box shadow */
 }
 .sequreShadow {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background: linear-gradient(360deg, rgba(249, 242, 229, 0) 60%, #f9f2e5 100%);
 }
