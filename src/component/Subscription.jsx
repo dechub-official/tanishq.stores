@@ -92,7 +92,7 @@ export default function Subscription(props) {
                     <i className="bi bi-person me-2"></i>
                     <input
                       type="text"
-                      className="border-0 !outline-none  !py-1 w-full !bg-white"
+                      className="border-0 outline-0  !py-1 w-full !bg-white"
                       placeholder="Name"
                       onChange={(e) => setName(e.target.value)}
                     />
@@ -108,7 +108,7 @@ export default function Subscription(props) {
                     type="tel"
                     value={mno}
                     onChange={(e) => setmno(e.target.value)}
-                    className="border-0  !py-1 w-full  !bg-transparent"
+                    className="border-0  outline-0  !py-1 w-full  !bg-transparent"
                     placeholder="Enter Mobile Number"
                   />
                  
@@ -162,7 +162,7 @@ export default function Subscription(props) {
                 <i className="bi bi-envelope me-2"></i>
                 <input
                   type="email"
-                  className="border-0  !py-1 w-full rounded-2xl bg-transparent"
+                  className="border-0  !py-1 w-full outline-0 bg-transparent"
                   placeholder="Share your e-mail id (optional)"
                   onChange={(e) => setEmail(e.target.value)}
                 />
