@@ -90,7 +90,7 @@ export default function AISummary() {
               </div>
               <div className="my-5">
                 <p className="text-[#56544E] font-light md:text-[17px] text-[14px]">
-                  Smartly summarized from over lakhs of customer reviews. &nbsp;
+                Smartly summarized from millions of customer reviews. &nbsp;
                   <span
                     onClick={BookAppointment}
                     className="text-[#56544E] cursor-pointer font-bold underline"
