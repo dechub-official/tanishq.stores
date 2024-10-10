@@ -21,18 +21,23 @@ export default function AISummary() {
     try {
       setSummarized();
       const data = await get("/reviews");
+      const likes = await get("/getLikeCount");
       console.log(data);
-      const review = data.data;
+      const likeCount = likes.data.result;
+      setLike(likeCount)
       const highlight = data.data?.reviewHighlight.split(",");
       setSummarized({ ...data.data, reviewHighlight: highlight });
     } catch (error) {}
   };
-  const handleLike = () => {
+  const handleLike = async (id) => {
     if (localStorage.getItem("isLiked")) {
       return;
     }
     setLike(like + 1);
     localStorage.setItem("isLiked", true);
+    await get("/increaseLikeCount")
+   
+    
   };
   useEffect(() => {
     if (SummarizedData) return;
@@ -110,14 +115,16 @@ export default function AISummary() {
               />
             </div>
           </div>
-          {/* <p className="text-[14px] ml-10 mt-5 flex gap-x-2 items-center text-[#56544E]">
-            Is this review snippet helpful?
-            <div className="flex gap-x-2">
+          <p className="text-[14px] md:ml-10 ml-2 mt-5 flex flex-wrap gap-x-2 items-center text-[#56544E]">
+           <p> Is this review snippet helpful?</p>
+           <div className="flex gap-x-2 md:mt-0 mt-2">
+            <div className="flex flex-wrap gap-x-2">
+           
               {" "}
               <img
                 src={thumb}
                 onClick={()=>handleLike()}
-                className="w-[20px] hover:animate-bounce cursor-pointer"
+                className="w-[20px]  hover:animate-bounce cursor-pointer"
                 alt=""
               />{" "}
              
@@ -125,7 +132,8 @@ export default function AISummary() {
             <span className="text-[#56544ebf]">
               {like} people found this helpful
             </span>
-          </p> */}
+            </div>
+          </p>
         </div>
       ) : (
         <div className="w-full relative my-5 bg-gray-100  animate-pulse rounded-2xl  pb-5">

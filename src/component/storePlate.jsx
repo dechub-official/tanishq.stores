@@ -106,7 +106,7 @@ export default function StorePlate({ data }) {
     }
     return (
             <>
-               <div class="col storeCard md:max-w-[550px]"> <div class="card border rounded-xl shadow-sm">
+               <div  onClick={() => Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)} class="col storeCard md:max-w-[550px]"> <div class="card border rounded-xl shadow-sm">
             <div class="flex items-center stag p-3 mb-2">
               <i class="bi bi-shop me-2"></i>
               <p class="mb-0"></p>
