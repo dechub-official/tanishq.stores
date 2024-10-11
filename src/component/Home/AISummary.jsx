@@ -38,6 +38,7 @@ export default function AISummary() {
     await get("/increaseLikeCount")
    
     
+    
   };
   useEffect(() => {
     if (SummarizedData) return;
