@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function AISummary() {
   const [SummarizedData, setSummarized] = useState();
-  const [like, setLike] = useState(0);
+  const [like, setLike] = useState(1000);
   const BookAppointment = () => {
     const newWindow = window.open(
       "https://www.tanishq.co.in/book-an-appointment",
@@ -124,7 +124,7 @@ export default function AISummary() {
               <img
                 src={thumb}
                 onClick={()=>handleLike()}
-                className="w-[20px]  hover:animate-bounce cursor-pointer"
+                className="w-[20px]   cursor-pointer"
                 alt=""
               />{" "}
              
