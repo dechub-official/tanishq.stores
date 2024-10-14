@@ -6,7 +6,7 @@ import PopularCityDetail from "../assets/popularCities/data";
 import Marquee from "../component/Home/marquee";
 import LatestCollection from "../component/Home/latestCollection";
 import cl3 from '../assets/images/latestCollection/glam.jpg'
-import cl1 from '../assets/images/latestCollection/fod.png'
+import cl1 from '../assets/images/latestCollection/storecard.jpg'
 import cl2 from '../assets/images/latestCollection/image3.png'
 import banner_img from '../assets/images/Banner/goldexchange-desktop.jpg'
 import mobbanner_img from '../assets/images/Banner/goldexchange-mobile.jpg'
@@ -138,7 +138,7 @@ export default function Home() {
                     >
 {/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
 {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
-                        {[{ img: cl1, link: 'https://www.tanishq.co.in/diamonds' },{ img: cl3, link: 'https://www.tanishq.co.in/exchange' },{ img: cl2, link: 'http://www.tanishq.co.in/dailywear' },{ img: cl3, link: 'https://www.tanishq.co.in/exchange' } ].map((data, i) => {
+                        {[{ img: cl1, link: 'https://www.tanishq.co.in/gold.html?v=60' },{ img: cl3, link: 'https://www.tanishq.co.in/exchange' },{ img: cl2, link: 'http://www.tanishq.co.in/dailywear' },{ img: cl3, link: 'https://www.tanishq.co.in/exchange' } ].map((data, i) => {
                             if ((i == 3 && window.screen.width > 767)) return
                             return <SwiperSlide  >  <LatestCollection key={i} img={data.img} link={data.link} name={"mumbai"} /> </SwiperSlide>
                         })}
