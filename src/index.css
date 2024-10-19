@@ -53,3 +53,85 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background: linear-gradient(360deg, rgba(249, 242, 229, 0) 60%, #f9f2e5 100%);
 }
+
+.gradient__title {
+  background: #bd7f2a;
+  background-image: -webkit-linear-gradient(to right, #bd7f2a, #85591c);
+  background-image: linear-gradient(to right, #bd7f2a, #85591c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.explore__btn {
+  backdrop-filter: blur(24px);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 39, 41, 0.6) 0%,
+    rgba(99, 21, 23, 0.6) 100%
+  );
+  height: 4.62rem;
+  transition: all 0.3s ease-in-out;
+  padding-right: 1rem !important;
+}
+.explore__btn .icon {
+  background-color: #a76767;
+  box-shadow: inset 16px 16px 16px 4px rgba(99, 21, 23, 0.31),
+    inset -1px -1px 4px 0 #a76767;
+  background: #a76767;
+  width: 2.62rem;
+  height: 2.62rem;
+  transition: all 0.3s ease-in-out;
+}
+.explore__btn:hover,
+.explore__btn:focus,
+.explore__btn:active {
+  background: linear-gradient(90deg, #832729 0%, #631517 100%);
+}
+.explore__btn:hover .icon,
+.explore__btn:focus .icon,
+.explore__btn:active .icon {
+  background-color: #832729;
+  -webkit-box-shadow: inset -1px -1px 4px 0px rgba(131, 39, 40, 0.67),
+    inset 16px 16px 15px 4px rgba(73, 10, 12, 0.57);
+  -moz-box-shadow: inset -1px -1px 4px 0px rgba(131, 39, 40, 0.67),
+    inset 16px 16px 15px 4px rgba(73, 10, 12, 0.57);
+  box-shadow: inset -1px -1px 4px 0px rgba(131, 39, 40, 0.67),
+    inset 16px 16px 15px 4px rgba(73, 10, 12, 0.57);
+}
+.explore__btn.outline {
+  background: transparent;
+  color: var(--dark);
+  border: 1px solid #832729 !important;
+}
+.explore__btn.outline .icon {
+  background: transparent;
+  box-shadow: none;
+}
+.explore__btn.outline .icon svg path {
+  stroke: var(--dark);
+}
+.explore__btn.outline:hover {
+  backdrop-filter: blur(24px);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 39, 41, 0.6) 0%,
+    rgba(99, 21, 23, 0.6) 100%
+  );
+}
+.explore__btn.outline:hover .icon {
+  background-color: #a76767;
+  box-shadow: inset 16px 16px 16px 4px rgba(99, 21, 23, 0.31),
+    inset -1px -1px 4px 0 #a76767;
+  background: #a76767;
+}
+
+@media (max-width: 767px) {
+  .explore__btn {
+    height: 3rem;
+    padding-right: 0.75rem !important;
+  }
+  .explore__btn .icon {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
