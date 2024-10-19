@@ -131,7 +131,7 @@ export default function Prebook() {
 
           <div className="text-center mt-8">
             <a
-              href="#"
+              href="https://www.tanishq.co.in/shop/diwali-jewellery?lang=en_IN"
               class="inline-flex pl-8 items-center gap-3 explore__btn font-fraunces small font-semibold rounded-full px-4 border-0 text-lg lg:text-xl text-white"
             >
               <span className="fraunces">Shop Now</span>
