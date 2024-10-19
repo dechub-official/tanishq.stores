@@ -4,14 +4,64 @@ import img3 from '../../assets/images/marquee/3.png'
 import img4 from '../../assets/images/marquee/4.png'
 import img5 from '../../assets/images/marquee/5.png'
 // import img6 from '../../assets/images/marquee/6.png'
+import karatmeter from '../../assets/images/karatmeter.png'
+import trust from '../../assets/images/trust.png'
+import checkout from '../../assets/images/checkout.png'
+import mobile from '../../assets/images/mobile.png'
+import exchange from '../../assets/images/exchange.png'
+
+const data = [
+  {
+    img: exchange,
+    title: "Easy Exchange",
+    desc: 'Exchange old gold for new jewellery at Tanishq with 100% value. Visit stores now.'
+  },
+  {
+    img: karatmeter,
+    title: "karatmeter",
+    desc: 'The Karatmeter quickly tests your gold purity in seconds.'
+  },
+  {
+    img: trust,
+    title: "Trust of TATA",
+    desc: 'The Tata brand is trusted by society for its values and Quality of Products.'
+  },
+  {
+    img: checkout,
+    title: "Quick Checkout",
+    desc: 'Tanishq Following a simplified checkout process'
+  },
+  {
+    img: mobile,
+    title: "Online Shopping",
+    desc: "Purchase Tanishq's newest gold & diamond jewellery online."
+  },
+]
+
+
 export default function Marquee() {
     const items=[{img:img2,name:"Easy Exchange"},{img:img3,name:"Karatmeter"},{img:img1,name:"Trust of TATA"},{img:img4,name:'Quick Checkout'},{img:img5,name:'Online Shopping'}]
     return <>
-     <marquee className="my-4 w-full flex justify-around  "  >
+     <marquee className="my-8 w-full flex justify-around  "  >
        
-      {items.map((data,i)=>{
+      {/* {items.map((data,i)=>{
         return  <span className="ml-12 text-[18px] font-[100]"><img src={data.img} alt={data.name} className='w-[20px] inline' /> {data.name}</span>
-      })}
+      })} */}
+      <div className="flex flex-nowrap gap-4"> 
+        {
+          data.map((item,i) => (
+            <div key={i} className="w-[335px] flex bg-gradient-to-r from-[#F2E7E9] to-[#D9BDBE] rounded-xl p-[1px] overflow-hidden">
+              <div className="flex px-5 py-2 bg-white rounded-xl items-center w-full">
+                <img src={item.img} alt="" className='w-[42px] h-[42px] inline' />
+                <div className="w-[calc(100%-42px)] pl-4">
+                  <p className="text-[18px] lg:text-[22px] font-semibold text-[#202020] mb-0">{item.title}</p>
+                  <p className="text-[12px] text-[#202020] mb-0 whitespace-normal">{item.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        } 
+      </div>
     </marquee>
     </>
 }
