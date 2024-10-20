@@ -17,14 +17,22 @@ export default function AISummary() {
     );
     if (newWindow) newWindow.opener = null;
   };
+  const getLikeCount=async()=>{
+    try {
+     
+      const likes = await get("/getLikeCount");
+      const likeCount = likes.data.result;
+      setLike(likeCount)
+     
+    } catch (error) {}
+  }
   const getAISummaryDetails = async () => {
     try {
       setSummarized();
       const data = await get("/reviews");
-      const likes = await get("/getLikeCount");
-      console.log(data);
-      const likeCount = likes.data.result;
-      setLike(likeCount)
+      if(like==1000){
+        await getLikeCount()
+      }
       const highlight = data.data?.reviewHighlight.split(",");
       setSummarized({ ...data.data, reviewHighlight: highlight });
     } catch (error) {}
@@ -43,7 +51,7 @@ export default function AISummary() {
   useEffect(() => {
     if (SummarizedData) return;
     getAISummaryDetails();
-  }, [SummarizedData]);
+  }, []);
   return (
     <>
       {SummarizedData ? (

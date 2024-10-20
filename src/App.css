@@ -172,7 +172,15 @@
                 background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                 opacity 0.55s ease;
   }
-  
+  #menuToggle .logo-qr
+  {
+   
+    position: relative;
+    width: 50px;
+    height: 50px;
+    z-index: -1;
+   
+  }
   #menuToggle span:first-child
   {
     transform-origin: 0% 0%;
@@ -226,6 +234,25 @@
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+
+  #menu-qr
+  {
+    position: fixed;
+    width: 440px;
+    height: 200vh;
+    box-shadow: 0 0 10px #85888C;
+    margin: -50px 0 0 -50px;
+    padding: 0 20px;
+    top: 0;
+    right:0;
+    padding-top: 100px;
+
+ 
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
   
