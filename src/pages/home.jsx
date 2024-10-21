@@ -138,7 +138,7 @@ export default function Home() {
         </div>
       </div>
       <Marquee />
-      <Prebook />
+      {/* <Prebook /> */}
       <div className=" af-bl w-full flex flex-col items-center">
         <Heading heading="Explore our latest collections online even before you walk in!" />
 
