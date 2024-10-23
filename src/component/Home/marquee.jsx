@@ -14,27 +14,27 @@ const data = [
   {
     img: exchange,
     title: "Easy Exchange",
-    desc: 'Exchange old gold for new jewellery at Tanishq with 100% value. Visit stores now.'
+    desc: 'Upgrade your gold to stunning new Tanishq jewellery with 100% exchange value.'
   },
   {
     img: karatmeter,
     title: "karatmeter",
-    desc: 'The Karatmeter quickly tests your gold purity in seconds.'
+    desc: 'Our state-of-the-art Karatmeter ensures precise gold purity measurement, giving you confidence in every purchase.'
   },
   {
     img: trust,
     title: "Trust of TATA",
-    desc: 'The Tata brand is trusted by society for its values and Quality of Products.'
+    desc: 'With Tanishq, you’re choosing exquisite jewellery backed by the trust of TATA.'
   },
   {
     img: checkout,
     title: "Quick Checkout",
-    desc: 'Tanishq Following a simplified checkout process'
+    desc: 'Experience hassle-free shopping online or in-store for a fast and seamless experience!'
   },
   {
     img: mobile,
     title: "Online Shopping",
-    desc: "Purchase Tanishq's newest gold & diamond jewellery online."
+    desc: "Discover the ease of shopping at Tanishq—browse, compare, and shop your favourite pieces."
   },
 ]
 
