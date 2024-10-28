@@ -35,6 +35,7 @@ const data = [
     img: mobile,
     title: "Online Shopping",
     desc: "Discover the ease of shopping at Tanishq—browse, compare, and shop your favourite pieces."
+    
   },
 ]
 

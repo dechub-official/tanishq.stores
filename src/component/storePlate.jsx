@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
-import Button from "./button";
+import { useState } from "react";
+
 import ReactGA from 'react-ga4'
 import { useNavigate } from "react-router-dom";
-import map from '../assets/images/detailed/buttons/map.png'
-import calender from '../assets/images/detailed/buttons/calender.png'
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import festiveStrip from '../assets/images/navbar/festive-strip.gif'
 import '../assets/css/storeCard.css'
 export default function StorePlate({ data }) {
     const Navigate = useNavigate()
@@ -62,16 +59,19 @@ export default function StorePlate({ data }) {
       return { hours, minutes, seconds };
     };
 
-    const checkTime = (timeString) => {
+    const checkTime = (timeString,openingTime) => {
       // Get the current time
       const currentTime = new Date();
 
       // Normalize the dynamic time string
       const normalizedTimeString = normalizeTimeString(timeString);
+      const OpeningNormalizedTimeString = normalizeTimeString(openingTime);
       // console.log("normalizedTimeString",normalizedTimeString);
       
 
       let comparisonTime;
+      let OpeningcomparisonTime;
+      
       if (normalizedTimeString.includes("AM") || normalizedTimeString.includes("PM")) {
         // If the time is in 12-hour format
         const { hours, minutes, seconds } = convertTime12to24(normalizedTimeString);
@@ -84,10 +84,23 @@ export default function StorePlate({ data }) {
         comparisonTime.setHours(hours, minutes || 0, seconds || 0, 0);
       }
 
+      if (OpeningNormalizedTimeString.includes("AM") || OpeningNormalizedTimeString.includes("PM")) {
+        // If the time is in 12-hour format
+        const { hours, minutes, seconds } = convertTime12to24(OpeningNormalizedTimeString);
+        OpeningcomparisonTime = new Date();
+        OpeningcomparisonTime.setHours(hours, minutes, seconds, 0);
+      } else {
+        // If the time is in 24-hour format
+        const [hours, minutes, seconds] = OpeningNormalizedTimeString.split(":").map(Number);
+        OpeningcomparisonTime = new Date();
+        OpeningcomparisonTime.setHours(hours, minutes || 0, seconds || 0, 0);
+      }
+
       // Compare current time with the dynamic time
       console.log(comparisonTime);
+      console.log(OpeningcomparisonTime);
       
-      if (currentTime < comparisonTime) {
+      if (currentTime < comparisonTime&&currentTime>=OpeningcomparisonTime) {
         return true
       } else {
        return false
@@ -108,15 +121,18 @@ export default function StorePlate({ data }) {
             <>
                <div  onClick={() => Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)} class="col storeCard md:max-w-[550px]"> <div class="card border rounded-xl shadow-sm">
             <div class="flex items-center stag p-3 mb-2">
-              <i class="bi bi-shop me-2"></i>
-              <p class="mb-0"></p>
+              {/* <i class="bi bi-shop me-2"></i> */}
+              <p class="mb-0">
+                <img src={festiveStrip} className="md:w-[60%] w-[80%]" alt="" />
+              </p>
+              
             </div>
             <div class="flex flex-col px-3">
               <span class="stores mb-2"
                 >{`Tanishq Jewellery - ${data.storeName}`}</span>
               <span class="addre md:min-h-[50px]">{data.storeAddress}</span>
               <p class="text-[#6c757d] md:mt-0 mt-4 addre">
-                <span class="status"> {checkTime(data.storeClosingTime?.replace(/.\d{2}\s/, ' '))?<>Open Now <span className="text-[#56544E]">closes  {data.storeClosingTime?.replace(/.\d{2}\s/, ' ')}</span></>: <><span className="text-[#56544E]">Closed now </span> Open at {data.storeOpeningTime?.replace(/.\d{2}\s/, ' ')}</>}</span> 
+                <span class="status"> {checkTime(data.storeClosingTime?.replace(/.\d{2}\s/, ' '),data.storeOpeningTime?.replace(/.\d{2}\s/, ' '))?<>Open Now <span className="text-[#56544E]">closes  {data.storeClosingTime?.replace(/.\d{2}\s/, ' ')}</span></>: <><span className="text-[#56544E]">Closed now </span> Open at {data.storeOpeningTime?.replace(/.\d{2}\s/, ' ')}</>}</span> 
               </p>
             </div>
             <div class="flex gap-2 mt-8 px-1 md:px-3">

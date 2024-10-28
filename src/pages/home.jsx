@@ -25,6 +25,7 @@ import ReactGA from "react-ga4";
 import { useLocation, useNavigate } from "react-router-dom";
 import Assurance from "../component/assurance";
 import { get, post } from "../services/apiHandler";
+import DiwaliOffer from "../component/diwaliOffer";
 export default function Home() {
   const [noIndex, setNoindex] = useState(false);
   const [popularCityDetail, setPopularCityDetail] = useState([]);
@@ -102,7 +103,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-
+      <DiwaliOffer/>
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">
