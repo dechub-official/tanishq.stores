@@ -18,7 +18,7 @@ export default function DiwaliOffer() {
                 {/* <img src={BannerImg} className="md:block hidden" alt="" /> */}
                 <img src={DiwaliBannerImg} className="md:block hidden rounded-xl" alt="" />
                 {/* <img src={MobileBanner} className="md:hidden block" alt="" /> */}
-                <img src={DiwaliMobileBanner} className="md:hidden block" alt="" />
+                <img src={DiwaliMobileBanner} className="md:hidden rounded-xl block" alt="" />
                 <div className="md:w-fit w-full top-[57%] md:top-[30%] md:right-[20%] fraunces md:transform-none absolute flex md:items-start flex-col items-center justify-start">
                     <p className=" md:text-[30px] text-[22px]  text-white  fraunces  text-center font-[500] ">Dhanteras Picks for you</p>
                     <button onClick={Navigate} class="btn border-0 md:mt-3 mt-4 gap-1 w-fit rounded-pill flex justify-center items-center p-2">
