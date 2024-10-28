@@ -123,7 +123,7 @@ export default function StorePlate({ data }) {
             <div class="flex items-center stag p-3 mb-2">
               {/* <i class="bi bi-shop me-2"></i> */}
               <p class="mb-0">
-                <img src={festiveStrip} className="md:w-[60%] w-[80%]" alt="" />
+                <img src={festiveStrip} className="md:w-[50%] w-[80%]" alt="" />
               </p>
               
             </div>

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 export default function AISummary() {
   const [SummarizedData, setSummarized] = useState();
   const [like, setLike] = useState(1000);
+  const [alreadyLike, setAlreadyLike] = useState(false);
   const BookAppointment = () => {
     const newWindow = window.open(
       "https://www.tanishq.co.in/book-an-appointment",
@@ -17,25 +18,25 @@ export default function AISummary() {
     );
     if (newWindow) newWindow.opener = null;
   };
-  const getLikeCount=async()=>{
+  const getLikeCount = async () => {
     try {
-     
+
       const likes = await get("/getLikeCount");
       const likeCount = likes.data.result;
       setLike(likeCount)
-     
-    } catch (error) {}
+
+    } catch (error) { }
   }
   const getAISummaryDetails = async () => {
     try {
       setSummarized();
       const data = await get("/reviews");
-      if(like==1000){
+      if (like == 1000) {
         await getLikeCount()
       }
       const highlight = data.data?.reviewHighlight.split(",");
       setSummarized({ ...data.data, reviewHighlight: highlight });
-    } catch (error) {}
+    } catch (error) { }
   };
   const handleLike = async (id) => {
     if (localStorage.getItem("isLiked")) {
@@ -44,11 +45,14 @@ export default function AISummary() {
     setLike(like + 1);
     localStorage.setItem("isLiked", true);
     await get("/increaseLikeCount")
-   
-    
-    
+
+
+
   };
   useEffect(() => {
+    if (localStorage.getItem("isLiked")) {
+      setAlreadyLike(true)
+    }
     if (SummarizedData) return;
     getAISummaryDetails();
   }, []);
@@ -104,7 +108,7 @@ export default function AISummary() {
               </div>
               <div className="my-5">
                 <p className="text-[#56544E] font-light md:text-[17px] text-[14px]">
-                Smartly summarized from millions of customer reviews. &nbsp;
+                  Smartly summarized from millions of customer reviews. &nbsp;
                   <span
                     onClick={BookAppointment}
                     className="text-[#56544E] cursor-pointer font-bold underline"
@@ -125,22 +129,27 @@ export default function AISummary() {
             </div>
           </div>
           <p className="text-[14px] md:ml-10 ml-2 mt-5 flex flex-wrap gap-x-2 items-center text-[#56544E]">
-           <p> Is this review snippet helpful?</p>
-           <div className="flex gap-x-2 md:mt-0 mt-2">
-            <div className="flex flex-wrap gap-x-2">
-           
-              {" "}
-              <img
+            <p> Is this review snippet helpful?</p>
+            <div className="flex gap-x-2 md:mt-0 mt-2">
+              <div className="flex flex-wrap gap-x-2">
+
+                {" "}
+                {/* <img
                 src={thumb}
                 onClick={()=>handleLike()}
                 className="w-[20px]   cursor-pointer"
                 alt=""
-              />{" "}
-             
-            </div>
-            <span className="text-[#56544ebf]">
-              {like} people found this helpful
-            </span>
+              />{" "} */}
+                <svg width="17" onClick={() => handleLike()} height="16" viewBox="0 0 17 16" fill={"red"} xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.7165 14.7337H9.18319C8.80986 14.7337 7.99652 14.6203 7.56319 14.187L5.54319 12.627L6.15652 11.8337L8.22319 13.4337C8.38986 13.5937 8.80986 13.727 9.18319 13.727H11.7165C12.3165 13.727 12.9632 13.247 13.0965 12.707L14.7099 7.80699C14.8165 7.51365 14.7965 7.24699 14.6565 7.05365C14.5099 6.84699 14.2432 6.72699 13.9165 6.72699H11.2499C10.9032 6.72699 10.5832 6.58032 10.3632 6.32699C10.1365 6.06699 10.0365 5.72032 10.0899 5.36032L10.4232 3.22032C10.5032 2.84699 10.2499 2.42699 9.88986 2.30699C9.56319 2.18699 9.14319 2.36032 8.99652 2.57365L6.26319 6.64032L5.43652 6.08699L8.16986 2.02032C8.58986 1.39365 9.50986 1.09365 10.2299 1.36699C11.0632 1.64032 11.5965 2.56032 11.4099 3.41365L11.0832 5.51365C11.0765 5.56032 11.0765 5.62699 11.1232 5.68032C11.1565 5.71365 11.2032 5.73365 11.2565 5.73365H13.9232C14.5765 5.73365 15.1432 6.00699 15.4765 6.48032C15.8032 6.94032 15.8699 7.54699 15.6565 8.13365L14.0632 12.987C13.8165 13.9537 12.7899 14.7337 11.7165 14.7337Z" fill={alreadyLike?"#954648":"none"} />
+                  <path d="M4.4502 14.0003H3.78353C2.5502 14.0003 1.9502 13.4203 1.9502 12.2336V5.70026C1.9502 4.51359 2.5502 3.93359 3.78353 3.93359H4.4502C5.68353 3.93359 6.28353 4.51359 6.28353 5.70026V12.2336C6.28353 13.4203 5.68353 14.0003 4.4502 14.0003ZM3.78353 4.93359C3.05686 4.93359 2.9502 5.10693 2.9502 5.70026V12.2336C2.9502 12.8269 3.05686 13.0003 3.78353 13.0003H4.4502C5.17686 13.0003 5.28353 12.8269 5.28353 12.2336V5.70026C5.28353 5.10693 5.17686 4.93359 4.4502 4.93359H3.78353Z" fill={"#954648"} />
+                </svg>
+
+
+              </div>
+              <span className="text-[#56544ebf]">
+                {like} people found this helpful
+              </span>
             </div>
           </p>
         </div>
