@@ -103,7 +103,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-      <DiwaliOffer/>
+      {/* <DiwaliOffer/> */}
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">
