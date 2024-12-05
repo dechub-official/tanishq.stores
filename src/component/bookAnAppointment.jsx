@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 
-export default function BookAnAppointment() {
+export default function BookAnAppointment({openingTime,closingTime}) {
+    console.log({openingTime,closingTime});
+    
     const [step, setStep] = useState(1)
     const date = new Date()
     const day = date.getDay()
@@ -65,8 +67,8 @@ export default function BookAnAppointment() {
       
       
       // Opening and Closing times
-      const openingTime = "9:30 AM";
-      const closingTime = "8:00 PM";
+    //   const openingTime = "9:30 AM";
+    //   const closingTime = "8:00 PM";
       
       // Generate time slots within  the provided opening and closing times
       const availableTimes = generateTimeSlots(openingTime, closingTime);

@@ -46,7 +46,11 @@ export default function Detailed() {
             const data = await get(`/details?storeCode=${id}&city=`)
             // const data=await axios.get(`http://10.54.4.78:8129/stores/tanishq/search?value=${e.target.value}`)
             if(!data.data.result)nav("/pagenotfound")
+                 data.data.result[0].modifiedClosingTime=data.data.result[0]?.storeClosingTime.split(".")[0]+":"+data.data.result[0]?.storeClosingTime.split(".")[1]+" "+data.data.result[0]?.storeClosingTime.split(" ")[1]
+            data.data.result[0].modifiedOpeningTime=data.data.result[0]?.storeOpeningTime.split(".")[0]+":"+data.data.result[0]?.storeOpeningTime.split(".")[1]+" "+data.data.result[0]?.storeOpeningTime.split(" ")[1]
+        
             setStoreDetail(data.data.result[0]);
+
         let unText=[]
         let pay=data.data.result[0].payment?.map((data)=>{
            
@@ -504,7 +508,7 @@ export default function Detailed() {
                             </div>
                           
                             <div className="md:w-[45%] md:h-full h-[300px]  MapWrapper md:my-0 my-5 w-[90%]">
-                            <BookAnAppointment/>
+                            {storeDetail.storeClosingTime && <BookAnAppointment openingTime={storeDetail.modifiedOpeningTime} closingTime={storeDetail.modifiedClosingTime}/>}
                                
                                 {((storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)||(storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)))) && 
                                 <Maps center={[...position]} loclink={storeDetail.storeLocationLink} isStore={true} remin="100%" style="md:h-[300px] md:min-h-[300px] min-h-[300px]" />}
