@@ -39,6 +39,7 @@ export default function Detailed() {
    const [position,setPosition]=useState([])
     const [FaqData, setFaq] = useState([])
     const [payments,setpayments]=useState([])
+    const [BookAnAppointmentModal,setBookAnAppointmentModal]=useState(false)
 
     const loadData = async (id) => {
         try {
@@ -365,8 +366,11 @@ export default function Detailed() {
             value:Clicks.Bookan+1,
             action: "Book An Appointment", });
             setClicks({...Clicks,Bookan:Clicks.Bookan+1})
-        const newWindow = window.open("https://www.tanishq.co.in/book-an-appointment", '_blank', 'noopener,noreferrer');
-        if (newWindow) newWindow.opener = null;
+        // const newWindow = window.open("https://www.tanishq.co.in/book-an-appointment", '_blank', 'noopener,noreferrer');
+        // if (newWindow) newWindow.opener = null;
+        console.log("entered");
+        
+        setBookAnAppointmentModal(true)
 
     }
     // const reviewsandratings = [{ name: "Reliability", width: "80%", rating: 4 }, { name: "Positive Solution", width: "70%", rating: 3 }, { name: "Payout Rating", width: "90%", rating: 4.5 }, { name: "Customer satisfaction", width: "60%", rating: 2.6 }]
@@ -508,7 +512,7 @@ export default function Detailed() {
                             </div>
                           
                             <div className="md:w-[45%] md:h-full h-[300px]  MapWrapper md:my-0 my-5 w-[90%]">
-                            {storeDetail.storeClosingTime && <BookAnAppointment openingTime={storeDetail.modifiedOpeningTime} closingTime={storeDetail.modifiedClosingTime}/>}
+                            {storeDetail.storeClosingTime && <BookAnAppointment openingTime={storeDetail.modifiedOpeningTime} isOpen={BookAnAppointmentModal} setisOpen={setBookAnAppointmentModal} closingTime={storeDetail.modifiedClosingTime}/>}
                                
                                 {((storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)||(storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)))) && 
                                 <Maps center={[...position]} loclink={storeDetail.storeLocationLink} isStore={true} remin="100%" style="md:h-[300px] md:min-h-[300px] min-h-[300px]" />}
