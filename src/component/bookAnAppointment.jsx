@@ -184,8 +184,8 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
     const currentHour = new Date().getHours();
 
     const isTimeDisabled = (division) => {
-        const isToday = +dayInfo.date?.split(" ")[1] == new Date().getDay() + 1; // Compare with today's day
-        // console.log(+dayInfo.date?.split(" ")[1],new Date().getDay());
+        const isToday = +dayInfo.date?.split(" ")[1] == new Date().getDate() ; // Compare with today's day
+        console.log(+dayInfo.date?.split(" ")[1],new Date().getDay());
 
         console.log(isToday);
 

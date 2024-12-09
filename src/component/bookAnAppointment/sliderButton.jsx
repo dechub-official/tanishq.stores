@@ -97,7 +97,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
                     <path d="M9.04205 10.5H7.49414" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
 
-                Choose Day
+                Choose Time
             </p>
             <div className="flex relative  gap-x-4">
 
