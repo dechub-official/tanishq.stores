@@ -37,6 +37,12 @@
 .tanishqAIBg {
   background-image: linear-gradient(90deg, #72252e 0%, #d84658 100%);
 }
+
+.active-day p svg path{
+  fill: white !important;
+  stroke: white;
+}
+
 @media (min-width: 768px) {
   .liteLimeBg {
     background: rgb(249, 242, 229);

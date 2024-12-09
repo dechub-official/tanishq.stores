@@ -23,7 +23,7 @@ import SuggestArtical from "../component/Home/suggestedArticles"
 
 import ReactGA from 'react-ga4'
 import Banner from "../component/Home/Banner"
-import VisitorInfoCard from "../component/visitorInfoCard"
+import MobBookAnAppoinmentButton from "../assets/images/MobBookAnAppoinmentButton.png"
 import ButtonCur from "../component/buttonCur"
 import Assurance from "../component/assurance"
 import BookAnAppointment from "../component/bookAnAppointment"
@@ -433,7 +433,8 @@ export default function Detailed() {
 
                     </div>
                 </div>
-                <div className="flex w-[100%] flex-wrap justify-center mt-8">
+                <img src={MobBookAnAppoinmentButton} onClick={BookAppointment} className="block my-8 w-[90%] mx-auto md:hidden" alt="" />
+                <div className="flex w-[100%] flex-wrap justify-center md:mt-8 ">
                     <div className="w-full flex flex-col items-center ">
                         <div className="flex flex-wrap w-full md:w-[90%] justify-center md:justify-around">
                             <div className="box md:w-[40%] w-[90%]">
