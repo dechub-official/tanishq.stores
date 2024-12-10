@@ -241,7 +241,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
             {step == 1 && <> <h1 className="text-[#832729] md:text-[20px] text-[18px] md:text-left text-center font-fraunces font-bold">Heading to Our Store?</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
                 <div className="my-3  flex md:justify-around justify-center gap-x-5">
                     <div className=" overflow-visible">
-                        <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-2 px-0 md:w-[initial] w-[100px]  text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Day" />
+                        <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0 md:w-[initial] w-[100px]  text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Day" />
                         {activeModal == 1 && <div className="absolute z-20">
                             <div className="box p-4 rounded-md shadow-lg bg-white">
                                 <table className="table-auto w-full">
@@ -255,10 +255,10 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                                                 className={`w-full cursor-pointer ${i == dayInfo.activeIndex ? "text-black font-bold" : "text-[#767469]"} hover:bg-gray-100 transition-all`}
                                                 onClick={() => { setActiveModal(); setDayInfo({ day: weekDays[(day + i) % 7], date: days[i], activeIndex: i }) }}
                                             >
-                                                <td className="px-2 py-1 ">
+                                                <td className="px-4 py-1 ">
                                                     {i === 0 ? <>Today</> : i === 1 ? "Tomorrow" : weekDays[(day + i) % 7]}
                                                 </td>
-                                                <td className="px-2  py-1">{days[i]}</td>
+                                                <td className="px-4  py-1">{days[i]}</td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -269,7 +269,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                     </div>
                     <div className="">
                         {/* <input type="text" className="px-4 border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" /> */}
-                        <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-2 px-0 md:w-[initial] w-[100px] text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" />
+                        <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-4 px-0 md:w-[initial] w-[100px] text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" />
                         {activeModal == 2 && <div className="absolute z-20">
                             <div className="box p-4 flex rounded-md shadow-lg bg-white">
 
@@ -292,7 +292,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                                         >
                                             {/* Show division name only for the first time in each block */}
 
-                                            <td onClick={() => { setActiveModal(); setDayInfo({ ...dayInfo, time }) }} className="px-2 py-1">{time}</td>
+                                            <td onClick={() => { setActiveModal(); setDayInfo({ ...dayInfo, time }) }} className="px-4 py-1">{time}</td>
                                         </div>
                                     ))}
                                 </div>
@@ -368,10 +368,10 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                 </>
             }
 
-<div className={` ${isOpen?"absolute":"hidden"} overflow-hidden max-h-[800%] top-0 w-full min-h-[800%] z-20 bg-[#ffffffba] blur-xl`}>
+<div className={` ${isOpen?"absolute":"hidden"} overflow-hidden max-h-[800%] top-0w-full min-h-[800%] z-20 bg-[#ffffffba] blur-xl`}>
 
 </div>
-        <div className={`box block  fixed z-40 ${isOpen?"bottom-[0]":"bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible shadow-md h-fit  max-h-[500px] p-4  rounded-t-md w-full bg-[#FFFCF7]`}>
+        <div className={`box block  fixed z-40 ${isOpen?"bottom-[0]":"bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible shadow-md h-fit  max-h-[500px]   rounded-t-md w-full bg-[#FFFCF7]`}>
         <svg onClick={()=>setisOpen(false)} width="24" height="24" className="top-3 absolute z-50 right-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="12" cy="12" r="12" fill="#F6F6F6"/>
 <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
@@ -379,8 +379,8 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
 
             {step == 1 &&
                 <>
-                    <h1 className="text-black text-[23px] font-fraunces  text-left  my-2 font-medium"><span className="text-[#832729] font-fraunces ">Heading to</span> Our Store?</h1>
-                    <p className="text-black font-fraunces mb-5 text-[16px]  ">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
+                    <h1 className="text-black px-4 text-[23px] font-fraunces  text-left  my-2 font-medium"><span className="text-[#832729] font-fraunces ">Heading to</span> Our Store?</h1>
+                    <p className="text-black px-4 font-fraunces mb-5 text-[16px]  ">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
                     <ButtonStrip
                         days={days}
                         weekDays={weekDays}
@@ -404,8 +404,8 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
 
             {step == 2 && <>
 
-                <h1 className="text-black text-[23px] font-fraunces  text-left  mb-2 mt-4 font-medium"><span className="text-[#832729] font-fraunces ">You're</span> Almost There!</h1>
-                <div className="my-3   gap-x-1">
+                <h1 className="text-black px-4 text-[23px] font-fraunces  text-left  mb-2 mt-4 font-medium"><span className="text-[#832729] font-fraunces ">You're</span> Almost There!</h1>
+                <div className="my-3 px-4  gap-x-1">
                     <div className="relative mb-6 mt-10 ">
                         <label className="ibm-plex text-[#636363] font-medium flex gap-x-1 text-[15px]" htmlFor="">
                             <svg width="20" height="21" className="ml-2" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -456,7 +456,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                     </div>
 
                 </div>
-                <div className="mt-10 w-full mx-auto flex justify-center">
+                <div className="mt-10 px-4 w-full mx-auto flex justify-center">
                     <img src={buttonGIF}  onClick={()=>handelStep(3)} className="w-[180px] cursor-pointer" alt="" />
                     {/* <button
                         class="btn border-0 gap-1 rounded-pill flex justify-center items-center p-2"
@@ -483,7 +483,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
 
             {
                 step==3&&<>
-                <div className="relative">
+                <div className="relative ">
                 <img src={MonBookAnAppointmentImage} className="" alt="" />
                 <div className="absolute flex justify-around items-center bottom-[15%] w-full ibm-plex text-[#636363] font-bold  text-[15px]">
                 <p>{dayInfo.date}</p>

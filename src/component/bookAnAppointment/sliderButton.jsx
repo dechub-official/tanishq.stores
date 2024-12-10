@@ -15,7 +15,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
 
 
     return (
-        <div className="flex flex-col w-full">
+        <div className="flex pl-3 flex-col w-full">
 
             <p className="flex gap-x-2 mb-5 ibm-plex text-[17px]  items-center font-medium text-[#636363]">
                 <svg width="17" height="17" className="mb-1" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,7 +104,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
 
 
                 {activeModal == 2 && <div className={`absolute z-50 ${activeDivision == 1 && 'left-[35%]'} ${activeDivision == 2 && 'left-[70%]'} bottom-[85%]`}>
-                    <div className="box p-4 flex rounded-md shadow-lg bg-white">
+                    <div className="box pl-3 flex rounded-md shadow-lg bg-white">
 
 
 
