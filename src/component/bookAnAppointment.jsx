@@ -370,7 +370,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
 
 
         <div className={`box block  fixed z-40 ${isOpen?"bottom-[0]":"bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible shadow-md h-fit  max-h-[500px] p-4  rounded-t-md w-full bg-[#FFFCF7]`}>
-        <svg onClick={()=>setisOpen(false)} width="24" height="24" className="top-3 absolute right-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg onClick={()=>setisOpen(false)} width="24" height="24" className="top-3 absolute z-50 right-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="12" cy="12" r="12" fill="#F6F6F6"/>
 <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
