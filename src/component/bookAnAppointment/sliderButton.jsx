@@ -2,6 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import Swiper styles
 
+
 const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTimeDisabled, handleDivisions, activeDivision, activeModal, setActiveModal }) => {
     const date = new Date()
     const dayCount = date.getDay()

@@ -3,6 +3,7 @@ import ButtonStrip from "./bookAnAppointment/sliderButton";
 import { post } from "../services/apiHandler";
 import MonBookAnAppointmentImage from '../assets/images/bookAnAppoinment.png'
 import DeskBookAnAppointmentImage from '../assets/images/DesktopBookAnAppoinment.png'
+import buttonGIF from '../assets/images/buton.gif'
 export default function BookAnAppointment({ openingTime, closingTime,isOpen,setisOpen }) {
     
    
@@ -330,7 +331,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                     <div className="relative w-full">
                         <input type="text" name="email" onChange={handleInputChange} className="px-4 border  border-[#444444] w-[98%] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Type Your Email ID*" />
                     </div>
-                    <button
+                    {/* <button
                         class="btn border-0 gap-1 rounded-pill flex justify-center items-center p-2"
                         onClick={()=>handelStep(3)}
                     >
@@ -348,7 +349,8 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                         repeatCount="indefinite" />
                     </path>
                   </svg> : <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>}
-                    </button>
+                    </button> */}
+                      <img src={buttonGIF}  onClick={()=>handelStep(3)} className="w-[140px] cursor-pointer" alt="" />
 
                 </div>
             </>}
@@ -453,8 +455,8 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
 
                 </div>
                 <div className="mt-10 w-full mx-auto flex justify-center">
-
-                    <button
+                    <img src={buttonGIF}  onClick={()=>handelStep(3)} className="w-[180px] cursor-pointer" alt="" />
+                    {/* <button
                         class="btn border-0 gap-1 rounded-pill flex justify-center items-center p-2"
                         onClick={()=>handelStep(3)}
                     >
@@ -472,7 +474,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                         repeatCount="indefinite" />
                     </path>
                   </svg> : <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>}
-                    </button>
+                    </button> */}
 
                 </div>
             </>}
