@@ -56,29 +56,30 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
         }
     }
 
-    const generateTimeSlots = (opening, closing) => {
-        const openingTime = convertTo24Hour(opening);
-        const closingTime = convertTo24Hour(closing);
+    const generateTimeSlots = (openingT, closingT) => {
+        const opening = convertTo24Hour(openingT);
+        const closing = convertTo24Hour(closingT);
 
         const slots = [];
         let Time = new Date();
-        let currentTime = new Date();
-        currentTime.setHours(openingTime.hours, openingTime.minutes);
+        let openingTime = new Date();
+        let closingTime = new Date();
+        openingTime.setHours(opening.hours, opening.minutes);
+        closingTime.setHours(closing.hours, closing.minutes);
+        console.log(openingTime.getHours(), closingTime.getHours(),"sfsf");
+        
+        while (openingTime.getHours() < closingTime.getHours() ||
+            (openingTime.getHours() === closingTime.getHours() && openingTime.getMinutes() < closingTime.getMinutes())) {
 
-        while (currentTime.getHours() < closingTime.hours ||
-            (currentTime.getHours() === closingTime.hours && currentTime.getMinutes() < closingTime.minutes)) {
-
-
-
-            if (Time.getHours() < currentTime.getHours() || (Time.getHours() == currentTime.getHours() && Time.getMinutes() > currentTime.getMinutes())) {
-                console.log(Time.getHours(), Time.getMinutes(), currentTime.getHours(), currentTime.getMinutes());
-                currentTime.setMinutes(currentTime.getMinutes() + 30);
+            if (Time.getHours() < openingTime.getHours() || (Time.getHours() == openingTime.getHours() && Time.getMinutes() > openingTime.getMinutes())) {
+                console.log(Time.getHours(), Time.getMinutes(), openingTime.getHours(), openingTime.getMinutes());
+                openingTime.setMinutes(openingTime.getMinutes() + 30);
 
             }
-            const formattedTime = formatTime(currentTime.getHours(), currentTime.getMinutes());
+            const formattedTime = formatTime(openingTime.getHours(), openingTime.getMinutes());
             slots.push(formattedTime);
 
-            currentTime.setMinutes(currentTime.getMinutes() + 30); // Add 30 minutes for the next slot
+            openingTime.setMinutes(openingTime.getMinutes() + 30); // Add 30 minutes for the next slot
         }
 
         return slots;
@@ -129,18 +130,18 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
             icon:<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1339_797)">
             <path d="M5.5 8.25C7.01878 8.25 8.25 7.01878 8.25 5.5C8.25 3.98122 7.01878 2.75 5.5 2.75C3.98122 2.75 2.75 3.98122 2.75 5.5C2.75 7.01878 3.98122 8.25 5.5 8.25Z" stroke="black"/>
-            <path d="M5.5 0.917969V1.3763" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
-            <path d="M5.5 9.625V10.0833" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
-            <path d="M10.0833 5.5H9.625" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
-            <path d="M1.3763 5.5H0.917969" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
-            <path opacity="0.5" d="M8.74058 2.25977L8.56055 2.43981" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
-            <path opacity="0.5" d="M2.43786 8.56055L2.25781 8.74063" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
-            <path opacity="0.5" d="M8.74058 8.74058L8.56055 8.56055" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
-            <path opacity="0.5" d="M2.43786 2.43982L2.25781 2.25977" stroke={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path d="M5.5 0.917969V1.3763" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path d="M5.5 9.625V10.0833" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path d="M10.0833 5.5H9.625" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path d="M1.3763 5.5H0.917969" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M8.74058 2.25977L8.56055 2.43981" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M2.43786 8.56055L2.25781 8.74063" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M8.74058 8.74058L8.56055 8.56055" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M2.43786 2.43982L2.25781 2.25977" stroke="#0B0B0A" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} stroke-linecap="round"/>
             </g>
             <defs>
             <clipPath id="clip0_1339_797">
-            <rect width="11" height="11" fill={`${activeDivision==1?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==1?"1":'0.5'}`} />
+            <rect width="11" height="11" fill={`${activeDivision==1?"black":'#0B0B0A'}`} opacity={`${activeDivision==1?"1":'0.5'}`} />
             </clipPath>
             </defs>
             </svg>,
@@ -152,24 +153,19 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
         },
         {
             division: "Evening",
-            icon:<svg width="13" height="13" viewBox="0 0 13 13" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_1339_726)">
-            <path d="M4.33203 11.918H8.66536" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round" stroke-linejoin="round"/>
-            <path  d="M2.70703 10.293H10.2904" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M1.08203 8.66797H11.9154" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round" stroke-linejoin="round"/>
-            <path  d="M6.5 3.25C4.70507 3.25 3.25 4.70507 3.25 6.5C3.25 7.32425 3.55683 8.07679 4.0625 8.64971H8.9375C9.44315 8.07679 9.75 7.32425 9.75 6.5C9.75 4.70507 8.29492 3.25 6.5 3.25Z" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`}/>
-            <path  d="M6.5 1.08203V1.6237" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
-            <path  d="M11.9167 6.5H11.375" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
-            <path  d="M1.6237 6.5H1.08203" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
-            <path  d="M10.33 2.66992L10.1172 2.8827" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
-            <path  d="M2.88271 2.88271L2.66992 2.66992" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_1339_726">
-            <rect width="13" height="13" fill={`${activeDivision==2?"black":'#0B0B0A'}`} fill-opacity={`${activeDivision==2?"1":'0.5'}`}/>
-            </clipPath>
-            </defs>
-            </svg>,
+            icon:
+            <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.33301 12.418H8.66634" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round" stroke-linejoin="round"/>
+            <path  d="M2.70801 10.793H10.2913" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M1.08301 9.16797H11.9163" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round" stroke-linejoin="round"/>
+            <path  d="M6.5 3.75C4.70507 3.75 3.25 5.20507 3.25 7C3.25 7.82425 3.55683 8.57679 4.0625 9.14971H8.9375C9.44315 8.57679 9.75 7.82425 9.75 7C9.75 5.20507 8.29492 3.75 6.5 3.75Z" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`}/>
+            <path  d="M6.5 1.58203V2.1237" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M11.9167 7H11.375" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M1.62467 7H1.08301" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M10.33 3.16992L10.1172 3.3827" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
+            <path  d="M2.88271 3.38271L2.66992 3.16992" stroke={`${activeDivision==2?"black":'#0B0B0A'}`} fill={`${activeDivision==2?"black":'#0B0B0A'}`} opacity={`${activeDivision==2?"1":'0.5'}`} stroke-linecap="round"/>
+            </svg>
+            ,
             times: availableTimes.filter(time => {
                 const { hours } = convertTo24Hour(time);
                 return hours >= 17 && hours < 20; // Evening: 5:00 PM to 8:00 PM
@@ -231,14 +227,15 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
 
     const handleApiRequest=async()=>{
        setProgress(true)
-        const apiData=await post(`/bookAnAppointment?FirstName=${formData.name}&&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}`)
+        const apiData=await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.date}`)
         setStep(3)
         setProgress(false)
     }
     const days = getNextSevenDays()
 
     return <>
-        <div className="box md:block hidden mb-4 font-fraunces overflow-visible shadow-md h-fit md:max-h-[170px] max-h-[220px] p-4 rounded-md w-full bg-[#FFFCF7]">
+         {
+                step!=3? <div className="box md:block hidden mb-4 font-fraunces overflow-visible shadow-md h-fit md:max-h-[170px] max-h-[220px] p-4 rounded-md w-full bg-[#FFFCF7]">
 
             {step == 1 && <> <h1 className="text-[#832729] md:text-[20px] text-[18px] md:text-left text-center font-fraunces font-bold">Heading to Our Store?</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
                 <div className="my-3  flex md:justify-around justify-center gap-x-5">
@@ -258,7 +255,7 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                                                 onClick={() => { setActiveModal(); setDayInfo({ day: weekDays[(day + i) % 7], date: days[i], activeIndex: i }) }}
                                             >
                                                 <td className="px-2 py-1 ">
-                                                    {i === 0 ? "Today" : i === 1 ? "Tomorrow" : weekDays[(day + i) % 7]}
+                                                    {i === 0 ? <>Today</> : i === 1 ? "Tomorrow" : weekDays[(day + i) % 7]}
                                                 </td>
                                                 <td className="px-2  py-1">{days[i]}</td>
                                             </tr>
@@ -356,9 +353,10 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                 </div>
             </>}
 
-            {
-                step==3&&<>
-                <div className="relative flex flex-col justify-center items-center translate-y-[-2%] ">
+            
+        </div>:
+      <>
+                <div className="relative  max-h-fit mb-8">
                 <img src={DeskBookAnAppointmentImage} className=" " alt="" />
                 <div className="absolute flex justify-around items-center bottom-[15%] w-[80%] right-0 ibm-plex text-[#636363] font-bold  text-[15px]">
                 <p>{dayInfo.date}</p>
@@ -367,7 +365,6 @@ export default function BookAnAppointment({ openingTime, closingTime,isOpen,seti
                 </div>
                 </>
             }
-        </div>
 
 
         <div className={`box block  fixed z-40 ${isOpen?"bottom-[0]":"bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible shadow-md h-fit  max-h-[500px] p-4  rounded-t-md w-full bg-[#FFFCF7]`}>

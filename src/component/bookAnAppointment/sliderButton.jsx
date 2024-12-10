@@ -123,6 +123,11 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
                     </div>
 
                 </div>}
+                <Swiper
+                    slidesPerView="auto"
+                    spaceBetween={15}
+                    className="border-[1px] border-[#E0E0E0] rounded-s-full md:rounded-full p-1"
+                >
                 {timeDivisions.map((timeBlock, i) =>
                     <>
                         <SwiperSlide className="button-strip !w-auto my-2 ">
@@ -150,6 +155,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
                         </SwiperSlide>
                     </>
                 )}
+                </Swiper>
             </div>
 
         </div>
