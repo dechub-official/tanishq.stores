@@ -398,18 +398,19 @@ export default function Detailed() {
                 {/* <Heading heading={"Welcome to Tanishq!"} subHeading={"400+ stores, 8L+ Designs, Backed by the trust of TATA  | India’s favourite jewellery store"}/> */}
 
             </div>
+            <div className="cp-div">
 
             <SearchBox />
             {/*  */}
             <Marquee />
-
+</div>
             {/* {visitCardShow&&<div id="default-modal"  class=" overflow-x-hidden  flex  overflow-y-auto fixed px-2 w-full h-full  top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
            <div className="md:w-[80%] flex justify-center items-center ">
                 <VisitorInfoCard notClose={true} storeName={storeDetail.storeName} storeCity={storeDetail.storeCity} storeCode={storeDetail.storeCode} storeAddress={storeDetail.storeAddress} onClose={()=>setvisitCardShow(false)}/>
               </div>
                 </div>} */}
             <section className="af-bl">
-
+                <div className="cp-div">
                 <Banner name={storeDetail.storeName}/>
                 <div className="md:block hidden">
                 <Heading heading={<>Shop from <span className="text-[#832729] font-fraunces">{storeDetail.storeName}</span></>}></Heading>
@@ -519,7 +520,7 @@ export default function Detailed() {
 
                                 </div>
                             </div>
-                          
+                            </div>
                             <div className="md:w-[45%] md:h-full h-[300px]  MapWrapper md:my-0 my-5 w-[90%]">
                             {storeDetail.storeClosingTime && <BookAnAppointment openingTime={storeDetail.modifiedOpeningTime} isOpen={BookAnAppointmentModal} setisOpen={handleBAPPopup} closingTime={storeDetail.modifiedClosingTime}/>}
                                
