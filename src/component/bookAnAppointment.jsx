@@ -60,7 +60,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
     const generateTimeSlots = (openingT, closingT) => {
         const opening = convertTo24Hour(openingT);
         const closing = convertTo24Hour(closingT);
-
+        const isToday = +dayInfo.date?.split(" ")[1] == new Date().getDate();
         const slots = [];
         let Time = new Date();
         let openingTime = new Date();
@@ -72,9 +72,10 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
         while (openingTime.getHours() < closingTime.getHours() ||
             (openingTime.getHours() === closingTime.getHours() && openingTime.getMinutes() < closingTime.getMinutes())) {
 
-            if (Time.getHours() < openingTime.getHours() || (Time.getHours() == openingTime.getHours() && Time.getMinutes() > openingTime.getMinutes())) {
-                console.log(Time.getHours(), Time.getMinutes(), openingTime.getHours(), openingTime.getMinutes());
+            if (isToday&&(Time.getHours() > openingTime.getHours() )|| (Time.getHours() == openingTime.getHours() && Time.getMinutes() > openingTime.getMinutes())) {
+                console.log("timing are==>",Time.getHours(), Time.getMinutes(), openingTime.getHours(), openingTime.getMinutes());
                 openingTime.setMinutes(openingTime.getMinutes() + 30);
+                continue
 
             }
             const formattedTime = formatTime(openingTime.getHours(), openingTime.getMinutes());
