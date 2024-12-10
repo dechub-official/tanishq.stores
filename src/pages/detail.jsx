@@ -369,14 +369,14 @@ export default function Detailed() {
         // const newWindow = window.open("https://www.tanishq.co.in/book-an-appointment", '_blank', 'noopener,noreferrer');
         // if (newWindow) newWindow.opener = null;
         console.log("entered");
-        [...document.getElementsByClassName("af-bl")].forEach(element => {
+        [...document.getElementsByClassName("cp-div")].forEach(element => {
             element.style.filter = "blur(5px)";
         });
         setBookAnAppointmentModal(true)
 
     }
     const handleBAPPopup=()=>{
-        [...document.getElementsByClassName("af-bl")].forEach(element => {
+        [...document.getElementsByClassName("cp-div")].forEach(element => {
             element.style.filter = "blur(0px)";
         });
         setBookAnAppointmentModal(!BookAnAppointmentModal)
