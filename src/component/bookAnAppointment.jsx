@@ -368,7 +368,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
                 </>
         }
 
-        <div className={` ${isOpen ? "absolute" : "hidden"} overflow-hidden max-h-[800%] top-0 left-0 w-full min-h-[800%] z-20 bg-[#ffffffba] `}>
+        <div className={` ${isOpen ? "absolute" : "hidden"} overflow-hidden max-h-[800%] top-0 left-0 w-full min-h-[800%] z-30 bg-[#ffffffba] `}>
 
         </div>
 
