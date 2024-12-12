@@ -4,7 +4,7 @@ import { post } from "../services/apiHandler";
 import MonBookAnAppointmentImage from '../assets/images/bookAnAppoinment.png'
 import DeskBookAnAppointmentImage from '../assets/images/DesktopBookAnAppoinment.png'
 import buttonGIF from '../assets/images/buton.gif'
-export default function BookAnAppointment({ openingTime, closingTime, isOpen, setisOpen }) {
+export default function BookAnAppointment({ openingTime, closingTime, isOpen, setisOpen,storeCode,storeName }) {
 
 
 
@@ -227,7 +227,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
 
     const handleApiRequest = async () => {
         setProgress(true)
-        const apiData = await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.date}`)
+        const apiData = await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.formattedDate}&storeCode=${storeCode}&storeName=${storeName}`)
         setStep(3)
         setProgress(false)
     }
@@ -242,6 +242,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
     const days = getNextSevenDays()
 
     return <>
+   
         {
             step != 3 ? <div className="box md:block hidden mb-4 font-fraunces overflow-visible shadow-md h-fit md:max-h-[170px] max-h-[220px] p-4 rounded-md w-full bg-[#FFFCF7]">
 
@@ -367,8 +368,8 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
                 <>
                     <div className="relative  max-h-fit mb-8">
                         <img src={DeskBookAnAppointmentImage} className=" " alt="" />
-                        <div className="absolute flex justify-around items-center bottom-[15%] w-[80%] right-0 ibm-plex text-[#636363] font-bold  text-[15px]">
-                            <p>{dayInfo.date}</p>
+                        <div className="absolute flex justify-around items-center bottom-[15%]  w-[80%] right-[-2%] ibm-plex text-[#636363] font-bold  text-[15px]">
+                        <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth()+1}/{dayInfo.formattedDate.getFullYear()})</p>
                             <p>{weekDays[activeDivision]}, {dayInfo.time}</p>
                         </div>
                     </div>
@@ -380,7 +381,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
         </div>
 
 
-        <div className={` block shadow-[#832729] shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] fixed z-[70] ${isOpen ? "bottom-[0]" : "bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible  h-fit  max-h-[450px]   !rounded-t-md !rounded-b-none w-full bg-white`}>
+        <div className={` block shadow-[#832729] shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] fixed z-[70] ${isOpen ? "bottom-[0]" : "bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible  h-fit  max-h-[450px] px-2  !rounded-t-md !rounded-b-none w-full bg-white`}>
             <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-3 absolute z-50 right-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                 <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
