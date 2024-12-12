@@ -4,7 +4,10 @@ import ReactGA from 'react-ga4'
 import { useNavigate } from "react-router-dom";
 import festiveStrip from '../assets/images/navbar/festive-strip.gif'
 import '../assets/css/storeCard.css'
-export default function StorePlate({ data }) {
+export default function StorePlate({ data,setIndividualStoreData }) {
+  
+  const modifiedClosingTime=data.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')
+  const modifiedOpeningTime=data.storeOpeningTime?.replace(/.\d+ (\w\w)$/, '$1')
     const Navigate = useNavigate()
     const [Clicks, setClicks] = useState({ Bookan: 0, getDir: 0 })
     const BookAppointment = (url) => {
@@ -119,7 +122,7 @@ export default function StorePlate({ data }) {
     }
     return (
             <>
-               <div  onClick={() => Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)} class="col storeCard md:max-w-[550px]"> <div class="card border rounded-xl shadow-sm">
+               <div class="col storeCard md:max-w-[550px]"> <div class="card border rounded-xl shadow-sm">
             <div class="flex items-center stag p-3 mb-2">
               {/* <i class="bi bi-shop me-2"></i> */}
               <p class="mb-0">
@@ -137,8 +140,8 @@ export default function StorePlate({ data }) {
             </div>
             <div class="flex gap-2 mt-8 px-1 md:px-3">
               <button
-                class="btn border-0 gap-1 rounded-pill flex justify-center items-center pr-1 md:p-2"
-                onclick={() => {
+                class="btn border-0 gap-1 rounded-pill bg-red-50 flex justify-center items-center pr-1 md:p-2"
+                onClick={() => {     
                                         ReactGA.event({
                                             category: "Book An Appointment",
                                             value: Clicks.Bookan + 1,
@@ -148,8 +151,11 @@ export default function StorePlate({ data }) {
                                         if (localStorage.getItem("nav-hide")) {
                                             handleAppPopup()
                                         }
-                                        else
-                                            BookAppointment("https://www.tanishq.co.in/book-an-appointment")
+                                       
+                                            console.log({storeClosingTime:modifiedClosingTime,storeOpeningTime:modifiedOpeningTime,storeName:data.storeName,storeCode:data.storeCode});
+                                            
+                                            setIndividualStoreData({storeClosingTime:modifiedClosingTime,storeOpeningTime:modifiedOpeningTime,storeName:data.storeName,storeCode:data.storeCode})
+                                           
                                     }}
               >
                 <span class="pr-1 text-[12px] whitespace-nowrap md:text-[12px] font-[500]">BOOK AN APPOINTMENT</span>
@@ -157,7 +163,7 @@ export default function StorePlate({ data }) {
               </button>
               <button
                 class="btn border-0 gap-1 rounded-pill flex justify-center items-center p-2"
-                onClick={() => Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)}
+                onClick={() =>{ Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)}}
               >
                 <span class="pr-1 text-[10px] md:text-[12px] font-[500]">STORE DETAILS</span>
                 <i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>

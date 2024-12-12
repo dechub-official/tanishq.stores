@@ -43,6 +43,14 @@
   stroke: white;
 }
 
+.deactive-day-city p svg path{
+  fill: white !important;
+  stroke: rgba(255, 255, 255, 0.73);
+}
+.active-day-city p span svg path{
+  fill: #832729 !important;
+  stroke: #832729 !important;
+}
 @media (min-width: 768px) {
   .liteLimeBg {
     background: rgb(249, 242, 229);

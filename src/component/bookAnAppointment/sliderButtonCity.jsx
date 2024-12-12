@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import Swiper styles
 
 
-const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivisions, isTimeDisabled, handleDivisions, activeDivision, activeModal, setActiveModal }) => {
+const ButtonStripCity = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivisions, isTimeDisabled, handleDivisions, activeDivision, activeModal, setActiveModal }) => {
     const date = new Date()
     const dayCount = date.getDay()
   
@@ -98,7 +98,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
                                 >
                                     {/* Show division name only for the first time in each block */}
                                     {i==0&&<p className={` py-1 flex  items-center px-2 justify-center mr-1 font-bold   gap-x-2 transition-all`} >
-                                {timeDivisions[activeDivision].icon}    {timeDivisions[activeDivision].division}
+                                {timeDivisions[activeDivision].icon} <br />   {timeDivisions[activeDivision].division}
                                 </p>}
                                     <td onClick={() => { setActiveModal(); setDayInfo({ ...dayInfo, time }) }} className={`px-2 py-1 ${time == dayInfo.time && 'font-bold'}`}>{time}</td>
                                 </div>
@@ -109,18 +109,20 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
 
                 </div>}
                 <Swiper
-                    slidesPerView="auto"
+                    slidesPerView="3"
                     spaceBetween={15}
-                    className=" p-1"
+
+                    centeredSlides={true}
+                    className=" p-1 mx-auto"
                 >
                 {timeDivisions.map((timeBlock, i) =>
                      <> {!isTimeDisabled(timeBlock.division) && <>
-                        <SwiperSlide className="button-strip !w-auto my-2 ">
+                        <SwiperSlide className="button-strip  my-2 ">
                             <button
                                 onClick={() => {
                                     if(dayInfo.activeIndex!=null)
                                     {handleDivisions(timeBlock.division, i); setActiveModal(2)} }}
-                                className={`spot_button ibm-plex duration-100 border-[1px] border-[#E0E0E0] rounded-s-full px-5 md:px-12  py-2 rounded-full text-[16px] font-[400] ${activeDivision == i?"active-day":''}`}
+                                className={`spot_button ibm-plex duration-100 border-[1px] border-[#E0E0E0] rounded-2xl mx-auto px-2  w-[90px] h-[105px]  text-[16px] font-[400] ${activeDivision == i?"active-day-city":'deactive-day-city'}`}
                                 style={activeDivision == i ? {
                                     background: "linear-gradient(90.18deg, #832729 0.17%, #631517 99.86%)",
                                     color: "white"
@@ -129,8 +131,10 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
 
 
 
-                              <p className={` py-1 flex gap-x-2 items-center  hover:font-bold cursor-pointer  ${activeDivision == i ? "text-white font-bold" : "text-black font-medium"}  transition-all`} >
-                                {timeBlock.icon}    {timeBlock.division}
+                              <p className={` py-1 flex flex-col gap-x-2 items-left justify-start  hover:font-bold cursor-pointer  ${activeDivision == i ? "text-white font-bold" : "text-[#969288] font-medium"}  transition-all`} >
+                               <span className={`w-[50px] h-[50px] ${activeDivision==i?"bg-white":"bg-[#969288]"} rounded-full  flex justify-center items-center`}>
+                               {timeBlock.icon}
+                                </span>   <br />  {timeBlock.division}
                                 </p>
 
 
@@ -150,4 +154,4 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
     );
 };
 
-export default ButtonStrip;
+export default ButtonStripCity;

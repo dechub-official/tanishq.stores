@@ -21,13 +21,16 @@ import StorePlate from "../component/storePlate";
 import Subscription from "../component/Subscription";
 import Assurance from "../component/assurance";
 import ReviewSlider from "../component/reviewSlider";
+import BookAnAppointment from "../component/bookAnAppointment";
 
 export default function CityPage() {
   let { id } = useParams();
   const nav = useNavigate();
+  const [individualStoreData,setIndividualStoreData]=useState(null)
 
   const [data, setData] = useState([]);
   const [Position, setPosition] = useState([]);
+  const [BookAnAppointmentModal, setBookAnAppointmentModal] = useState(true);
 
   //(loc);
 
@@ -198,84 +201,7 @@ export default function CityPage() {
         //(error);
       }
     }
-    // else {
-    //     if (!state)
-    //         Navigate("/")
 
-    //     //(state);
-    //     let storeCode = []
-    //     try {
-    //         storeCode = state.data.data.results.map(async (pos) => {
-
-    //             [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //                 element.style.filter = "blur(5px)";
-    //             });
-    //             const data = await get(`/search?value=${pos.name.replace("Tanishq Jewellery - ", "")}`)
-    //             // const data=await axios.get(`http://10.54.4.78:8129/stores/tanishq/search?value=${e.target.value}`)
-
-    //             return data?.data?.result;
-
-    //         })
-
-    //     }
-
-    //     catch (error) {
-    //         //(error);
-
-    //     }
-
-    //     Promise.all([...storeCode]).then((values) => {
-    //         //(values);
-    //         const tempStoreData = values.map(async (code) => {
-    //             if (code && code.length > 0) {
-    //                 code = code[0]
-
-    //                 try {
-    //                     // [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //                     //     element.style.filter = "blur(5px)";
-    //                     // });
-    //                     const data = await get(`/details?storeCode=${code.storeCode}&city=`)
-    //                     // const data=await axios.get(`http://10.54.4.78:8129/stores/tanishq/search?value=${e.target.value}`)
-
-    //                     return data.data.result;
-
-    //                 }
-    //                 catch (error) {
-    //                     //(error);
-
-    //                 }
-    //             }
-    //         })
-    //         Promise.all([...tempStoreData]).then((values) => {
-    //             //(values);
-    //             let actualData = []
-    //             values.forEach((stdata) => {
-    //                 if (stdata && stdata.length > 0) {
-    //                     stdata = stdata[0]
-    //                     actualData.push(stdata)
-    //                 }
-    //             })
-    //             const location = actualData.map((pos) => {
-
-    //                 return {
-    //                     lat: Number(pos.storeLatitude),
-    //                     lng: Number(pos.storeLongitude),
-    //                     name: `Tanishq Jewellery - ${pos.storeName}`
-
-    //                 }
-
-    //             })
-    //             setPosition([...location])
-    //             setData([...actualData]);
-
-    //         })
-    //     });
-    //     [...document.getElementsByClassName("af-bl")].forEach(element => {
-    //         element.style.filter = "blur(0px)";
-    //     });
-    //     //(storeCode);
-
-    // }
   };
   useEffect(() => {
     loadData();
@@ -326,6 +252,7 @@ export default function CityPage() {
               Tanishq Stores in {id || "NearBy Search"}
             </h2>
           </div>
+       {individualStoreData&&   <BookAnAppointment page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={setBookAnAppointmentModal} closingTime={individualStoreData.storeClosingTime}/>}
           <div class="row my-5 grid-rows-1 w-[90%] md:w-[unset] grid md:grid-cols-2 gap-4">
             {/* <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  ">  */}
 
@@ -333,7 +260,7 @@ export default function CityPage() {
               return (
                 <>
                   {i == 1 && <Subscription />}
-                  <StorePlate key={i} data={data} />
+                  <StorePlate key={i} data={data} setIndividualStoreData={setIndividualStoreData} />
                 </>
               );
             })}
