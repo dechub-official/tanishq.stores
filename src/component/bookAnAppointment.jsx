@@ -67,13 +67,13 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
         let closingTime = new Date();
         openingTime.setHours(opening.hours, opening.minutes);
         closingTime.setHours(closing.hours, closing.minutes);
-        console.log(openingTime.getHours(), closingTime.getHours(), "sfsf");
+        
 
         while (openingTime.getHours() < closingTime.getHours() ||
             (openingTime.getHours() === closingTime.getHours() && openingTime.getMinutes() < closingTime.getMinutes())) {
 
             if (isToday&&(Time.getHours() > openingTime.getHours() )|| (Time.getHours() == openingTime.getHours() && Time.getMinutes() > openingTime.getMinutes())) {
-                console.log("timing are==>",Time.getHours(), Time.getMinutes(), openingTime.getHours(), openingTime.getMinutes());
+
                 openingTime.setMinutes(openingTime.getMinutes() + 30);
                 continue
 
@@ -175,7 +175,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
         },
     ];
 
-    console.log(timeDivisions);
+ 
 
 
 
@@ -183,9 +183,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
 
     const isTimeDisabled = (division) => {
         const isToday = +dayInfo.date?.split(" ")[1] == new Date().getDate(); // Compare with today's day
-        console.log(+dayInfo.date?.split(" ")[1], new Date().getDay());
-
-        console.log(isToday);
+       
 
         if (!isToday) return false;
 
@@ -218,7 +216,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
 
     const handleDivisions = (division, i) => {
         const isDisabled = isTimeDisabled(division)
-        console.log(isDisabled);
+       
 
         if (!isDisabled)
             setActiveDivision(i)
@@ -232,6 +230,14 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
         const apiData = await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.date}`)
         setStep(3)
         setProgress(false)
+    }
+
+    const handleDate=(i)=>{
+        const formattedDate=new Date()
+        formattedDate.setDate(days[i].split(" ")[1])
+        setDayInfo({ day: weekDays[(day + i) % 7], date: days[i], activeIndex: i,formattedDate})
+        console.log(days[i],formattedDate);
+        
     }
     const days = getNextSevenDays()
 
@@ -254,7 +260,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
                                                 <tr
                                                     key={i}
                                                     className={`w-full cursor-pointer ${i == dayInfo.activeIndex ? "text-black font-bold" : "text-[#767469]"} hover:bg-gray-100 transition-all`}
-                                                    onClick={() => { setActiveModal(); setDayInfo({ day: weekDays[(day + i) % 7], date: days[i], activeIndex: i }) }}
+                                                    onClick={() => { setActiveModal(); handleDate(i)  }}
                                                 >
                                                     <td className="px-4 py-1 ">
                                                         {i === 0 ? <>Today</> : i === 1 ? "Tomorrow" : weekDays[(day + i) % 7]}
@@ -395,6 +401,7 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
                         timeDivisions={timeDivisions}
                         activeModal={activeModal}
                         setActiveModal={setActiveModal}
+                        handleDate={handleDate}
                     />
                     <button
                         class="btn border-0 gap-1 flex rounded-pill mx-auto mt-5
@@ -487,10 +494,10 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
 
             {
                 step == 3 && <>
-                    <div className="relative ">
-                        <img src={MonBookAnAppointmentImage} className="" alt="" />
-                        <div className="absolute flex justify-around items-center bottom-[15%] w-full ibm-plex text-[#636363] font-bold  text-[15px]">
-                            <p>{dayInfo.date}</p>
+                    <div className="relative flex flex-col items-center">
+                        <img src={MonBookAnAppointmentImage} className="w-[85%] mt-7 mx-auto" alt="" />
+                        <div className="absolute flex justify-around items-center bottom-[15%] w-full ibm-plex text-[#636363] font-medium mx-4  text-[12px]">
+                            <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth()+1}/{dayInfo.formattedDate.getFullYear()})</p>
                             <p>{weekDays[activeDivision]}, {dayInfo.time}</p>
                         </div>
                     </div>
