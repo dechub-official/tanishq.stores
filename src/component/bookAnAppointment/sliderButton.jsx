@@ -17,7 +17,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
     return (
         <div className="flex pl-3 flex-col w-full">
 
-            <p className="flex gap-x-2 mb-5 pl-2 ibm-plex text-[17px]  items-center font-medium text-[#636363]">
+            <p className="flex gap-x-2 mb-3 pl-2 ibm-plex text-[17px]  items-center font-[400] text-[#636363]">
                 <svg width="17" height="17" className="mb-1" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1339_499)">
                         <path d="M14.6849 1.5332H2.31431C1.22278 1.5332 0.337891 2.4181 0.337891 3.50962V15.0236C0.337891 16.1151 1.22278 17 2.31431 17H14.6849C15.7764 17 16.6613 16.1151 16.6613 15.0236V3.50962C16.6613 2.41804 15.7764 1.5332 14.6849 1.5332Z" fill="#636363" />
@@ -54,10 +54,10 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
                 <Swiper
                     slidesPerView="auto"
                     spaceBetween={10}
-                    className="border-[1px] border-[#E0E0E0] rounded-s-full md:rounded-full p-1"
+                    className="border-[1px] border-[#E0E0E0] rounded-full p-0"
                 >
                     {days.map((day, i) => {
-                        return <SwiperSlide className="button-strip !w-auto my-2 ml-2">
+                        return <SwiperSlide className="button-strip !w-auto my-1 ml-2">
                             <button
                                 onClick={() => handleSpot(i)}
                                 className={`spot_button ibm-plex duration-100 px-6 md:px-12  py-4 rounded-full text-[16px] font-[400] `}
@@ -80,12 +80,12 @@ const ButtonStrip = ({ days, weekDays, dayInfo, setDayInfo, timeDivisions, isTim
             </div>
 
 
-            <p className="flex gap-x-2 pl-2 mt-10 mb-5 ibm-plex text-[17px]  items-center font-medium text-[#636363]">
+            <p className="flex gap-x-2 pl-2 mt-10 mb-3 ibm-plex text-[17px]  items-center font-[400] text-[#636363]">
                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.6205 14.3917C15.7698 12.2424 15.7698 8.75762 13.6205 6.60828C11.4711 4.45895 7.98636 4.45895 5.83703 6.60829C3.68769 8.75762 3.68769 12.2424 5.83703 14.3917C7.98636 16.541 11.4711 16.541 13.6205 14.3917Z" fill="#636363" />
-                    <path d="M14.5939 15.3646C17.2806 12.678 17.2806 8.32203 14.5939 5.63536C11.9072 2.9487 7.5513 2.9487 4.86464 5.63536C2.17797 8.32203 2.17797 12.678 4.86464 15.3646C7.5513 18.0513 11.9072 18.0513 14.5939 15.3646Z" stroke="#832729" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14.5939 15.3646C17.2806 12.678 17.2806 8.32203 14.5939 5.63536C11.9072 2.9487 7.5513 2.9487 4.86464 5.63536C2.17797 8.32203 2.17797 12.678 4.86464 15.3646C7.5513 18.0513 11.9072 18.0513 14.5939 15.3646Z" stroke="#636363" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M9.99229 11.1369C10.3433 10.9915 10.51 10.589 10.3646 10.238C10.2192 9.8869 9.81675 9.7202 9.46571 9.86561C9.11466 10.011 8.94796 10.4135 9.09337 10.7645C9.23878 11.1156 9.64124 11.2823 9.99229 11.1369Z" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M9.729 3.62206C10.109 3.62206 10.417 3.31404 10.417 2.93408C10.417 2.55411 10.109 2.24609 9.729 2.24609C9.34904 2.24609 9.04102 2.55411 9.04102 2.93408C9.04102 3.31404 9.34904 3.62206 9.729 3.62206Z" stroke="#832729" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M9.729 3.62206C10.109 3.62206 10.417 3.31404 10.417 2.93408C10.417 2.55411 10.109 2.24609 9.729 2.24609C9.34904 2.24609 9.04102 2.55411 9.04102 2.93408C9.04102 3.31404 9.34904 3.62206 9.729 3.62206Z" stroke="#636363" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M9.72852 6.375V6.71899" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M6.81055 7.58203L7.05378 7.8253" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M5.60156 10.5H5.94555" stroke="white" stroke-width="0.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
