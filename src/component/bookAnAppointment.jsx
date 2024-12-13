@@ -6,7 +6,7 @@ import DeskBookAnAppointmentImage from '../assets/images/DesktopBookAnAppoinment
 import buttonGIF from '../assets/images/buton.gif'
 import BookAnAppointmentDeepStore from "./bookAnAppointment/detailsMob";
 import BookAnAppointmentCity from "./bookAnAppointment/cityMob";
-export default function BookAnAppointment({ openingTime, closingTime, isOpen, setisOpen,storeCode,storeName,page="deepStore" }) {
+export default function BookAnAppointment({activeStore, setIndividualStoreData,openingTime,cities, closingTime, isOpen, setisOpen,storeCode,storeName,page="deepStore" }) {
 
 
 
@@ -402,14 +402,17 @@ export default function BookAnAppointment({ openingTime, closingTime, isOpen, se
         isOpen={isOpen} 
         setisOpen={setisOpen} 
         step={step}
+        activeStore={activeStore}
          setStep={setStep}
          days={days}
          weekDays={weekDays}
          dayInfo={dayInfo}
+         cities={cities}
          setDayInfo={(e) => setDayInfo(e)}
          handleDivisions={handleDivisions}
          activeDivision={activeDivision}
          isTimeDisabled={isTimeDisabled}
+         setIndividualStoreData={setIndividualStoreData}
          timeDivisions={timeDivisions}
          activeModal={activeModal}
          setActiveModal={setActiveModal}

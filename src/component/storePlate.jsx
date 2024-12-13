@@ -4,7 +4,7 @@ import ReactGA from 'react-ga4'
 import { useNavigate } from "react-router-dom";
 import festiveStrip from '../assets/images/navbar/festive-strip.gif'
 import '../assets/css/storeCard.css'
-export default function StorePlate({ data,setIndividualStoreData }) {
+export default function StorePlate({ data,setIndividualStoreData,index }) {
   
   const modifiedClosingTime=data.storeClosingTime?.replace(/.\d+ (\w\w)$/, '$1')
   const modifiedOpeningTime=data.storeOpeningTime?.replace(/.\d+ (\w\w)$/, '$1')
@@ -154,7 +154,7 @@ export default function StorePlate({ data,setIndividualStoreData }) {
                                        
                                             console.log({storeClosingTime:modifiedClosingTime,storeOpeningTime:modifiedOpeningTime,storeName:data.storeName,storeCode:data.storeCode});
                                             
-                                            setIndividualStoreData({storeClosingTime:modifiedClosingTime,storeOpeningTime:modifiedOpeningTime,storeName:data.storeName,storeCode:data.storeCode})
+                                            setIndividualStoreData({storeClosingTime:modifiedClosingTime,storeOpeningTime:modifiedOpeningTime,storeName:data.storeName,storeCode:data.storeCode,activeStore:index})
                                            
                                     }}
               >

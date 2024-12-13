@@ -252,7 +252,7 @@ export default function CityPage() {
               Tanishq Stores in {id || "NearBy Search"}
             </h2>
           </div>
-       {individualStoreData&&   <BookAnAppointment page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={setBookAnAppointmentModal} closingTime={individualStoreData.storeClosingTime}/>}
+       {individualStoreData&&   <BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={setBookAnAppointmentModal} closingTime={individualStoreData.storeClosingTime}/>}
           <div class="row my-5 grid-rows-1 w-[90%] md:w-[unset] grid md:grid-cols-2 gap-4">
             {/* <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  ">  */}
 
@@ -260,7 +260,7 @@ export default function CityPage() {
               return (
                 <>
                   {i == 1 && <Subscription />}
-                  <StorePlate key={i} data={data} setIndividualStoreData={setIndividualStoreData} />
+                  <StorePlate key={i} index={i} data={data} setIndividualStoreData={setIndividualStoreData} />
                 </>
               );
             })}

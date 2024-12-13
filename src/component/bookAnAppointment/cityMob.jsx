@@ -2,14 +2,14 @@ import ButtonStrip from "./sliderButton";
 import MonBookAnAppointmentImage from '../../assets/images/bookAnAppoinment.png'
 import buttonGIF from '../../assets/images/buton.gif'
 import ButtonStripCity from "./sliderButtonCity";
-export default function BookAnAppointmentCity({step,isOpen,setisOpen,days,weekDays,dayInfo,setDayInfo,handleDivisions,activeDivision,isTimeDisabled,timeDivisions,activeModal,setActiveModal,handleDate,handelStep,handleInputChange}) {
+export default function BookAnAppointmentCity({step,cities,activeStore,setIndividualStoreData,isOpen,setisOpen,days,weekDays,dayInfo,setDayInfo,handleDivisions,activeDivision,isTimeDisabled,timeDivisions,activeModal,setActiveModal,handleDate,handelStep,handleInputChange}) {
     return <>
      <div className={` ${isOpen ? "absolute" : "hidden"} overflow-hidden max-h-[800%] top-0 left-0 w-full min-h-[800%] z-[60] backdrop-blur-lg bg-white/30  `}>
 
 </div>
 
 
-<div className={` block shadow-[#832729] shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] fixed z-[70] ${isOpen ? "bottom-[0]" : "bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible  h-fit  max-h-[550px] px-2  !rounded-t-md !rounded-b-none w-full bg-white`}>
+<div className={` block shadow-[#832729] shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] fixed z-[70] ${isOpen ? "bottom-[0]" : "bottom-[-150%]"} transition-all duration-150 md:hidden left-0 font-fraunces overflow-visible  h-fit  max-h-[650px] px-2  !rounded-t-md !rounded-b-none w-full bg-white`}>
     <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-3 absolute z-50 right-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
         <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
@@ -23,6 +23,9 @@ export default function BookAnAppointmentCity({step,isOpen,setisOpen,days,weekDa
                 days={days}
                 weekDays={weekDays}
                 dayInfo={dayInfo}
+                setIndividualStoreData={setIndividualStoreData}
+                cities={cities}
+                activeStore={activeStore}
                 setDayInfo={(e) => setDayInfo(e)}
                 handleDivisions={handleDivisions}
                 activeDivision={activeDivision}
