@@ -6,6 +6,7 @@ import "swiper/css"; // Import Swiper styles
 const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivisions, isTimeDisabled, handleDivisions, activeDivision, activeModal, setActiveModal }) => {
     const date = new Date()
     const dayCount = date.getDay()
+    const startingTime = !isTimeDisabled("Morning") ? 0 : !isTimeDisabled("Noon") ? 1 : 2
   
     return (
         <div className="flex pl-3 flex-col w-full">
@@ -85,7 +86,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
             <div className="flex relative  gap-x-4">
 
 
-                {activeModal == 2 && <div className={`absolute z-50 ${activeDivision == 1 && 'left-[35%]'} ${activeDivision == 2 && 'left-[70%]'} bottom-[85%]`}>
+                {activeModal == 2 && <div className={`absolute z-50 ${activeDivision == 1+ startingTime && 'left-[35%]'} ${activeDivision == 2+ startingTime && 'left-[70%]'} bottom-[85%]`}>
                     <div className="box pl-1 flex rounded-md shadow-lg bg-white">
 
 

@@ -1,6 +1,8 @@
 import ButtonStrip from "./sliderButton";
-import MonBookAnAppointmentImage from '../../assets/images/bookAnAppoinment.png'
-import buttonGIF from '../../assets/images/buton.gif'
+
+
+import FormSection from "./form";
+import ConfirmedAppointment from "./confirmedAppoinment";
 export default function BookAnAppointmentDeepStore({step,isOpen,setisOpen,days,weekDays,dayInfo,setDayInfo,handleDivisions,activeDivision,isTimeDisabled,timeDivisions,activeModal,setActiveModal,handleDate,handelStep,handleInputChange}) {
     return <>
      <div className={` ${isOpen ? "absolute" : "hidden"} overflow-hidden max-h-[800%] top-0 left-0 w-full min-h-[800%] z-[60] backdrop-blur-lg bg-white/30  `}>
@@ -43,7 +45,7 @@ export default function BookAnAppointmentDeepStore({step,isOpen,setisOpen,days,w
 
     {step == 2 && <>
        
-        <h1 className="text-black px-4 text-[22px] font-fraunces  text-left  mb-2 mt-[2rem] font-medium"><span className="text-[#832729] font-fraunces ">You're</span> Almost There!</h1>
+        {/* <h1 className="text-black px-4 text-[22px] font-fraunces  text-left  mb-2 mt-[2rem] font-medium"><span className="text-[#832729] font-fraunces ">You're</span> Almost There!</h1>
         <div className="my-3 px-4  gap-x-1">
             <div className="relative mb-6 mt-10 ">
                 <label className="ibm-plex text-[#636363] font-medium flex gap-x-1 mb-3 text-[14px]" htmlFor="">
@@ -115,21 +117,25 @@ export default function BookAnAppointmentDeepStore({step,isOpen,setisOpen,days,w
                 repeatCount="indefinite" />
             </path>
           </svg> : <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>}
-            </button> */}
+            </button> 
 
-        </div>
+        </div> */}
+
+        <FormSection
+            handelStep={handelStep}
+            handleInputChange={
+                handleInputChange
+            }
+            />
     </>}
 
     {
-        step == 3 && <>
-            <div className="relative flex flex-col items-center">
-                <img src={MonBookAnAppointmentImage} className="w-[85%] mt-7 mx-auto" alt="" />
-                <div className="absolute flex justify-around items-center bottom-[15%] w-full ibm-plex text-[#636363] font-medium mx-4  text-[12px]">
-                    <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth()+1}/{dayInfo.formattedDate.getFullYear()})</p>
-                    <p>{weekDays[activeDivision]}, {dayInfo.time}</p>
-                </div>
-            </div>
-        </>
+        step == 3 && 
+        <ConfirmedAppointment 
+        dayInfo={dayInfo}
+        weekDays={weekDays}
+        activeDivision={activeDivision}
+        />
     }
 </div>
     </>
