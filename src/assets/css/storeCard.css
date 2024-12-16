@@ -55,13 +55,13 @@
     letter-spacing: -0.02em;
     text-align: center;
     color: #fff;
-    height: 48px;
+    height: 40px;
     border-radius: 50rem;
     margin-bottom: 16px;
   }
   
   .btn span {
-    padding-left: 18px !important;
+    padding-left: 6px !important;
   }
   
   .ic-btn {
