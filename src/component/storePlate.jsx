@@ -160,17 +160,17 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
         </div>
         <div class="flex gap-2 mt-8 px-1 md:px-3">
           <button
-            class="btn border-0 gap-1 rounded-pill bg-red-50 flex justify-center items-center pr-1 md:p-2"
+            class="btn border-0 gap-1 rounded-pill bg-red-50 flex justify-center items-center px-2 py-1 pr-1 md:p-2"
             onClick={handleBookAnAppointment}
           >
-            <span class="pr-1 text-[12px] whitespace-nowrap md:text-[12px] font-[500]">BOOK AN APPOINTMENT</span>
+            <span class="pr-1 text-[9px] whitespace-nowrap md:text-[12px] font-[500]">BOOK AN APPOINTMENT</span>
             <i class="bi bi-chevron-right ic-btn rounded-full"></i>
           </button>
           <button
-            class="btn border-0 gap-1 rounded-pill flex justify-center items-center p-2"
+            class="btn border-0 gap-1 rounded-pill flex justify-center items-center px-2 py-1"
             onClick={() => { Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`) }}
           >
-            <span class="pr-1 text-[10px] md:text-[12px] font-[500]">STORE DETAILS</span>
+            <span class="pr-1 text-[9px] md:text-[12px] font-[500]">STORE DETAILS</span>
             <i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
           </button>
         </div>
