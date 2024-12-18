@@ -3,7 +3,7 @@ import ButtonStrip from "./sliderButton";
 
 import FormSection from "./form";
 import ConfirmedAppointment from "./confirmedAppoinment";
-export default function BookAnAppointmentDeepStore({step,isOpen,setisOpen,days,weekDays,dayInfo,setDayInfo,handleDivisions,activeDivision,isTimeDisabled,timeDivisions,activeModal,setActiveModal,handleDate,handelStep,handleInputChange}) {
+export default function BookAnAppointmentDeepStore({step,isOpen,storeName,setisOpen,days,weekDays,dayInfo,setDayInfo,handleDivisions,activeDivision,isTimeDisabled,timeDivisions,activeModal,setActiveModal,handleDate,handelStep,handleInputChange}) {
     return <>
      <div className={` ${isOpen ? "absolute" : "hidden"} overflow-hidden max-h-[800%] top-0 left-0 w-full min-h-[800%] z-[60] backdrop-blur-lg bg-white/30  `}>
 
@@ -18,7 +18,7 @@ export default function BookAnAppointmentDeepStore({step,isOpen,setisOpen,days,w
 
     {step == 1 &&
         <>
-            <h1 className="text-black px-4 text-[22px] font-fraunces  text-left mt-[2rem] mb-1 font-[400]"><span className="text-[#832729] font-fraunces ">Heading </span> to Our Store?</h1>
+            <h1 className="text-black px-4 text-[22px] font-fraunces  text-left mt-[2rem] mb-1 font-[400]"><span className="text-[#832729] font-fraunces ">Heading </span> {storeName}</h1>
             <p className="text-black px-4 font-fraunces mb-5 text-[14px]  font-normal">Let us make it smoother and tailored for you. <br />Book an appointment to skip the wait.</p>
             <ButtonStrip
                 days={days}

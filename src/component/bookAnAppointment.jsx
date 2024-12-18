@@ -379,7 +379,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
 
         if (step != 3) {
             return <>
-                <div class="col storeCard md:block hidden  md:max-w-[550px]"> <div class="card  border rounded-xl shadow-sm">
+                <div class="col storeCard h-full md:block hidden  md:max-w-[550px]"> <div class="card h-full  border rounded-xl shadow-sm">
 
                     <div class="flex items-center stag p-3 mb-2">
                         {/* <i class="bi bi-shop me-2"></i> */}
@@ -388,7 +388,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                         </p>
 
                     </div>
-                    <div className="px-4 mb-[3.4rem]">
+                    <div className="px-4 h-full">
                         <div className="relative overflow-visible">
                             <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[-50%]  translate-y-[-75%] cursor-pointer absolute z-50 right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
@@ -504,16 +504,16 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
         }
         else {
             return <>
-                <div class="col storeCard h-full md:block hidden   md:max-w-[550px]"> <div class="card px-2 py-[3.2rem] border rounded-xl shadow-sm">
+                <div class="col storeCard h-full md:block hidden   md:max-w-[550px]"> <div class="card px-2 h-full border rounded-xl shadow-sm">
                 <div className="relative overflow-visible">
-                            <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[-50%]  translate-y-[-75%] cursor-pointer absolute z-50 right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[50%]  translate-y-[25%] cursor-pointer absolute z-[80] right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                                 <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                    <div className="relative  my-auto max-h-fit ">
+                    <div className="relative  my-auto flex justify-center items-center h-full ">
                         <img src={DeskBookAnAppointmentImage} className=" " alt="" />
-                        <div className="absolute flex justify-around items-center bottom-[15%]  w-[80%] right-[-3%] ibm-plex text-[#636363] font-bold  text-[15px]">
+                        <div className="absolute flex justify-around items-center bottom-[25%]  w-[80%] right-[-3%] ibm-plex text-[#636363] font-bold  text-[15px]">
                             <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth() + 1}/{dayInfo.formattedDate.getFullYear()})</p>
                             <p>{weekDays[activeDivision]}, {dayInfo.time}</p>
                         </div>
@@ -549,6 +549,7 @@ if(!isOpen&&window.innerWidth<=768)return
             isTimeDisabled={isTimeDisabled}
             handleInputChange={handleInputChange}
             timeDivisions={timeDivisions}
+            storeName={storeName}
             activeModal={activeModal}
             setActiveModal={setActiveModal}
             handleDate={handleDate}
