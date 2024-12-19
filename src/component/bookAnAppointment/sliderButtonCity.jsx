@@ -110,7 +110,7 @@ const ButtonStripCity = ({ days, weekDays, cities, activeStore, dayInfo, handleD
 
                     className=" p-1 mx-auto"
                 >
-                    {timeDivisions.map((timeBlock, i) =>
+                    {/* {timeDivisions.map((timeBlock, i) =>
                         <> {!isTimeDisabled(timeBlock.division) && <>
                             <SwiperSlide className="button-strip  my-2 ">
                                 <button
@@ -130,6 +130,34 @@ const ButtonStripCity = ({ days, weekDays, cities, activeStore, dayInfo, handleD
                                         <span className={`w-[40px] h-[40px] ${activeDivision == i ? "bg-white" : "bg-[#969288]"} rounded-full  flex justify-center items-center`}>
                                             {timeBlock.icon}
                                         </span>   <br />  {timeBlock.division}
+                                    </p>
+
+
+
+
+                                </button>
+                            </SwiperSlide>
+                        </>}</>
+                    )} */}
+
+                    {timeDivisions.map((timeBlock, i) =>
+                        <> {!isTimeDisabled(timeBlock.division) && <>
+                            <SwiperSlide className="button-strip !w-auto my-2 ">
+                                <button
+                                    onClick={() => {
+                                        if (dayInfo.activeIndex != null) { handleDivisions(timeBlock.division, i); setActiveModal(2) }
+                                    }}
+                                    className={`spot_button ibm-plex duration-100 border-[1px] border-[#E0E0E0] rounded-s-full px-5 md:px-12  py-2 rounded-full text-[16px] font-[400] ${activeDivision == i ? "active-day" : ''}`}
+                                    style={activeDivision == i ? {
+                                        background: "linear-gradient(90.18deg, #832729 0.17%, #631517 99.86%)",
+                                        color: "white"
+                                    } : {}}
+                                >
+
+
+
+                                    <p className={` py-1 flex gap-x-2 items-center  hover:font-bold cursor-pointer  ${activeDivision == i ? "text-white font-bold" : "text-black font-medium"}  transition-all`} >
+                                        {timeBlock.icon}    {timeBlock.division}
                                     </p>
 
 

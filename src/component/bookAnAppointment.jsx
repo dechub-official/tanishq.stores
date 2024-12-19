@@ -397,9 +397,9 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                         </div>
 
 
-                        {step == 1 && <div> <h1 className="text-[#832729]  md:text-[20px] text-[18px] md:text-left text-center font-fraunces font-semibold">Heading to {storeName}</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
-                            <div className="my-3  flex md:justify-around justify-center gap-x-5">
-                                <div className=" overflow-visible">
+                        {step == 1 && <div> <h1 className="text-[#832729]  md:text-[20px] text-[18px] md:text-left text-center mb-2 font-fraunces font-semibold">Heading to {storeName}</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
+                            <div className="mb-3  mt-10 flex md:justify-around justify-center gap-x-5">
+                                <div className="  overflow-visible">
                                     <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0  w-[180px]  text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Day" />
                                     {activeModal == 1 && <div className="absolute z-20">
                                         <div className="box p-4 rounded-md shadow-lg bg-white">
@@ -484,13 +484,13 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
 
 
                             </div>
-                            <div className="md:my-3 my-6 flex gap-x-3">
+                            <div className="md:my-3 my-6 flex items-center gap-x-3">
 
                                 <div className="relative w-full">
                                     <input type="text" name="email" onChange={handleInputChange} className="px-4 border  border-[#444444] w-[98%] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Type Your Email ID*" />
                                 </div>
 
-                                <img src={buttonGIF} onClick={() => handelStep(3)} className="w-[140px] cursor-pointer" alt="" />
+                                <img src={buttonGIF} onClick={() => handelStep(3)} className="w-[160px]  cursor-pointer" alt="" />
 
                             </div>
                         </>}
@@ -504,7 +504,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
         }
         else {
             return <>
-                <div class="col storeCard h-full md:block hidden   md:max-w-[550px]"> <div class="card px-2 h-full border rounded-xl shadow-sm">
+                <div class="col  h-full md:block hidden   md:max-w-[550px]"> <div class=" px-2 h-full  rounded-xl ">
                 <div className="relative overflow-visible">
                             <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[50%]  translate-y-[25%] cursor-pointer absolute z-[80] right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
