@@ -252,8 +252,11 @@ export default function CityPage() {
               Tanishq Stores in {id || "NearBy Search"}
             </h2>
           </div>
+          <div className="block md:hidden">
           {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />}
 
+          </div>
+         
           {/* <img src={MobBookAnAppoinmentButton}  setBookAnAppointmentModal={setBookAnAppointmentModal} className="block my-8 w-[90%] mx-auto md:hidden" alt="" /> */}
           <div class="row my-5 grid-rows-1 w-[90%] md:w-[unset] grid md:grid-cols-2 gap-4">
             {/* <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  ">  */}
