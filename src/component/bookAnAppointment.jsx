@@ -323,7 +323,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                             class="btn border-0 gap-1 md:flex rounded-pill hidden justify-center items-center p-2"
                             onClick={() => handelStep(2)}
                         >
-                            <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Procced</span>
+                            <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Proceed</span>
                             <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>
                         </button>
 
@@ -463,7 +463,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                                     class="btn border-0 gap-1 md:flex rounded-pill hidden justify-center items-center p-2"
                                     onClick={() => handelStep(2)}
                                 >
-                                    <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Procced</span>
+                                    <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Proceed</span>
                                     <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>
                                 </button>
 

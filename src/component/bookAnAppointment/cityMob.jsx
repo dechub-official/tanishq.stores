@@ -42,7 +42,7 @@ export default function BookAnAppointmentCity({ step, cities, activeStore, setIn
                  justify-center items-center p-2"
                             onClick={() => handelStep(2)}
                         >
-                            <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Procced</span>
+                            <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Proceed</span>
                             <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>
                         </button>
                         {/* </div> */}
