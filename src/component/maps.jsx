@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {GOOGL_MAPS_API_KEY} from '../shared/config'
 export  function Maps(props) {
 
  
@@ -59,5 +60,5 @@ return<React.Fragment>
 </React.Fragment>
 }
 export default GoogleApiWrapper({
-  apiKey: ("AIzaSyDhXC0pZWKq8zdR9D5AXT1nC1gFIkCIx3w")
+  apiKey: (GOOGL_MAPS_API_KEY)
 })(Maps)

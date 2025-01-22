@@ -241,7 +241,9 @@ export default function CityPage() {
       <div className="flex flex-col items-center mb-8 af-bl">
         {/* <Heading heading={"Welcome to Tanishq!"} subHeading={"400+ stores, 8L+ Designs, Backed by the trust of TATA  | India’s favourite jewellery store"}/> */}
       </div>
-
+      {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <div className=" absolute bg-green-500 top-0 min-h-[100vh]">
+        <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />
+        </div></div>}
       <SearchBox />
       <div className="flex flex-col items-center justify-center af-bl">
         <Banner name={id || "NearBy Search"} />
@@ -252,11 +254,11 @@ export default function CityPage() {
               Tanishq Stores in {id || "NearBy Search"}
             </h2>
           </div>
-          <div className="block md:hidden">
-          {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />}
 
-          </div>
-         
+
+
+
+
           {/* <img src={MobBookAnAppoinmentButton}  setBookAnAppointmentModal={setBookAnAppointmentModal} className="block my-8 w-[90%] mx-auto md:hidden" alt="" /> */}
           <div class="row my-5 grid-rows-1 w-[90%] md:w-[unset] grid md:grid-cols-2 gap-4">
             {/* <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  ">  */}
@@ -266,22 +268,23 @@ export default function CityPage() {
                 <>
                   {i == 1 && <Subscription />}
                   {
-                   individualStoreData?.activeStore==i&& BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "card" ?
-                    <BookAnAppointment
-                    key={i}
-                      cities={data}
-                      activeStore={individualStoreData.activeStore}
-                      setIndividualStoreData={setIndividualStoreData}
-                      page={"city"}
-                      openingTime={individualStoreData.storeOpeningTime}
-                      isOpen={BookAnAppointmentModal.visible}
-                      storeCode={individualStoreData.storeCode}
-                      storeName={individualStoreData.storeName}
-                      setisOpen={() => setBookAnAppointmentModal({ visible: false })}
-                      closingTime={individualStoreData.storeClosingTime}
-                    />: <StorePlate key={i} index={i} data={storeData} setIndividualStoreData={setIndividualStoreData} setBookAnAppointmentModal={setBookAnAppointmentModal} />
+                    individualStoreData?.activeStore == i && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "card" ?
+                      <BookAnAppointment
+                        key={i}
+                        cities={data}
+                        activeStore={individualStoreData.activeStore}
+                        setIndividualStoreData={setIndividualStoreData}
+                        page={"city"}
+                        openingTime={individualStoreData.storeOpeningTime}
+                        isOpen={BookAnAppointmentModal.visible}
+                        storeCode={individualStoreData.storeCode}
+                        storeName={individualStoreData.storeName}
+                        setisOpen={() => setBookAnAppointmentModal({ visible: false })}
+                        closingTime={individualStoreData.storeClosingTime}
+                      />
+                      : <StorePlate key={i} index={i} data={storeData} setIndividualStoreData={setIndividualStoreData} setBookAnAppointmentModal={setBookAnAppointmentModal} />
                   }
-                 
+
                 </>
               );
             })}

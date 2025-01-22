@@ -20,7 +20,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
 
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
-
+  
     const getCurrentDivision = () => {
         const now = new Date();
         const hours = now.getHours();
