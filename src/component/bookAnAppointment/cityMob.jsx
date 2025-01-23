@@ -9,8 +9,8 @@ export default function BookAnAppointmentCity({ step, cities, activeStore, setIn
         <div className={` ${isOpen ? "fixed" : "hidden"} md:hidden overflow-hidden max-h-[100vh] top-0 left-0 w-full min-h-[100vh] z-[60] backdrop-blur-lg bg-white/30  `}>
 
         </div>
-        <div className=" bg-red-600 h-full">
-            <div className={` block shadow-[#832729] shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] z-[90] absolute overflow-visible  bottom-0 transition-all duration-150 md:hidden left-0 font-fraunces  h-fit  max-h-[450px] min-h-[450px] px-2 overflow-scroll !rounded-t-xl  !rounded-b-none w-full bg-white`}>
+      
+            <div className={` block shadow-[#832729] shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] z-[90] absolute !overflow-visible  bottom-0 transition-all duration-150 md:hidden left-0 font-fraunces  h-fit  max-h-[450px] min-h-[450px] px-2  !rounded-t-xl  !rounded-b-none w-full bg-white`}>
                 <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-3 absolute z-50 right-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                     <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
@@ -65,7 +65,7 @@ export default function BookAnAppointmentCity({ step, cities, activeStore, setIn
                     />
                 }
             </div>
-        </div>
+     
     </>
 
 

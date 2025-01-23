@@ -260,7 +260,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                 {step == 1 && <> <h1 className="text-[#832729] md:text-[20px] text-[18px] md:text-left text-center font-fraunces font-bold">Heading to Our Store?</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
                     <div className="my-3  flex md:justify-around justify-center gap-x-5">
                         <div className=" overflow-visible">
-                            <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0 md:w-[initial] w-[100px]  text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Day" />
+                            <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0 md:w-[initial] w-[100px]  text-center cursor-pointer border !border-black py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Day" />
                             {activeModal == 1 && <div className="absolute z-20">
                                 <div className="box p-4 rounded-md shadow-lg bg-white">
                                     <table className="table-auto w-full">
@@ -287,7 +287,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                         </div>
                         <div className="">
                             {/* <input type="text" className="px-4 border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" /> */}
-                            <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-4 px-0 md:w-[initial] w-[100px] text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" />
+                            <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-4 px-0 md:w-[initial] w-[100px]  text-center cursor-pointer border border-black py-3 placeholder:text-black rounded-full placeholder:text-center " placeholder="Choose Time" />
                             {activeModal == 2 && <div className="absolute z-20">
                                 <div className="box p-4 flex rounded-md shadow-lg bg-white">
 
@@ -400,7 +400,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                         {step == 1 && <div> <h1 className="text-[#832729]  md:text-[20px] text-[18px] md:text-left text-center mb-2 font-fraunces font-semibold">Heading to {storeName}</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
                             <div className="mb-3  mt-10 flex md:justify-around justify-center gap-x-5">
                                 <div className="  overflow-visible">
-                                    <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0  w-[180px]  text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Day" />
+                                    <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0  w-[180px]  text-center cursor-pointer border border-black py-3 placeholder:text-black rounded-full placeholder:text-center " placeholder="Choose Day" />
                                     {activeModal == 1 && <div className="absolute z-20">
                                         <div className="box p-4 rounded-md shadow-lg bg-white">
                                             <table className="table-auto w-full">
@@ -427,7 +427,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                                 </div>
                                 <div className="">
                                     {/* <input type="text" className="px-4 border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" /> */}
-                                    <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-4 px-0 md:w-[180px]  text-center cursor-pointer border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" />
+                                    <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-4 px-0 md:w-[180px]  text-center cursor-pointer border border-black py-3 placeholder:text-black rounded-full placeholder:text-center " placeholder="Choose Time" />
                                     {activeModal == 2 && <div className="absolute z-20">
                                         <div className="box p-4 flex rounded-md shadow-lg bg-white">
 
@@ -525,7 +525,8 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
         }
     }
     const days = getNextSevenDays()
-if(!isOpen&&window.innerWidth<=768)return
+   
+// if(!isOpen&&window.innerWidth>=768)return
     return <>
 
     

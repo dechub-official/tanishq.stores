@@ -369,8 +369,8 @@ export default function Detailed() {
         // const newWindow = window.open("https://www.tanishq.co.in/book-an-appointment", '_blank', 'noopener,noreferrer');
         // if (newWindow) newWindow.opener = null;
         console.log("entered");
-        
-      //  setBookAnAppointmentModal(true)
+        if(window.innerWidth>=768)return
+       setBookAnAppointmentModal(true)
 
     }
     // const reviewsandratings = [{ name: "Reliability", width: "80%", rating: 4 }, { name: "Positive Solution", width: "70%", rating: 3 }, { name: "Payout Rating", width: "90%", rating: 4.5 }, { name: "Customer satisfaction", width: "60%", rating: 2.6 }]
