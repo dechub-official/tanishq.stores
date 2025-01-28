@@ -29,6 +29,9 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
         if (hours < 17) return 1;
         return 2;
     };
+    useEffect(() => {
+        setStep(1)
+    }, [storeName])
 
     const [activeDivision, setActiveDivision] = useState(getCurrentDivision());
 

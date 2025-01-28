@@ -513,7 +513,7 @@ export default function Detailed() {
                             </div>
                           
                             <div className="md:w-[45%] md:h-full h-[300px]  MapWrapper md:my-0 my-5 w-[90%]">
-                            {storeDetail.storeClosingTime && <BookAnAppointment openingTime={storeDetail.modifiedOpeningTime} isOpen={BookAnAppointmentModal} storeCode={storeDetail.storeCode} storeName={storeDetail.storeName} setisOpen={setBookAnAppointmentModal} closingTime={storeDetail.modifiedClosingTime}/>}
+                            {storeDetail.modifiedClosingTime && <BookAnAppointment storeName={storename} openingTime={storeDetail.modifiedOpeningTime} isOpen={BookAnAppointmentModal} storeCode={storeDetail.storeCode} storeName={storeDetail.storeName} setisOpen={setBookAnAppointmentModal} closingTime={storeDetail.modifiedClosingTime}/>}
                                
                                 {((storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)||(storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)))) && 
                                 <Maps center={[...position]} loclink={storeDetail.storeLocationLink} isStore={true} remin="100%" style="md:h-[300px] md:min-h-[300px] min-h-[300px]" />}
