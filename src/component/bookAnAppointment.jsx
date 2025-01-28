@@ -365,7 +365,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                     <img src={DeskBookAnAppointmentImage} className=" " alt="" />
                     <div className="absolute flex justify-around items-center bottom-[15%]  w-[80%] right-[-2%] ibm-plex text-[#636363] font-bold  text-[15px]">
                         <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth() + 1}/{dayInfo.formattedDate.getFullYear()})</p>
-                        <p>{weekDays[activeDivision]}, {dayInfo.time}</p>
+                        <p>{timeDivisions[activeDivision].division}, {dayInfo.time}</p>
                     </div>
                 </div>
 
@@ -515,7 +515,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                         <img src={DeskBookAnAppointmentImage} className=" " alt="" />
                         <div className="absolute flex justify-around items-center bottom-[25%]  w-[80%] right-[-3%] ibm-plex text-[#636363] font-bold  text-[15px]">
                             <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth() + 1}/{dayInfo.formattedDate.getFullYear()})</p>
-                            <p>{weekDays[activeDivision]}, {dayInfo.time}</p>
+                            <p>{timeDivisions[activeDivision].division}, {dayInfo.time}</p>
                         </div>
                     </div>
                 </div>

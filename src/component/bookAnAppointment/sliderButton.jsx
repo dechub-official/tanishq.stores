@@ -3,11 +3,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import Swiper styles
 
 
-const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivisions, isTimeDisabled, handleDivisions, activeDivision, activeModal, setActiveModal }) => {
+const ButtonStrip = ({ days, weekDays, dayInfo, handleDate, setDayInfo, timeDivisions, isTimeDisabled, handleDivisions, activeDivision, activeModal, setActiveModal }) => {
     const date = new Date()
     const dayCount = date.getDay()
     const startingTime = !isTimeDisabled("Morning") ? 0 : !isTimeDisabled("Noon") ? 1 : 2
-  
+
     return (
         <div className="flex pl-3 flex-col w-full">
 
@@ -75,10 +75,10 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
 
 
             <p className="flex gap-x-2 pl-2 mt-10 mb-3 ibm-plex text-[17px]  items-center font-[400] text-[#636363]">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.66602 5V7.66667L9.33268 9.33333" stroke="#66686C" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M4.33333 1.89188C5.31391 1.32465 6.4524 1 7.66667 1C11.3485 1 14.3333 3.98477 14.3333 7.66667C14.3333 11.3485 11.3485 14.3333 7.66667 14.3333C3.98477 14.3333 1 11.3485 1 7.66667C1 6.4524 1.32465 5.31391 1.89188 4.33333" stroke="#66686C" stroke-linecap="round"/>
-</svg>
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.66602 5V7.66667L9.33268 9.33333" stroke="#66686C" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M4.33333 1.89188C5.31391 1.32465 6.4524 1 7.66667 1C11.3485 1 14.3333 3.98477 14.3333 7.66667C14.3333 11.3485 11.3485 14.3333 7.66667 14.3333C3.98477 14.3333 1 11.3485 1 7.66667C1 6.4524 1.32465 5.31391 1.89188 4.33333" stroke="#66686C" stroke-linecap="round" />
+                </svg>
 
 
                 Choose Time
@@ -86,7 +86,7 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
             <div className="flex relative  gap-x-4">
 
 
-                {activeModal == 2 && <div className={`absolute z-50 ${activeDivision == 1+ startingTime && 'left-[35%]'} ${activeDivision == 2+ startingTime && 'left-[70%]'} bottom-[85%]`}>
+                {activeModal == 2 && <div className={`absolute z-50 ${activeDivision == 1 + startingTime && 'left-[35%]'} ${activeDivision == 2 + startingTime && 'left-[70%]'} bottom-[85%]`}>
                     <div className="box pl-1 flex rounded-md shadow-lg bg-white">
 
 
@@ -98,9 +98,9 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
                                     className="hover:font-bold cursor-pointer hover:bg-gray-100 transition-all"
                                 >
                                     {/* Show division name only for the first time in each block */}
-                                    {i==0&&<p className={` py-1 flex  items-center px-2 justify-center mr-1 font-bold   gap-x-2 transition-all`} >
-                                {timeDivisions[activeDivision].icon}    {timeDivisions[activeDivision].division}
-                                </p>}
+                                    {i == 0 && <p className={` py-1 flex  items-center px-2 justify-center mr-1 font-bold   gap-x-2 transition-all`} >
+                                        {timeDivisions[activeDivision].icon}    {timeDivisions[activeDivision].division}
+                                    </p>}
                                     <td onClick={() => { setActiveModal(); setDayInfo({ ...dayInfo, time }) }} className={`px-2 py-1 ${time == dayInfo.time && 'font-bold'}`}>{time}</td>
                                 </div>
                             ))}
@@ -114,33 +114,33 @@ const ButtonStrip = ({ days, weekDays, dayInfo,handleDate, setDayInfo, timeDivis
                     spaceBetween={15}
                     className=" p-1"
                 >
-                {timeDivisions.map((timeBlock, i) =>
-                     <> {!isTimeDisabled(timeBlock.division) && <>
-                        <SwiperSlide className="button-strip !w-auto my-2 ">
-                            <button
-                                onClick={() => {
-                                    if(dayInfo.activeIndex!=null)
-                                    {handleDivisions(timeBlock.division, i); setActiveModal(2)} }}
-                                className={`spot_button ibm-plex duration-100 border-[1px] border-[#E0E0E0] rounded-s-full px-5 md:px-12  py-2 rounded-full text-[16px] font-[400] ${activeDivision == i?"active-day":''}`}
-                                style={activeDivision == i ? {
-                                    background: "linear-gradient(90.18deg, #832729 0.17%, #631517 99.86%)",
-                                    color: "white"
-                                } : {}}
-                            >
+                    {timeDivisions.map((timeBlock, i) =>
+                        <> {!isTimeDisabled(timeBlock.division) && <>
+                            <SwiperSlide className="button-strip !w-auto my-2 ">
+                                <button
+                                    onClick={() => {
+                                        if (dayInfo.activeIndex != null) { handleDivisions(timeBlock.division, i); setActiveModal(2) }
+                                    }}
+                                    className={`spot_button ibm-plex duration-100 border-[1px] border-[#E0E0E0] rounded-s-full px-5 md:px-12  py-2 rounded-full text-[16px] font-[400] ${activeDivision == i ? "active-day" : ''}`}
+                                    style={activeDivision == i ? {
+                                        background: "linear-gradient(90.18deg, #832729 0.17%, #631517 99.86%)",
+                                        color: "white"
+                                    } : {}}
+                                >
 
 
 
-                              <p className={` py-1 flex gap-x-2 items-center  hover:font-bold cursor-pointer  ${activeDivision == i ? "text-white font-bold" : "text-black font-medium"}  transition-all`} >
-                                {timeBlock.icon}    {timeBlock.division}
-                                </p>
+                                    <p className={` py-1 flex gap-x-2 items-center  hover:font-bold cursor-pointer  ${activeDivision == i ? "text-white font-bold" : "text-black font-medium"}  transition-all`} >
+                                        {timeBlock.icon}    {timeBlock.division}
+                                    </p>
 
 
 
 
-                            </button>
-                        </SwiperSlide>
-                    </>}</>
-                )}
+                                </button>
+                            </SwiperSlide>
+                        </>}</>
+                    )}
                 </Swiper>
             </div>
 

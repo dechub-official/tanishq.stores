@@ -5,7 +5,7 @@ export default function ConfirmedAppointment({dayInfo,weekDays,activeDivision}) 
                 <img src={MonBookAnAppointmentImage} className="w-[95%] mt-7 mx-auto" alt="" />
                 <div className="absolute flex justify-around items-center bottom-[15%] w-full ibm-plex text-[#636363] font-medium mx-4  text-[12px]">
                     <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth()+1}/{dayInfo.formattedDate.getFullYear()})</p>
-                    <p>{weekDays[activeDivision]}, {dayInfo.time}</p>
+                    <p>{activeDivision}, {dayInfo.time}</p>
                 </div>
             </div>
     </>
