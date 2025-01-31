@@ -21,3 +21,7 @@
   .review-slider > div:nth-of-type(3)::before, .review-slider > div:nth-of-type(3)::after {
     width:30px;
   } 
+
+  ::-webkit-scrollbar {
+    display: none;
+}

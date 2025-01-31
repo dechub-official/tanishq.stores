@@ -25,7 +25,8 @@ import ReactGA from "react-ga4";
 import { useLocation, useNavigate } from "react-router-dom";
 import Assurance from "../component/assurance";
 import { get, post } from "../services/apiHandler";
-import DiwaliOffer from "../component/diwaliOffer";
+import OfferBanner from "../component/offerBanner";
+import valentineOfferImg from '../assets/images/Banner/valentine-offer.png'
 export default function Home() {
   const [noIndex, setNoindex] = useState(false);
   const [popularCityDetail, setPopularCityDetail] = useState([]);
@@ -103,7 +104,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-      {/* <DiwaliOffer/> */}
+      <OfferBanner url={"https://www.tanishq.co.in/shop/valentine-gifts?lang=en_IN"} image={valentineOfferImg}/>
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">
