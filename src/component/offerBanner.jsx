@@ -12,7 +12,7 @@ export default function OffeBanner({url,image}) {
 
     }
     return <>
-        <div className="flex flex-col w-[82%] mx-auto  justify-center af-bl">
+        <div className="flex flex-col md:w-[82%] w-[90%] mx-auto  justify-center af-bl">
 
             <div className=" flex flex-col mt-8  my-6 relative">
                
