@@ -22,11 +22,12 @@ import { Autoplay, FreeMode, Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Assurance from "../component/assurance";
-import { get, post } from "../services/apiHandler";
+import { get } from "../services/apiHandler";
 import OfferBanner from "../component/offerBanner";
 import valentineOfferImg from '../assets/images/Banner/valentine-offer.png'
+import valentineOfferMobImg from '../assets/images/Banner/valentine-offer-mob.png'
 export default function Home() {
   const [noIndex, setNoindex] = useState(false);
   const [popularCityDetail, setPopularCityDetail] = useState([]);
@@ -104,7 +105,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-      <OfferBanner url={"https://www.tanishq.co.in/shop/valentine-gifts?lang=en_IN"} image={valentineOfferImg}/>
+      <OfferBanner url={"https://www.tanishq.co.in/shop/valentine-gifts?lang=en_IN"} image={valentineOfferImg} mobImage={valentineOfferMobImg}/>
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">
