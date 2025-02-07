@@ -67,11 +67,11 @@ export default function CelesteCollection() {
       
             try {
                 setPosition([])
-                const data = await get(`/celesteSearch`)
+                const data = await get(`/celesteAllStroes`)
                 // const data = await get(`/details?storeCode=&city=mumbai`)
                 // const data=await axios.get(`http://10.54.4.78:8129/stores/tanishq/search?value=${e.target.value}`)
-                    if(!data.data.result)
-                    nav("/pagenotfound")
+                    // if(!data.data.result)
+                    // nav("/pagenotfound")
                 setData(data.data.result);
                 //(data.data.result);
             
