@@ -22,15 +22,16 @@ import Subscription from "../component/Subscription";
 import Assurance from "../component/assurance";
 import ReviewSlider from "../component/reviewSlider";
 import BookAnAppointment from "../component/bookAnAppointment";
+import StoreList from "../helper/getStoreList";
 
 export default function CityPage() {
   let { id } = useParams();
   const nav = useNavigate();
-  const [individualStoreData, setIndividualStoreData] = useState(null)
+  
 
   const [data, setData] = useState([]);
   const [Position, setPosition] = useState([]);
-  const [BookAnAppointmentModal, setBookAnAppointmentModal] = useState(true);
+
 
   //(loc);
 
@@ -208,7 +209,8 @@ export default function CityPage() {
   }, [id]);
 
   const [visitCardShow, setvisitCardShow] = useState(false);
-
+  const [BookAnAppointmentModal, setBookAnAppointmentModal] = useState(true);
+  const [individualStoreData, setIndividualStoreData] = useState(null)
   useEffect(() => {
     const interval = setTimeout(() => {
       setvisitCardShow(true);
@@ -236,14 +238,15 @@ export default function CityPage() {
         {/* {success.visible&&  <SuccessPopup isSuccess={success.success} close={()=>setSuccess({...success,visible:false})}/>
       
       } */}
-      </div>
 
+      </div>
+   {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <div className=" absolute bg-green-500 top-0 min-h-[100vh]">
+                <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />
+                </div></div>}
       <div className="flex flex-col items-center mb-8 af-bl">
         {/* <Heading heading={"Welcome to Tanishq!"} subHeading={"400+ stores, 8L+ Designs, Backed by the trust of TATA  | India’s favourite jewellery store"}/> */}
       </div>
-      {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <div className=" absolute bg-green-500 top-0 min-h-[100vh]">
-        <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />
-        </div></div>}
+     
       <SearchBox />
       <div className="flex flex-col items-center justify-center af-bl">
         <Banner name={id || "NearBy Search"} />
@@ -260,10 +263,10 @@ export default function CityPage() {
 
 
           {/* <img src={MobBookAnAppoinmentButton}  setBookAnAppointmentModal={setBookAnAppointmentModal} className="block my-8 w-[90%] mx-auto md:hidden" alt="" /> */}
-          <div class="row my-5 grid-rows-1 w-[90%] md:w-[unset] grid md:grid-cols-2 gap-4">
+         
             {/* <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  ">  */}
 
-            {data.map((storeData, i) => {
+            {/* {data.map((storeData, i) => {
               return (
                 <>
                   {i == 1 && <Subscription />}
@@ -288,8 +291,9 @@ export default function CityPage() {
                 </>
               );
             })}
-            {data.length <= 1 && <Subscription />}
-          </div>
+            {data.length <= 1 && <Subscription />} */}
+            <StoreList data={data} individualStoreData={individualStoreData} BookAnAppointmentModal={BookAnAppointmentModal} setBookAnAppointmentModal={setBookAnAppointmentModal}  setIndividualStoreData={setIndividualStoreData}  />
+          
         </div>
       </div>
       {/* <ReviewSlider /> */}

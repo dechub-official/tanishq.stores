@@ -104,7 +104,7 @@ const ButtonStripCity = ({ days, weekDays, cities, activeStore, dayInfo, handleD
 
                 </div>}
                 <Swiper
-                    slidesPerView="3"
+                    slidesPerView="auto"
                     spaceBetween={15}
 
 

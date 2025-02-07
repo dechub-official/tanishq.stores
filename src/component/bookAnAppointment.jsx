@@ -435,7 +435,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                                         <div className="box p-4 flex rounded-md shadow-lg bg-white">
 
 
-                                            <div>
+                                            <div className="overflow-x-auto">
                                                 {timeDivisions.map((timeBlock, i) =>
                                                     <>
 

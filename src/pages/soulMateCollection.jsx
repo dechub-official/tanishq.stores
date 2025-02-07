@@ -5,78 +5,33 @@ import TanishqService from "../component/tanishqService"
 import { Autoplay, FreeMode, Navigation } from "swiper/modules";
 import ReactGA from 'react-ga4'
 
-import crousal1 from "./../assets/images/celeste/des1.jpg"
-import crousal2 from "./../assets/images/celeste/des2.jpg"
-import crousal3 from "./../assets/images/celeste/des3.jpg"
-import crousal4 from "./../assets/images/celeste/des4.jpg"
-import mobcrousal1 from "./../assets/images/celeste/mob1.jpg"
-import mobcrousal2 from "./../assets/images/celeste/mob2.jpg"
-import mobcrousal3 from "./../assets/images/celeste/mob3.jpg"
-import mobcrousal4 from "./../assets/images/celeste/mob4.jpg"
+import crousal1 from "./../assets/images/Banner/soulmate-diamond-desktop.jpg"
 
-// import crousal2 from "./../assets/images/tanishqServices/Eng 2.jpg"
-// import crousal3 from "./../assets/images/tanishqServices/Eng 3.jpg"
-// import crousal4 from "./../assets/images/tanishqServices/Eng 4.jpg"
-// import crousal5 from "./../assets/images/tanishqServices/Tel 1.jpg"
+import mobcrousal1 from "./../assets/images/Banner/soulmate-diamond-mobile.jpg"
 
-
-import kp1 from "./../assets/images/celeste/pr1.png"
-import kp2 from "./../assets/images/celeste/pr2.png"
-import kp3 from "./../assets/images/celeste/pr3.png"
-import kp4 from "./../assets/images/celeste/pr4.png"
-import kp5 from "./../assets/images/celeste/pr5.png"
-import kp6 from "./../assets/images/celeste/pr6.png"
-import kp7 from "./../assets/images/celeste/pr7.png"
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "../component/button";
+
 import { get } from "../services/apiHandler";
 import Marquee from "../component/Home/marquee";
 import Heading from "../component/heading";
-import StorePlate from "../component/storePlate";
+
 import StoreList from "../helper/getStoreList";
 import BookAnAppointment from "../component/bookAnAppointment";
-export default function CelesteCollection() {
+import Assurance from "../component/assurance";
+export default function SoulMateCollection() {
 
 
     const [BookAnAppointmentModal, setBookAnAppointmentModal] = useState(true);
     const [individualStoreData, setIndividualStoreData] = useState(null)
     const [data, setData] = useState([])
-    const CelesteProduct = [{
-        name: "The Victory Cup",
-        img: kp1
-    },
-    {
-        name: "Love Ring",
-        img: kp2
-    }, {
-        name: "To-Gether",
-        img: kp3
-    }, {
-        name: "Love Bracelet",
-        img: kp4
-    }, {
-        name: "A Cut Above The Rest",
-        img: kp5
-    }, {
-        name: "Studded Celebration",
-        img: kp6
-    }, {
-        name: "World Cup Trophy",
-        img: kp7
-    }]
 
     const loadData = async () => {
 
         try {
 
-            const data = await get(`/getCelesteAllStores`)
-            // const data = await get(`/details?storeCode=&city=mumbai`)
-            // const data=await axios.get(`http://10.54.4.78:8129/stores/tanishq/search?value=${e.target.value}`)
-            // if(!data.data.result)
-            // nav("/pagenotfound")
-            setData(data.data.result);
-            //(data.data.result);
+            const data = await get(`/SoulmateAllStores`);
+
+            setData(data.data.result||[]);
 
         }
         catch (error) {
@@ -158,20 +113,9 @@ export default function CelesteCollection() {
                 >
 
                     <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank" className="min-w-full"><img src={crousal1} className='w-full   ' alt="" srcset="" />
+                        <a href="https://www.tanishq.co.in/shop/soulmate-diamond-pair?lang=en_IN" target="_blank" className="min-w-full"><img src={crousal1} className='w-full   ' alt="" srcset="" />
                         </a></SwiperSlide>
 
-
-                    {/*                        
-                        <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" className="w-full" target="_blank"><img src={crousal2} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide>
-                        <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" className="w-full" target="_blank"><img src={crousal3} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide>
-                        <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" className="w-full" target="_blank"><img src={crousal4} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide> */}
 
                 </Swiper>
             </div>
@@ -197,33 +141,11 @@ export default function CelesteCollection() {
                 >
 
                     <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal1} className='w-full   ' alt="" srcset="" />
+                        <a href="https://www.tanishq.co.in/shop/soulmate-diamond-pair?lang=en_IN" target="_blank"><img src={mobcrousal1} className='w-full   ' alt="" srcset="" />
                         </a></SwiperSlide>
 
 
-                    {/* <SwiperSlide>
-                            <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal2} className='w-full   ' alt="" srcset="" />
-                            </a></SwiperSlide>
-                            
-                        <SwiperSlide>
-                            <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal3} className='w-full   ' alt="" srcset="" />
-                            </a></SwiperSlide>
-                            
-                        <SwiperSlide>
-                            <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal4} className='w-full   ' alt="" srcset="" />
-                            </a></SwiperSlide> */}
-                    {/* <SwiperSlide>  <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal2} className='w-full   ' alt="" srcset="" />
-                        </a>
-                        </SwiperSlide> */}
-                    {/* <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal3} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide> */}
-                    {/* <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal4} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide>
-                        <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal5} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide> */}
+
 
 
 
@@ -231,55 +153,12 @@ export default function CelesteCollection() {
             </div>
         </div>
         <Marquee />
-        {/* <div className="md:block hidden">
-            <Heading heading={<u className="text-[25px]">Explore Collection Online</u>}/>
-            <div className="flex w-full justify-center">
-            <div className="py-4 w-full md:w-[88%]">
-            <Swiper
-                    slidesPerView={'auto'} 
-                    spaceBetween={30}
-                   navigation={true}
-                       autoplay={{
-                         delay: 1500,
-                         disableOnInteraction: false,
-                         
-                       }}
-                       speed={800}
-                       pagination={
-                       { clickable:true}
-                       }
-                      
-                       
-                       loop={true}
-                       loopFillGroupWithBlank={true}
-                      
-                       breakpoints={{
-                          
-                           768: { slidesPerView:5,slidesPerGroup:5,autoplay:true},0: { slidesPerView:"auto", centeredSlides:true}
-                       }}
-                       modules={[Autoplay,Navigation]}
-                        className="mySwiper">
-                            {CelesteProduct.map((data,i)=>{
-return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} disablelink={true} /></SwiperSlide>
-                            })}
-           
-           
-            </Swiper>
-            </div> 
-            
-</div>
-</div> */}
-        {/* <div className="flex justify-center my-5">
 
-    <div className="txt px-24 rounded-[10px] py-3 md:block hidden bg-[#F2E9E9] text-[20px] cursor-pointer font-[700] break-keep whitespace-nowrap text-[#832729]" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know More About the Celeste Collection</div>
-    <div className="txt px-10 py-2 block md:hidden   rounded-[10px] bg-[#F2E9E9] text-center text-[#832729]  font-[700] break-keep whitespace-nowrap  cursor-pointer" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know more about the <br />Celeste Collection</div>
-
-</div> */}
         <div className="md:block hidden">
-            <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
+            <Heading heading={<u className="text-[20px] break-keep">Soulmate Collection Exclusively Available at {data.length} Stores</u>} />
         </div>
         <div className="block md:hidden">
-            <Heading heading={<p className="text-[20px]">Celeste Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores</span></p>} />
+            <Heading heading={<p className="text-[20px]">Soulmate Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores</span></p>} />
         </div>
         <div className="flex flex-wrap justify-around items-start w-full">
 
@@ -287,7 +166,7 @@ return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} dis
 
 
         </div>
-
+        <Assurance />
         <FAQ data={faq} />
         <SuggestArtical />
     </>
