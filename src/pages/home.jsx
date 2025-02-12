@@ -144,10 +144,8 @@ export default function Home() {
       <div className=" af-bl w-full flex flex-col items-center">
         <Heading heading="Explore our latest collections online even before you walk in!" />
 
-        <div className="flex flex-col items-center justify-center w-full">
-          {/* <h2 className="text-[20px] w-fit border-b-[3px] border-[#832729] pb-2 leading-10  font-[700] text-center text-[#832729] mb-2">Tanishq Store Services</h2> */}
-
-          <div className="flex flex-col items-center  justify-around w-[80%] my-6">
+   
+        <div className="flex flex-col items-center  justify-around w-[80%] my-6">
             <Swiper
               slidesPerView={2}
               spaceBetween={30}
@@ -193,7 +191,6 @@ export default function Home() {
          */}
             </Swiper>
           </div>
-        </div>
 
         <Assurance />
         <SuggestArtical />
