@@ -10,8 +10,7 @@ import { useRef, useState } from 'react'
 
 
 export default function QrExpander() {
-  const nav = useNavigate()
-  // const[beginDate,setbeginDate]=useState({time:'2023-11-09T22:19:00',text:"begins"})
+ 
   const loc=useLocation()
   const inputtarget=useRef()
 
@@ -65,7 +64,7 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
 <div id="menuToggle" className='top-0 cursor-default'>
 
 <input type="checkbox" ref={inputtarget} onChange={stopScorl} />
-<img src={qr} onClick={handleInputClick} className='w-[150px] cursor-pointer logo-qr mx-1' alt="" />
+<img src={qr} onClick={handleInputClick} className='max-w-[30px] max-h-[30px] cursor-pointer logo-qr mx-1' alt="" />
 
 <ul id="menu-qr" className='bg-[white] font-fraunces'>
   <div className='text-black text-[20px] whitespace-nowrap justify-between font-fraunces flex'> <p className='flex'>Scan to download  <p className='text-[#954648] font-fraunces ml-2 w-fit whitespace-nowrap'>Tanishq App</p></p>

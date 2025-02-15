@@ -4,7 +4,7 @@ import gplay from '../assets/images/googleplay.png'
 import astore from '../assets/images/appstore.png'
 import qr from '../assets/images/getapp_qr.webp'
 import blog_img from '../assets/images/navbar/blogs.png'
-import cart_img from '../assets/images/navbar/cart.png'
+import offer_img from '../assets/images/navbar/offer.png'
 import diamonds_img from '../assets/images/navbar/diamonds.png'
 import profile_img from '../assets/images/navbar/profile.png'
 import shop_img from '../assets/images/navbar/shop.png'
@@ -17,6 +17,8 @@ import { useEffect, useState } from 'react'
 import QrCodeExpander from './qrCodeExpander'
 import SubHome from './subHome'
 import QrExpander from './qrExpander'
+import { CartIcon, CloseIcon, DiamondIcon, LogoIcon, ProfileIcon, StoreIcon, WishlistIcon } from '../shared/svg/Icon'
+import MobileLinks from './Navbar/mobileLinks'
 
 
 export default function NavBar() {
@@ -50,43 +52,48 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
   return <>
 
     {/* Sticky Header */}
-    <div className="sticky top-[-2px] max-w-[100%] z-50 " >
+    {/* font-fraunces sticky */}
+    <div className=" font-fraunces top-[-2px] max-w-[100%] z-50 " >
 {/* <SubHome/> */}
 
-      
-      <div className="w-full flex justify-between bg-[#F2E9E9] p-2 ">
+{/* bg-[#F2E9E9] */}
+      <div className="w-full flex justify-between md:px-20 px-2  py-5 ">
 
-        <div className="w-[40%] max-w-[8rem] justify-between  items-center flex">
+        <div className="w-[40%] max-w-[8rem] justify-between   items-center flex">
           <div className="lg:hidden block">
 
             <div id="menuToggle" className='top-0'>
 
-              <input type="checkbox" onChange={stopScorl} />
+              <input id="menu-checkbox" type="checkbox" onChange={stopScorl} />
               <span></span>
               <span></span>
               <span></span>
 
-              <ul id="menu" className='bg-[#FFF4F4]'>
-                <li className='mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to={"https://www.tanishq.co.in/shop/diamond?lang=en_IN"}><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[18px] text-[#832729] font-[400]  cursor-pointer af-bl'>
+              <ul id="menu" className='bg-white'>
+                <div onClick={()=>document.getElementById('menu-checkbox').click()} className="absolute right-0 top-0 p-2">
+                  <CloseIcon/>
+                </div>
+                <img src={offer_img} className='min-w-full mx-auto' alt="" />
+                {/* <li className='font-fraunces mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to={"https://www.tanishq.co.in/shop/diamond?lang=en_IN"}><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[18px] text-[#631517] font-[400]  cursor-pointer af-bl'>
                   <svg className='mx-2 mr-3' xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 29 23" fill="none">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9407 22.9976L0.271403 7.12943H9.24186L13.9407 22.9976ZM14.4386 0.0263432L10.8302 6.04456H18.3138L14.4386 0.0263432ZM19.3947 6.00385L15.3803 0H22.8026L19.3947 6.00385ZM9.82951 6.06133L13.3459 0H5.80802L9.82951 6.06133ZM24.0038 0.713661L20.4543 6.04456H29L24.0038 0.713661ZM5.25342 0.713661L8.98462 6.04456H0L5.25342 0.713661ZM10.5564 7.08153H18.4932L14.6416 22.7605L10.5564 7.08153ZM15.3189 23L28.8254 7.12943H19.8549L15.3189 23Z" fill="#832729" />
                   </svg>
                   Diamonds</p></Link>
-                  {/* <div className='border-b-2 my-2 mx-2 rounded-[20px] bg-[#F2DFDF]  h-[5px]'></div> */}
+                 
                 </li>
-                <li className='mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="https://blog.tanishq.co.in/"><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' >
+                <li className='font-fraunces mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="https://blog.tanishq.co.in/"><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' >
                   <img src={blog_img} className='w-[20px] mr-3 h-[20px] mx-3  ' alt="" />
                   Blogs</p>
                 </Link>
-                  {/* <div className='border-b-2 my-2 mx-2 rounded-[20px] bg-[#F2DFDF]  h-[5px]'></div> */}
+                  
                 </li>
-                <li className='mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="/"><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' >
+                <li className='font-fraunces mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="/"><p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' >
                   <img src={store_img} className='w-[20px] mr-3 h-[20px] mx-2 ' alt="" />
                   Stores</p>
                 </Link>
                   <div className='border-b-2 my-2 mx-2 rounded-[20px] bg-[#F2DFDF]  h-[5px]'></div>
                 </li>
-                <li className='mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="https://www.tanishq.co.in/myaccount?lang=en_IN#Wishlist"><p className=' hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl'>
+                <li className='font-fraunces mx-6 flex gap-[7px] cursor-pointer min-w-[180px] max-w-[180px] md:min-w-[200px] border self-center my-2 justify-left px-6   px-1 py-1 rounded-[9px] border-solid border-[#832729] items-center'><Link to="https://www.tanishq.co.in/myaccount?lang=en_IN#Wishlist"><p className=' hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl'>
                   <svg className='mx-2 mr-3' xmlns="http://www.w3.org/2000/svg" width="21" height="23" viewBox="0 0 27 23" fill="none">
                     <path d="M24.5866 2.30456C27.8045 5.38064 27.8045 10.3709 24.5866 13.447L15.368 22.2597C14.3358 23.2468 12.6642 23.2468 11.6321 22.2598L2.41341 13.447C-0.80447 10.3709 -0.80447 5.38068 2.41341 2.3046C5.45001 -0.598163 10.2665 -0.758777 13.5 1.82279C16.7335 -0.758777 21.55 -0.5982 24.5866 2.30456ZM12.9488 3.37525C10.3446 0.885805 6.12 0.885805 3.51578 3.37525C0.91504 5.86138 0.91504 9.89013 3.51578 12.3763L12.7346 21.1892C13.1565 21.5926 13.8435 21.5926 14.2655 21.189L23.4842 12.3763C26.0849 9.89013 26.0849 5.86138 23.4842 3.37521C20.88 0.885768 16.6554 0.885768 14.0511 3.37521C13.746 3.66687 13.2539 3.66691 12.9488 3.37525Z" fill="#832729" />
                   </svg>
@@ -94,10 +101,7 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
                   <div className='border-b-2 my-2 mx-2 rounded-[20px] bg-[#F2DFDF]  h-[5px]'></div>
                 </li>
 
-                <li className='mx-6'>{/*<div className="box flex flex-col items-center mx-6">
-                <img src={qr} className='w-[150px] mx-1' alt="" />
-                <p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' >GET THE APP</p>
-              </div> */}
+                <li className='mx-6'>
                   <div className='border-b-2 my-2 mx-2 rounded-[20px] bg-[#F2DFDF]  h-[5px]'></div>
                   <p className="text-neutral-700 my-2 text-base font-semibold font-['Nunito'] underline">Categories to Explore</p>
                  
@@ -151,50 +155,57 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
 
                 </li>
                 <li><div className='flex flex-col items-center pb-5'>
-                  <p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' >  Download the App Now </p>
+                  <p className='  hover:scale-[1.2] my-2 transition-all flex duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' >  Download the App Now </p>
                   <div className='w-full flex justify-between'>
                     <Link to="https://play.google.com/store/apps/details?id=com.titancompany.tanishqapp&pli=1"><img src={gplay} className='w-[120px] mx-1' alt="" /></Link>
                     <Link to="https://apps.apple.com/in/app/tanishq-a-tata-product/id1494086207"><img src={astore} className='  w-[120px] mx-1' alt="" /></Link>
                   </div>
-                </div></li>
+                </div></li> */}
+                <MobileLinks />
 
               </ul>
             </div>
 
 
           </div>
-          <div className=" cursor-pointer "><img src={logo} className=' w-[80px]' alt="" onClick={() => VisitOutside("https://www.tanishq.co.in/")} /></div>
+          <div className=" cursor-pointer ">
+            <LogoIcon />
+            {/* <img src={logo} className=' w-[80px]' alt="" onClick={() => VisitOutside("https://www.tanishq.co.in/")} /> */}
+            </div>
         </div>
-        <div className='list flex  justify-around items-center md:my-0 my-3 md:items-center w-[40%] max-w-[12rem] md:max-w-[55%]  md:w-[55%] cursor-pointer'>
-          <p className=' block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/homepage?lang=en_IN")}>
+        <div className='list flex  md:justify-around justify-end gap-x-10 items-center md:my-0 my-3 md:items-center w-[40%] max-w-[12rem] md:max-w-[40%]  md:w-[40%] cursor-pointer'>
+          {/* <p className=' block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/homepage?lang=en_IN")}>
             <img src={shop_img} className='w-[19px] mx-auto ' alt="" />
-            <span className='hidden lg:block'> Shop Online</span></p>
-          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")}>
-            <img src={diamonds_img} onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")} className='w-[25px] mx-auto ' alt="" />
+            <span className='hidden lg:flex items-center flex-col'> Shop Online</span></p> */}
+          <p className='hidden lg:flex hover:scale-[1.2]  flex-col justify-center items-center transition-all duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")}>
+            {/* <img src={diamonds_img} onClick={() => VisitOutside("https://www.tanishq.co.in/shop/diamond?lang=en_IN")} className='w-[25px] mx-auto ' alt="" /> */}
+           <DiamondIcon/>
             Diamonds</p>
-          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://blog.tanishq.co.in/")}>
-            <img src={blog_img} className='w-[19px] mx-auto ' onClick={() => VisitOutside("https://blog.tanishq.co.in/")} alt="" />
-            Blogs</p>
-          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => nav("/")}>
-            <img src={store_img} className='w-[19px] mx-auto ' alt="" />
+         
+          <p className='hidden lg:flex items-center flex-col hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' onClick={() => nav("/")}>
+            {/* <img src={store_img} className='w-[19px] mx-auto ' alt="" /> */}
+           <StoreIcon/>
             Stores</p>
 
-          <p className='hidden lg:block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#Wishlist")}>
-            <img src={wishlist_img} className='w-[19px] mx-auto ' alt="" />
+          <p className='hidden lg:flex items-center flex-col hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#Wishlist")}>
+            {/* <img src={wishlist_img} className='w-[19px] mx-auto ' alt="" /> */}
+           <WishlistIcon/>
             WishList</p>
-          <p className='block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/cart?lang=en_IN")}>
-            <img src={cart_img} className='w-[19px] mx-auto ' alt="" />
-            <span className='hidden lg:block'>Cart</span> </p>
-          <p className=' hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#832729] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#AccountOverview")}>
-            <img src={profile_img} className='w-[19px] mx-auto ' alt="" />
-            <span className='hidden lg:block'>Account</span>  </p>
+          <p className='block hover:scale-[1.2] transition-all duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/cart?lang=en_IN")}>
+            {/* <img src={cart_img} className='w-[19px] mx-auto ' alt="" /> */}
+           <CartIcon/>
+            <span className='hidden lg:flex items-center flex-col'>Cart</span> </p>
+          <p className=' hover:scale-[1.2] flex flex-col items-center transition-all duration-150  text-[15px] text-[#631517] font-[400]  cursor-pointer af-bl' onClick={() => VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#AccountOverview")}>
+            {/* <img src={profile_img} className='w-[19px] mx-auto ' alt="" /> */}
+            <ProfileIcon/>
+            <span className='hidden lg:flex items-center flex-col'>Account</span>  </p>
         
             {/* <img src={qr} className='w-[30px]  transition-all duration-150  hover:scale-[2.8] mx-auto' alt="" /> */}
-          <div className='md:flex hidden items-center flex-col justify-center '>
+          <div className='md:flex hidden items-center text-[#631517] flex-col justify-center '>
             <QrExpander/>
             GET THE APP
             </div>
-          {/* <div className=" hidden lg:block hover:scale-[2.8] transition-all duration-150 box w-[30px] h-[30px] bg-[#D9D9D9] cursor-pointer af-bl"> <img src={qr} alt="" /></div> */}
+          {/* <div className=" hidden lg:flex items-center flex-col hover:scale-[2.8] transition-all duration-150 box w-[30px] h-[30px] bg-[#D9D9D9] cursor-pointer af-bl"> <img src={qr} alt="" /></div> */}
 
           {/* <div className="w-[30px] cursor-pointer"><img src={profile}  onClick={()=>VisitOutside("https://www.tanishq.co.in/myaccount?lang=en_IN#AccountOverview")}  alt="" /></div> */}
         </div>

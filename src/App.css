@@ -166,7 +166,7 @@
     position: relative;
     background: #832729;
     border-radius: 3px;
-    z-index: 1;
+    z-index: 0;
     transform-origin: 5px 0px;
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
                 background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
@@ -222,13 +222,14 @@
   #menu
   {
     position: fixed;
-    width: 340px;
+    width: 100%;
     height: 200vh;
-    box-shadow: 0 0 10px #85888C;
-    margin: -50px 0 0 -50px;
-    padding: 50px;
+    /* box-shadow: 0 0 10px #85888C; */
+    /* margin: -50px 0 0 -50px; */
+    padding: 10px;
+    left: 0;
     top: 0;
-    padding-top: 140px;
+    padding-top: 40px;
 
  
     -webkit-font-smoothing: antialiased;
@@ -264,6 +265,7 @@
   
   #menuToggle input:checked ~ ul
   {
+     box-shadow: 0 0 10px #85888C;
     transform: none;
   }
   .MapWrapper> div{
