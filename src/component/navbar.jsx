@@ -1,21 +1,14 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logo from '../assets/images/logo.png'
-import gplay from '../assets/images/googleplay.png'
-import astore from '../assets/images/appstore.png'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+
 import qr from '../assets/images/getapp_qr.webp'
-import blog_img from '../assets/images/navbar/blogs.png'
+
 import offer_img from '../assets/images/navbar/offer.png'
-import diamonds_img from '../assets/images/navbar/diamonds.png'
-import profile_img from '../assets/images/navbar/profile.png'
-import shop_img from '../assets/images/navbar/shop.png'
-import store_img from '../assets/images/navbar/stores.png'
-import wishlist_img from '../assets/images/navbar/wishlist.png'
+import playStore from '../assets/images/navbar/playStore.png'
+import appStore from '../assets/images/navbar/appStore.png'
 
-
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import QrCodeExpander from './qrCodeExpander'
-import SubHome from './subHome'
+
 import QrExpander from './qrExpander'
 import { CartIcon, CloseIcon, DiamondIcon, LogoIcon, ProfileIcon, StoreIcon, WishlistIcon } from '../shared/svg/Icon'
 import MobileLinks from './Navbar/mobileLinks'
@@ -162,6 +155,12 @@ if(loc.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")){
                   </div>
                 </div></li> */}
                 <MobileLinks />
+
+                <p className="mt-20 text-center text-[#413F3A]">Enjoy the best experience on our Tanishq App</p>
+                <div className='flex justify-around mt-5'>
+                  <NavLink to="https://play.google.com/store/apps/details?id=com.titancompany.tanishqapp&pli=1"><img src={playStore} className='w-[150px] mx-1' alt="" /></NavLink>
+                  <NavLink to="https://apps.apple.com/in/app/tanishq-a-tata-product/id1494086207"><img src={appStore} className='  w-[150px] mx-1' alt="" /></NavLink>
+                </div>
 
               </ul>
             </div>
