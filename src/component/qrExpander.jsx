@@ -1,10 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-
 import qr from '../assets/images/getapp_qr.webp'
-
-
-
-
 import { useRef, useState } from 'react'
 
 
