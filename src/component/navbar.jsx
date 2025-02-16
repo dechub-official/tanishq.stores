@@ -18,6 +18,7 @@ import DesktopNavLinks from './Navbar/desktopNavLinks'
 export default function NavBar() {
 
   const loc = useLocation()
+  const nav = useNavigate()
 
 
   const [qrExpand, setQrExpand] = useState(false)
@@ -81,7 +82,7 @@ export default function NavBar() {
 
 
           </div>
-          <div className=" cursor-pointer ">
+          <div className=" cursor-pointer "  onClick={()=>{nav("/")}}>
             <LogoIcon width={60} height={60} />
             {/* <img src={logo} className=' w-[80px]' alt="" onClick={() => VisitOutside("https://www.tanishq.co.in/")} /> */}
           </div>
