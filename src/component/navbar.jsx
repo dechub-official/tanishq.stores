@@ -82,7 +82,7 @@ export default function NavBar() {
 
 
           </div>
-          <div className=" cursor-pointer "  onClick={()=>{nav("/")}}>
+          <div className=" cursor-pointer "  onClick={()=>{VisitOutside("https://tanishq.co.in/#home")}}>
             <LogoIcon width={60} height={60} />
             {/* <img src={logo} className=' w-[80px]' alt="" onClick={() => VisitOutside("https://www.tanishq.co.in/")} /> */}
           </div>

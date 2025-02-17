@@ -15,7 +15,7 @@ import QrExpander from "../qrExpander";
         {
           label: 'Diamonds',
           icon: <DiamondIcon />,
-          url: 'https://www.tanishq.co.in/shop/diamond?lang=en_IN',
+          url: 'https://www.tanishq.co.in/diamonds?lang=en_IN#home',
           visibleLg: true,
         },
         {
