@@ -47,7 +47,7 @@ export default function NavBar() {
 
     {/* Sticky Header */}
     {/* font-fraunces sticky */}
-    <div className=" font-fraunces top-[-2px] max-w-[100%] z-50 " >
+    <div className="af-bl font-fraunces bg-white sticky shadow-sm top-[-2px] max-w-[100%] z-50 " >
       {/* <SubHome/> */}
 
       {/* bg-[#F2E9E9] */}

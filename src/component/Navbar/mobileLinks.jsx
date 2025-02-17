@@ -62,9 +62,9 @@ export default function MobileLinks() {
         <div>
             {
                 links.map((link,index)=>{
-                    return <div onClick={()=>VisitOutside(link.path)} key={index} className="flex items-center justify-between py-5 border-b border-gray-200">
+                    return <div onClick={()=>VisitOutside(link.path)} key={index} className="flex items-center justify-between py-6 mx-4 border-b border-gray-100">
                         <div className="flex items-center">
-                            <div className="ml-2 mr-3">
+                            <div className=" mr-3">
                                 {link.icon}
                             </div>
                             <div className="font-fraunces font-medium text-[14px] text-black">
@@ -72,7 +72,7 @@ export default function MobileLinks() {
                             </div>
                         </div>
                         <div className="-rotate-90">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="black">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 font-bold w-4" fill="none" viewBox="0 0 24 24" stroke="black">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                         </div>
