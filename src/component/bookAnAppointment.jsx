@@ -366,7 +366,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
             return <>
                 <div className="relative  max-h-fit mb-8">
                     <img src={DeskBookAnAppointmentImage} className=" " alt="" />
-                    <div className="absolute flex justify-around items-center bottom-[15%]  w-[80%] right-[-2%] ibm-plex text-[#636363] font-bold  text-[15px]">
+                    <div className="absolute flex justify-around items-center bottom-[15%]  w-[80%] right-[-2%] ibm-plex text-[#636363] font-bold  text-[8px] md:text-[15px]">
                         <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth() + 1}/{dayInfo.formattedDate.getFullYear()})</p>
                         <p>{timeDivisions[activeDivision].division}, {dayInfo.time}</p>
                     </div>
