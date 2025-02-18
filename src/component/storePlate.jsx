@@ -120,10 +120,10 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
       action: "Book An Appointment",
     });
     setClicks({ ...Clicks, Bookan: Clicks.Bookan + 1 })
-    if (localStorage.getItem("nav-hide")) {
-      handleAppPopup()
-      return
-    }
+    // if (localStorage.getItem("nav-hide")) {
+    //   handleAppPopup()
+    //   return
+    // }
 
     setIndividualStoreData({ storeClosingTime: modifiedClosingTime, storeOpeningTime: modifiedOpeningTime, storeName: data?.storeName, storeCode: data?.storeCode, activeStore: index })
    
