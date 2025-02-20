@@ -6,7 +6,7 @@ import AISummary from './AISummary'
 // import DiwaliMobileBanner from '../../assets/images/Banner/mobile-banner_festival.png'
 
 
-export default function Banner({name}) {
+export default function Banner({name,cardRef}) {
     return <>
      <div className="flex flex-col w-[88%] mx-auto  justify-center af-bl">
         
@@ -20,7 +20,7 @@ export default function Banner({name}) {
                         </div>
                        
                     </div>
-                    <AISummary/>
+                    <AISummary cardRef={cardRef}/>
                     {/* <Envelope/> */}
                 </div>
               

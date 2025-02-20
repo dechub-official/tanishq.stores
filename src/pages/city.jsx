@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import SearchBox from "../component/search";
@@ -27,7 +27,7 @@ import StoreList from "../helper/getStoreList";
 export default function CityPage() {
   let { id } = useParams();
   const nav = useNavigate();
-  
+  const cardRef=useRef(null)
 
   const [data, setData] = useState([]);
   const [Position, setPosition] = useState([]);
@@ -249,50 +249,16 @@ export default function CityPage() {
      
       <SearchBox />
       <div className="flex flex-col items-center justify-center af-bl">
-        <Banner name={id || "NearBy Search"} />
+        <Banner name={id || "NearBy Search"} cardRef={cardRef} />
         {/* shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-[1px] border-[#CBC9C9;]*/}
-        <div className="flex flex-wrap  justify-around items-start w-full">
+        <div ref={cardRef} className="flex flex-wrap  justify-around items-start w-full">
           <div className="flex justify-center w-full">
             <h2 className="underline md:text-[35px] text-[21px] w-fit pb-2 leading-10  text-center text-[#832729] font-[600] font-fraunces mb-2">
               Tanishq Stores in {id || "NearBy Search"}
             </h2>
           </div>
-
-
-
-
-
-          {/* <img src={MobBookAnAppoinmentButton}  setBookAnAppointmentModal={setBookAnAppointmentModal} className="block my-8 w-[90%] mx-auto md:hidden" alt="" /> */}
          
-            {/* <div className="my-4 lg:max-w-[1700px] md:w-[88%] flex flex-wrap justify-around  items-center  rounded-[17px]   py-5 px-4 md:px-6  ">  */}
-
-            {/* {data.map((storeData, i) => {
-              return (
-                <>
-                  {i == 1 && <Subscription />}
-                  {
-                    individualStoreData?.activeStore == i && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "card" ?
-                      <BookAnAppointment
-                        key={i}
-                        cities={data}
-                        activeStore={individualStoreData.activeStore}
-                        setIndividualStoreData={setIndividualStoreData}
-                        page={"city"}
-                        openingTime={individualStoreData.storeOpeningTime}
-                        isOpen={BookAnAppointmentModal.visible}
-                        storeCode={individualStoreData.storeCode}
-                        storeName={individualStoreData.storeName}
-                        setisOpen={() => setBookAnAppointmentModal({ visible: false })}
-                        closingTime={individualStoreData.storeClosingTime}
-                      />
-                      : <StorePlate key={i} index={i} data={storeData} setIndividualStoreData={setIndividualStoreData} setBookAnAppointmentModal={setBookAnAppointmentModal} />
-                  }
-
-                </>
-              );
-            })}
-            {data.length <= 1 && <Subscription />} */}
-            <StoreList data={data} individualStoreData={individualStoreData} BookAnAppointmentModal={BookAnAppointmentModal} setBookAnAppointmentModal={setBookAnAppointmentModal}  setIndividualStoreData={setIndividualStoreData}  />
+            <StoreList  data={data} individualStoreData={individualStoreData} BookAnAppointmentModal={BookAnAppointmentModal} setBookAnAppointmentModal={setBookAnAppointmentModal}  setIndividualStoreData={setIndividualStoreData}  />
           
         </div>
       </div>

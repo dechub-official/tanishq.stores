@@ -15,7 +15,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import relocate from '../assets/images/relocate.png'
 import FAQ from "../component/Faq"
 import Maps from "../component/maps"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { get } from "../services/apiHandler"
 
 import { Helmet } from "react-helmet"
@@ -40,6 +40,7 @@ export default function Detailed() {
     const [FaqData, setFaq] = useState([])
     const [payments,setpayments]=useState([])
     const [BookAnAppointmentModal,setBookAnAppointmentModal]=useState(false)
+    const BAPRef=useRef(null)
 
     const loadData = async (id) => {
         try {
@@ -387,7 +388,7 @@ export default function Detailed() {
             <div className="flex flex-col items-center mb-8 af-bl">
                 
 
-                {/* <Heading heading={"Welcome to Tanishq!"} subHeading={"400+ stores, 8L+ Designs, Backed by the trust of TATA  | India’s favourite jewellery store"}/> */}
+              
 
             </div>
 
@@ -395,14 +396,10 @@ export default function Detailed() {
             {/*  */}
             <Marquee />
 
-            {/* {visitCardShow&&<div id="default-modal"  class=" overflow-x-hidden  flex  overflow-y-auto fixed px-2 w-full h-full  top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
-           <div className="md:w-[80%] flex justify-center items-center ">
-                <VisitorInfoCard notClose={true} storeName={storeDetail.storeName} storeCity={storeDetail.storeCity} storeCode={storeDetail.storeCode} storeAddress={storeDetail.storeAddress} onClose={()=>setvisitCardShow(false)}/>
-              </div>
-                </div>} */}
+            
             <section className="af-bl">
 
-                <Banner name={storeDetail.storeName}/>
+                <Banner name={storeDetail.storeName} cardRef={BAPRef}/>
                 <div className="md:block hidden">
                 <Heading heading={<>Shop from <span className="text-[#832729] font-fraunces">{storeDetail.storeName}</span></>}></Heading>
                 </div>
@@ -512,7 +509,7 @@ export default function Detailed() {
                                 </div>
                             </div>
                           
-                            <div className="md:w-[45%] md:h-full h-[300px]  MapWrapper md:my-0 my-5 w-[90%]">
+                            <div ref={BAPRef} className="md:w-[45%] md:h-full h-[300px]  MapWrapper md:my-0 my-5 w-[90%]">
                             {storeDetail.modifiedClosingTime && <BookAnAppointment storeName={storename} openingTime={storeDetail.modifiedOpeningTime} isOpen={BookAnAppointmentModal} storeCode={storeDetail.storeCode} storeName={storeDetail.storeName} setisOpen={setBookAnAppointmentModal} closingTime={storeDetail.modifiedClosingTime}/>}
                                
                                 {((storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)||(storeDetail.storeLatitude&&!isNaN(storeDetail.storeLatitude)))) && 

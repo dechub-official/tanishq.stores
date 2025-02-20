@@ -6,17 +6,15 @@ import thumb from "../../assets/images/like-thumb.png";
 import { get } from "../../services/apiHandler";
 import { useEffect, useState } from "react";
 
-export default function AISummary() {
+export default function AISummary({cardRef}) {
   const [SummarizedData, setSummarized] = useState();
   const [like, setLike] = useState(1000);
   const [alreadyLike, setAlreadyLike] = useState(false);
   const BookAppointment = () => {
-    const newWindow = window.open(
-      "https://www.tanishq.co.in/book-an-appointment",
-      "_blank",
-      "noopener,noreferrer"
-    );
-    if (newWindow) newWindow.opener = null;
+    window.scrollTo({
+      top: cardRef?.current?.offsetTop,
+      behavior: "smooth",
+     });
   };
   const getLikeCount = async () => {
     try {
@@ -111,9 +109,9 @@ export default function AISummary() {
                   Smartly summarized from millions of customer reviews. &nbsp;
                   <span
                     onClick={BookAppointment}
-                    className="text-[#56544E] cursor-pointer font-bold underline"
+                    className="text-[#56544E] cursor-pointer font-light md:text-[17px] text-[14px] underline"
                   >
-                    Book An Appointment
+                    Book An Appointment (click)
                   </span>{" "}
                   at your nearest store.{" "}
                 </p>
