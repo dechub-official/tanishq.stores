@@ -111,7 +111,7 @@ export default function AISummary({cardRef}) {
                     onClick={BookAppointment}
                     className="text-[#56544E] cursor-pointer font-light md:text-[17px] text-[14px] underline"
                   >
-                    Book An Appointment (click)
+                   click book an appointment 
                   </span>{" "}
                   at your nearest store.{" "}
                 </p>
