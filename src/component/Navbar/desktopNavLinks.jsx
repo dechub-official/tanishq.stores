@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { CartIcon, DiamondIcon, ProfileIcon, StoreIcon, WishlistIcon } from "../../shared/svg/Icon";
-
+import ReactGA from 'react-ga4'
 import QrExpander from "../qrExpander";
 
 
   
   const DesktopNavLinks = () => {
     const VisitOutside = (url) => {
+      ReactGA.event({
+        category: url,
+        // value: Clicks.getDir + 1,
+        action: "header_click",
+    });
       window.open(url, '_blank');
     };
     const nav=useNavigate()

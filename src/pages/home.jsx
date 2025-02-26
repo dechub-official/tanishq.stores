@@ -104,7 +104,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-      <OfferBanner url={"https://www.tanishq.co.in/shop/valentine-gifts?lang=en_IN"} image={valentineOfferImg} mobImage={valentineOfferMobImg}/>
+      {/* <OfferBanner url={"https://www.tanishq.co.in/shop/valentine-gifts?lang=en_IN"} image={valentineOfferImg} mobImage={valentineOfferMobImg}/> */}
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">

@@ -6,18 +6,9 @@ import { Autoplay, FreeMode, Navigation } from "swiper/modules";
 import ReactGA from 'react-ga4'
 
 import crousal1 from "./../assets/images/celeste/des1.jpg"
-import crousal2 from "./../assets/images/celeste/des2.jpg"
-import crousal3 from "./../assets/images/celeste/des3.jpg"
-import crousal4 from "./../assets/images/celeste/des4.jpg"
-import mobcrousal1 from "./../assets/images/celeste/mob1.jpg"
-import mobcrousal2 from "./../assets/images/celeste/mob2.jpg"
-import mobcrousal3 from "./../assets/images/celeste/mob3.jpg"
-import mobcrousal4 from "./../assets/images/celeste/mob4.jpg"
 
-// import crousal2 from "./../assets/images/tanishqServices/Eng 2.jpg"
-// import crousal3 from "./../assets/images/tanishqServices/Eng 3.jpg"
-// import crousal4 from "./../assets/images/tanishqServices/Eng 4.jpg"
-// import crousal5 from "./../assets/images/tanishqServices/Tel 1.jpg"
+import mobcrousal1 from "./../assets/images/celeste/mob1.jpg"
+
 
 
 import kp1 from "./../assets/images/celeste/pr1.png"

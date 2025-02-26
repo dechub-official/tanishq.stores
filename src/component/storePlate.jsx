@@ -116,6 +116,7 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
   const handleBookAnAppointment = () => {
     ReactGA.event({
       category: "Book An Appointment",
+      storeName: data?.storeName,
       value: Clicks.Bookan + 1,
       action: "Book An Appointment",
     });
@@ -135,9 +136,13 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
       setBookAnAppointmentModal({ visible: true, mode: "card" })
     }
   }
-  const handleAppPopup = () => {
-
-    window.location.href = window.location.origin + window.location.pathname + "#bookAnAppointment"
+  const handleStoreNavidation = (data) => {
+    ReactGA.event({
+      category: data.storeName,
+      // value: Clicks.getDir + 1,
+      action: "store_visit",
+  });
+    Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`);
 
   }
   return (
@@ -168,7 +173,7 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
           </button>
           <button
             class="btn border-0 gap-1 rounded-pill flex justify-center items-center px-2 py-1"
-            onClick={() => { Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`) }}
+            onClick={() => { handleStoreNavidation(data) }}
           >
             <span class="pr-1 text-[9px] md:text-[12px] font-[500]">STORE DETAILS</span>
             <i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>

@@ -18,9 +18,7 @@ import DesktopNavLinks from './Navbar/desktopNavLinks'
 export default function NavBar() {
 
   const loc = useLocation()
-  const nav = useNavigate()
-
-
+ 
   const [qrExpand, setQrExpand] = useState(false)
   if (loc.pathname == "/app-moduleeb61394" || localStorage.getItem("nav-hide")) {
     localStorage.setItem("nav-hide", true)

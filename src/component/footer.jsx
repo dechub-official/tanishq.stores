@@ -12,8 +12,13 @@ import b9 from '../assets/images/footer/9.png'
 import qr from '../assets/images/getapp_qr.webp'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import Assurance from './assurance'
+import ReactGA from 'react-ga4'
 const VisitOutside = (url) => {
+    ReactGA.event({
+        footerSection: url,
+        // value: Clicks.getDir + 1,
+        action: "footer_click",
+    });
     const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
 
