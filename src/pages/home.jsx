@@ -45,14 +45,12 @@ export default function Home() {
     // const pre=
     const obj = storeCount.reduce(
       (pre, cur) => {
-        console.log(pre);
-
+      
         return { ...pre, [cur.storeCity]: cur.storeCount };
       },
       { [storeCount[0].storeCity]: storeCount[0].storeCity }
     );
-    console.log(obj);
-
+   
     const updatedCity = PopularCityDetail.map((ele) => {
       const count = obj[ele.name];
       return {

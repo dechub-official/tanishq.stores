@@ -74,6 +74,17 @@ export default function SearchBox() {
     }
 
     const goToStore = (data) => {
+        const url = data.asset == "city" ? `/store-locator/jewellery-stores/city/${data.city.replace(" ", "-")}` : `/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`
+      console.log("calleing dataLayer");
+      
+        if (window.dataLayer) {
+            window.dataLayer.push({
+                'event': 'search',
+                'search_term': url
+            });
+        } else {
+            console.warn('dataLayer is not defined');
+        }
         Gonavigate(data.asset == "city" ? `/store-locator/jewellery-stores/city/${data.city.replace(" ", "-")}` : `/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`);
     }
 
