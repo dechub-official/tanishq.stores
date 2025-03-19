@@ -11,15 +11,24 @@ export default function Subscription(props) {
   const [email, setEmail] = useState();
   const getUpdates = async () => {
 
-    var phoneno = /^\d{10}$/;
-    if (progress) return;
-    if (!name || name == '') {
-      setError({ ...error, name: "Please enter your name" })
-      setProgress(false);
-      return
-    }
+   const nameRegex = /^[A-Za-z\s]+$/; // Allows only letters and spaces
+const phoneRegex = /^\d{10}$/;
+
+if (progress) return;
+
+if (!name || name.trim() === '') {
+  setError({ ...error, name: "Please enter your name" });
+  setProgress(false);
+  return;
+}
+
+if (!nameRegex.test(name)) {
+  setError({ ...error, name: "Name should only contain alphabets and spaces" });
+  setProgress(false);
+  return;
+}
    
-    if (mno && mno.match(phoneno)) {
+    if (mno && mno.match(phoneRegex)) {
       setProgress(true);
       setSuccess({ ...success, visible: false });
       setError({})
@@ -98,7 +107,7 @@ export default function Subscription(props) {
                     />
 
                   </div>
-                  <p className="text-red-500 absolute font-bold">{error.name}</p>
+                  <p className="text-red-500  max-w-1/2 font-bold">{error.name}</p>
                 </div>
 
                 <div className="w-full md:w-1/2">
