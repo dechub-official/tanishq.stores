@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { Typewriter } from 'react-simple-typewriter'
+import { gtmEventHandler } from '../utils/gtmDataLayer'
 export default function SearchBox() {
     const searchRef = useRef([])
 
@@ -75,16 +76,12 @@ export default function SearchBox() {
 
     const goToStore = (data) => {
         const url = data.asset == "city" ? `/store-locator/jewellery-stores/city/${data.city.replace(" ", "-")}` : `/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`
-      console.log("calleing dataLayer");
-      
-        if (window.dataLayer) {
-            window.dataLayer.push({
-                'event': 'search',
-                'search_term': url
-            });
-        } else {
-            console.warn('dataLayer is not defined');
-        }
+        console.log("calleing dataLayer");
+       
+        gtmEventHandler({
+            'event': 'store_search',
+            'search_term': url
+        })
         Gonavigate(data.asset == "city" ? `/store-locator/jewellery-stores/city/${data.city.replace(" ", "-")}` : `/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`);
     }
 

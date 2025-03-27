@@ -1,15 +1,16 @@
 import { useState } from "react"
 import ReactGA from 'react-ga4'
+import { gtmEventHandler } from "../utils/gtmDataLayer"
 export default function FAQ(props) {
   let [open, setOpen] = useState([...Array(5).fill("0")])
   const handleChange = (index, data) => {
 
     if (open[index] == "0") {
-      ReactGA.event({
-        tital: data.question,
-        // value: Clicks.getDir + 1,
-        action: "faq_click",
-      });
+
+      gtmEventHandler({
+        'event': 'faq_click',
+        'category': data?.question
+      })
       open[index] = "fit"
       setOpen([...open])
     }

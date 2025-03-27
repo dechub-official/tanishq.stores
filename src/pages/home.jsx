@@ -164,10 +164,10 @@ export default function Home() {
               {/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
               {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
               {[
-                { img: cl1, link: "/store-locator/jewellery-stores/collections/soulmate" },
-                { img: cl3, link: "https://www.tanishq.co.in/season-of-style?lang=en_IN" },
-                { img: cl2, link: "https://www.tanishq.co.in/exchange" },
-                { img: cl3, link: "https://www.tanishq.co.in/season-of-style?lang=en_IN" },
+                { img: cl1, link: "/store-locator/jewellery-stores/collections/soulmate", name: "soulmate" },
+                { img: cl3, link: "https://www.tanishq.co.in/season-of-style?lang=en_IN", name: "season of style" },
+                { img: cl2, link: "https://www.tanishq.co.in/exchange", name: "exchange" },
+                { img: cl3, link: "https://www.tanishq.co.in/season-of-style?lang=en_IN", name: "season of style" },
               ].map((data, i) => {
                 if (i == 3 && window.screen.width > 767) return;
                 return (
@@ -177,7 +177,7 @@ export default function Home() {
                       key={i}
                       img={data.img}
                       link={data.link}
-                      name={"mumbai"}
+                      name={data.name}
                     />{" "}
                   </SwiperSlide>
                 );

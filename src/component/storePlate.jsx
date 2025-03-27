@@ -4,6 +4,7 @@ import ReactGA from 'react-ga4'
 import { useNavigate } from "react-router-dom";
 import festiveStrip from '../assets/images/navbar/festive-strip.gif'
 import '../assets/css/storeCard.css'
+import { gtmEventHandler } from "../utils/gtmDataLayer";
 export default function StorePlate({ data, setIndividualStoreData, index, setBookAnAppointmentModal }) {
 
   const modifiedClosingTime = data.storeClosingTime?.replace(/(\d{1,2}:\d{2})([AP]M)$/, '$1 $2').replace(".", ":");
@@ -137,11 +138,9 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
     }
   }
   const handleStoreNavidation = (data) => {
-    ReactGA.event({
-      category: data.storeName,
-      // value: Clicks.getDir + 1,
-      action: "store_visit",
-  });
+    
+      gtmEventHandler({'event':'store_selected',
+        'storeName':data.storeName})
     Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`);
 
   }

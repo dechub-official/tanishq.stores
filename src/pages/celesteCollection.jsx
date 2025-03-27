@@ -168,9 +168,20 @@ export default function CelesteCollection() {
             </div>
         </div>
         {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <div className=" absolute bg-green-500 top-0 min-h-[100vh]">
-            <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />
+            <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}>
+                <BookAnAppointment
+                    cities={data}
+                    activeStore={individualStoreData.activeStore}
+                    setIndividualStoreData={setIndividualStoreData}
+                    page={"city"}
+                    openingTime={individualStoreData.storeOpeningTime}
+                    isOpen={BookAnAppointmentModal}
+                    storeCode={individualStoreData.storeCode}
+                    storeName={individualStoreData.storeName}
+                    setisOpen={() => setBookAnAppointmentModal({ visible: false })}
+                    closingTime={individualStoreData.storeClosingTime} />
             </div></div>}
-        <div className="flex md:hidden flex-col  overflow-hidden    w-full items-center justify-center ">
+        <div className="flex md:hidden flex-col overflow-hidden w-full items-center justify-center ">
             <div className=''>
                 <Swiper
                     slidesPerView={'auto'}
@@ -188,84 +199,14 @@ export default function CelesteCollection() {
                 >
 
                     <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal1} className='w-full   ' alt="" srcset="" />
+                        <a href="https://www.tanishq.co.in/Celeste" target="_blank">
+                            <img src={mobcrousal1} className='w-full   ' alt="" srcset="" />
                         </a></SwiperSlide>
-
-
-                    {/* <SwiperSlide>
-                            <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal2} className='w-full   ' alt="" srcset="" />
-                            </a></SwiperSlide>
-                            
-                        <SwiperSlide>
-                            <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal3} className='w-full   ' alt="" srcset="" />
-                            </a></SwiperSlide>
-                            
-                        <SwiperSlide>
-                            <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={mobcrousal4} className='w-full   ' alt="" srcset="" />
-                            </a></SwiperSlide> */}
-                    {/* <SwiperSlide>  <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal2} className='w-full   ' alt="" srcset="" />
-                        </a>
-                        </SwiperSlide> */}
-                    {/* <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal3} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide> */}
-                    {/* <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal4} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide>
-                        <SwiperSlide>
-                        <a href="https://www.tanishq.co.in/Celeste" target="_blank"><img src={crousal5} className='w-full   ' alt="" srcset="" />
-                        </a></SwiperSlide> */}
-
-
-
                 </Swiper>
             </div>
         </div>
         <Marquee />
-        {/* <div className="md:block hidden">
-            <Heading heading={<u className="text-[25px]">Explore Collection Online</u>}/>
-            <div className="flex w-full justify-center">
-            <div className="py-4 w-full md:w-[88%]">
-            <Swiper
-                    slidesPerView={'auto'} 
-                    spaceBetween={30}
-                   navigation={true}
-                       autoplay={{
-                         delay: 1500,
-                         disableOnInteraction: false,
-                         
-                       }}
-                       speed={800}
-                       pagination={
-                       { clickable:true}
-                       }
-                      
-                       
-                       loop={true}
-                       loopFillGroupWithBlank={true}
-                      
-                       breakpoints={{
-                          
-                           768: { slidesPerView:5,slidesPerGroup:5,autoplay:true},0: { slidesPerView:"auto", centeredSlides:true}
-                       }}
-                       modules={[Autoplay,Navigation]}
-                        className="mySwiper">
-                            {CelesteProduct.map((data,i)=>{
-return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} disablelink={true} /></SwiperSlide>
-                            })}
-           
-           
-            </Swiper>
-            </div> 
-            
-</div>
-</div> */}
-        {/* <div className="flex justify-center my-5">
 
-    <div className="txt px-24 rounded-[10px] py-3 md:block hidden bg-[#F2E9E9] text-[20px] cursor-pointer font-[700] break-keep whitespace-nowrap text-[#832729]" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know More About the Celeste Collection</div>
-    <div className="txt px-10 py-2 block md:hidden   rounded-[10px] bg-[#F2E9E9] text-center text-[#832729]  font-[700] break-keep whitespace-nowrap  cursor-pointer" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know more about the <br />Celeste Collection</div>
-
-</div> */}
         <div className="md:block hidden">
             <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
         </div>

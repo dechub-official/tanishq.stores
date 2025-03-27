@@ -27,6 +27,7 @@ import MobBookAnAppoinmentButton from "../assets/images/MobBookAnAppoinmentButto
 import ButtonCur from "../component/buttonCur"
 import Assurance from "../component/assurance"
 import BookAnAppointment from "../component/bookAnAppointment"
+import { gtmEventHandler } from "../utils/gtmDataLayer"
 export default function Detailed() {
     const { storename } = useParams()
     const id = storename.split('-')[storename.split('-').length - 1]
@@ -360,6 +361,8 @@ export default function Detailed() {
             value: Clicks.getDir + 1,
             action: "Get Directions",
         });
+        gtmEventHandler({'event':'get_direction',
+            'storeName':storename})
         setClicks({ ...Clicks, getDir: Clicks.getDir + 1 })
         const newWindow = window.open(storeDetail.storeLocationLink, '_blank', 'noopener,noreferrer');
         if (newWindow) newWindow.opener = null;

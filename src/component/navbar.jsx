@@ -13,6 +13,7 @@ import QrCodeExpander from './qrCodeExpander'
 import { CloseIcon, LogoIcon } from '../shared/svg/Icon'
 import MobileLinks from './Navbar/mobileLinks'
 import DesktopNavLinks from './Navbar/desktopNavLinks'
+import { gtmEventHandler } from '../utils/gtmDataLayer'
 
 
 export default function NavBar() {
@@ -37,6 +38,8 @@ export default function NavBar() {
     }
   }
   const VisitOutside = (url) => {
+    gtmEventHandler({'event':'header_click',
+      'headerLink':url})
     const newWindow = window.open(url, 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
 

@@ -7,6 +7,7 @@ import buttonGIF from '../assets/images/buton.gif'
 import BookAnAppointmentDeepStore from "./bookAnAppointment/detailsMob";
 import BookAnAppointmentCity from "./bookAnAppointment/cityMob";
 import StoreAppointmentCard from "./bookAnAppointment/storeAppoinmentCard";
+import { gtmEventHandler } from "../utils/gtmDataLayer";
 export default function BookAnAppointment({ activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page = "deepStore" }) {
     const [step, setStep] = useState(1)
     const date = new Date()
@@ -99,7 +100,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
     let currentTime = new Date();
     const currentTimeStamp = formatTime(currentTime.getHours(), currentTime.getMinutes());
     const availableTimes = generateTimeSlots(openingTime, closingTime);
-//  Filter divisions to include only those whose times fall within the available times
+    //  Filter divisions to include only those whose times fall within the available times
     const timeDivisions = [
         {
             division: "Morning",
@@ -169,7 +170,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
     const currentHour = new Date().getHours();
     const isTimeDisabled = (division) => {
         const isToday = +dayInfo.date?.split(" ")[1] == new Date().getDate(); // Compare with today's day
-       if (!isToday) return false;
+        if (!isToday) return false;
         const index = division == "Morning" ? 0 : division == "Noon" ? 1 : 2
         if (timeDivisions[index].times.length == 0) return true
         switch (division) {
@@ -210,6 +211,11 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
     }
 
     const handleApiRequest = async () => {
+
+        gtmEventHandler({
+            'event': 'generate_lead',
+            'dateTimeStamp': new Date(),
+        })
         setProgress(true)
         const apiData = await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.formattedDate}&storeCode=${storeCode}&storeName=${storeName}`)
         setStep(3)
@@ -223,276 +229,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
         console.log(days[i], formattedDate);
     }
 
-    // const getDeepStoreCard = () => {
-    //     if (step != 3) {
-    //         return <div className="box md:block hidden mb-4 font-fraunces overflow-visible shadow-md h-fit md:max-h-[170px] max-h-[220px] p-4 rounded-md w-full bg-[#FFFCF7]">
 
-    //             {step == 1 && <> <h1 className="text-[#832729] md:text-[20px] text-[18px] md:text-left text-center font-fraunces font-bold">Heading to Our Store?</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
-    //                 <div className="my-3  flex md:justify-around justify-center gap-x-5">
-    //                     <div className=" overflow-visible">
-    //                         <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0 md:w-[initial] w-[100px]  text-center cursor-pointer border !border-black py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Day" />
-    //                         {activeModal == 1 && <div className="absolute z-20">
-    //                             <div className="box p-4 rounded-md shadow-lg bg-white">
-    //                                 <table className="table-auto w-full">
-
-    //                                     <tbody>
-    //                                         {[...Array(7)].map((_, i) => (
-
-    //                                             <tr
-    //                                                 key={i}
-    //                                                 className={`w-full cursor-pointer ${i == dayInfo.activeIndex ? "text-black font-bold" : "text-[#767469]"} hover:bg-gray-100 transition-all`}
-    //                                                 onClick={() => { setActiveModal(); handleDate(i) }}
-    //                                             >
-    //                                                 <td className="px-4 py-1 ">
-    //                                                     {i === 0 ? <>Today</> : i === 1 ? "Tomorrow" : weekDays[(day + i) % 7]}
-    //                                                 </td>
-    //                                                 <td className="px-4  py-1">{days[i]}</td>
-    //                                             </tr>
-    //                                         ))}
-    //                                     </tbody>
-    //                                 </table>
-    //                             </div>
-
-    //                         </div>}
-    //                     </div>
-    //                     <div className="">
-    //                         {/* <input type="text" className="px-4 border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" /> */}
-    //                         <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-4 px-0 md:w-[initial] w-[100px]  text-center cursor-pointer border border-black py-3 placeholder:text-black rounded-full placeholder:text-center " placeholder="Choose Time" />
-    //                         {activeModal == 2 && <div className="absolute z-20">
-    //                             <div className="box p-4 flex rounded-md shadow-lg bg-white">
-
-
-    //                                 <div>
-    //                                     {timeDivisions.map((timeBlock, i) =>
-    //                                         <>
-
-    //                                             {!isTimeDisabled(timeBlock.division) && <p onClick={() => { handleDivisions(timeBlock.division, i) }} className={`px-1 py-1 flex gap-x-2 items-center  hover:font-bold cursor-pointer hover:bg-gray-100 ${activeDivision == i ? "text-black font-bold" : "text-[#767469] font-medium"}  transition-all`} >
-    //                                                 {timeBlock.icon}  {timeBlock.division}
-    //                                             </p>}
-    //                                         </>
-    //                                     )}
-    //                                 </div>
-    //                                 <div>
-    //                                     {timeDivisions[activeDivision].times.map((time, i) => (
-    //                                         <div
-    //                                             key={i}
-    //                                             className="hover:font-bold cursor-pointer hover:bg-gray-100 transition-all"
-    //                                         >
-    //                                             {/* Show division name only for the first time in each block */}
-
-    //                                             <td onClick={() => { setActiveModal(); setDayInfo({ ...dayInfo, time }) }} className="px-4 py-1">{time}</td>
-    //                                         </div>
-    //                                     ))}
-    //                                 </div>
-
-    //                             </div>
-
-    //                         </div>}
-    //                     </div>
-    //                     <button
-    //                         class="btn border-0 gap-1 md:flex rounded-pill hidden justify-center items-center p-2"
-    //                         onClick={() => handelStep(2)}
-    //                     >
-    //                         <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Proceed</span>
-    //                         <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>
-    //                     </button>
-
-    //                 </div>
-
-    //             </>}
-
-    //             {step == 2 && <>
-    //                 <h1 className="text-[#832729] text-[20px] font-fraunces font-bold">You're Almost There!</h1>
-    //                 <div className="my-3 flex  gap-x-1">
-    //                     <div className="relative ">
-    //                         <input type="text" name="name" onChange={handleInputChange} className="px-4 border w-[90%] border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Name*" />
-
-    //                     </div>
-    //                     <div className="relative">
-    //                         <input type="text" name="phone" onChange={handleInputChange} className="px-4 border w-[90%] border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Phone Number*" />
-    //                     </div>
-
-
-    //                 </div>
-    //                 <div className="md:my-3 my-6 flex gap-x-3">
-
-    //                     <div className="relative w-full">
-    //                         <input type="text" name="email" onChange={handleInputChange} className="px-4 border  border-[#444444] w-[98%] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Type Your Email ID*" />
-    //                     </div>
-
-    //                     <img src={buttonGIF} onClick={() => handelStep(3)} className="w-[140px] cursor-pointer" alt="" />
-
-    //                 </div>
-    //             </>}
-
-
-    //         </div>
-
-    //     }
-    //     else {
-    //         return <>
-    //             <div className="relative  max-h-fit mb-8">
-    //                 <img src={DeskBookAnAppointmentImage} className=" " alt="" />
-    //                 <div className="absolute flex justify-around items-center bottom-[15%]  w-[80%] right-[-2%] ibm-plex text-[#636363] font-bold  text-[8px] md:text-[15px]">
-    //                     <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth() + 1}/{dayInfo.formattedDate.getFullYear()})</p>
-    //                     <p>{timeDivisions[activeDivision].division}, {dayInfo.time}</p>
-    //                 </div>
-    //             </div>
-
-    //         </>
-    //     }
-
-
-    // }
-    // const getCityPageCard = () => {
-
-    //     if (step != 3) {
-    //         return <>
-    //             <div class="col storeCard h-full md:block hidden  md:max-w-[550px]"> <div class="card h-full  border rounded-xl shadow-sm">
-
-    //                 <div class="flex items-center stag p-3 mb-2">
-    //                     {/* <i class="bi bi-shop me-2"></i> */}
-    //                     <p class="mb-0">
-    //                         {/* <img src={festiveStrip} className="md:w-[50%] w-[80%]" alt="" /> */}
-    //                     </p>
-
-    //                 </div>
-    //                 <div className="px-4 h-full">
-    //                     <div className="relative overflow-visible">
-    //                         <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[-50%]  translate-y-[-75%] cursor-pointer absolute z-50 right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    //                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
-    //                             <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-    //                         </svg>
-    //                     </div>
-
-
-    //                     {step == 1 && <div> <h1 className="text-[#832729]  md:text-[20px] text-[18px] md:text-left text-center mb-2 font-fraunces font-semibold">Heading to {storeName}</h1><p className="text-black font-fraunces  md:text-[16px] text-[14px] md:text-left text-center">Let us make it smoother and tailored for you. Book an appointment to skip the wait.</p>
-    //                         <div className="mb-3  mt-10 flex md:justify-around justify-center gap-x-5">
-    //                             <div className="  overflow-visible">
-    //                                 <input type="text" onClick={() => setActiveModal(1)} value={dayInfo.day ? `${dayInfo?.day} ${dayInfo?.date}` : 'Choose Day'} className="md:px-4 px-0  w-[180px]  text-center cursor-pointer border border-black py-3 placeholder:text-black rounded-full placeholder:text-center " placeholder="Choose Day" />
-    //                                 {activeModal == 1 && <div className="absolute z-20">
-    //                                     <div className="box p-4 rounded-md shadow-lg bg-white">
-    //                                         <table className="table-auto w-full">
-
-    //                                             <tbody>
-    //                                                 {[...Array(7)].map((_, i) => (
-
-    //                                                     <tr
-    //                                                         key={i}
-    //                                                         className={`w-full cursor-pointer ${i == dayInfo.activeIndex ? "text-black font-bold" : "text-[#767469]"} hover:bg-gray-100 transition-all`}
-    //                                                         onClick={() => { setActiveModal(); handleDate(i) }}
-    //                                                     >
-    //                                                         <td className="px-4 py-1 ">
-    //                                                             {i === 0 ? <>Today</> : i === 1 ? "Tomorrow" : weekDays[(day + i) % 7]}
-    //                                                         </td>
-    //                                                         <td className="px-4  py-1">{days[i]}</td>
-    //                                                     </tr>
-    //                                                 ))}
-    //                                             </tbody>
-    //                                         </table>
-    //                                     </div>
-
-    //                                 </div>}
-    //                             </div>
-    //                             <div className="">
-    //                                 {/* <input type="text" className="px-4 border border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Choose Time" /> */}
-    //                                 <input type="text" onClick={() => setActiveModal(2)} value={dayInfo.time || ''} className="md:px-4 px-0 md:w-[180px]  text-center cursor-pointer border border-black py-3 placeholder:text-black rounded-full placeholder:text-center " placeholder="Choose Time" />
-    //                                 {activeModal == 2 && <div className="absolute z-20">
-    //                                     <div className="box p-4 flex rounded-md shadow-lg bg-white">
-
-
-    //                                         <div className="overflow-x-auto">
-    //                                             {timeDivisions.map((timeBlock, i) =>
-    //                                                 <>
-
-    //                                                     {!isTimeDisabled(timeBlock.division) && <p onClick={() => { handleDivisions(timeBlock.division, i) }} className={`px-1 py-1 flex gap-x-2 items-center  hover:font-bold cursor-pointer hover:bg-gray-100 ${activeDivision == i ? "text-black font-bold" : "text-[#767469] font-medium"}  transition-all`} >
-    //                                                         {timeBlock.icon}  {timeBlock.division}
-    //                                                     </p>}
-    //                                                 </>
-    //                                             )}
-    //                                         </div>
-    //                                         <div>
-    //                                             {timeDivisions[activeDivision].times.map((time, i) => (
-    //                                                 <div
-    //                                                     key={i}
-    //                                                     className="hover:font-bold cursor-pointer hover:bg-gray-100 transition-all"
-    //                                                 >
-    //                                                     {/* Show division name only for the first time in each block */}
-
-    //                                                     <td onClick={() => { setActiveModal(); setDayInfo({ ...dayInfo, time }) }} className="px-4 py-1">{time}</td>
-    //                                                 </div>
-    //                                             ))}
-    //                                         </div>
-
-    //                                     </div>
-
-    //                                 </div>}
-    //                             </div>
-    //                             <button
-    //                                 class="btn border-0 gap-1 md:flex rounded-pill hidden justify-center items-center p-2"
-    //                                 onClick={() => handelStep(2)}
-    //                             >
-    //                                 <span class="pr-1 text-[15px] font-fraunces md:text-[14px] font-[500]">Proceed</span>
-    //                                 <i class="bi bi-chevron-right ic-btn p-1 rounded-circle"></i>
-    //                             </button>
-
-    //                         </div>
-
-    //                     </div>}
-
-    //                     {step == 2 && <>
-    //                         <h1 className="text-[#832729] text-[24px] font-fraunces font-semibold ">You're Almost There!</h1>
-    //                         <div className="my-4 flex  gap-x-1">
-    //                             <div className="relative ">
-    //                                 <input type="text" name="name" onChange={handleInputChange} className="px-4 border w-[90%] border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Name*" />
-
-    //                             </div>
-    //                             <div className="relative">
-    //                                 <input type="text" name="phone" onChange={handleInputChange} className="px-4 border w-[90%] border-[#444444] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Phone Number*" />
-    //                             </div>
-
-
-    //                         </div>
-    //                         <div className="md:my-3 my-6 flex items-center gap-x-3">
-
-    //                             <div className="relative w-full">
-    //                                 <input type="text" name="email" onChange={handleInputChange} className="px-4 border  border-[#444444] w-[98%] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center " placeholder="Type Your Email ID*" />
-    //                             </div>
-
-    //                             <img src={buttonGIF} onClick={() => handelStep(3)} className="w-[160px]  cursor-pointer" alt="" />
-
-    //                         </div>
-    //                     </>}
-
-
-    //                 </div>
-    //             </div>
-    //             </div>
-    //         </>
-
-    //     }
-    //     else {
-    //         return <>
-    //             <div class="col  h-full md:block hidden   md:max-w-[550px]"> <div class=" px-2 h-full  rounded-xl ">
-    //                 <div className="relative overflow-visible">
-    //                     <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[50%]  translate-y-[25%] cursor-pointer absolute z-[80] right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    //                         <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
-    //                         <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
-    //                     </svg>
-    //                 </div>
-    //                 <div className="relative  my-auto flex justify-center items-center h-full ">
-    //                     <img src={DeskBookAnAppointmentImage} className=" " alt="" />
-    //                     <div className="absolute flex justify-around items-center bottom-[25%]  w-[80%] right-[-3%] ibm-plex text-[#636363] font-bold  text-[15px]">
-    //                         <p>{dayInfo.day} ({dayInfo.formattedDate.getDate()}/{dayInfo.formattedDate.getMonth() + 1}/{dayInfo.formattedDate.getFullYear()})</p>
-    //                         <p>{timeDivisions[activeDivision].division}, {dayInfo.time}</p>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //             </div>
-
-    //         </>
-    //     }
-    // }
 
     const getDeepStoreCard = () => (
         <StoreAppointmentCard
@@ -501,7 +238,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
             activeModal={activeModal}
             setActiveModal={setActiveModal}
             setDayInfo={setDayInfo}
-            
+
             timeDivisions={timeDivisions}
             activeDivision={activeDivision}
             handleDate={handleDate}
@@ -517,7 +254,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
             handelStep={handelStep}
         />
     );
-    
+
     const getCityPageCard = () => (
         <StoreAppointmentCard
             step={step}
@@ -536,18 +273,18 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
             weekDays={weekDays}
             isTimeDisabled={isTimeDisabled}
             handleInputChange={handleInputChange}
-            
+
             handleDivisions={handleDivisions}
             handelStep={handelStep}
         />
     );
-    
-    
+
+
     const days = getNextSevenDays()
 
     // if(!isOpen&&window.innerWidth>=768)return
     return <>
-      {
+        {
             page == "deepStore" ? getDeepStoreCard() :
                 getCityPageCard()
 
