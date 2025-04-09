@@ -1,26 +1,16 @@
-import {  useNavigate } from "react-router-dom";
-import { gtmEventHandler } from "../../utils/gtmDataLayer";
 
+import { Link } from "react-router-dom";
 
-export default function LatestCollection({ img, link,name }) {
-  const navigate = useNavigate();
+export default function LatestCollection({img,link}) {
+   const BookAppointment = () => {
+        const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
+        if (newWindow) newWindow.opener = null;
 
-  const handleNavigation = () => {
-    gtmEventHandler({'event':'collection_click',
-      'collectionName':name})
-  
-    navigate(link);
-  };
-
-  return (
-    <div onClick={handleNavigation} className="cursor-pointer">
-      <div className="md:max-w-[350px] md:min-w-[100px] min-h-[210px] md:min-h-[530px] md:max-h-[530px]">
-        <img
-          src={img}
-          alt=""
-          className="rounded-[25px] md:min-h-[530px] min-h-[210px] md:max-h-[530px] h-full"
-        />
-      </div>
+   }
+    return <>
+  <div onClick={BookAppointment}> <div className="md:max-w-[350px] md:min-w-[100px] min-h-[210px]  md:min-h-[530px] md:max-h-[530px]">
+    <img src={img} alt="" className="rounded-[25px]  md:min-h-[530px] min-h-[210px] md:max-h-[530px] h-full" />
     </div>
-  );
+  </div> 
+    </>
 }

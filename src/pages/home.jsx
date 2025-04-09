@@ -6,8 +6,8 @@ import PopularCity from "../component/Home/popularCityBox";
 import PopularCityDetail from "../assets/popularCities/data";
 import Marquee from "../component/Home/marquee";
 import LatestCollection from "../component/Home/latestCollection";
-import cl3 from "../assets/images/latestCollection/sesonsOfStyle.jpg";
-import cl1 from "../assets/images/latestCollection/soulmate.png";
+import cl3 from "../assets/images/latestCollection/metheli.png";
+import cl1 from "../assets/images/latestCollection/kundanstories.png";
 import cl2 from "../assets/images/latestCollection/image3.png";
 
 import SuggestArtical from "../component/Home/suggestedArticles";
@@ -164,10 +164,17 @@ export default function Home() {
               {/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
               {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
               {[
+<<<<<<< HEAD
                 { img: cl1, link: "/store-locator/jewellery-stores/collections/soulmate", name: "soulmate" },
                 { img: cl3, link: "https://www.tanishq.co.in/season-of-style?lang=en_IN", name: "season of style" },
                 { img: cl2, link: "https://www.tanishq.co.in/exchange", name: "exchange" },
                 { img: cl3, link: "https://www.tanishq.co.in/season-of-style?lang=en_IN", name: "season of style" },
+=======
+                { img: cl1, link: "https://www.tanishq.co.in/gold" },
+                { img: cl3, link: "https://www.tanishq.co.in/rivaah/bihari?lang=en_IN" },
+                { img: cl2, link: "https://www.tanishq.co.in/exchange" },
+                { img: cl3, link: "https://www.tanishq.co.in/rivaah/bihari?lang=en_IN" },
+>>>>>>> b98e71d9ba663bd54034e2436ac283a17ecdf1b5
               ].map((data, i) => {
                 if (i == 3 && window.screen.width > 767) return;
                 return (
