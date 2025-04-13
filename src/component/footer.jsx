@@ -70,7 +70,7 @@ export default function Footer() {
                     <img src={footrLogo} width={250} className='ml-[5%] ' alt="" />
                 </div>
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-y-5  ">
-                    <div className="us-link md:col-span-1 md:block hidden text-left">
+                    <div className="us-link md:col-span-1 md:flex flex-col items-center hidden text-left">
 
                         <h1 className="text-white text-[16px] md:text-[24px] mb-5 font-normal">Download the Tanishq App Now</h1>
                         <div className="flex justify-center my-2">
