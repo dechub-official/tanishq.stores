@@ -155,7 +155,7 @@ export default function Footer() {
 
                         <div className='col-span-2'>
                         <div className='border-t col-span-3 py-2 border-[#ffffff52] w-full '>
-                            <div className=' flex justify-center py-2 w-fit gap-x-10 items-center'>
+                            <div className=' flex justify-center  py-2 w-fit gap-x-10 items-center'>
                                 <h1 className="text-white font-fraunces text-[16px] md:text-[24px] font-normal">Social</h1>
                                 <InstagramIcon />
                                 <XIcon />
@@ -165,7 +165,7 @@ export default function Footer() {
 
                         </div>
                         <div className='border-t col-span-3 py-2 border-[#ffffff52] w-full '>
-                            <div className=' flex md:justify-center justify-between w-full py-3 w-fit md:gap-x-10  items-center'>
+                            <div className=' flex md:justify-center justify-between w-full py-3 md:w-fit md:gap-x-10  items-center'>
                                 <VisaCardIcon />
                                 <MasterCardIcon />
                                 <DcardIcon />
