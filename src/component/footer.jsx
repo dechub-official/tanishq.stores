@@ -61,10 +61,10 @@ export default function Footer() {
 
         <div className="rounded-lg bg-[#300708] overflow-hidden relative md:px-20 px-4 mx-2 py-5  md:mx-5">
             <div className='w-full justify-center md:flex hidden'>
-            <img src={cruve}  className='mx-auto z-10 top-0 w-40  absolute' alt="" />
-            <img src={cruve}  className='mx-auto z-10 bottom-0 rotate-180 w-40  absolute' alt="" />
+                <img src={cruve} className='mx-auto z-10 top-0 w-40  absolute' alt="" />
+                <img src={cruve} className='mx-auto z-10 bottom-0 rotate-180 w-40  absolute' alt="" />
             </div>
-           
+
             <div className="grid  grid-cols-1 gap-y-2  ">
                 <div className='mb-5 md:block hidden'>
                     <img src={footrLogo} width={250} className='ml-[5%] ' alt="" />
@@ -76,7 +76,7 @@ export default function Footer() {
                         <div className="flex justify-center my-2">
                             <img src={qr} alt="tanishq app qr" className='w-[200px]' />
                         </div>
-                       
+
 
 
 
@@ -132,35 +132,40 @@ export default function Footer() {
 
                             </table>
                             <div className='border-t col-span-3 py-2 mt-2 border-white w-fit '>
-                            <div className=' flex justify-center py-3 w-fit gap-x-10 items-center'>
-                              <span className='cursor-pointer'><WhatsAppIcon/></span> 
-                              <span className='cursor-pointer'>  <MailWithPenIcon/> </span>
-                              <span className='cursor-pointer'> <ChatIcon/> </span>
+                                <div className=' flex justify-center py-3 w-fit gap-x-10 items-center'>
+                                    <a href="https://api.whatsapp.com/send?phone=8147349242&amp;text=Hi, Can I connect with Tanishq customer care!&amp;tex" className='cursor-pointer'><WhatsAppIcon /></a>
+                                    <a href="mailto:ecomsupport@titan.co.in" className='cursor-pointer'>  <MailWithPenIcon /> </a>
+                                    <a className='cursor-pointer'> <ChatIcon /> </a>
+
+                                </div>
 
                             </div>
 
+
+
+
                         </div>
 
 
-
-
-                        </div>
-
-                      
                     </div>
                     <div className="flex md:justify-center md:w-full  justify-start col-span-1 gap-x-5 md:border-0 pt-5 border-t   border-[#ffffff52]">
-                            <img src={gplay} onClick={() => VisitOutside("https://play.google.com/store/apps/details?id=com.titancompany.tanishqapp&pli=1")} alt="" className='md:w-[140px] w-[48%] h-fit cursor-pointer' />
-                            <img src={astore} onClick={() => VisitOutside("https://apps.apple.com/in/app/tanishq-a-tata-product/id1494086207")} alt="" className='md:w-[140px] w-[48%] h-fit cursor-pointer' />
-                        </div>
+                        <img src={gplay} onClick={() => VisitOutside("https://play.google.com/store/apps/details?id=com.titancompany.tanishqapp&pli=1")} alt="" className='md:w-[140px] w-[48%] h-fit cursor-pointer' />
+                        <img src={astore} onClick={() => VisitOutside("https://apps.apple.com/in/app/tanishq-a-tata-product/id1494086207")} alt="" className='md:w-[140px] w-[48%] h-fit cursor-pointer' />
+                    </div>
 
-                        <div className='col-span-2'>
+                    <div className='col-span-2'>
                         <div className='border-t col-span-3 py-2 border-[#ffffff52] w-full '>
                             <div className=' flex justify-center  py-2 w-fit gap-x-10 items-center'>
                                 <h1 className="text-white font-fraunces text-[16px] md:text-[24px] font-normal">Social</h1>
-                                <InstagramIcon />
-                                <XIcon />
-                                <FaceBookIcon />
-                                <YoutubeIcon />
+                                <a href="javascript:var
+                w=window.open('https://www.instagram.com/tanishqjewellery/', '_blank'
+                ,'resizable=1,width=300,height=450');"><InstagramIcon /></a>
+                                <a href="javascript:var w=window.open('https://twitter.com/TanishqJewelry',
+                '_blank','resizable=1,width=300,height=450');"><XIcon /></a>
+                              <a href="javascript:var w=window.open('https://www.facebook.com/tanishq',
+                '_blank','resizable=1,width=300,height=450');"> <FaceBookIcon /></a> 
+                               <a href="javascript:var w=window.open('https://www.youtube.com/tanishq',
+                '_blank','resizable=1,width=300,height=450');"> <YoutubeIcon /></a>
                             </div>
 
                         </div>
@@ -178,7 +183,7 @@ export default function Footer() {
                         </div>
                         <div className='md:border-t border-0  col-span-3 py-2 border-[#ffffff52] w-full '>
                             <div className=' flex justify-center flex-wrap py-3 w-fit md:gap-x-10 gap-y-5 items-center'>
-                              
+
                                 <div>
                                     <p className='md:text-[14px] text-[11px] whitespace-nowrap text-left text-white font-[500]'>© 2025 Titan Company Limited. All Rights Reserved.
                                     </p>
@@ -186,14 +191,14 @@ export default function Footer() {
                                 <div className="bank flex gap-x-10 items-center  justify-between ">
                                     <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/terms-and-conditions.html?lang=en_IN")}>Terms & Conditions</p>
                                     <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/privacy-policy.html?lang=en_IN")}> Privacy Policy </p>
-                                    
+
                                     <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/disclaimer.html?lang=en_IN")}> Disclaimer </p>
                                 </div>
 
                             </div>
 
                         </div>
-                        </div>
+                    </div>
                 </div>
 
             </div>
