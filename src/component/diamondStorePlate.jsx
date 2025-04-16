@@ -1,11 +1,8 @@
 import { useState } from "react";
-import Button from "./button";
+
 import ReactGA from 'react-ga4'
 import { useNavigate } from "react-router-dom";
-import map from '../assets/images/detailed/buttons/map.png'
-import calender from '../assets/images/detailed/buttons/calender.png'
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+
 export default function DiamondStorePlate({ data }) {
     const Navigate = useNavigate()
     const [Clicks, setClicks] = useState({ Bookan: 0, getDir: 0 })
