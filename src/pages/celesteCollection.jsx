@@ -27,6 +27,7 @@ import Heading from "../component/heading";
 import StorePlate from "../component/storePlate";
 import StoreList from "../helper/getStoreList";
 import BookAnAppointment from "../component/bookAnAppointment";
+import CollectionFilter from "../component/Collection/collectionFilters";
 export default function CelesteCollection() {
 
 
@@ -266,12 +267,14 @@ return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} dis
     <div className="txt px-10 py-2 block md:hidden   rounded-[10px] bg-[#F2E9E9] text-center text-[#832729]  font-[700] break-keep whitespace-nowrap  cursor-pointer" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know more about the <br />Celeste Collection</div>
 
 </div> */}
+
         <div className="md:block hidden">
             <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
         </div>
         <div className="block md:hidden">
             <Heading heading={<p className="text-[20px]">Celeste Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores</span></p>} />
         </div>
+        <div className="w-[80%] mx-auto"><CollectionFilter/></div>
         <div className="flex flex-wrap justify-around items-start w-full">
 
             <StoreList data={data} BookAnAppointmentModal={BookAnAppointmentModal} individualStoreData={individualStoreData} setIndividualStoreData={setIndividualStoreData} setBookAnAppointmentModal={setBookAnAppointmentModal} />
