@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import qr from '../../assets/images/getapp_qr.webp'
 import { useRef, useState } from 'react'
+import FilterButton from './filterButton'
 
 
 
@@ -9,18 +10,20 @@ export default function FilterStoreListExpander({ cities, toggleCity, selectedCi
 
     const inputtarget = useRef()
 
-    const stopScorl = (e) => {
-
+    const stopScroll = (e) => {
+        const body = document.body;
+        const menu = document.getElementsByClassName("filter-select")[0];
+    
         if (e.target.checked) {
-            document.getElementsByTagName("body")[0].style.overflow = "hidden"
-            // document.getElementById("menuToggle").style.top = "-30px"
-            document.getElementById("menuToggle").style.left = "0px"
+            body.style.overflow = "hidden";
+            // menu.style.left = "0px";
+            menu.style.setProperty("z-index", "60", "important");
+        } else {
+            body.style.overflow = "scroll";
+            // menu.style.left = "-100%"; // Optional: hide menu again
+            menu.style.setProperty("z-index", "1", "important");
         }
-        else {
-            document.getElementsByTagName("body")[0].style.overflow = "scroll"
-            // document.getElementById("menuToggle").style.top = "20px"
-        }
-    }
+    };
     const handleInputClick = () => {
         inputtarget.current.click()
     }
@@ -28,10 +31,10 @@ export default function FilterStoreListExpander({ cities, toggleCity, selectedCi
 
     return <>
 
-        <div id="menuToggle" className='top-0 !z-[60]  cursor-default'>
+        <div id="menuToggle" className='top-0 filter-select  cursor-default'>
 
-            <input type="checkbox" ref={inputtarget} onChange={stopScorl} />
-            <button onClick={handleInputClick} className="flex items-center gap-1 border-2 border-[#701d1d] rounded-full px-6 py-2 text-lg shadow-sm hover:bg-gray-100 transition">
+            <input type="checkbox" ref={inputtarget} onChange={stopScroll} />
+            <button onClick={handleInputClick} className="flex items-center relative  gap-1 border-2 border-[#701d1d] rounded-full px-6 py-2 text-lg shadow-sm hover:bg-gray-100 transition">
                 <svg
                     className="w-4 h-4"
                     fill="none"
@@ -72,27 +75,23 @@ export default function FilterStoreListExpander({ cities, toggleCity, selectedCi
 
                     {cities.map((city) => {
                         const isSelected = selectedCities.includes(city);
+                        const customCss = isSelected
+                            ? 'bg-[#701d1d] text-white border-[#701d1d]'
+                            : 'bg-white text-[#444444] border-[#444444] hover:bg-[#f8eaea]'
 
                         return (
-                            <button
+                            <FilterButton
                                 key={city}
                                 onClick={() => toggleCity(city)}
-                                className={`flex items-center justify-center  gap-3 rounded-full border px-5 py-2 text-lg transition
-                             ${isSelected
-                                        ? 'bg-[#701d1d] text-white border-[#701d1d]'
-                                        : 'bg-white text-[#444444] border-[#444444] hover:bg-[#f8eaea]'
-                                    }`}
-                            >
-
-                                {city}
-                            </button>
+                                customCss={customCss}
+                                city={city} />
                         );
                     })}
 
                 </div>
 
 
-               
+
 
             </ul>
         </div>

@@ -261,9 +261,9 @@
   #menu-filters
   {
     position: fixed;
-    width: 440px;
+    max-width: 440px;
     height: 200vh;
-    box-shadow: 0 0 10px #85888C;
+    box-shadow: 0 0 10px #A76767;
     margin: 0px 0 0 0px;
     padding: 0 20px;
     top: 0;
