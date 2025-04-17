@@ -27,6 +27,7 @@ import Heading from "../component/heading";
 import StorePlate from "../component/storePlate";
 import StoreList from "../helper/getStoreList";
 import BookAnAppointment from "../component/bookAnAppointment";
+import CollectionFilter from "../component/Collection/collectionFilters";
 export default function CelesteCollection() {
 
 
@@ -206,6 +207,50 @@ export default function CelesteCollection() {
             </div>
         </div>
         <Marquee />
+        {/* <div className="md:block hidden">
+            <Heading heading={<u className="text-[25px]">Explore Collection Online</u>}/>
+            <div className="flex w-full justify-center">
+            <div className="py-4 w-full md:w-[88%]">
+            <Swiper
+                    slidesPerView={'auto'} 
+                    spaceBetween={30}
+                   navigation={true}
+                       autoplay={{
+                         delay: 1500,
+                         disableOnInteraction: false,
+                         
+                       }}
+                       speed={800}
+                       pagination={
+                       { clickable:true}
+                       }
+                      
+                       
+                       loop={true}
+                       loopFillGroupWithBlank={true}
+                      
+                       breakpoints={{
+                          
+                           768: { slidesPerView:5,slidesPerGroup:5,autoplay:true},0: { slidesPerView:"auto", centeredSlides:true}
+                       }}
+                       modules={[Autoplay,Navigation]}
+                        className="mySwiper">
+                            {CelesteProduct.map((data,i)=>{
+return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} disablelink={true} /></SwiperSlide>
+                            })}
+           
+           
+            </Swiper>
+            </div> 
+            
+</div>
+</div> */}
+        {/* <div className="flex justify-center my-5">
+
+    <div className="txt px-24 rounded-[10px] py-3 md:block hidden bg-[#F2E9E9] text-[20px] cursor-pointer font-[700] break-keep whitespace-nowrap text-[#832729]" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know More About the Celeste Collection</div>
+    <div className="txt px-10 py-2 block md:hidden   rounded-[10px] bg-[#F2E9E9] text-center text-[#832729]  font-[700] break-keep whitespace-nowrap  cursor-pointer" onClick={()=>BookAppointment("https://www.tanishq.co.in/Celeste")}>Know more about the <br />Celeste Collection</div>
+
+</div> */}
 
         <div className="md:block hidden">
             <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
@@ -213,6 +258,7 @@ export default function CelesteCollection() {
         <div className="block md:hidden">
             <Heading heading={<p className="text-[20px]">Celeste Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores</span></p>} />
         </div>
+        <div className="w-[80%] mx-auto"><CollectionFilter/></div>
         <div className="flex flex-wrap justify-around items-start w-full">
 
             <StoreList data={data} BookAnAppointmentModal={BookAnAppointmentModal} individualStoreData={individualStoreData} setIndividualStoreData={setIndividualStoreData} setBookAnAppointmentModal={setBookAnAppointmentModal} />

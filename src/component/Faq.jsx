@@ -6,11 +6,13 @@ export default function FAQ(props) {
   const handleChange = (index, data) => {
 
     if (open[index] == "0") {
-
+      if(data?.question)
+     { 
       gtmEventHandler({
         'event': 'faq_click',
         'category': data?.question
       })
+    }
       open[index] = "fit"
       setOpen([...open])
     }

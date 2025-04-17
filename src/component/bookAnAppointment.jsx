@@ -209,7 +209,14 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value })
     }
-
+    function formatAppointmentDate(isoDateString) {
+        const date = new Date(isoDateString);
+        const year = date.getUTCFullYear();
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(date.getUTCDate()).padStart(2, '0');
+        
+        return `${year}-${month}-${day}`;
+      }
     const handleApiRequest = async () => {
 
         gtmEventHandler({
@@ -217,7 +224,21 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
             'dateTimeStamp': new Date(),
         })
         setProgress(true)
-        const apiData = await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.formattedDate}&storeCode=${storeCode}&storeName=${storeName}`)
+        const payload = {
+            Phone: formData.phone,
+            FirstName: formData.name.split(" ")[0],
+            LastName: formData.name.split(" ")[1],
+            EmailId: formData.email,
+            Store_code: storeCode,
+            StoreName: storeName,
+            AppointmentDate: formatAppointmentDate(dayInfo.formattedDate), 
+            
+            AppointmentTime:dayInfo.time.split(" ")[0],
+        
+
+        }
+        let data = await post(`/bookAnAppointment`, payload)
+        // const apiData = await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.formattedDate}&storeCode=${storeCode}&storeName=${storeName}`)
         setStep(3)
         setProgress(false)
     }

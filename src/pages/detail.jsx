@@ -382,6 +382,13 @@ export default function Detailed() {
         setBookAnAppointmentModal(true)
 
     }
+
+    const handleGTM = () => {
+        gtmEventHandler({
+            'event': 'store_call',
+            'storeName': storename
+        })
+    }
     // const reviewsandratings = [{ name: "Reliability", width: "80%", rating: 4 }, { name: "Positive Solution", width: "70%", rating: 3 }, { name: "Payout Rating", width: "90%", rating: 4.5 }, { name: "Customer satisfaction", width: "60%", rating: 2.6 }]
     return <>
         {storeDetail.storeName && <Helmet>
@@ -421,7 +428,7 @@ export default function Detailed() {
                         <Button name="Book an Appointment" style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={calender} onclick={BookAppointment} />
                     </div>
                     <div className="flex md:hidden justify-around lg:w-[45%] max-w-[500px] w-full mb-4">
-                        <a href={"tel:" + storeDetail?.storePhoneNoOne}><ButtonCur name={callbtn} style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={call} onclick={copyText} /></a>
+                        <a onClick={handleGTM} href={"tel:" + storeDetail?.storePhoneNoOne}><ButtonCur name={callbtn} style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={call} onclick={copyText} /></a>
                         <ButtonCur name="Get Directions" style={"mt-0 text-[12px]"} iconstyle={"mt-0 mr-1 max-w-[13px]"} onclick={getDirection} icon={map} />
                         <ButtonCur name="Book an Appointment" style={"mt-0 text-[12px]"} iconstyle={"mr-1 max-w-[13px]"} icon={calender} onclick={BookAppointment} />
                     </div>

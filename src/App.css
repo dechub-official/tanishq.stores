@@ -257,6 +257,25 @@
     transform: translate(100%, 0);
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
+
+  #menu-filters
+  {
+    position: fixed;
+    max-width: 440px;
+    height: 200vh;
+    box-shadow: 0 0 10px #A76767;
+    margin: 0px 0 0 0px;
+    padding: 0 20px;
+    top: 0;
+    left:0;
+    padding-top: 12px;
+
+ 
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
   
   #menu li
   {
