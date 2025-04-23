@@ -291,11 +291,18 @@ export function ChatIcon() {
 
 export function FilterPluseIcon() {
     return <svg width="20" height="19" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="24" height="23" rx="11.5" fill="#FBE9EA"/>
-    <rect x="6" y="11" width="12" height="2" rx="1" fill="#832729"/>
-    <rect x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="#832729"/>
+        <rect width="24" height="23" rx="11.5" fill="#FBE9EA" />
+        <rect x="6" y="11" width="12" height="2" rx="1" fill="#832729" />
+        <rect x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="#832729" />
     </svg>
-    
+
+}
+
+export function DropDownIcon({className}) {
+    return <svg width="14" height="8" className={className} viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.25903 1.10254L7.15415 7.20562L13.2572 1.31049" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+
 }
 
 export { CartIcon, ProfileIcon, WishlistIcon, DiamondIcon, StoreIcon, LogoIcon, RingsIcon, DailywearIcon, TanishqIcon, EarringIcon, GoldIcon, BoxIcon, MobDiamondIcon, CollectionIcon, GIftingIcon, WeddingIcon, CloseIcon }
