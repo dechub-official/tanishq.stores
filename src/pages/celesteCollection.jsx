@@ -63,7 +63,7 @@ export default function CelesteCollection() {
 
         try {
 
-            const data = await get(`/getCelesteAllStores?city=${selectedCities[0]??null} `)
+            const data = await get(`/getCelesteAllStoresForCity?city=${selectedCities[0]??null} `)
             // const data = await get(`/details?storeCode=&city=mumbai`)
             // const data=await axios.get(`http://10.54.4.78:8129/stores/tanishq/search?value=${e.target.value}`)
             // if(!data.data.result)
