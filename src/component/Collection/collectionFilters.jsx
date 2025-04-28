@@ -3,21 +3,11 @@ import { FilterPluseIcon } from '../../shared/svg/Icon';
 import FilterStoreListExpander from './filterStoreListExpander';
 import FilterButton from './filterButton';
 import { get } from '../../services/apiHandler';
+import { POPULAR_CITIES } from '../../shared/data/populerData';
 
 
 // Popular cities to prioritize in the filter display
-const POPULAR_CITIES = [
-  "Mumbai",
-  "Delhi",
-  "Bangalore",
-  "Hyderabad",
-  "Lucknow",
-  "Chennai",
-  "Pune",
-  "Kolkata",
-  "Patna",
-  "Jaipur"
-];
+
 
 // API function to fetch cities
 const getCitiesByCollection = async (collectionName) => {
@@ -66,11 +56,11 @@ const CollectionFilter = ({ collectionName = 'celeste',selectedCities,setSelecte
     }, [collectionName]);
 
     const toggleCity = (city) => {
-        // if (selectedCities.includes(city)) {
-        //     setSelectedCities(selectedCities.filter((c) => c !== city));
-        // } else {
+         if (selectedCities.includes(city)) {
+             setSelectedCities(selectedCities.filter((c) => c !== city));
+         } else {
             setSelectedCities([city]);
-        // }
+         }
     };
 
     if (loading) {

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import FilterButton from './filterButton';
 import { DropDownIcon } from '../../shared/svg/Icon';
+import { POPULAR_CITIES } from '../../shared/data/populerData';
 
 export default function FilterStoreListExpander({ cities, toggleCity, selectedCities }) {
     const inputtarget = useRef();
@@ -58,7 +59,7 @@ export default function FilterStoreListExpander({ cities, toggleCity, selectedCi
                     </svg>
                 </button>
                 
-                <ul id="menu-filters" className="bg-[white] min-w-[500px] font-fraunces">
+                <ul id="menu-filters" className="bg-[white] md:min-w-[500px] font-fraunces">
                     <div className="flex justify-end absolute right-2 top-0 p-2">
                         <svg 
                             width="24" 
@@ -103,6 +104,8 @@ export default function FilterStoreListExpander({ cities, toggleCity, selectedCi
                         {isOtherStoresExpanded && (
                             <div className="flex flex-wrap gap-4 mt-4 mb-2">
                                 {cities.map((city) => {
+                                    if(POPULAR_CITIES.includes(city))
+                                        return
                                     const isSelected = selectedCities.includes(city);
                                     const customCss = isSelected
                                         ? 'bg-[#701d1d] text-white border-[#701d1d]'

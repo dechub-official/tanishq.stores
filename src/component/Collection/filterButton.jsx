@@ -1,10 +1,6 @@
 
 
-export default function FilterButton({ city, toggleCity, customCss,icon }) {
-
-
-
-
+export default function FilterButton({ city, toggleCity, customCss, icon }) {
     return <>
         <button
             key={city}
@@ -12,7 +8,7 @@ export default function FilterButton({ city, toggleCity, customCss,icon }) {
             className={`flex items-center justify-center  gap-3 rounded-full border px-5 py-2 text-lg transition
                              ${customCss}`}
         >
-{icon}
+            {icon}
             {city}
         </button>
 
