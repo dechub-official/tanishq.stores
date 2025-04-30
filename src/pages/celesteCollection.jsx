@@ -255,7 +255,7 @@ return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} dis
 </div> */}
 
         <div className="md:block hidden">
-            <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
+            <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores {selectedCities[0]&&`in ${selectedCities[0]}`}</u>} />
         </div>
         <div className="block md:hidden">
             <Heading heading={<p className="text-[20px]">Celeste Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores {selectedCities[0]&&`in ${selectedCities[0]}`}</span></p>} />
