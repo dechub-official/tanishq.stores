@@ -63,8 +63,8 @@ export default function CelesteCollection() {
 
         try {
 
-            // const data = await get(`/getCelesteAllStoresForCity?city=${selectedCities[0]??null} `)
-            const data = await get(`/getCelesteAllStores?city=${selectedCities[0]??null} `)
+            const data = await get(`/getCelesteAllStoresForCity?city=${selectedCities[0]??null} `)
+            // const data = await get(`/getCelesteAllStores?city=${selectedCities[0]??null} `)
             // const data = await get(`/details?storeCode=&city=mumbai`)
             // const data=await axios.get(`http://10.54.4.78:8129/stores/tanishq/search?value=${e.target.value}`)
             // if(!data.data.result)
@@ -258,14 +258,14 @@ return  <SwiperSlide key={i}><TanishqService img={data.img} name={data.name} dis
             <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
         </div>
         <div className="block md:hidden">
-            <Heading heading={<p className="text-[20px]">Celeste Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores</span></p>} />
+            <Heading heading={<p className="text-[20px]">Celeste Collection <br /> <span className="text-[18px]"> Exclusively Available at {data.length} Stores {selectedCities[0]&&`in ${selectedCities[0]}`}</span></p>} />
         </div>
         <div className="w-[80%] mx-auto">
-            {/* <CollectionFilter
+            <CollectionFilter
            selectedCities={selectedCities}
             setSelectedCities={setSelectedCities}
         
-        /> */}
+        />
         </div>
         <div className="flex flex-wrap justify-around items-start w-full">
 
