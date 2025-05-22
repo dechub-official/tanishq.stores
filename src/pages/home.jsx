@@ -165,9 +165,9 @@ export default function Home() {
               {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
               {[
                 { img: cl3, link: "https://www.tanishq.co.in/gold" },
-                { img: cl1, link: "https://www.tanishq.co.in/rivaah/bihari?lang=en_IN" },
+                { img: cl1, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
                 { img: cl2, link: "https://www.tanishq.co.in/exchange" },
-                { img: cl1, link: "https://www.tanishq.co.in/rivaah/bihari?lang=en_IN" },
+                { img: cl1, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
               ].map((data, i) => {
                 if (i == 3 && window.screen.width > 767) return;
                 return (
