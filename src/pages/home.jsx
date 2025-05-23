@@ -6,7 +6,7 @@ import PopularCity from "../component/Home/popularCityBox";
 import PopularCityDetail from "../assets/popularCities/data";
 import Marquee from "../component/Home/marquee";
 import LatestCollection from "../component/Home/latestCollection";
-import cl3 from "../assets/images/latestCollection/metheli.png";
+import cl3 from "../assets/images/latestCollection/elva.gif";
 import cl1 from "../assets/images/latestCollection/kundanstories.png";
 import cl2 from "../assets/images/latestCollection/image3.png";
 
