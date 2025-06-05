@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 
@@ -25,8 +25,9 @@ import { useLocation } from "react-router-dom";
 import Assurance from "../component/assurance";
 import { get } from "../services/apiHandler";
 import OfferBanner from "../component/offerBanner";
-import valentineOfferImg from '../assets/images/Banner/valentine-offer.png'
-import valentineOfferMobImg from '../assets/images/Banner/valentine-offer-mob.png'
+import exchangeOfferImg from '../assets/images/Banner/exchange-offer.png'
+import exchangeOfferMobImg from '../assets/images/Banner/exchange-offer-mob.png'
+
 export default function Home() {
   const [noIndex, setNoindex] = useState(false);
   const [popularCityDetail, setPopularCityDetail] = useState([]);
@@ -102,7 +103,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-      {/* <OfferBanner url={"https://www.tanishq.co.in/shop/auspicious?lang=en"} image={valentineOfferImg} mobImage={valentineOfferMobImg}/> */}
+      <OfferBanner url={"https://www.tanishq.co.in/exchange"} image={exchangeOfferImg} mobImage={exchangeOfferMobImg} />
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">
@@ -164,10 +165,10 @@ export default function Home() {
               {/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
               {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
               {[
-                { img: cl3, link: "https://www.tanishq.co.in/gold" },
-                { img: cl1, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
+                { img: cl3, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
+                { img: cl1, link: "https://www.tanishq.co.in/gold" },
                 { img: cl2, link: "https://www.tanishq.co.in/exchange" },
-                { img: cl1, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
+                { img: cl1, link: "https://www.tanishq.co.in/gold" },
               ].map((data, i) => {
                 if (i == 3 && window.screen.width > 767) return;
                 return (
