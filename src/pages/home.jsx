@@ -23,7 +23,7 @@ import ReactGA from "react-ga4";
 
 import { useLocation } from "react-router-dom";
 import Assurance from "../component/assurance";
-import { get } from "../services/apiHandler";
+import { useStoreCount } from "../hooks/useStores";
 import OfferBanner from "../component/offerBanner";
 import exchangeOfferImg from '../assets/images/Banner/exchange-offer.png'
 import exchangeOfferMobImg from '../assets/images/Banner/exchange-offer-mob.png'
@@ -32,37 +32,37 @@ export default function Home() {
   const [noIndex, setNoindex] = useState(false);
   const [popularCityDetail, setPopularCityDetail] = useState([]);
   const loc = useLocation();
+
+  // Use Tanstack Query hook
+  const { data: storeCountData } = useStoreCount();
+
   useEffect(() => {
     if (loc.pathname == "/app-moduleeb61394") {
       setNoindex(true);
     }
-    getStoresCount();
   }, []);
 
-  const getStoresCount = async () => {
-    const apiStores = await get("/storeCount");
-    // console.log(apiStores);
-    const storeCount = apiStores.data.result;
-    // const pre=
-    const obj = storeCount.reduce(
-      (pre, cur) => {
-      
-        return { ...pre, [cur.storeCity]: cur.storeCount };
-      },
-      { [storeCount[0].storeCity]: storeCount[0].storeCity }
-    );
-   
-    const updatedCity = PopularCityDetail.map((ele) => {
-      const count = obj[ele.name];
-      return {
-        ...ele,
-        store: count,
-      };
-    });
-    console.log(updatedCity);
+  useEffect(() => {
+    if (storeCountData?.result) {
+      const storeCount = storeCountData.result;
+      const obj = storeCount.reduce(
+        (pre, cur) => {
+          return { ...pre, [cur.storeCity]: cur.storeCount };
+        },
+        { [storeCount[0].storeCity]: storeCount[0].storeCity }
+      );
+     
+      const updatedCity = PopularCityDetail.map((ele) => {
+        const count = obj[ele.name];
+        return {
+          ...ele,
+          store: count,
+        };
+      });
 
-    setPopularCityDetail([...updatedCity]);
-  };
+      setPopularCityDetail([...updatedCity]);
+    }
+  }, [storeCountData]);
 
   useEffect(() => {
     ReactGA.send({

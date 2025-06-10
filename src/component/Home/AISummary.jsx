@@ -3,57 +3,42 @@ import AIStar from "../../assets/images/AISummary/aiStar.png";
 import AILook from "../../assets/images/AISummary/AIlook.png";
 import AIshuffle from "../../assets/images/AISummary/loader.svg";
 import thumb from "../../assets/images/like-thumb.png";
-import { get } from "../../services/apiHandler";
+import { useReviews, useLikeCount, useIncreaseLikeCount } from "../../hooks/useStores";
 import { useEffect, useState } from "react";
 
 export default function AISummary({cardRef}) {
   const [SummarizedData, setSummarized] = useState();
-  const [like, setLike] = useState(1000);
   const [alreadyLike, setAlreadyLike] = useState(false);
+  
+  // Use Tanstack Query hooks
+  const { data: reviewsData, isLoading: isReviewsLoading } = useReviews();
+  const { data: likeData, isLoading: isLikeLoading } = useLikeCount();
+  const { mutate: increaseLike } = useIncreaseLikeCount();
+
   const BookAppointment = () => {
     window.scrollTo({
       top: cardRef?.current?.offsetTop,
       behavior: "smooth",
-     });
+    });
   };
-  const getLikeCount = async () => {
-    try {
 
-      const likes = await get("/getLikeCount");
-      const likeCount = likes.data.result;
-      setLike(likeCount)
+  useEffect(() => {
+    if (reviewsData?.data) {
+      const highlight = reviewsData.data?.reviewHighlight.split(",");
+      setSummarized({ ...reviewsData.data, reviewHighlight: highlight });
+    }
+  }, [reviewsData]);
 
-    } catch (error) { }
-  }
-  const getAISummaryDetails = async () => {
-    try {
-      setSummarized();
-      const data = await get("/reviews");
-      if (like == 1000) {
-        await getLikeCount()
-      }
-      const highlight = data.data?.reviewHighlight.split(",");
-      setSummarized({ ...data.data, reviewHighlight: highlight });
-    } catch (error) { }
-  };
-  const handleLike = async (id) => {
+  const handleLike = async () => {
     if (localStorage.getItem("isLiked")) {
       return;
     }
-    setLike(like + 1);
     localStorage.setItem("isLiked", true);
-    await get("/increaseLikeCount")
-
-
-
+    increaseLike();
   };
-  useEffect(() => {
-    if (localStorage.getItem("isLiked")) {
-      setAlreadyLike(true)
-    }
-    if (SummarizedData) return;
-    getAISummaryDetails();
-  }, []);
+
+  const like = likeData?.result || 0;
+
   return (
     <>
       {SummarizedData ? (
@@ -120,7 +105,7 @@ export default function AISummary({cardRef}) {
             <div className="absolute md:bottom-10 bottom-3 right-8">
               <img
                 src={AIshuffle}
-                onClick={getAISummaryDetails}
+                onClick={() => {}}
                 className="w-[18px] cursor-pointer"
                 alt=""
               />

@@ -2,58 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { FilterPluseIcon } from '../../shared/svg/Icon';
 import FilterStoreListExpander from './filterStoreListExpander';
 import FilterButton from './filterButton';
-import { get } from '../../services/apiHandler';
+import { useCitiesByCollection } from '../../hooks/useStores';
 import { POPULAR_CITIES } from '../../shared/data/populerData';
 
 
 // Popular cities to prioritize in the filter display
 
 
-// API function to fetch cities
-const getCitiesByCollection = async (collectionName) => {
-  try {
-    const response = await get(`/getCitiesByCollection?collection=${collectionName}`);
-    if (response.data && response.data.result) {
-      return response.data.result;
-    }
-    return [];
-  } catch (error) {
-    console.error('Error fetching cities:', error);
-    return [];
-  }
-};
+
 
 const CollectionFilter = ({ collectionName = 'celeste',selectedCities,setSelectedCities }) => {
     const [allCities, setAllCities] = useState([]);
     const [displayCities, setDisplayCities] = useState([]);
 
-    const [loading, setLoading] = useState(true);
+    // Use Tanstack Query hook
+    const { data: citiesData, isLoading } = useCitiesByCollection(collectionName);
 
     useEffect(() => {
-        const fetchCities = async () => {
-            setLoading(true);
-            try {
-                const cityList = await getCitiesByCollection(collectionName);
-                setAllCities(cityList);
-                
-                // Filter out popular cities that exist in the API response
-                const popularCitiesAvailable = POPULAR_CITIES.filter(city => 
-                    cityList.includes(city)
-                );
-                
-                // Set display cities to popular cities if available, otherwise use all cities
-                setDisplayCities(popularCitiesAvailable.length > 0 ? popularCitiesAvailable : cityList);
-                
-                
-            } catch (error) {
-                console.error('Failed to fetch cities:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchCities();
-    }, [collectionName]);
+        if (citiesData?.result) {
+            setAllCities(citiesData.result);
+            
+            // Filter out popular cities that exist in the API response
+            const popularCitiesAvailable = POPULAR_CITIES.filter(city => 
+                citiesData.result.includes(city)
+            );
+            
+            // Set display cities to popular cities if available, otherwise use all cities
+            setDisplayCities(popularCitiesAvailable.length > 0 ? popularCitiesAvailable : citiesData.result);
+        }
+    }, [citiesData]);
 
     const toggleCity = (city) => {
          if (selectedCities.includes(city)) {
@@ -63,7 +40,7 @@ const CollectionFilter = ({ collectionName = 'celeste',selectedCities,setSelecte
          }
     };
 
-    if (loading) {
+    if (isLoading) {
         return <div className="p-4">Loading cities...</div>;
     }
 

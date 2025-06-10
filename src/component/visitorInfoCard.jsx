@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
-import { get, post } from "../services/apiHandler";
+import { useUpdateStoreUserDetails } from "../hooks/useStores";
 import img from '../assets/images/popupImage.png'
-import axios from "axios";
 import nextArrow from '../assets/images/next-arrow.png'
 import bgGradient from '../assets/images/gradient.png'
+
 export default function VisitorInfoCard(props) {
     const [progress, setProgress] = useState(false)
     const [success, setSuccess] = useState({ success: false, visible: false })
     const [phase, setPhase] = useState(1)
     const [mno, setmno] = useState({ tel: "", name: "", email: "" })
     const [error, setError] = useState({})
+
+    // Use Tanstack Query hook
+    const { mutate: updateUserDetails } = useUpdateStoreUserDetails();
+
     useEffect(() => {
         console.log(props.data);
     }, [])
@@ -28,7 +32,6 @@ export default function VisitorInfoCard(props) {
         if (mno.tel && !mno.tel.match(phoneno)) {
             setError({ tel: "Please enter valid phone number!" })
             return false
-
         }
         if (phase == 2 && !isStrick) {
             if ((mno.email == "")) {
@@ -38,13 +41,12 @@ export default function VisitorInfoCard(props) {
             if (mno.email && !mno.email.match(email)) {
                 setError({ email: "Please enter valid email!" })
                 return false
-
             }
         }
         return true
     }
-    const handleSubmit = (isStrick) => {
 
+    const handleSubmit = (isStrick) => {
         if (isvalidDetails(isStrick)) {
             if (phase == 2 && isStrick)
                 sendForm()
@@ -53,67 +55,26 @@ export default function VisitorInfoCard(props) {
             else
                 sendForm()
         }
-
     }
 
-
-
-    const sendForm = async () => {
-
-
-        if (progress) return
-        setProgress(true)
-
-
-        setSuccess({ ...success, visible: false })
-        const splitName = mno.name.split(" ")
-        let fname = ''
-        let lname = ''
-
-        if (splitName.length >= 2) {
-            fname = splitName[0]
-            lname = splitName.slice(1, splitName.length).toString()
-        }
-        else {
-
-            fname = splitName.toString()
-            lname = ''
-        }
-
-
-
-
-        try {
-
-            const payload = {
-                Phone: mno.tel,
-                FirstName: fname,
-                LastName: lname,
-                EmailId: mno.email
+    const sendForm = () => {
+        setProgress(true);
+        updateUserDetails(
+            { mobileNo: mno.tel, name: mno.name },
+            {
+                onSuccess: (data) => {
+                    if (data?.message === "SUCCESS") {
+                        setSuccess({ success: true, visible: true, id: data.result });
+                        setProgress(false);
+                        setmno({ tel: "", name: "", email: "" });
+                    }
+                },
+                onError: (error) => {
+                    console.error('Failed to update user details:', error);
+                    setProgress(false);
+                }
             }
-            let data = await post(`/bookAnAppointment`, payload)
-            console.log(data);
-            props.onClose()
-            if (data.data?.message == "SUCCESS") {
-
-                setSuccess({ success: true, visible: true })
-                setProgress(false)
-                setmno("")
-                // document.getElementById("tel1")?.value=""
-                // document.getElementById("tel2").?value=""
-            }
-        }
-        catch {
-            props.onClose()
-            setProgress(false)
-            setSuccess({ success: true, visible: true })
-
-        }
-
-
-
-
-
+        );
     }
 
     return <>   {<div style={{ backgroundImage: `url(${bgGradient})` }} className="box bg-cover md:min-w-[450px]  my-4 px-0 md:px-0 md:py-0 overflow-hidden  rounded-[12px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-
-import { post } from "../services/apiHandler";
+import { useBookAppointment } from "../hooks/useStores";
 
 import DeskBookAnAppointmentImage from '../assets/images/DesktopBookAnAppoinment.png'
 import buttonGIF from '../assets/images/buton.gif'
@@ -8,6 +7,7 @@ import BookAnAppointmentDeepStore from "./bookAnAppointment/detailsMob";
 import BookAnAppointmentCity from "./bookAnAppointment/cityMob";
 import StoreAppointmentCard from "./bookAnAppointment/storeAppoinmentCard";
 import { gtmEventHandler } from "../utils/gtmDataLayer";
+
 export default function BookAnAppointment({ activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page = "deepStore" }) {
     const [step, setStep] = useState(1)
     const date = new Date()
@@ -16,6 +16,9 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
     const [dayInfo, setDayInfo] = useState({ formattedDate: new Date() })
     const [progress, setProgress] = useState(false);
     const [formData, setFormData] = useState({})
+
+    // Use Tanstack Query hook
+    const { mutate: bookAppointment } = useBookAppointment();
 
     const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
     const getCurrentDivision = () => {
@@ -218,7 +221,6 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
         return `${year}-${month}-${day}`;
       }
     const handleApiRequest = async () => {
-
         gtmEventHandler({
             'event': 'generate_lead',
             'dateTimeStamp': new Date(),
@@ -232,15 +234,19 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
             Store_code: storeCode,
             StoreName: storeName,
             AppointmentDate: formatAppointmentDate(dayInfo.formattedDate), 
-            
-            AppointmentTime:dayInfo.time.split(" ")[0],
-        
-
+            AppointmentTime: dayInfo.time.split(" ")[0],
         }
-        let data = await post(`/bookAnAppointment`, payload)
-        // const apiData = await post(`/bookAnAppointment?FirstName=${formData.name.split(" ")[0]}&LastName=${formData.name.split(" ")[1]}&EmailId=${formData.email}&Phone=${formData.phone}&AppointmentTime=${dayInfo.time}&AppointmentDate=${dayInfo.formattedDate}&storeCode=${storeCode}&storeName=${storeName}`)
-        setStep(3)
-        setProgress(false)
+
+        bookAppointment(payload, {
+            onSuccess: () => {
+                setStep(3)
+                setProgress(false)
+            },
+            onError: (error) => {
+                console.error('Failed to book appointment:', error);
+                setProgress(false)
+            }
+        });
     }
 
     const handleDate = (i) => {

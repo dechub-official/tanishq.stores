@@ -1,40 +1,28 @@
 import arrow from '../assets/images/arrow.png'
 import opendEnvelop from '../assets/images/review.png'
 import closedEnvelop from '../assets/images/closedReview.png'
-import { get } from '../services/apiHandler'
+import { useFullReview } from '../hooks/useStores'
 import { useEffect, useState } from 'react'
+
 export default function ReviewSlider() {
-    const [data, setData] = useState([{}])
     const [activeSlide, setActiveSlide] = useState(0)
-    const getData = async () => {
-        try {
-            const response = await get("/getFullReview")
-            const reviewData = response.data
-            setData([...reviewData])
-            console.log(reviewData);
+    const { data: reviewData, isLoading } = useFullReview();
 
-
-        } catch (error) {
-            console.log("somthing went worng", error);
-
-
-        }
-    }
-    useEffect(() => {
-        getData()
-    }, [])
     const handleArrow = (slide) => {
         if (slide == 0) {
             if (activeSlide > 0)
                 setActiveSlide(activeSlide - 1)
-
         }
         else {
-            if (activeSlide < data.length - 1)
+            if (activeSlide < (reviewData?.data?.length || 0) - 1)
                 setActiveSlide(activeSlide + 1)
         }
-
     }
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
     return <>
         <div className="flex md:flex-nowrap flex-wrap storeCard my-10 justify-center gap-x-10 mx-auto container  items-center">
             <div className="left md:w-[unset] w-full mx-10">
@@ -55,9 +43,9 @@ export default function ReviewSlider() {
                 <img src={closedEnvelop} className='w-[350px] md:block hidden  z-[0] bottom-4 absolute -right-12' alt="" />
 
                 <article className='absolute review-slider z-10 max-w-[300px] top-[28%] text-[15px]'><div></div><div></div><div></div><div></div><div></div>
-                    <p >"{data[activeSlide].review}"</p>
+                    <p >"{reviewData?.data?.[activeSlide]?.review}"</p>
                 </article>
-                <p className='text-[15px] storeCard text-white absolute  z-10 ml-2 bottom-[12%]'>{data[activeSlide].name}</p>
+                <p className='text-[15px] storeCard text-white absolute  z-10 ml-2 bottom-[12%]'>{reviewData?.data?.[activeSlide]?.name}</p>
 
             </div>
         </div>

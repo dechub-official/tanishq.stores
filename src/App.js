@@ -1,9 +1,8 @@
-
 import './App.css';
-
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import NavBar from './component/navbar';
 import Footer from './component/footer';
-import {BrowserRouter} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Routing from './Routing';
 import ReactGa from 'react-ga4'
 import {Tracking_Id} from './shared/config'
@@ -11,8 +10,8 @@ import {Tracking_Id} from './shared/config'
 
 ReactGa.initialize(Tracking_Id)
 
-
-
+// Create a client
+const queryClient = new QueryClient();
 
 function App() {
   // const [appPopUp,setAppPopup]=useState(true)
@@ -25,7 +24,8 @@ function App() {
 //   }
 // },[])
   return ( <>
-  <BrowserRouter basename='/'>
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter basename='/'>
     {/* <SubHome/> */}
     {/* {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>} */}
  <NavBar/>
@@ -33,6 +33,7 @@ function App() {
 
  <Footer/>
   </BrowserRouter>
+  </QueryClientProvider>
   </>
   )
 }
