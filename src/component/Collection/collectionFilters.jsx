@@ -11,33 +11,34 @@ import { POPULAR_CITIES } from '../../shared/data/populerData';
 
 
 
-const CollectionFilter = ({ collectionName = 'celeste',selectedCities,setSelectedCities }) => {
+const CollectionFilter = ({ collectionName = 'celeste', selectedCities,setSelectedCities }) => {
     const [allCities, setAllCities] = useState([]);
     const [displayCities, setDisplayCities] = useState([]);
-
+  
     // Use Tanstack Query hook
     const { data: citiesData, isLoading } = useCitiesByCollection(collectionName);
 
     useEffect(() => {
         if (citiesData?.result) {
             setAllCities(citiesData.result);
-            
-            // Filter out popular cities that exist in the API response
-            const popularCitiesAvailable = POPULAR_CITIES.filter(city => 
+            const popularCitiesAvailable = POPULAR_CITIES.filter(city =>
                 citiesData.result.includes(city)
             );
-            
+
             // Set display cities to popular cities if available, otherwise use all cities
             setDisplayCities(popularCitiesAvailable.length > 0 ? popularCitiesAvailable : citiesData.result);
         }
     }, [citiesData]);
 
-    const toggleCity = (city) => {
-         if (selectedCities.includes(city)) {
-             setSelectedCities(selectedCities.filter((c) => c !== city));
-         } else {
-            setSelectedCities([city]);
-         }
+    const toggleCity = (inputCity) => {
+        let city = [inputCity]
+        if (selectedCities.includes(inputCity)) {
+            city = selectedCities.filter((c) => c !== city);
+        }
+        console.log(city[0]);
+        
+       
+        setSelectedCities([...city]);
     };
 
     if (isLoading) {
@@ -48,10 +49,10 @@ const CollectionFilter = ({ collectionName = 'celeste',selectedCities,setSelecte
         <>
             <div className="flex md:flex-nowrap overflow-x-scroll items-center justify-between gap-2 p-4">
                 {/* Filter Button - shows all cities in the dropdown */}
-                <FilterStoreListExpander 
-                    cities={allCities} 
-                    toggleCity={toggleCity} 
-                    selectedCities={selectedCities} 
+                <FilterStoreListExpander
+                    cities={allCities}
+                    toggleCity={toggleCity}
+                    selectedCities={selectedCities}
                 />
 
                 {/* City Filter Pills - only shows popular cities if available */}
@@ -60,14 +61,14 @@ const CollectionFilter = ({ collectionName = 'celeste',selectedCities,setSelecte
                     const customCss = isSelected
                         ? 'bg-[#701d1d] text-white border-[#701d1d]'
                         : 'bg-white text-[#701d1d] border-[#701d1d] hover:bg-[#f8eaea]';
-                    
+
                     return (
                         <FilterButton
                             key={city}
                             toggleCity={() => toggleCity(city)}
                             customCss={customCss}
                             city={city}
-                            icon={<FilterPluseIcon />} 
+                            icon={<FilterPluseIcon />}
                         />
                     );
                 })}

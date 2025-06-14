@@ -59,7 +59,7 @@ export default function FilterStoreListExpander({ cities, toggleCity, selectedCi
                     </svg>
                 </button>
                 
-                <ul id="menu-filters" className="bg-[white] md:min-w-[500px] font-fraunces">
+                <ul id="menu-filters" className="bg-[white] md:min-w-[500px] min-w-full font-fraunces">
                     <div className="flex justify-end absolute right-2 top-0 p-2">
                         <svg 
                             width="24" 
@@ -102,7 +102,7 @@ export default function FilterStoreListExpander({ cities, toggleCity, selectedCi
                         </button>
                       
                         {isOtherStoresExpanded && (
-                            <div className="flex flex-wrap gap-4 mt-4 mb-2">
+                            <div className="flex flex-wrap gap-4 overflow-y-scroll max-h-[80vh] mt-4 mb-2">
                                 {cities.map((city) => {
                                     if(POPULAR_CITIES.includes(city))
                                         return

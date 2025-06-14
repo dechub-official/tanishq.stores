@@ -14,7 +14,8 @@ import {
   getCelesteStores,
   getEnchantedCollectionStores,
   updateStoreUserDetails,
-  getStores
+  getStores,
+  getRhythmStores
 } from '../api/stores';
 
 // Custom hook to fetch stores
@@ -107,10 +108,19 @@ export const useIncreaseLikeCount = () => {
 };
 
 // Hook for fetching soulmate stores
-export const useSoulmateStores = () => {
+export const useSoulmateStores = (city) => {
   return useQuery({
-    queryKey: ['soulmateStores'],
-    queryFn: getSoulmateStores,
+    queryKey: ['soulmateStores',city],
+    queryFn: ()=>getSoulmateStores(city),
+  });
+};
+
+// Hook for fetching soulmate stores
+export const useRhythmStores = (city) => {
+  return useQuery({
+    queryKey: ['useRhythmStores', city],
+    queryFn: () => getRhythmStores(city),
+   
   });
 };
 
@@ -119,7 +129,7 @@ export const useCelesteStores = (city) => {
   return useQuery({
     queryKey: ['celesteStores', city],
     queryFn: () => getCelesteStores(city),
-    enabled: !!city,
+  
   });
 };
 

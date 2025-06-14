@@ -60,7 +60,7 @@ export const getFullReview = async () => {
 
 // Get like count
 export const getLikeCount = async () => {
-  const response = await apiClient.get('/getLikeCount');
+  const response = await apiClient.get('/getTotalCount');
   return response.data;
 };
 
@@ -71,15 +71,19 @@ export const increaseLikeCount = async () => {
 };
 
 // Get soulmate stores
-export const getSoulmateStores = async () => {
-  const response = await apiClient.get('/SoulmateAllStores');
+export const getSoulmateStores = async (city) => {
+  const response = await apiClient.get(`/SoulmateAllStores?city=${city || ''}`);
   return response?.data?.result || [];
 };
 
+export const getRhythmStores = async (city) => {
+  const response = await apiClient.get(`/RhythmAllStoresForCity?city=${city || ''}`);
+  return response?.data?.result || [];
+};
 // Get celeste stores
 export const getCelesteStores = async (city) => {
   const response = await apiClient.get(`/getCelesteAllStoresForCity?city=${city || ''}`);
-  return response.data;
+  return response?.data?.result || [];
 };
 
 // Get enchanted collection stores
