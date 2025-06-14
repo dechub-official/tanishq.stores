@@ -15,7 +15,8 @@ import {
   getEnchantedCollectionStores,
   updateStoreUserDetails,
   getStores,
-  getRhythmStores
+  getRhythmStores,
+  increaseDislikeCount
 } from '../api/stores';
 
 // Custom hook to fetch stores
@@ -96,6 +97,8 @@ export const useLikeCount = () => {
   });
 };
 
+
+
 // Hook for increasing like count
 export const useIncreaseLikeCount = () => {
   const queryClient = useQueryClient();
@@ -106,7 +109,15 @@ export const useIncreaseLikeCount = () => {
     },
   });
 };
-
+export const useIncreaseDislikeCount = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: increaseDislikeCount,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['increaseDislikeCount'] });
+    },
+  });
+};
 // Hook for fetching soulmate stores
 export const useSoulmateStores = (city) => {
   return useQuery({

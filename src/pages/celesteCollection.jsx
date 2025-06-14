@@ -1,9 +1,9 @@
 
 import ReactGA from 'react-ga4'
 
-import crousal1 from "./../assets/images/elysian/lisa-pink-stone.png"
+import crousal1 from "./../assets/images/celeste/des1.jpg"
 
-import mobcrousal1 from "./../assets/images/elysian/mob-lisa-pink-stone.png"
+import mobcrousal1 from "./../assets/images/celeste/mob1.jpg"
 
 import { useEffect, useState } from "react";
 

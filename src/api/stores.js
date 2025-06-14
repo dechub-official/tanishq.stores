@@ -70,6 +70,11 @@ export const increaseLikeCount = async () => {
   return response.data;
 };
 
+export const increaseDislikeCount = async () => {
+  const response = await apiClient.get('/increaseDislikeCount');
+  return response.data;
+}
+
 // Get soulmate stores
 export const getSoulmateStores = async (city) => {
   const response = await apiClient.get(`/SoulmateAllStores?city=${city || ''}`);
