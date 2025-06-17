@@ -295,14 +295,20 @@ height: 100%;
   }
 
   .tanishq-brand-gradient{
-    background: rgb(131,39,41);
-    background: linear-gradient(9deg, rgba(131,39,41,1) 47%, rgba(99,21,23,1) 100%);
-    -webkit-background-clip: text;
+    /* background: rgb(131,39,41); */
+    /* background: linear-gradient(9deg, rgba(131,39,41,1) 47%, rgba(99,21,23,1) 100%); */
+    background: linear-gradient(180deg, #8a2424 0%, #701d1d 100%);
+
+    /* -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: transparent; */
 }
 
 /* .ibm-plex-sans {
   font-family: "IBM Plex Sans", sans-serif;
 
 } */
+
+.filter-button-shadow{
+  box-shadow: #83272955 0px 50px 100px -20px, #8327297f 0px 30px 60px -30px;
+}

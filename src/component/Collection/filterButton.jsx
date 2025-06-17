@@ -1,14 +1,13 @@
 
 
-export default function FilterButton({ city, toggleCity, customCss, icon }) {
+export default function FilterButton({ city, toggleCity, customCss }) {
     return <>
         <button
             key={city}
             onClick={() => toggleCity(city)}
-            className={`flex items-center justify-center  gap-3 rounded-full border px-5 py-2 text-lg transition
-                             ${customCss}`}
+            className={`flex items-center justify-center font-bold  gap-3 rounded-full border px-8 py-4 text-lg transition ${customCss}`}
         >
-            {icon}
+           
             {city}
         </button>
 

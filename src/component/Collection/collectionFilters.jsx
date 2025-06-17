@@ -47,7 +47,7 @@ const CollectionFilter = ({ collectionName = 'celeste', selectedCities,setSelect
 
     return (
         <>
-            <div className="flex md:flex-nowrap overflow-x-scroll items-center justify-between gap-2 p-4">
+            <div className="flex md:flex-nowrap py-14 overflow-x-scroll items-center  justify-between gap-2 p-4">
                 {/* Filter Button - shows all cities in the dropdown */}
                 <FilterStoreListExpander
                     cities={allCities}
@@ -59,8 +59,8 @@ const CollectionFilter = ({ collectionName = 'celeste', selectedCities,setSelect
                 {displayCities.map((city) => {
                     const isSelected = selectedCities.includes(city);
                     const customCss = isSelected
-                        ? 'bg-[#701d1d] text-white border-[#701d1d]'
-                        : 'bg-white text-[#701d1d] border-[#701d1d] hover:bg-[#f8eaea]';
+                        ? 'tanishq-brand-gradient filter-button-shadow text-white border-4 border-[#914c4d]'
+                        : 'bg-white text-[#571d1f]  border-[#701d1d] ';
 
                     return (
                         <FilterButton
@@ -68,7 +68,7 @@ const CollectionFilter = ({ collectionName = 'celeste', selectedCities,setSelect
                             toggleCity={() => toggleCity(city)}
                             customCss={customCss}
                             city={city}
-                            icon={<FilterPluseIcon />}
+                           
                         />
                     );
                 })}
