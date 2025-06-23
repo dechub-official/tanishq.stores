@@ -103,7 +103,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-      <OfferBanner url={"https://www.tanishq.co.in/exchange"} image={exchangeOfferImg} mobImage={exchangeOfferMobImg} />
+      <OfferBanner  image={exchangeOfferImg} mobImage={exchangeOfferMobImg} />
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">

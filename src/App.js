@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Routing from './Routing';
 import ReactGa from 'react-ga4'
 import {Tracking_Id} from './shared/config'
+import SubHome from './component/subHome';
 
 
 ReactGa.initialize(Tracking_Id)
@@ -29,6 +30,7 @@ function App() {
     {/* <SubHome/> */}
     {/* {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>} */}
  <NavBar/>
+ <SubHome/>
   <Routing />
 
  <Footer/>

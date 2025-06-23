@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import bg from '../assets/images/navbar/strip.gif'
-import mobile_bg from '../assets/images/navbar/mobile-strip.gif'
+import bg from '../assets/images/Banner/desktop-strip.gif'
+import mobile_bg from '../assets/images/Banner/mobile-strip.gif'
 import goldbg from '../assets/images/navbar/strip.jpg'
 import kalsh from '../assets/images/navbar/exchange.png'
 import { useState } from 'react'
@@ -47,12 +47,12 @@ export default function SubHome() {
             </Swiper>
         </div>}  */}
         {/* <img src={bg} className='font-[600] max-h-[40px] w-full !my-auto' alt="" /> */}
-        <Link to={"https://www.tanishq.co.in/shop/jewellery?lang=en_IN"}>
-        <div className='home-top-banner cursor-pointer' id="dashBanner">
-        <img src={bg} className='max-h-[40px] md:block hidden min-w-full object-cover' ></img>
+        
+        <div className='home-top-banner cursor-pointer' id="evgExchangeRibbon">
+        <img src={bg} className='max-h-[80px] md:block hidden min-w-full object-cover' ></img>
         <img src={mobile_bg} className='max-h-[40px] md:hidden block w-full object-cover' ></img>
         </div>
-        </Link>
+       
         {/* <div className="w-full  text-center text-white flex md:hidden justify-center items-center   "  >
 
 

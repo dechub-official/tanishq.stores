@@ -7,18 +7,18 @@ export default function OfferBanner({url,mobImage,image}) {
 
     const Navigate = () => {
        
-        const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-        if (newWindow) newWindow.opener = null;
+        // const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+        // if (newWindow) newWindow.opener = null;
 
     }
     return <>
         <div className="flex flex-col  md:w-[82%] w-[90%] mx-auto  justify-center af-bl">
 
-            <div className=" flex flex-col mt-8  my-6 relative">
+            <div id="evgStoreExchangeBanner" className=" flex flex-col mt-8  my-6 relative">
                
-                <img src={image} onClick={Navigate} className="drop-shadow-md cursor-pointer md:block hidden rounded-xl" alt="" />
+                <img src={image}  className="drop-shadow-md cursor-pointer md:block hidden rounded-xl" alt="" />
               
-                <img src={mobImage} onClick={Navigate} className="md:hidden drop-shadow-md rounded-xl block" alt="" />
+                <img src={mobImage}  className="md:hidden drop-shadow-md rounded-xl block" alt="" />
                 {/* <div className="md:w-fit w-full top-[45%] md:top-[30%] md:right-[20%] fraunces md:transform-none absolute flex md:items-start flex-col items-center justify-start">
                     <p className=" md:text-[30px] text-[22px]  text-white  fraunces  text-center font-[500] ">Dhanteras Picks for you</p>
                     <button onClick={Navigate} class="btn border-0 md:mt-3 mt-4 gap-1 w-fit rounded-pill flex justify-center items-center p-2">
