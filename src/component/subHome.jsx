@@ -48,8 +48,7 @@ export default function SubHome() {
         </div>}  */}
         {/* <img src={bg} className='font-[600] max-h-[40px] w-full !my-auto' alt="" /> */}
         
-         {/* id="evgExchangeRibbon" */}
-        <div className='home-top-banner cursor-pointer'>
+        <div className='home-top-banner cursor-pointer' id="evgExchangeRibbon">
         <img src={bg} className='max-h-[80px] md:block hidden min-w-full object-cover' ></img>
         <img src={mobile_bg} className='max-h-[40px] md:hidden block w-full object-cover' ></img>
         </div>
