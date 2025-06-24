@@ -23,12 +23,13 @@ export default function SearchBox() {
         setSearch(e.target.value)
         clearTimeout(closeActive)
         if (searchRef.current.value == '') {
-            [...document.getElementsByClassName("af-bl")].forEach(element => {
+            [...document.getElementsByClassName("af-bl"),...document.getElementsByClassName("home-top-banner")].forEach(element => {
                 element.style.filter = "blur(0px)";
             });
+            
         }
         else {
-            [...document.getElementsByClassName("af-bl")].forEach(element => {
+            [...document.getElementsByClassName("af-bl"),...document.getElementsByClassName("home-top-banner")].forEach(element => {
                 element.style.filter = "blur(5px)";
             });
         }
@@ -45,7 +46,7 @@ export default function SearchBox() {
 
     function closeActive() {
         setTimeout(() => {
-            [...document.getElementsByClassName("af-bl")].forEach(element => {
+            [...document.getElementsByClassName("af-bl"),...document.getElementsByClassName("home-top-banner")].forEach(element => {
                 element.style.filter = "blur(0px)";
             });
             setActive(false)
