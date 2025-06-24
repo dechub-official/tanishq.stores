@@ -65,7 +65,7 @@ export default function SearchBox() {
     }
 
     return <>
-        <div className=" sticky top-0 flex flex-col z-[500] w-full">
+        <div className=" sticky top-7 flex flex-col z-20 w-full">
             <div className="flex justify-center">
                 <input type="text" value={search} className="md:w-[30%] w-[90%] left-[34%] search-box p-4 px-12  border-[1px] border-black rounded-[15px]" ref={searchRef} onBlur={closeActive} onChange={searchVal} onFocus={() => setActive(true)} />
             </div>
