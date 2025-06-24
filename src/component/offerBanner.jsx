@@ -14,7 +14,7 @@ export default function OfferBanner({url,mobImage,image}) {
     return <>
         <div className="flex flex-col  md:w-[82%] w-[90%] mx-auto  justify-center af-bl">
 
-            <div id="evgStoreExchangeBanner" className=" flex flex-col mt-8  my-6 relative">
+            <div id="evgStoreExchangeBanner" className=" flex flex-col !z-0 mt-8  my-6 relative">
                
                 <img src={image}  className="drop-shadow-md cursor-pointer md:block hidden rounded-xl" alt="" />
               
