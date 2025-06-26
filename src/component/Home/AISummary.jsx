@@ -143,7 +143,7 @@ export default function AISummary({ cardRef }) {
 
               </div>
               <span className="text-[#56544ebf]">
-                ${like} {localStorage.getItem("isLiked") ? "Thanks for your feedback" : `  people found this helpful`}
+                {like} {localStorage.getItem("isLiked") ? "Thanks for your feedback" : `  people found this helpful`}
               </span>
             </div>
           </p>
