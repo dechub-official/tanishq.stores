@@ -5,7 +5,7 @@ import Footer from './component/footer';
 import { BrowserRouter } from 'react-router-dom'
 import Routing from './Routing';
 import ReactGa from 'react-ga4'
-import {Tracking_Id} from './shared/config'
+import { Tracking_Id } from './shared/config'
 import SubHome from './component/subHome';
 
 
@@ -16,26 +16,26 @@ const queryClient = new QueryClient();
 
 function App() {
   // const [appPopUp,setAppPopup]=useState(true)
-// const closeAppPopUp=()=>{
-// setAppPopup(false)
-// }
-// useEffect(()=>{
-//   if(window.location.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")||window.screen.width>768){
-//    setAppPopup(false)
-//   }
-// },[])
-  return ( <>
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter basename='/'>
-    {/* <SubHome/> */}
-    {/* {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>} */}
- <NavBar/>
- <SubHome/>
-  <Routing />
+  // const closeAppPopUp=()=>{
+  // setAppPopup(false)
+  // }
+  // useEffect(()=>{
+  //   if(window.location.pathname=="/app-moduleeb61394"|| localStorage.getItem("nav-hide")||window.screen.width>768){
+  //    setAppPopup(false)
+  //   }
+  // },[])
+  return (<>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter basename='/'>
+        {/* <SubHome/> */}
+        {/* {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>} */}
+        <NavBar />
+        {/* <SubHome/> */}
+        <Routing />
 
- <Footer/>
-  </BrowserRouter>
-  </QueryClientProvider>
+        <Footer />
+      </BrowserRouter>
+    </QueryClientProvider>
   </>
   )
 }
