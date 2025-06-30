@@ -51,7 +51,7 @@ export default function Home() {
         },
         { [storeCount[0].storeCity]: storeCount[0].storeCity }
       );
-     
+
       const updatedCity = PopularCityDetail.map((ele) => {
         const count = obj[ele.name];
         return {
@@ -103,7 +103,7 @@ export default function Home() {
       </div>
 
       <SearchBox />
-      <OfferBanner  image={exchangeOfferImg} mobImage={exchangeOfferMobImg} />
+      {/* <OfferBanner  image={exchangeOfferImg} mobImage={exchangeOfferMobImg} /> */}
       <Heading heading={"Popular Cities"} />
 
       <div className="flex justify-center w-full">
@@ -143,53 +143,53 @@ export default function Home() {
       <div className=" af-bl w-full flex flex-col items-center">
         <Heading heading="Explore our latest collections online even before you walk in!" />
 
-   
-        <div className="flex flex-col items-center  justify-around w-[80%] my-6">
-            <Swiper
-              slidesPerView={2}
-              spaceBetween={30}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-                infinite: true,
-              }}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              modules={[Autoplay]}
-              breakpoints={{
-                768: { slidesPerView: 3, autoplay: true },
-                0: { slidesPerView: 2, slidesPerGroup: 1 },
-              }}
-              className="mySwiper"
-            >
-              {/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
-              {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
-              {[
-                { img: cl3, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
-                { img: cl1, link: "https://www.tanishq.co.in/gold" },
-                { img: cl2, link: "https://www.tanishq.co.in/exchange" },
-                { img: cl1, link: "https://www.tanishq.co.in/gold" },
-              ].map((data, i) => {
-                if (i == 3 && window.screen.width > 767) return;
-                return (
-                  <SwiperSlide>
-                    {" "}
-                    <LatestCollection
-                      key={i}
-                      img={data.img}
-                      link={data.link}
-                      name={data.name}
-                    />{" "}
-                  </SwiperSlide>
-                );
-              })}
 
-              {/* <SwiperSlide > <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={ring}/> </SwiperSlide>
+        <div className="flex flex-col items-center  justify-around w-[80%] my-6">
+          <Swiper
+            slidesPerView={2}
+            spaceBetween={30}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+              infinite: true,
+            }}
+            loop={true}
+            loopFillGroupWithBlank={true}
+            modules={[Autoplay]}
+            breakpoints={{
+              768: { slidesPerView: 3, autoplay: true },
+              0: { slidesPerView: 2, slidesPerGroup: 1 },
+            }}
+            className="mySwiper"
+          >
+            {/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
+            {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
+            {[
+              { img: cl3, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
+              { img: cl1, link: "https://www.tanishq.co.in/gold" },
+              { img: cl2, link: "https://www.tanishq.co.in/exchange" },
+              { img: cl1, link: "https://www.tanishq.co.in/gold" },
+            ].map((data, i) => {
+              if (i == 3 && window.screen.width > 767) return;
+              return (
+                <SwiperSlide>
+                  {" "}
+                  <LatestCollection
+                    key={i}
+                    img={data.img}
+                    link={data.link}
+                    name={data.name}
+                  />{" "}
+                </SwiperSlide>
+              );
+            })}
+
+            {/* <SwiperSlide > <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={ring}/> </SwiperSlide>
         <SwiperSlide > <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={bangle}/></SwiperSlide>
         <SwiperSlide >  <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={chain}/></SwiperSlide>
          */}
-            </Swiper>
-          </div>
+          </Swiper>
+        </div>
 
         <Assurance />
         <SuggestArtical />
