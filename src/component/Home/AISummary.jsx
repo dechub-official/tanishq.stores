@@ -2,7 +2,7 @@ import AIBook from "../../assets/images/AISummary/AIText.png";
 import AIStar from "../../assets/images/AISummary/aiStar.png";
 import AILook from "../../assets/images/AISummary/AIlook.png";
 import AIshuffle from "../../assets/images/AISummary/loader.svg";
-import { useReviews, useLikeCount, useIncreaseLikeCount, useIncreaseDislikeCount } from "../../hooks/useStores";
+import { useReviews, useIncreaseLikeCount, useIncreaseDislikeCount, useLikeDislikeCount } from "../../hooks/useStores";
 import { useEffect, useState } from "react";
 
 export default function AISummary({ cardRef }) {
@@ -11,7 +11,7 @@ export default function AISummary({ cardRef }) {
 
   // Use Tanstack Query hooks
   const { data: reviewsData, isLoading: isReviewsLoading, refetch: getreviewsData } = useReviews();
-  const { data: likeData, isLoading: isLikeLoading } = useLikeCount();
+  const { data: likeData, isLoading: isLikeLoading } = useLikeDislikeCount();
 
   const { mutate: increaseLike } = useIncreaseLikeCount();
   const { mutate: increaseDislike } = useIncreaseDislikeCount();

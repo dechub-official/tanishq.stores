@@ -108,7 +108,7 @@ export default function Home() {
 
       <div className="flex justify-center w-full">
         {popularCityDetail && (
-          <div className="hidden md:grid lg:grid lg:grid-rows-1 xl:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 lg:gap-x-4 ">
+          <div className="hidden md:!grid lg:grid lg:grid-rows-1 xl:grid-rows-1 md:grid-rows-2 grid-flow-col gap-4 lg:gap-x-4 ">
             {popularCityDetail?.map((data, index) => {
               return (
                 <div className="col-span-1">

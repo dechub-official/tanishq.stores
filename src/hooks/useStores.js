@@ -8,7 +8,7 @@ import {
   bookAppointment,
   getReviews,
   getFullReview,
-  getLikeCount,
+
   increaseLikeCount,
   getSoulmateStores,
   getCelesteStores,
@@ -16,7 +16,8 @@ import {
   updateStoreUserDetails,
   getStores,
   getRhythmStores,
-  increaseDislikeCount
+  increaseDislikeCount,
+  getLikeDislikeCount
 } from '../api/stores';
 
 // Custom hook to fetch stores
@@ -90,10 +91,10 @@ export const useFullReview = () => {
 };
 
 // Hook for fetching like count
-export const useLikeCount = () => {
+export const useLikeDislikeCount = () => {
   return useQuery({
-    queryKey: ['likeCount'],
-    queryFn: getLikeCount,
+    queryKey: ['likeDislikeCount'],
+    queryFn: getLikeDislikeCount,
   });
 };
 
@@ -121,8 +122,8 @@ export const useIncreaseDislikeCount = () => {
 // Hook for fetching soulmate stores
 export const useSoulmateStores = (city) => {
   return useQuery({
-    queryKey: ['soulmateStores',city],
-    queryFn: ()=>getSoulmateStores(city),
+    queryKey: ['soulmateStores', city],
+    queryFn: () => getSoulmateStores(city),
   });
 };
 
@@ -131,7 +132,7 @@ export const useRhythmStores = (city) => {
   return useQuery({
     queryKey: ['useRhythmStores', city],
     queryFn: () => getRhythmStores(city),
-   
+
   });
 };
 
@@ -140,7 +141,7 @@ export const useCelesteStores = (city) => {
   return useQuery({
     queryKey: ['celesteStores', city],
     queryFn: () => getCelesteStores(city),
-  
+
   });
 };
 

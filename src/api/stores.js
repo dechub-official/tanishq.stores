@@ -59,8 +59,8 @@ export const getFullReview = async () => {
 };
 
 // Get like count
-export const getLikeCount = async () => {
-  const response = await apiClient.get('/getTotalCount');
+export const getLikeDislikeCount = async () => {
+  const response = await apiClient.get('/getLikeDislikeCounts');
   return response.data;
 };
 
