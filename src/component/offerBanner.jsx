@@ -17,7 +17,7 @@ export default function OfferBanner({ url, mobImage, image }) {
 
             <div className=" flex af-bl flex-col !z-0 mt-8  my-6 relative">
 
-                <img src={image} className="drop-shadow-md  cursor-pointer md:block hidden rounded-xl" alt="" />
+                <img src={image} className="drop-shadow-md  cursor-pointer md:!block hidden rounded-xl" alt="" />
 
                 <img src={mobImage} className="md:hidden drop-shadow-md rounded-xl block" alt="" />
                 {/* <div className="md:w-fit w-full top-[45%] md:top-[30%] md:right-[20%] fraunces md:transform-none absolute flex md:items-start flex-col items-center justify-start">

@@ -38,9 +38,9 @@ export default function ReviewSlider() {
             </div>
             <div className='relative flex  justify-center items-center'>
                 <img src={opendEnvelop} className='md:w-[400px]  w-[300px] relative z-10' alt="" />
-                <img src={closedEnvelop} className='w-[350px] md:block hidden  z-[3] bottom-12 absolute -right-4' alt="" />
-                <img src={closedEnvelop} className='w-[350px] md:block hidden  z-[1] bottom-8 absolute -right-8' alt="" />
-                <img src={closedEnvelop} className='w-[350px] md:block hidden  z-[0] bottom-4 absolute -right-12' alt="" />
+                <img src={closedEnvelop} className='w-[350px] md:!block hidden  z-[3] bottom-12 absolute -right-4' alt="" />
+                <img src={closedEnvelop} className='w-[350px] md:!block hidden  z-[1] bottom-8 absolute -right-8' alt="" />
+                <img src={closedEnvelop} className='w-[350px] md:!block hidden  z-[0] bottom-4 absolute -right-12' alt="" />
 
                 <article className='absolute review-slider z-10 max-w-[300px] top-[28%] text-[15px]'><div></div><div></div><div></div><div></div><div></div>
                     <p >"{reviewData?.data?.[activeSlide]?.review}"</p>

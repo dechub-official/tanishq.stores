@@ -41,7 +41,7 @@ import Assurance from "../component/assurance";
 export default function DiamondCollection() {
     const nav = useNavigate();
     const [selectedCity, setSelectedCity] = useState('');
-    
+
     // Use Tanstack Query hook
     const { data: enchantedStores = [] } = useEnchantedCollectionStores(selectedCity);
 
@@ -116,8 +116,8 @@ export default function DiamondCollection() {
         </div>
         {/* <Marquee /> */}
         <h1 className="text-white fraunces text-center md:underline md:text-[35px] text-[25px] font-[400] my-5">
-            <span className="md:text-[35px] text-[20px]">Find out </span> 
-            <br className="md:hidden" /> 
+            <span className="md:text-[35px] text-[20px]">Find out </span>
+            <br className="md:hidden" />
             Your Favorite Outfit
         </h1>
         <FanSwiper />
@@ -125,18 +125,18 @@ export default function DiamondCollection() {
 
 
 
-        {/* <div className="md:block hidden">
+        {/* <div className="md:!block hidden">
             <Heading heading={<u className="text-[20px] break-keep">Celeste Collection Exclusively Available at {data.length} Stores</u>} />
         </div> */}
         <div>
-            <h2 className="text-white fraunces text-center text-[20px] md:block hidden md:text-[25px] font-[400] my-5 underline">
+            <h2 className="text-white fraunces text-center text-[20px] md:!block hidden md:text-[25px] font-[400] my-5 underline">
                 Enchanted Trails Collections Exclusively Available in Following Stores
             </h2>
         </div>
         <div>
             <h2 className="text-white fraunces text-center text-[20px] md:text-[25px] font-[400] my-5 block md:hidden">
-                <span className="md:text-[25px] text-[18px]">The Collections Exclusively</span> 
-                <br className="md:hidden" />  
+                <span className="md:text-[25px] text-[18px]">The Collections Exclusively</span>
+                <br className="md:hidden" />
                 Available in Following Stores
             </h2>
         </div>
@@ -144,12 +144,12 @@ export default function DiamondCollection() {
         <div className="flex md:justify-around justify-center flex-wrap gap-x-1 md:gap-x-2 md:gap-y-3 gap-y-5 px-2 mt-10 container md:max-w-[80%] md:mx-auto">
             {city.map((ele) => (
                 <div key={ele.name} className="box border-2 px-4 py-1 fraunces gap-x-5 text-[16px] border-solid border-white rounded-lg flex justify-center items-center text-white">
-                    {ele.name} 
-                    <input 
-                        className="custom-radio" 
-                        onClick={() => setSelectedCity(ele.name)} 
-                        name="store" 
-                        type="radio" 
+                    {ele.name}
+                    <input
+                        className="custom-radio"
+                        onClick={() => setSelectedCity(ele.name)}
+                        name="store"
+                        type="radio"
                     />
                 </div>
             ))}

@@ -361,8 +361,10 @@ export default function Detailed() {
             value: Clicks.getDir + 1,
             action: "Get Directions",
         });
-        gtmEventHandler({'event':'get_direction',
-            'storeName':storename})
+        gtmEventHandler({
+            'event': 'get_direction',
+            'storeName': storename
+        })
         setClicks({ ...Clicks, getDir: Clicks.getDir + 1 })
         const newWindow = window.open(storeDetail.storeLocationLink, '_blank', 'noopener,noreferrer');
         if (newWindow) newWindow.opener = null;
@@ -415,7 +417,7 @@ export default function Detailed() {
             <section className="af-bl">
 
                 <Banner name={storeDetail.storeName} cardRef={BAPRef} />
-                <div className="md:block hidden">
+                <div className="md:!block hidden">
                     <Heading heading={<>Shop from <span className="text-[#832729] font-fraunces">{storeDetail.storeName}</span></>}></Heading>
                 </div>
                 <div className="md:hidden block">
@@ -461,7 +463,7 @@ export default function Detailed() {
                                         <div className="flex md:flex-nowrap flex-wrap justify-between">
                                             <div className="md:w-[45%] ">
                                                 {GoogleStore && GoogleStore?.opening_hours && <h1 className="text-[#832729] md:mt-2 font-[700] underline text-[19px] md:text-[18px]">Business Hours</h1>}
-                                                <div className=" md:block flex justify-around">
+                                                <div className=" md:!block flex justify-around">
                                                     <div className="text-left md:text-[17px] text-[17px] text-[#343434]">
                                                         {GoogleStore && GoogleStore?.opening_hours?.weekday_text.map((data, i) => {
                                                             return <p key={i}>{data}</p>
@@ -565,7 +567,7 @@ export default function Detailed() {
 
                                 <div className="flex justify-center items-center text-[#66686C] cursor-pointer" > <span onClick={getDirection}>See all Reviews {">>>"}</span></div>
 
-                                {/* <div className="md:ml-6 md:block hidden">
+                                {/* <div className="md:ml-6 md:!block hidden">
                                 {storeDetail.storeLatitude&& <Maps maxh={500} center={{lat:Number(storeDetail.storeLatitude),lng:Number(storeDetail.storeLongitude)}} lang={storeDetail.storeLongitude}/>}
                                 </div> */}
 

@@ -12,11 +12,7 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
 
   const Navigate = useNavigate()
   const [Clicks, setClicks] = useState({ Bookan: 0, getDir: 0 })
-  const BookAppointment = (url) => {
-    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
-    if (newWindow) newWindow.opener = null;
 
-  }
   const normalizeTimeString = (timeStr) => {
     // Replace dots with colons, and normalize to hh:mm:ss AM/PM format
     timeStr = timeStr.replace(/\./g, ":");
@@ -128,7 +124,7 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
     // }
 
     setIndividualStoreData({ storeClosingTime: modifiedClosingTime, storeOpeningTime: modifiedOpeningTime, storeName: data?.storeName, storeCode: data?.storeCode, activeStore: index })
-   
+
     if (window.innerWidth <= 768) {
 
       setBookAnAppointmentModal({ visible: true, mode: "popup" })
@@ -138,9 +134,11 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
     }
   }
   const handleStoreNavidation = (data) => {
-    
-      gtmEventHandler({'event':'store_selected',
-        'storeName':data.storeName})
+
+    gtmEventHandler({
+      'event': 'store_selected',
+      'storeName': data.storeName
+    })
     Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`);
 
   }

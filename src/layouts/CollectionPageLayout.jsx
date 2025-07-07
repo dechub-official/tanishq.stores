@@ -54,7 +54,7 @@ export default function CollectionLayout({
 
   const headingContent = useMemo(() => (
     <>
-      <div className="md:block hidden">
+      <div className="md:!block hidden">
         <Heading heading={<p className="text-4xl fraunces">{title} Available at {stores.length} Stores</p>} />
       </div>
       <div className="block md:hidden">

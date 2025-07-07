@@ -86,7 +86,7 @@ export default function Home() {
         </Helmet>
       )}
       {/* <div className="flex container mt-5 mx-auto home-top-banner" id="dashBanner">
-      <img src={banner_img} className='w-full md:block hidden' alt="" />
+      <img src={banner_img} className='w-full md:!block hidden' alt="" />
       <img src={mobbanner_img} className='w-full block md:hidden' alt="" />
 
 

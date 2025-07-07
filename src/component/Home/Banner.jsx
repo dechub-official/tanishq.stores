@@ -11,8 +11,8 @@ export default function Banner({ name, cardRef }) {
         <div className="flex flex-col w-[88%] mx-auto  justify-center af-bl">
 
             <div className=" flex flex-col mt-8  my-6 relative">
-                <img src={BannerImg} className="md:block hidden" alt="" />
-                {/* <img src={DiwaliBannerImg} className="md:block hidden" alt="" /> */}
+                <img src={BannerImg} className="md:!block hidden" alt="" />
+                {/* <img src={DiwaliBannerImg} className="md:!block hidden" alt="" /> */}
                 <img src={MobileBanner} className="md:hidden block" alt="" />
                 {/* <img src={DiwaliMobileBanner} className="md:hidden block" alt="" /> */}
                 <div className="md:w-[50%] top-[20%] md:top-[60%] md:left-[3%] md:transform-none w-full  absolute flex flex-col items-center justify-center">

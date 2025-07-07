@@ -8,7 +8,7 @@ export default function Assurance() {
   return (
     <>
       <div className="box relative m-5">
-        <img src={union} className="md:block hidden" alt="" />
+        <img src={union} className="md:!block hidden" alt="" />
         <img src={mobunion} className="block md:hidden" alt="" />
         <div className="absolute w-full top-[15%]">
           <h1 className="text-center text-[#832729] md:text-[40px]  text-[20px]  font-[400] font-fraunces">

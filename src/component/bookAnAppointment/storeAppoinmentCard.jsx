@@ -55,13 +55,13 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
     // Enhanced handleInputChange with validation
     const validateInputChange = (e) => {
         const { name, value } = e.target;
-        
+
         // Update local form values for validation
         setFormValues({
             ...formValues,
             [name]: value
         });
-        
+
         // Call the parent component's handleInputChange
         if (typeof handleInputChange === 'function') {
             handleInputChange(e);
@@ -102,7 +102,7 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
     if (step === 3) {
         return (
             <div className="relative md:max-w-[550px] max-h-full flex items-center justify-center">
-                {typeof(setisOpen) === "function" && 
+                {typeof (setisOpen) === "function" &&
                     <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[0%] cursor-pointer absolute z-50 right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                         <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
@@ -120,7 +120,7 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
     }
 
     return (
-        <div className="col storeCard !overflow-visible md:block hidden md:max-w-[550px]">
+        <div className="col storeCard !overflow-visible md:!block hidden md:max-w-[550px]">
             <div className="card h-full border rounded-xl shadow-sm">
                 <div className="flex items-center stag p-3 mb-2">
                     <p className="mb-0">
@@ -128,7 +128,7 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
                     </p>
                 </div>
                 <div className="m-4">
-                    {typeof(setisOpen) === "function" && 
+                    {typeof (setisOpen) === "function" &&
                         <div className="relative overflow-visible">
                             <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[-50%] translate-y-[-75%] cursor-pointer absolute z-50 right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
@@ -257,22 +257,22 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
                             </div>
                             <div className="md:my-3 my-6 flex items-start flex-col md:flex-row gap-y-2 gap-x-3">
                                 <div className="relative w-full">
-                                    <input 
-                                        type="text" 
-                                        name="email" 
+                                    <input
+                                        type="text"
+                                        name="email"
                                         value={formValues.email}
-                                        onChange={validateInputChange} 
-                                        className={`px-4 border border-${errors.email ? 'red-500' : '[#444444]'} w-[98%] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center`} 
-                                        placeholder="Type Your Email ID*" 
+                                        onChange={validateInputChange}
+                                        className={`px-4 border border-${errors.email ? 'red-500' : '[#444444]'} w-[98%] py-3 placeholder:text-[#969288] rounded-full placeholder:text-center`}
+                                        placeholder="Type Your Email ID*"
                                     />
                                     {errors.email && <p className="text-red-500 text-xs ml-4">{errors.email}</p>}
                                 </div>
                                 <div className="flex items-center justify-center">
-                                    <img 
-                                        src={buttonGIF} 
-                                        onClick={validateAndProceed} 
-                                        className="w-[180px] cursor-pointer" 
-                                        alt="Submit" 
+                                    <img
+                                        src={buttonGIF}
+                                        onClick={validateAndProceed}
+                                        className="w-[180px] cursor-pointer"
+                                        alt="Submit"
                                     />
                                 </div>
                             </div>
