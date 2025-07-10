@@ -7,10 +7,16 @@ import AISummary from './AISummary'
 
 
 export default function Banner({ name, cardRef }) {
+    const sectionNavigate = () => {
+        window.scrollTo({
+            top: cardRef?.current?.offsetTop - 120,
+            behavior: "smooth",
+        });
+    };
     return <>
         <div className="flex flex-col w-[88%] mx-auto  justify-center af-bl">
 
-            <div className=" flex flex-col mt-8  my-6 relative">
+            <div onClick={sectionNavigate} className=" cursor-pointer flex flex-col mt-8  my-6 relative">
                 <img src={BannerImg} className="md:!block hidden" alt="" />
                 {/* <img src={DiwaliBannerImg} className="md:!block hidden" alt="" /> */}
                 <img src={MobileBanner} className="md:hidden block" alt="" />

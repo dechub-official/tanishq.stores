@@ -27,7 +27,8 @@ import StoreList from "../helper/getStoreList";
 export default function CityPage() {
   let { id } = useParams();
   const nav = useNavigate();
-  const cardRef=useRef(null)
+  const cardRef = useRef(null)
+  const pageRef = useRef(null)
 
   const [data, setData] = useState([]);
   const [Position, setPosition] = useState([]);
@@ -240,13 +241,13 @@ export default function CityPage() {
       } */}
 
       </div>
-   {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <div className=" absolute bg-green-500 top-0 min-h-[100vh]">
-                <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />
-                </div></div>}
+      {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <div className=" absolute bg-green-500 top-0 min-h-[100vh]">
+        <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />
+        </div></div>}
       <div className="flex flex-col items-center mb-8 af-bl">
         {/* <Heading heading={"Welcome to Tanishq!"} subHeading={"400+ stores, 8L+ Designs, Backed by the trust of TATA  | India’s favourite jewellery store"}/> */}
       </div>
-     
+
       <SearchBox />
       <div className="flex flex-col items-center justify-center af-bl">
         <Banner name={id || "NearBy Search"} cardRef={cardRef} />
@@ -257,9 +258,9 @@ export default function CityPage() {
               Tanishq Stores in {id || "NearBy Search"}
             </h2>
           </div>
-         
-            <StoreList  data={data} individualStoreData={individualStoreData} BookAnAppointmentModal={BookAnAppointmentModal} setBookAnAppointmentModal={setBookAnAppointmentModal}  setIndividualStoreData={setIndividualStoreData}  />
-          
+
+          <StoreList data={data} individualStoreData={individualStoreData} BookAnAppointmentModal={BookAnAppointmentModal} setBookAnAppointmentModal={setBookAnAppointmentModal} setIndividualStoreData={setIndividualStoreData} />
+
         </div>
       </div>
       {/* <ReviewSlider /> */}

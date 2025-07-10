@@ -11,10 +11,10 @@ export default function AISummary({ cardRef }) {
 
   // Use Tanstack Query hooks
   const { data: reviewsData, isLoading: isReviewsLoading, refetch: getreviewsData } = useReviews();
-  const { data: likeData, isLoading: isLikeLoading } = useLikeDislikeCount();
+  const { data: likeData, refetch: getLikeDislike } = useLikeDislikeCount();
 
-  const { mutate: increaseLike } = useIncreaseLikeCount();
-  const { mutate: increaseDislike } = useIncreaseDislikeCount();
+  const { mutateAsync: increaseLike } = useIncreaseLikeCount();
+  const { mutateAsync: increaseDislike } = useIncreaseDislikeCount();
   const BookAppointment = () => {
     window.scrollTo({
       top: cardRef?.current?.offsetTop,
@@ -36,7 +36,8 @@ export default function AISummary({ cardRef }) {
     }
     localStorage.setItem("isLiked", true);
     localStorage.removeItem("isDisLiked");
-    increaseLike();
+    await increaseLike();
+    getLikeDislike()
   };
 
   const handleDisLike = async () => {
@@ -46,7 +47,8 @@ export default function AISummary({ cardRef }) {
     }
     localStorage.setItem("isDisLiked", true);
     localStorage.removeItem("isLiked");
-    increaseDislike();
+    await increaseDislike();
+    getLikeDislike()
   };
 
   const like = likeData?.result || 0;
@@ -154,7 +156,7 @@ export default function AISummary({ cardRef }) {
 
               </div>
               <span className="text-[#56544ebf]">
-                <span className="text-[#56544e5a]">|</span>  {(localStorage.getItem("isLiked") || localStorage.getItem("isDisLiked")) ? "Thanks for your feedback" : `${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`}
+                <span className="text-[#56544e5a]">|</span>  {(localStorage.getItem("isLiked") || localStorage.getItem("isDisLiked")) ? 'Thanks for your feedback' : `${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`}
               </span>
             </div>
           </p>

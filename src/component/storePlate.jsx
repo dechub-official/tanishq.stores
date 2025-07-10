@@ -145,7 +145,7 @@ export default function StorePlate({ data, setIndividualStoreData, index, setBoo
   }
   return (
     <>
-      <div onClick={() => { handleStoreNavidation(data) }} class="col storeCard h-full md:max-w-[550px]"> <div class="card border h-full rounded-xl shadow-sm">
+      <div onClick={() => { handleStoreNavidation(data) }} class="col cursor-pointer storeCard h-full md:max-w-[550px]"> <div class="card border h-full rounded-xl shadow-sm">
         <div class="flex items-center stag p-3 mb-2">
           {/* <i class="bi bi-shop me-2"></i> */}
           <p class="mb-0">
