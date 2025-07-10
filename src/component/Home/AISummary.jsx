@@ -154,7 +154,7 @@ export default function AISummary({ cardRef }) {
 
               </div>
               <span className="text-[#56544ebf]">
-                <span className="text-[#56544e5a]">|</span>  {(localStorage.getItem("isLiked") || localStorage.getItem("isDisLiked")) ? "Thanks for your feedback" : `${like} people found this helpful`}
+                <span className="text-[#56544e5a]">|</span>  {(localStorage.getItem("isLiked") || localStorage.getItem("isDisLiked")) ? "Thanks for your feedback" : `${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`}
               </span>
             </div>
           </p>
