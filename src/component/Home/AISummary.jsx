@@ -13,7 +13,7 @@ export default function AISummary({ cardRef }) {
   const { data: reviewsData, isLoading: isReviewsLoading, refetch: getreviewsData } = useReviews();
   const { data: likeData, refetch: getLikeDislike } = useLikeDislikeCount();
   const like = likeData?.result || 0;
-  const [text, setText] = useState(`${((+likeData?.result.likeCount) - (+likeData?.result.dislikeCount)) || 0} people found this helpful`)
+  const [text, setText] = useState()
 
   const { mutateAsync: increaseLike } = useIncreaseLikeCount();
   const { mutateAsync: increaseDislike } = useIncreaseDislikeCount();
@@ -31,6 +31,15 @@ export default function AISummary({ cardRef }) {
       setSummarized({ ...reviewsData, reviewHighlight: highlight });
     }
   }, [reviewsData]);
+
+  useEffect(() => {
+
+    if (text == null) {
+      setText(`${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`)
+    }
+  }, [likeData]);
+
+
   const updateToInitial = () => {
     setTimeout(() => {
       setText(`${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`)
