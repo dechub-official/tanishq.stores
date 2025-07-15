@@ -12,6 +12,7 @@ export default function AISummary({ cardRef }) {
   // Use Tanstack Query hooks
   const { data: reviewsData, isLoading: isReviewsLoading, refetch: getreviewsData } = useReviews();
   const { data: likeData, refetch: getLikeDislike } = useLikeDislikeCount();
+  const [text, setText] = useState(`${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`)
 
   const { mutateAsync: increaseLike } = useIncreaseLikeCount();
   const { mutateAsync: increaseDislike } = useIncreaseDislikeCount();
@@ -29,15 +30,21 @@ export default function AISummary({ cardRef }) {
       setSummarized({ ...reviewsData, reviewHighlight: highlight });
     }
   }, [reviewsData]);
-
+  const updateToInitial = () => {
+    setTimeout(() => {
+      setText(`${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`)
+    }, 5000)
+  }
   const handleLike = async () => {
     if (localStorage.getItem("isLiked")) {
       return;
     }
     localStorage.setItem("isLiked", true);
     localStorage.removeItem("isDisLiked");
+    setText('Thanks for your feedback')
     await increaseLike();
-    getLikeDislike()
+    await getLikeDislike()
+    updateToInitial()
   };
 
   const handleDisLike = async () => {
@@ -47,8 +54,10 @@ export default function AISummary({ cardRef }) {
     }
     localStorage.setItem("isDisLiked", true);
     localStorage.removeItem("isLiked");
+    setText('Thanks for your feedback')
     await increaseDislike();
-    getLikeDislike()
+    await getLikeDislike()
+    updateToInitial()
   };
 
   const like = likeData?.result || 0;
