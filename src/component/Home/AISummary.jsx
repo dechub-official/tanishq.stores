@@ -35,9 +35,9 @@ export default function AISummary({ cardRef }) {
   useEffect(() => {
 
     if (text == null) {
-      setText(`${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`)
+      setText(`${((+likeData?.result.likeCount) - (+likeData?.result.dislikeCount)) || 0} people found this helpful`)
     }
-  }, []);
+  }, [likeData]);
 
 
   const updateToInitial = () => {
