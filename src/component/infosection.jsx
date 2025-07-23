@@ -44,21 +44,11 @@ export default function InfoSection() {
                             <i className="bi bi-chevron-right  p-1 rounded-circle bg-[#832729] rounded-full w-8 h-8 flex items-center justify-center"
                                 style={{ boxShadow: 'inset -1px -1px 4px rgba(131, 39, 40, 0.6), inset 16px 16px 15.9px 4px rgba(73, 10, 12, 0.57)', }}></i>
                         </button>
-                        <a
-                            href="#"
-                            className="inline-flex items-center gap-2 px-6 py-3 mt-6 bg-primary text-white text-sm font-semibold rounded-full"
-                        >
-                            <span>Learn More</span>
-                            <span className="inline-flex justify-center items-center rounded-full">
-                                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8 5L13 10L8 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </span>
-                        </a>
+                       
                     </div>
 
                     {/* Card 2 */}
-                    <div className="rounded-[24px] bg-[#FFFCF7] border border-[#F4E3CC] p-4">
+                    <div className="rounded-[24px] bg-[#FFFCF7] flex flex-col justify-end border border-[#F4E3CC] p-4">
                         <div className="relative flex justify-center items-center">
                             <img src="https://tanishq-gold.vercel.app/assets/images/highlight-ring.png" className="w-full object-contain" alt="ring" />
                             <div className='absolute top-[45px] group'>
@@ -79,18 +69,18 @@ export default function InfoSection() {
                             </div>
                           
                         </div>
-                        <div className="bg-white rounded-lg p-4 mt-6 shadow">
+                        <div className="bg-white rounded-[12px] p-4 mt-6 border border-[rgba(0,0,0,0.1)" style={{boxShadow: "6px 8px 24px -5px rgba(0, 0, 0, 0.2)"}}>
                             <div className="flex items-center justify-between gap-2">
                                 <div>
-                                    <h4 className="text-sm font-normal text-gray-900 font-fraunces">
-                                        <a href="#">Statement Gold Finger Ring</a>
+                                    <h4 className="text-sm font-normal text-gray-900 ">
+                                        <a className='fraunces' href="#">Statement Gold Finger Ring</a>
                                     </h4>
                                     <div className="flex items-center gap-2">
                                         <span className="text-base font-fraunces text-gray-900">35,000/-</span>
-                                        <small className="text-primary">20% off</small>
+                                        <small className="text-[#631517] -mb-[2px]">20% off</small>
                                     </div>
                                 </div>
-                                <a href="#" className="p-2 rounded-full hover:bg-gray-100">
+                                <a href="#" className="p-2 rounded-full hover:bg-gray-100 border border-[#CFCEC8]">
                                     <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g clipPath="url(#clip0_16_760)">
                                             <path d="M8.16028 1.63965C9.23081 4.12054 10.5974 5.25929 13.875 7.13701" stroke="#490A0C" strokeWidth="0.6875" strokeLinecap="round" strokeLinejoin="round" />
@@ -109,10 +99,10 @@ export default function InfoSection() {
                     </div>
 
                     {/* Card 3 - Video */}
-                    <div className="relative rounded-xl overflow-hidden">
+                    <div className="relative rounded-[24px] overflow-hidden">
                         <video
                             ref={videoRef}
-                            className="w-full h-auto"
+                            className="    h-[470px] object-cover w-full h-auto"
                             poster="https://tanishq-gold.vercel.app/assets/images/portrait-video-banner.png"
                             onClick={handleVideoClick}
                             onEnded={handleVideoEnd}
@@ -124,11 +114,48 @@ export default function InfoSection() {
                             ref={playBtnRef}
                             onClick={handlePlay}
                             type="button"
-                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-3"
+                            className="absolute inset-0 flex items-center justify-center"
                         >
-                            <svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20.4698 9.53605C23.1365 11.0757 23.1365 14.9247 20.4698 16.4643L6.26503 24.6654C3.59836 26.205 0.265029 24.2805 0.265029 21.2013L0.26503 4.79899C0.26503 1.71979 3.59836 -0.204707 6.26503 1.33489L20.4698 9.53605Z" fill="white" />
-                            </svg>
+                            <svg
+    width="102"
+    height="102"
+    viewBox="0 0 102 102"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <clipPath id="bgblur_0_1_1250_clip_path">
+        <circle cx="51" cy="51" r="50" />
+      </clipPath>
+    </defs>
+
+    {/* Blurred background layer */}
+    <foreignObject x="-28" y="-28" width="158" height="158">
+      <div
+        xmlns="http://www.w3.org/1999/xhtml"
+        style={{
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
+          clipPath: 'url(#bgblur_0_1_1250_clip_path)',
+          height: '100%',
+          width: '100%',
+        }}
+      />
+    </foreignObject>
+
+    {/* Outer circles */}
+    <g data-figma-bg-blur-radius="28">
+      <circle cx="51" cy="51" r="50" fill="white" fillOpacity="0.1" />
+      <circle cx="51" cy="51" r="50.5" stroke="white" strokeOpacity="0.2" />
+    </g>
+
+    {/* Play arrow */}
+    <path
+      d="M62.4698 47.5358C65.1365 49.0754 65.1365 52.9244 62.4698 54.464L48.265 62.6652C45.5984 64.2048 42.265 62.2803 42.265 59.2011L42.265 42.7987C42.265 39.7195 45.5984 37.795 48.265 39.3346L62.4698 47.5358Z"
+      fill="white"
+    />
+  </svg>
+
                         </button>
                     </div>
                 </div>
