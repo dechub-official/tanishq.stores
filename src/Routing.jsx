@@ -8,6 +8,7 @@ import CelesteCollection from "./pages/celesteCollection";
 import DiamondCollection from "./pages/diamondCollection";
 import SoulMateCollection from "./pages/soulMateCollection";
 import ElysianCollection from "./pages/elysian";
+import Dev from "./pages/dev"; 
 
 export default function Routing({ setInApp }) {
     return <>
@@ -22,6 +23,7 @@ export default function Routing({ setInApp }) {
             <Route  element={<Page_Not_Found />} path="*" />
             <Route exact element={<Detailed />} path="/store-locator/jewellery-stores/:state/:city/:storename" />
             <Route exact element={<CityPage />} path="/store-locator/jewellery-stores/city/:id" />
+            <Route exact element={<Dev />} path="/dev" /> 
 
         </Routes>
     </>
