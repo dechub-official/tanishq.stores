@@ -17,6 +17,10 @@ import viewingroom from "../assets/images/rivaahcollection/viewingroom.png";
 import customisation from "../assets/images/rivaahcollection/customisation.png";
 import dedicated from "../assets/images/rivaahcollection/dedicated stylists.png";
 
+import wedding from "../assets/images/rivaahcollection/wedding.png";
+import mahandi from "../assets/images/rivaahcollection/mehandi.png";
+import haldi from "../assets/images/rivaahcollection/haldi.png";
+
 export default function Dev() {
     const videoRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
@@ -195,8 +199,46 @@ export default function Dev() {
                 </div>
 
 
-                <div>
-                    <InfoSection/>
+                <div className="mt-[60px]">
+                    <InfoSection />
+                </div>
+
+
+                <div className="mt-[50px]">
+                    <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">A jewellery to fit your timeline</p>} subHeading={<p className="font-fraunces ">Tanishq at every stage!</p>} />
+
+
+                    <div className="flex gap-8 mt-[50px]">
+                        <div className="relative flex justify-center">
+                            <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={wedding} alt="" />
+                            <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
+                               <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Wedding</h3>
+                                <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
+                                <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
+                            </div>
+
+                        </div>
+                        <div className="flex flex-col justify-between">
+                            <div className="relative flex justify-center">
+                            <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={haldi} alt="" />
+                            <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
+                               <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Haldi</h3>
+                                <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
+                                <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
+                            </div>
+
+                        </div>
+                            <div className="relative flex justify-center">
+                            <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={mahandi} alt="" />
+                            <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
+                               <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Mehndi</h3>
+                                <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
+                                <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
+                            </div>
+
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
