@@ -91,6 +91,22 @@ export default function Dev() {
     ]
     return (
         <div>
+            <div className="flex fixed bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
+                <button
+                    className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-8"
+
+                >
+                    <span className="pr-1 text-[9px] md:text-lg font-[500]">Book A Private Visit</span>
+                    <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
+                </button>
+                <button
+                    className="btn !mb-0 border-0 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
+
+                >
+                    <span className="pr-1 text-[9px] md:text-lg font-[500]">Meet A Stylist</span>
+                    <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
+                </button>
+            </div>
             <div>
                 <div className="relative w-full ">
                     <video
