@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react"
 import Heading from "../component/heading";
 
-import InfoSection from "../component/infosection";
+import InfoSection from "../component/Rivaahcollection/infosection";
+import CustomJewelleryForm from "../component/Rivaahcollection/form";
 
 import desktopbanner from "../assets/images/rivaahcollection/Desktop BAnner.mp4";
 
@@ -20,6 +21,9 @@ import dedicated from "../assets/images/rivaahcollection/dedicated stylists.png"
 import wedding from "../assets/images/rivaahcollection/wedding.png";
 import mahandi from "../assets/images/rivaahcollection/mehandi.png";
 import haldi from "../assets/images/rivaahcollection/haldi.png";
+
+import bridalstylist from "../assets/images/rivaahcollection/bridal stylist.png";
+import logo from "../assets/images/rivaahcollection/Logo.png";
 
 export default function Dev() {
     const videoRef = useRef(null)
@@ -212,7 +216,7 @@ export default function Dev() {
                         <div className="relative flex justify-center">
                             <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={wedding} alt="" />
                             <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
-                               <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Wedding</h3>
+                                <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Wedding</h3>
                                 <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
                                 <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
                             </div>
@@ -220,23 +224,40 @@ export default function Dev() {
                         </div>
                         <div className="flex flex-col justify-between">
                             <div className="relative flex justify-center">
-                            <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={haldi} alt="" />
-                            <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
-                               <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Haldi</h3>
-                                <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
-                                <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
-                            </div>
+                                <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={haldi} alt="" />
+                                <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
+                                    <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Haldi</h3>
+                                    <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
+                                    <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
+                                </div>
 
-                        </div>
+                            </div>
                             <div className="relative flex justify-center">
-                            <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={mahandi} alt="" />
-                            <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
-                               <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Mehndi</h3>
-                                <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
-                                <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
+                                <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={mahandi} alt="" />
+                                <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
+                                    <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Mehndi</h3>
+                                    <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
+                                    <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className="mt-[100px]  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px]">
+                    <div className="flex">
+                        <div className="w-[54%] p-12 flex flex-col justify-between">
+                            <div className="flex justify-between items-center">
+                                <div><h3 className="fraunces leading-[40px] text-[#767469] text-[35px] font-normal">Connect with <br></br><span className="fraunces text-[#070202]">A Bridal Stylist</span></h3></div>
+                                <div> <img className="w-[100px]" src={logo} alt="tanishq logo" /></div>
                             </div>
 
+                           <CustomJewelleryForm/>
                         </div>
+                        <div className="w-[46%] ">
+                            <img src={bridalstylist} alt="bridal stylist" className=" rounded-[4px]" />
                         </div>
                     </div>
                 </div>
