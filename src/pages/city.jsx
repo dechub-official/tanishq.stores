@@ -235,12 +235,7 @@ export default function CityPage() {
                 <VisitorInfoCard notClose={true} data={data} storeCity={id} onClose={()=>setvisitCardShow(false)}/>
               </div>
                 </div>} */}
-      <div className="flex justify-center items-center">
-        {/* {success.visible&&  <SuccessPopup isSuccess={success.success} close={()=>setSuccess({...success,visible:false})}/>
-      
-      } */}
 
-      </div>
       {individualStoreData && BookAnAppointmentModal.visible && BookAnAppointmentModal.mode == "popup" && <div className=" absolute bg-green-500 top-0 min-h-[100vh]">
         <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment cities={data} activeStore={individualStoreData.activeStore} setIndividualStoreData={setIndividualStoreData} page={"city"} openingTime={individualStoreData.storeOpeningTime} isOpen={BookAnAppointmentModal} storeCode={individualStoreData.storeCode} storeName={individualStoreData.storeName} setisOpen={() => setBookAnAppointmentModal({ visible: false })} closingTime={individualStoreData.storeClosingTime} />
         </div></div>}

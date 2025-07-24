@@ -48,13 +48,113 @@ import polkiCollection from "../assets/images/rivaahcollection/polkiCollection.p
 import tarunCollection from "../assets/images/rivaahcollection/tarunCollection.png";
 import dharoharCollection from "../assets/images/rivaahcollection/dharoharCollection.png";
 import TanishqExperience from "../component/weddingStore/tanishqExprience";
+import BookAnAppointment from "../component/bookAnAppointment";
 
 
 export default function Dev() {
     const videoRef = useRef(null)
     const panel = useRef(null)
     const [popup, setPopup] = useState(false)
+
     const [isPlaying, setIsPlaying] = useState(false)
+
+    const sampleStoreData = {
+        activeStore: 0,
+        openingTime: "10:30:00",
+        cities: [
+            {
+                storeCode: "CPD",
+                storeName: "Delhi - Connaught Place",
+                storeAddress: "Tanishq, Odean Cinema Building, D Block, Connaught Place",
+                storeCity: "Delhi",
+                storeState: "Delhi",
+                storeCountry: "India",
+                storeZipCode: "110001",
+                storePhoneNoOne: "011-43588368",
+                storePhoneNoTwo: "",
+                storeEmailId: "BTQCPD@TITAN.CO.IN",
+                storeLatitude: "28.63427236",
+                storeLongitude: "77.22107267",
+                storeDateOfOpening: "9811095702",
+                storeType: "Stand-alone store",
+                storeOpeningTime: "10:30:00",
+                storeClosingTime: "8.00.00 PM",
+                storeLocationLink: "https://bit.ly/44iPj1m",
+                languages: [],
+                parking: [""],
+                payment: ["Debit Card", "Cash", "Credit Card", "Cheque", "Net Banking", "UPI", "Airpay"],
+                kakatiyaStore: "",
+                celesteStore: "Y",
+                rating: "4.6",
+                numberOfRatings: "3378",
+                isCollection: "TRUE"
+            },
+            {
+                storeCode: "DDW",
+                storeName: "Dwarka Vegas mall",
+                storeAddress: "Ground Floor Shop No 73,74,79 & 80, Block - B, Vegas Mall, Dwarka Sec-14",
+                storeCity: "Delhi",
+                storeState: "Delhi",
+                storeCountry: "India",
+                storeZipCode: "110078",
+                storePhoneNoOne: "9773855771",
+                storePhoneNoTwo: "011-61340350",
+                storeEmailId: "btqddw@titan.co.in",
+                storeLatitude: "28.6011158",
+                storeLongitude: "77.0300708",
+                storeDateOfOpening: "5-7-2020",
+                storeType: "Mall store",
+                storeOpeningTime: "10.30.00 AM",
+                storeClosingTime: "8.00.00 PM",
+                storeLocationLink: "https://www.google.com/maps/place/Tanishq+Jewellery+-+Dwarka/@28.6008379,77.027807,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x371984c051238142!8m2!3d28.6008634!4d77.0299563?authuser=1",
+                languages: [],
+                parking: [""],
+                payment: ["Debit Card", "Cash", "Credit Card", "Cheque", "Net Banking", "UPI", "Airpay"],
+                kakatiyaStore: "",
+                celesteStore: "Y",
+                rating: "4.8",
+                numberOfRatings: "2000",
+                isCollection: "TRUE"
+            },
+            {
+                storeCode: "DET",
+                storeName: "Delhi - Nirman Vihar Vikas Marg",
+                storeAddress: "E-374 Nirman Vihar Vikas Marg",
+                storeCity: "Delhi",
+                storeState: "DELHI",
+                storeCountry: "India",
+                storeZipCode: "110092",
+                storePhoneNoOne: "011 43545934",
+                storePhoneNoTwo: "011 4354 5900",
+                storeEmailId: "BTQDET@TITAN.CO.IN",
+                storeLatitude: "28.63685",
+                storeLongitude: "77.28729",
+                storeDateOfOpening: "12-09-2008",
+                storeType: "Stand-alone store",
+                storeOpeningTime: "10.30.00 AM",
+                storeClosingTime: "8.30.00 PM",
+                storeLocationLink: "https://www.google.com/maps/place/Tanishq+Jewellery+-+Delhi+-+Preet+Vihar/@28.6339782,77.2789765,16z/data=!3m1!5s0x390cfb454d0704b5:0x5c6f81f2197c4016!4m10!1m2!2m1!1stanishq+nirman+vihar+vikas+marg!3m6!1s0x390cfb454d6964f9:0x26033475e5776afe!8m2!3d28.6371238!4d77.2886637!15sCh90YW5pc2hxIG5pcm1hbiB2aWhhciB2aWthcyBtYXJnIgOIAQGSAQ1qZXdlbHJ5X3N0b3Jl4AEA!16s%2Fg%2F124sw0cc6",
+                languages: ["English", "Hindi"],
+                parking: ["Street Parking"],
+                payment: ["Debit Card", "Cash", "Credit Card", "Cheque", "Net Banking", "UPI", "Airpay"],
+                kakatiyaStore: "",
+                celesteStore: "",
+                rating: "4.6",
+                numberOfRatings: "3544",
+                isCollection: "FALSE"
+            },
+
+        ],
+        closingTime: "8:00.00 PM",
+        isOpen: {
+            visible: true,
+            mode: "popup"
+        },
+        storeCode: "CPD",
+        storeName: "Delhi - Connaught Place",
+        page: "city"
+    }
+
 
     const handlePlay = () => {
         if (videoRef.current) {
@@ -110,26 +210,26 @@ export default function Dev() {
         }
     ]
 
-     useGSAP(function () {
-    if (popup) {
-        document.body.style.overflow = 'hidden'
-      gsap.to(panel.current, {
-        opacity: 1,
-        display: "flex",
-        position: "fixed",
-        zIndex: 1000,
-      })
-    } else {
-        document.body.style.overflow = '' 
-      gsap.to(panel.current, {
-        opacity: 0,
-        display: "none",
-      })
-    }
-  }, [popup])
+    useGSAP(function () {
+        if (popup && window.innerWidth > 768) {
+            document.body.style.overflow = 'hidden'
+            gsap.to(panel.current, {
+                opacity: 1,
+                display: "flex",
+                position: "fixed",
+                zIndex: 1000,
+            })
+        } else {
+            document.body.style.overflow = ''
+            gsap.to(panel.current, {
+                opacity: 0,
+                display: "none",
+            })
+        }
+    }, [popup])
     return (
         <div>
-            <div className="flex fixed bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
+            <div className="flex  fixed bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
                 <button onClick={() => setPopup(true)}
                     className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
@@ -372,30 +472,30 @@ export default function Dev() {
                         </div>
                     </div>
                 </div>
-              
 
-<div ref={panel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
-      <div  className="z-10 relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
-                    <button className="absolute top-4 right-4 " onClick={()=>setPopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="12" cy="12" r="12" fill="#F6F6F6"/>
-<path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</button>
-                    <div className="flex">
-                        <div className="w-[54%] p-12 flex flex-col justify-between">
-                            <div className="flex justify-between items-center">
-                                <div><h3 className="fraunces leading-[40px] text-[#767469] text-[35px] font-normal">Connect with <br></br><span className="fraunces text-[#070202]">A Bridal Stylist</span></h3></div>
-                                <div> <img className="w-[100px]" src={logo} alt="tanishq logo" /></div>
+
+                <div ref={panel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+                    <div className="z-10 relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
+                        <button className="absolute top-4 right-4 " onClick={() => setPopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
+                            <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        </button>
+                        <div className="flex">
+                            <div className="w-[54%] p-12 flex flex-col justify-between">
+                                <div className="flex justify-between items-center">
+                                    <div><h3 className="fraunces leading-[40px] text-[#767469] text-[35px] font-normal">Connect with <br></br><span className="fraunces text-[#070202]">A Bridal Stylist</span></h3></div>
+                                    <div> <img className="w-[100px]" src={logo} alt="tanishq logo" /></div>
+                                </div>
+
+                                <CustomJewelleryForm />
                             </div>
-
-                            <CustomJewelleryForm />
-                        </div>
-                        <div className="w-[46%] ">
-                            <img src={bridalstylist} alt="bridal stylist" className=" rounded-[4px]" />
+                            <div className="w-[46%] ">
+                                <img src={bridalstylist} alt="bridal stylist" className=" rounded-[4px]" />
+                            </div>
                         </div>
                     </div>
                 </div>
-</div>
 
 
                 <div className="mt-[60px] relative">
@@ -453,6 +553,7 @@ export default function Dev() {
                 <div className="mx-5">
                     <TanishqExperience />
                 </div>
+                {popup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} setisOpen={setPopup} /></div>}
 
 
 

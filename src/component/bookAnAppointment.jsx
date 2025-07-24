@@ -9,6 +9,8 @@ import StoreAppointmentCard from "./bookAnAppointment/storeAppoinmentCard";
 import { gtmEventHandler } from "../utils/gtmDataLayer";
 
 export default function BookAnAppointment({ activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page = "deepStore" }) {
+    // console.log({ activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page });
+
     const [step, setStep] = useState(1)
     const date = new Date()
     const day = date.getDay()
@@ -217,9 +219,9 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
         const year = date.getUTCFullYear();
         const month = String(date.getUTCMonth() + 1).padStart(2, '0');
         const day = String(date.getUTCDate()).padStart(2, '0');
-        
+
         return `${year}-${month}-${day}`;
-      }
+    }
     const handleApiRequest = async () => {
         gtmEventHandler({
             'event': 'generate_lead',
@@ -233,7 +235,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
             EmailId: formData.email,
             Store_code: storeCode,
             StoreName: storeName,
-            AppointmentDate: formatAppointmentDate(dayInfo.formattedDate), 
+            AppointmentDate: formatAppointmentDate(dayInfo.formattedDate),
             AppointmentTime: dayInfo.time.split(" ")[0],
         }
 
