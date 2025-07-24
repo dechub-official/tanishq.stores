@@ -26,16 +26,17 @@ function handelsubmit(e) {
       {/* Row 1 */}
       <div className="flex items-center gap-2 flex-wrap">
         <span className="text-[18px] text-normal text-[#644117] ibm-plex">I am looking for</span>
-        <div className="relative w-56">
+        <div className="relative w-60">
           <select 
         
             value={interest}
             onChange={(e) => setInterest(e.target.value)}
             className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal border border-[rgba(204,173,135,0.7)] rounded-full py-2 px-4 pr-10 focus:outline-none">
-            <option Earrings>Earrings</option>
+           <option value="Recommendations" selected>Recommendations</option>
+            <option value="Earrings">Earrings</option>
             <option value="Necklace">Necklace </option>
             <option value="Best Selling">Best Selling</option>
-            <option value="Recommendations">Recommendations</option>
+            
           </select>
           <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b4b3b] w-4 h-4 pointer-events-none" />
         </div>

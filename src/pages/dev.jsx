@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react"
 import Heading from "../component/heading";
+import { useGSAP } from '@gsap/react';
+import gsap from "gsap";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -50,6 +52,8 @@ import TanishqExperience from "../component/weddingStore/tanishqExprience";
 
 export default function Dev() {
     const videoRef = useRef(null)
+    const panel = useRef(null)
+    const [popup, setPopup] = useState(false)
     const [isPlaying, setIsPlaying] = useState(false)
 
     const handlePlay = () => {
@@ -105,10 +109,28 @@ export default function Dev() {
             title: "Dharohar Collection",
         }
     ]
+
+     useGSAP(function () {
+    if (popup) {
+        document.body.style.overflow = 'hidden'
+      gsap.to(panel.current, {
+        opacity: 1,
+        display: "flex",
+        position: "fixed",
+        zIndex: 1000,
+      })
+    } else {
+        document.body.style.overflow = '' 
+      gsap.to(panel.current, {
+        opacity: 0,
+        display: "none",
+      })
+    }
+  }, [popup])
     return (
         <div>
             <div className="flex fixed bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
-                <button
+                <button onClick={() => setPopup(true)}
                     className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
                 >
@@ -350,7 +372,15 @@ export default function Dev() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-[100px]  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px]">
+              
+
+<div ref={panel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+      <div  className="z-10 relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
+                    <button className="absolute top-4 right-4 " onClick={()=>setPopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="12" cy="12" r="12" fill="#F6F6F6"/>
+<path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
                     <div className="flex">
                         <div className="w-[54%] p-12 flex flex-col justify-between">
                             <div className="flex justify-between items-center">
@@ -365,6 +395,9 @@ export default function Dev() {
                         </div>
                     </div>
                 </div>
+</div>
+
+
                 <div className="mt-[60px] relative">
                     <img src={weddingHighlight} className="w-full h-auto" alt="" />
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
