@@ -14,6 +14,8 @@ import desktopbanner from "../assets/images/rivaahcollection/Desktop BAnner.mp4"
 
 import divider from "../assets/images/rivaahcollection/divider.png";
 
+import banner from '../assets/images/rivaahcollection/BANNER.png';
+
 import dreamlist from "../assets/images/rivaahcollection/dream list.png";
 
 import rivaah1 from "../assets/images/rivaahcollection/rivaah 1.png";
@@ -122,7 +124,7 @@ export default function Dev() {
                 </button>
             </div>
             <div>
-                <div className="relative w-full ">
+                <div className="block max-md:hidden relative w-full ">
                     <video
                         ref={videoRef}
                         className="w-full rounded-lg"
@@ -175,6 +177,10 @@ export default function Dev() {
                         </button>
                     )}
                 </div>
+                <div className="hidden max-md:block relative w-full">
+                    <img src={banner} alt="" />
+                </div>
+
             </div>
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
                 <div>
@@ -305,8 +311,6 @@ export default function Dev() {
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah3} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah2} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah1} alt="" /></SwiperSlide>
-
-                            ...
                         </Swiper>
                     </div>
                 </div>
