@@ -6,6 +6,10 @@ import CustomJewelleryForm from "../component/Rivaahcollection/form";
 
 import desktopbanner from "../assets/images/rivaahcollection/Desktop BAnner.mp4";
 
+import divider from "../assets/images/rivaahcollection/divider.png";
+
+import dreamlist from "../assets/images/rivaahcollection/dream list.png";
+
 import dharohar from "../assets/images/rivaahcollection/Dharohar Collection.png";
 import navraani from "../assets/images/rivaahcollection/Navraani Collection.png";
 import polki from "../assets/images/rivaahcollection/Polki Collection.png";
@@ -164,32 +168,40 @@ export default function Dev() {
             </div>
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
                 <div>
-                    <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Store Collections</p>} subHeading={<p className="font-fraunces ">Explore our newly launched collection</p>} />
+                   <div className="max-md:hidden">
+                     <Heading  heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Store Collections</p>} subHeading={<p className="font-fraunces ">Explore our newly launched collection</p>} />
 
-                    <div className="grid grid-cols-2 max-md:grid-cols-1 gap-8 max-sm:gap-4 mt-20 max-md:mt-10 px-[60px] max-md:px-0">
+                   </div>
+                    <div className="max-md:flex hidden flex-col items-center justify-center ">
+                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
+                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">Choose Your collection</p>}  />
+                        <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
+
+                    </div>
+                    <div className="grid grid-cols-2 gap-8 max-sm:gap-4 max-sm:gap-4 mt-20 max-md:mt-7 px-[60px] max-md:px-0">
                         <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full" src={tarun} alt="" />
+                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={tarun} alt="" />
                             <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-3"><Heading heading={<p className="text-4xl font-normal fraunces text-white max-md:text-3xl">Tarun Tahiliani Collection</p>} /></div>
-                            <div className="absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
+                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[125px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Tarun Tahiliani Collection</p>} /></div>
+                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
                         </div>
                         <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full" src={polki} alt="" />
+                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={polki} alt="" />
                             <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-3"><Heading heading={<p className="text-4xl font-normal fraunces text-white max-md:text-3xl">Polki Collection</p>} /></div>
-                            <div className="absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
+                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[105px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Polki Collection</p>} /></div>
+                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
                         </div>
                         <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full" src={navraani} alt="" />
+                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={navraani} alt="" />
                             <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-3"><Heading heading={<p className="text-4xl font-normal fraunces text-white max-md:text-3xl">Navraani Collection</p>} /></div>
-                            <div className="absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
+                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[105px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Navraani Collection</p>} /></div>
+                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
                         </div>
                         <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full" src={dharohar} alt="" />
+                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={dharohar} alt="" />
                             <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-3"><Heading heading={<p className="text-4xl font-normal fraunces text-white max-md:text-3xl">Dharohar Collection</p>} /></div>
-                            <div className="absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
+                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[105px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Dharohar Collection</p>} /></div>
+                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
                         </div>
 
 
@@ -199,7 +211,7 @@ export default function Dev() {
                 </div>
 
 
-                <div className="mt-[60px]">
+                <div className="mt-[60px] max-md:hidden">
                     <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">What makes wedding store unique?</p>} subHeading={<p className="font-fraunces max-md:leading-[18px] max-md:mt-4">We at Tanishq believe a bride deserves her own space to decide</p>} />
 
 
@@ -250,8 +262,24 @@ export default function Dev() {
                     <InfoSection />
                 </div>
 
+                <div className="max-md:block hidden">
+                    <div style={{boxShadow: "0px -4px 40px rgba(0, 0, 0, 0.06)"}} className="border border-[##FFFFFF] bg-[#FFFFFF] rounded-[18px] p-5">
+                         <div className="max-md:flex hidden flex-col items-center justify-center ">
+                                                              
+                                                                <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Introducing Bride’s Dream list</p>}  />
+                                                                <p className='ibm-plex text-[#56544E] text-center mt-[-10px] mb-5'>Let’s check which ornaments pair best with each outfit, based on regional preferences and traditional styles.</p>
+                                                            
+                                        <img src={dreamlist} alt="" />
+                                        <button class="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8" fdprocessedid="zs2ow8"><span class="pr-1 text-[14px] md:text-lg font-[500] fraunces">Create Your Dream List</span><i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i></button>
+                                                            </div>
+                                        <div className="container mx-auto px-0"></div>
+                    </div>
+                </div>
 
-                <div className="mt-[50px]">
+
+                
+                
+                <div className="mt-[50px] block max-md:hidden">
                     <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">A jewellery to fit your timeline</p>} subHeading={<p className="font-fraunces ">Tanishq at every stage!</p>} />
 
 
@@ -259,7 +287,6 @@ export default function Dev() {
                         <div className="relative flex justify-center">
                             <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={wedding} alt="" />
                             <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
-                                <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Wedding</h3>
                                 <h3 className="text-[20px] font-semibold text-[#1F242D] fraunces">Wedding</h3>
                                 <p className="text-center font-normal text-[14px] text-[#1F242D] ibm-plex">Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
                                 <button className="mt-4 text-[20px] font-normal text-[#070202] fraunces border border-[#832729] py-2 px-8 rounded-full">Shop Now</button>
