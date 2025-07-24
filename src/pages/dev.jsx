@@ -1,5 +1,11 @@
 import React, { useRef, useState } from "react"
 import Heading from "../component/heading";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+
 
 import InfoSection from "../component/Rivaahcollection/infosection";
 import CustomJewelleryForm from "../component/Rivaahcollection/form";
@@ -9,6 +15,10 @@ import desktopbanner from "../assets/images/rivaahcollection/Desktop BAnner.mp4"
 import divider from "../assets/images/rivaahcollection/divider.png";
 
 import dreamlist from "../assets/images/rivaahcollection/dream list.png";
+
+import rivaah1 from "../assets/images/rivaahcollection/rivaah 1.png";
+import rivaah2 from "../assets/images/rivaahcollection/rivaah 2.png";
+import rivaah3 from "../assets/images/rivaahcollection/rivaah 3.png";
 
 import dharohar from "../assets/images/rivaahcollection/Dharohar Collection.png";
 import navraani from "../assets/images/rivaahcollection/Navraani Collection.png";
@@ -168,13 +178,13 @@ export default function Dev() {
             </div>
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
                 <div>
-                   <div className="max-md:hidden">
-                     <Heading  heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Store Collections</p>} subHeading={<p className="font-fraunces ">Explore our newly launched collection</p>} />
+                    <div className="max-md:hidden">
+                        <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Store Collections</p>} subHeading={<p className="font-fraunces ">Explore our newly launched collection</p>} />
 
-                   </div>
+                    </div>
                     <div className="max-md:flex hidden flex-col items-center justify-center ">
                         <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
-                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">Choose Your collection</p>}  />
+                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">Choose Your collection</p>} />
                         <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
 
                     </div>
@@ -263,22 +273,43 @@ export default function Dev() {
                 </div>
 
                 <div className="max-md:block hidden">
-                    <div style={{boxShadow: "0px -4px 40px rgba(0, 0, 0, 0.06)"}} className="border border-[##FFFFFF] bg-[#FFFFFF] rounded-[18px] p-5">
-                         <div className="max-md:flex hidden flex-col items-center justify-center ">
-                                                              
-                                                                <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Introducing Bride’s Dream list</p>}  />
-                                                                <p className='ibm-plex text-[#56544E] text-center mt-[-10px] mb-5'>Let’s check which ornaments pair best with each outfit, based on regional preferences and traditional styles.</p>
-                                                            
-                                        <img src={dreamlist} alt="" />
-                                        <button class="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8" fdprocessedid="zs2ow8"><span class="pr-1 text-[14px] md:text-lg font-[500] fraunces">Create Your Dream List</span><i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i></button>
-                                                            </div>
-                                        <div className="container mx-auto px-0"></div>
+                    <div style={{ boxShadow: "0px -4px 40px rgba(0, 0, 0, 0.06)" }} className="border border-[##FFFFFF] bg-[#FFFFFF] rounded-[18px] p-5">
+                        <div className="max-md:flex hidden flex-col items-center justify-center ">
+
+                            <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Introducing Bride’s Dream list</p>} />
+                            <p className='ibm-plex text-[#56544E] text-center mt-[-10px] mb-5'>Let’s check which ornaments pair best with each outfit, based on regional preferences and traditional styles.</p>
+
+                            <img src={dreamlist} alt="" />
+                            <button class="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8" fdprocessedid="zs2ow8"><span class="pr-1 text-[14px] md:text-lg font-[500] fraunces">Create Your Dream List</span><i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i></button>
+                        </div>
+                        <div className="container mx-auto px-0"></div>
                     </div>
                 </div>
 
+                <div className="max-md:block hidden mt-[50px]">
+                    <div className="flex flex-col items-center justify-center ">
+                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-5px]" alt="" />
+                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Rivaah Spotlights</p>} />
 
-                
-                
+                        <img src={divider} className="w-[135px] mt-[15px] mt-[-3px]" alt="" />
+
+                    </div>
+
+                    <div className="mt-7">
+                        <Swiper
+                            spaceBetween={13}
+                            slidesPerView={2.2}
+                            onSlideChange={() => console.log('slide change')}
+                            onSwiper={(swiper) => console.log(swiper)}
+                        >
+                            <SwiperSlide><img className="rounded-[14px]" src={rivaah3} alt="" /></SwiperSlide>
+                            <SwiperSlide><img className="rounded-[14px]" src={rivaah2} alt="" /></SwiperSlide>
+                            <SwiperSlide><img className="rounded-[14px]" src={rivaah1} alt="" /></SwiperSlide>
+
+                            ...
+                        </Swiper>
+                    </div>
+                </div>
                 <div className="mt-[50px] block max-md:hidden">
                     <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">A jewellery to fit your timeline</p>} subHeading={<p className="font-fraunces ">Tanishq at every stage!</p>} />
 
