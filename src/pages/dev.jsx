@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 
+import coupon from "../assets/images/rivaahcollection/coupon.png";
 
 import InfoSection from "../component/Rivaahcollection/infosection";
 import CustomJewelleryForm from "../component/Rivaahcollection/form";
@@ -41,7 +42,7 @@ import mahandi from "../assets/images/rivaahcollection/mehandi.png";
 import haldi from "../assets/images/rivaahcollection/haldi.png";
 
 import bridalstylist from "../assets/images/rivaahcollection/bridal stylist.png";
-import logo from "../assets/images/rivaahcollection/Logo.png";
+
 import weddingHighlight from "../assets/images/rivaahcollection/weddingHighlight.png";
 import fullBg from "../assets/images/rivaahcollection/fullBg.png";
 import polkiCollection from "../assets/images/rivaahcollection/polkiCollection.png";
@@ -52,10 +53,11 @@ import BookAnAppointment from "../component/bookAnAppointment";
 
 
 export default function Dev() {
+
     const videoRef = useRef(null)
     const panel = useRef(null)
     const [popup, setPopup] = useState(false)
-
+    const [step, setStep] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false)
 
     const sampleStoreData = {
@@ -427,8 +429,7 @@ export default function Dev() {
                         <Swiper
                             spaceBetween={13}
                             slidesPerView={2.2}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
+
                         >
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah3} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah2} alt="" /></SwiperSlide>
@@ -475,23 +476,31 @@ export default function Dev() {
 
 
                 <div ref={panel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
-                    <div className="z-10 relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
+                    <div className="z-10 max-w-[1000px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
                         <button className="absolute top-4 right-4 " onClick={() => setPopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                             <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         </button>
                         <div className="flex">
-                            <div className="w-[54%] p-12 flex flex-col justify-between">
-                                <div className="flex justify-between items-center">
-                                    <div><h3 className="fraunces leading-[40px] text-[#767469] text-[35px] font-normal">Connect with <br></br><span className="fraunces text-[#070202]">A Bridal Stylist</span></h3></div>
-                                    <div> <img className="w-[100px]" src={logo} alt="tanishq logo" /></div>
-                                </div>
+                            <div className="w-[54%] p-8 ">
 
-                                <CustomJewelleryForm />
+
+                                {step === 3 ?
+                                    <div className=" relative flex flex-col justify-center h-full">
+                                        <img className="absolute p-7 " src={coupon} alt="thank you" />
+                                        <div className="z-10 flex justify-end pr-[55px]">
+                                            <div className="max-w-[230px]">
+                                                <p className="text-[20px] text-[#2B2A26] font-semibold fraunces text-center leading-7">Your have successfully Booked Your stylist </p>
+                                                <p className="text-[#767469] text-[16px] ibm-plex text-center mt-6 leading-6">Store Team will let you to confirm your visit & will guide you with the store address .</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <CustomJewelleryForm step={step} setStep={setStep} />}
                             </div>
                             <div className="w-[46%] ">
-                                <img src={bridalstylist} alt="bridal stylist" className=" rounded-[4px]" />
+                                <img src={bridalstylist} alt="bridal stylist" className="w-[476px] rounded-[4px]" />
                             </div>
                         </div>
                     </div>
@@ -503,7 +512,7 @@ export default function Dev() {
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
                         <p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Introducing Bride’s Dream list!</p>
 
-                        <p className="font-fraunces text-2xl text-[#00000070]">Create your own jewellery board, share with family and friends!</p>
+                        <p className="fraunces text-2xl text-[#00000070]">Create your own jewellery board, share with family and friends!</p>
                         <button
                             className="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 

@@ -46,6 +46,18 @@ export const bookAppointment = async (appointmentData) => {
   return response.data;
 };
 
+// bridal booking form submission step 1
+export const bridalbookingstep1 = async (appointmentData) => {
+  const response = await apiClient.post('/bridalBookingFrom', appointmentData);
+  return response.data;
+};
+
+// bridal booking form submission step 2
+export const bridalbookingstep2 = async (appointmentData) => {
+  const response = await apiClient.post('/bridalBookingsubmit', appointmentData);
+  return response.data;
+};
+
 // Get reviews
 export const getReviews = async () => {
   const response = await apiClient.get('/reviews');

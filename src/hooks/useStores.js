@@ -8,7 +8,8 @@ import {
   bookAppointment,
   getReviews,
   getFullReview,
-
+  bridalbookingstep1,
+   bridalbookingstep2,
   increaseLikeCount,
   getSoulmateStores,
   getCelesteStores,
@@ -71,6 +72,22 @@ export const useBookAppointment = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['storeDetails'] });
     },
+  });
+};
+
+// hook for bridal booking form submission step 1
+export const useBbridalBookingstep1 = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: bridalbookingstep1,
+  });
+};
+
+// hook for bridal booking form submission step 1
+export const useBbridalBookingstep2 = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: bridalbookingstep2,
   });
 };
 
