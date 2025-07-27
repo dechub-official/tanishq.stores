@@ -2,16 +2,15 @@ import React, { useRef, useState } from "react"
 import Heading from "../component/heading";
 import { useGSAP } from '@gsap/react';
 import gsap from "gsap";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import coupon from "../assets/images/rivaahcollection/coupon.png";
 
 import InfoSection from "../component/Rivaahcollection/infosection";
-import CustomJewelleryForm from "../component/Rivaahcollection/form";
+import MeetStylistform from "../component/Rivaahcollection/meetStylist";
+import PrivateVisitForm from "../component/Rivaahcollection/PrivateVisit"
 
 import desktopbanner from "../assets/images/rivaahcollection/Desktop BAnner.mp4";
 
@@ -55,9 +54,12 @@ import BookAnAppointment from "../component/bookAnAppointment";
 export default function Dev() {
 
     const videoRef = useRef(null)
-    const panel = useRef(null)
-    const [popup, setPopup] = useState(false)
+    const meetStylistPanel = useRef(null)
+    const privateVisitPnael = useRef(null)
+    const [stylistPopup, setStylistPopup] = useState(false)
+    const [privatePopup, setPrivatePopup] = useState(false)
     const [step, setStep] = useState(1);
+    const [stepForm2, setStepForm2] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false)
 
     const sampleStoreData = {
@@ -213,9 +215,9 @@ export default function Dev() {
     ]
 
     useGSAP(function () {
-        if (popup && window.innerWidth > 768) {
+        if (stylistPopup && window.innerWidth > 768) {
             document.body.style.overflow = 'hidden'
-            gsap.to(panel.current, {
+            gsap.to(meetStylistPanel.current, {
                 opacity: 1,
                 display: "flex",
                 position: "fixed",
@@ -223,23 +225,41 @@ export default function Dev() {
             })
         } else {
             document.body.style.overflow = ''
-            gsap.to(panel.current, {
+            gsap.to(meetStylistPanel.current, {
                 opacity: 0,
                 display: "none",
             })
         }
-    }, [popup])
+    }, [stylistPopup])
+
+    useGSAP(function () {
+        if (privatePopup && window.innerWidth > 768) {
+            document.body.style.overflow = 'hidden'
+            gsap.to(privateVisitPnael.current, {
+                opacity: 1,
+                display: "flex",
+                position: "fixed",
+                zIndex: 1000,
+            })
+        } else {
+            document.body.style.overflow = ''
+            gsap.to(privateVisitPnael.current, {
+                opacity: 0,
+                display: "none",
+            })
+        }
+    }, [privatePopup])
     return (
         <div>
             <div className="flex  fixed bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
-                <button onClick={() => setPopup(true)}
+                <button onClick={() => setStylistPopup(true)}
                     className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
                 >
                     <span className="pr-1 text-[9px] md:text-lg font-[500]">Book A Private Visit</span>
                     <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
                 </button>
-                <button
+                <button onClick={()=> setPrivatePopup(true)}
                     className="btn !mb-0 border-0 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
                 >
@@ -475,9 +495,9 @@ export default function Dev() {
                 </div>
 
 
-                <div ref={panel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+                <div ref={meetStylistPanel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
                     <div className="z-10 max-w-[1000px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
-                        <button className="absolute top-4 right-4 " onClick={() => setPopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button className="absolute top-4 right-4 " onClick={() => setStylistPopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                             <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -497,11 +517,41 @@ export default function Dev() {
                                         </div>
                                     </div>
                                     :
-                                    <CustomJewelleryForm step={step} setStep={setStep} />}
+                                    <MeetStylistform step={step} setStep={setStep} />}
                             </div>
                             <div className="w-[46%] ">
                                 <img src={bridalstylist} alt="bridal stylist" className="w-[476px] rounded-[4px]" />
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                  <div ref={privateVisitPnael} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+                    <div className="z-10 max-w-[590px] h-[440px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
+                        <button className="absolute top-4 right-4 " onClick={() => setPrivatePopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
+                            <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        </button>
+                       
+                            <div className=" p-8 h-full">
+
+
+                                {stepForm2 === 3 ?
+                                    <div className=" relative flex flex-col justify-center h-full">
+                                        <img className="absolute p-7 " src={coupon} alt="thank you" />
+                                        <div className="z-10 flex justify-end pr-[70px]">
+                                            <div className="max-w-[240px]">
+                                                <p className="text-[24px] text-[#832729] font-semibold fraunces text-center leading-9">🌸 We’re Ready to<br/>Welcome You!</p>
+                                                <p className="text-[#767469] text-[16px] ibm-plex text-center mt-5 leading-6">Your private visit to Tanishq is confirmed. We look forward to welcoming you at your scheduled time for a personalized experience.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <PrivateVisitForm stepForm2={stepForm2} setStepForm2={setStepForm2} />}
+                           
+                            
                         </div>
                     </div>
                 </div>
@@ -528,41 +578,43 @@ export default function Dev() {
             <div className="mt-20 relative">
                 <img src={fullBg} className="w-full rounded-md h-full object-cover" alt="" />
                 <div className="max-w-[1200px] mt-10 mx-auto px-4 ">
-                    <div className="absolute fraunces top-[10%] w-full h-full">
-                        <h1 className="text-3xl font-normal text-white">Collection Catalogs</h1>
-                        <p className="text-xl font-normal max-w-[600px] text-white">Explore Tanishq’s elegant catalog featuring timeless jewelry designs for every occasion and personal style.</p>
-                    </div>
+                    <div className="translate-y-[-44%]">
+                        <div className="fraunces top-[10%] w-full h-full mb-10">
+                            <h1 className="text-[40px] font-normal text-white fraunces ">Collection Catalogs</h1>
+                            <p className="text-[20px] font-normal max-w-[520px] fraunces text-white max-w-[500px]">Explore Tanishq’s elegant catalog featuring timeless jewelry designs for every occasion and personal style.</p>
+                        </div>
 
-                    <div className="grid  grid-cols-2 translate-y-[-30%] gap-4">
-                        {collection.map((item, index) => (
-                            <div className="flex items-center relative justify-center">
-                                <img src={item.frontImg} alt={item.title} className="w-full h-auto rounded-lg" />
-                                <div className="flex items-center justify-between">
-                                    <div className="absolute bottom-10 left-10">
-                                        <h3 className="text-3xl fraunces font-normal text-white">{item.title}</h3>
+                        <div className="grid  grid-cols-2  gap-4">
+                            {collection.map((item, index) => (
+                                <div className="flex items-center relative justify-center">
+                                    <img src={item.frontImg} alt={item.title} className="w-full h-auto rounded-lg" />
+                                    <div className="absolute bottom-14 left-0 w-full px-12 flex items-center justify-between">
+                                        <div className=" left-10">
+                                            <h3 className="text-3xl fraunces font-normal text-white">{item.title}</h3>
+
+                                        </div>
+                                        <div className=" right-10">
+                                            <button
+                                                className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-4"
+
+                                            >
+                                                <span className="pr-1 text-[9px] md:text-[12px] font-[500] fraunces">Download Now</span>
+
+                                            </button>
+                                        </div>
 
                                     </div>
-                                    <div className="absolute bottom-10 right-10">
-                                        <button
-                                            className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-4"
+                                </div>)
+                            )}
 
-                                        >
-                                            <span className="pr-1 text-[9px] md:text-lg font-[500]">Download</span>
-
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>)
-                        )}
-
+                        </div>
                     </div>
 
                 </div>
                 <div className="mx-5">
                     <TanishqExperience />
                 </div>
-                {popup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} setisOpen={setPopup} /></div>}
+                {stylistPopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} setisOpen={setStylistPopup} /></div>}
 
 
 

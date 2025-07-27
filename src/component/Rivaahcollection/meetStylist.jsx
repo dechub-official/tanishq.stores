@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { useBbridalBookingstep1, useBbridalBookingstep2 } from "../../hooks/useStores";
-import axios from "axios";
 
-import gold from "../../assets/images/rivaahcollection/gold.png";
-import diamond from "../../assets/images/rivaahcollection/diamond.png";
 import logo from "../../assets/images/rivaahcollection/Logo.png";
 
 export default function CustomJewelleryForm({ step, setStep }) {
@@ -25,7 +22,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
 
   const [id, setId] = useState("");
 
-  const handelsubmit = async (e) => {
+  function handelsubmit () {
     setLoading(true);
     const payload = {
       chooseItem,
@@ -45,7 +42,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
     });
   }
 
-  const handelsubmit2 = async (e) => {
+  function handelsubmit2 () {
     setLoading(true);
 
     const payload = {
@@ -122,7 +119,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
             </div>
           </div>
 
-          <button onClick={handelsubmit} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` text-[12px] mt-[10px] text-[rgb(255_255_255/52%)] rounded-full bg-[linear-gradient(90.18deg,rgba(131,39,41,0.6)0.17%,rgba(99,21,23,0.6)99.86%)] border-0 gap-1 md:flex rounded-pill hidden justify-center items-center py-[10px] pl-7 pr-3`}>
+          <button onClick={()=>handelsubmit()} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` btn text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full  border-0 gap-1 md:flex rounded-pill hidden justify-center items-center !h-[53px] pl-7 pr-3`}>
             <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[500]">{!loading ? "Meet the Stylist" : "Submmiting..."}</span>
             <i className="bi bi-chevron-right  p-1 rounded-circle bg-[#A76767] rounded-full w-10 h-10 flex items-center justify-center"
               style={{ boxShadow: ' inset -1px -1px 4px #A76767, inset 16px 16px 15.9px 4px rgba(99, 21, 23, 0.31)', }}></i>
@@ -186,7 +183,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
             </div>
           </div>
 
-          <button onClick={handelsubmit2} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` text-[12px] mt-[10px] text-[rgb(255_255_255/52%)] rounded-full bg-[linear-gradient(90.18deg,rgba(131,39,41,0.6)0.17%,rgba(99,21,23,0.6)99.86%)] border-0 gap-1 md:flex rounded-pill hidden justify-center items-center py-[10px] pl-7 pr-3`}>
+          <button onClick={()=>handelsubmit2()} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full btn !h-[53px]  border-0 gap-1 md:flex rounded-pill hidden justify-center items-center  pl-7 pr-3`}>
             <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[500]">{!loading ? "Book Now" : "Submmiting..."}</span>
             <i className="bi bi-chevron-right  p-1 rounded-circle bg-[#A76767] rounded-full w-10 h-10 flex items-center justify-center"
               style={{ boxShadow: ' inset -1px -1px 4px #A76767, inset 16px 16px 15.9px 4px rgba(99, 21, 23, 0.31)', }}></i>
