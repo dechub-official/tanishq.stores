@@ -2,7 +2,7 @@ import { useRef } from 'react'
 
 import Heading from '../heading'
 import divider from "../../assets/images/rivaahcollection/divider.png";
-
+import videoPlayButtom from "../../assets/images/rivaahcollection/video_blur_play_button.png";
 
 export default function InfoSection() {
     const videoRef = useRef(null)
@@ -123,45 +123,8 @@ export default function InfoSection() {
                                 type="button"
                                 className="absolute inset-0 flex items-center justify-center"
                             >
-                                <svg
-                                    width="102"
-                                    height="102"
-                                    viewBox="0 0 102 102"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <defs>
-                                        <clipPath id="bgblur_0_1_1250_clip_path">
-                                            <circle cx="51" cy="51" r="50" />
-                                        </clipPath>
-                                    </defs>
+                                <img src={videoPlayButtom} className='w-32' alt="" />
 
-                                    {/* Blurred background layer */}
-                                    <foreignObject x="-28" y="-28" width="158" height="158">
-                                        <div
-                                            xmlns="http://www.w3.org/1999/xhtml"
-                                            style={{
-                                                backdropFilter: 'blur(14px)',
-                                                WebkitBackdropFilter: 'blur(14px)',
-                                                clipPath: 'url(#bgblur_0_1_1250_clip_path)',
-                                                height: '100%',
-                                                width: '100%',
-                                            }}
-                                        />
-                                    </foreignObject>
-
-                                    {/* Outer circles */}
-                                    <g data-figma-bg-blur-radius="28">
-                                        <circle cx="51" cy="51" r="50" fill="white" fillOpacity="0.1" />
-                                        <circle cx="51" cy="51" r="50.5" stroke="white" strokeOpacity="0.2" />
-                                    </g>
-
-                                    {/* Play arrow */}
-                                    <path
-                                        d="M62.4698 47.5358C65.1365 49.0754 65.1365 52.9244 62.4698 54.464L48.265 62.6652C45.5984 64.2048 42.265 62.2803 42.265 59.2011L42.265 42.7987C42.265 39.7195 45.5984 37.795 48.265 39.3346L62.4698 47.5358Z"
-                                        fill="white"
-                                    />
-                                </svg>
 
                             </button>
                         </div>
@@ -172,16 +135,16 @@ export default function InfoSection() {
             {/* // mobile */}
 
             <div className="hidden max-md:block pb-10 ">
-                  <div className="max-md:flex hidden flex-col items-center justify-center ">
-                                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-5px]" alt="" />
-                                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Beautiful Hands - <br/>An Initiative by Tanishq</p>}  />
-                                        <p className='ibm-plex text-[#56544E] text-center mt-[-10px]'>At Tanishq, we believe that every piece of gold jewellery 
-is a work of art, crafted with unparalleled skill and 
-dedication. Our artisans, or karigars, are the heart of 
-this artistry, transforming raw gold into exquisite treasures.</p>
-                                        <img src={divider} className="w-[135px] mt-[15px] mb-10" alt="" />
-                
-                                    </div>
+                <div className="max-md:flex hidden flex-col items-center justify-center ">
+                    <img src={divider} className="rotate-[180deg] w-[135px] mb-[-5px]" alt="" />
+                    <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Beautiful Hands - <br />An Initiative by Tanishq</p>} />
+                    <p className='ibm-plex text-[#56544E] text-center mt-[-10px]'>At Tanishq, we believe that every piece of gold jewellery
+                        is a work of art, crafted with unparalleled skill and
+                        dedication. Our artisans, or karigars, are the heart of
+                        this artistry, transforming raw gold into exquisite treasures.</p>
+                    <img src={divider} className="w-[135px] mt-[15px] mb-10" alt="" />
+
+                </div>
                 <div className="container mx-auto px-0">
                     <div className="">
                         {/* Card 1 */}
@@ -270,15 +233,15 @@ this artistry, transforming raw gold into exquisite treasures.</p>
 
                             </div>
                             <a href='#' className="mt-5 mb-7 flex items-center justify-center gap-5 border border-[#D9BDBE] rounded-full px-6 py-[10px]  text-[16px] font-normal text-[#070202] fraunces">
-                          View product
-                          <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.619047 1L4.61905 5L0.619047 9" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+                                View product
+                                <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.619047 1L4.61905 5L0.619047 9" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
 
-                          </a>
+                            </a>
                         </div>
 
-                      
+
                     </div>
                 </div>
             </div>

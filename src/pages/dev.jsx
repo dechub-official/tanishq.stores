@@ -49,6 +49,10 @@ import tarunCollection from "../assets/images/rivaahcollection/tarunCollection.p
 import dharoharCollection from "../assets/images/rivaahcollection/dharoharCollection.png";
 import TanishqExperience from "../component/weddingStore/tanishqExprience";
 import BookAnAppointment from "../component/bookAnAppointment";
+import storeDump from '../assets/images/rivaahcollection/storeDump.png'
+import { Clock, ClockIcon, Locate, MapPin, Navigation, NavigationIcon, Phone, PhoneIcon, Star, StoreIcon } from "lucide-react";
+import Assurance from "../component/assurance";
+import Quality from "../component/Rivaahcollection/Quality";
 
 
 export default function Dev() {
@@ -259,7 +263,7 @@ export default function Dev() {
                     <span className="pr-1 text-[9px] md:text-lg font-[500]">Book A Private Visit</span>
                     <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
                 </button>
-                <button onClick={()=> setPrivatePopup(true)}
+                <button onClick={() => setPrivatePopup(true)}
                     className="btn !mb-0 border-0 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
                 >
@@ -326,8 +330,80 @@ export default function Dev() {
                 </div>
 
             </div>
+
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
-                <div>
+
+                <div className="flex my-4 justify-between md:justify-center items-center">
+                    <div>
+                        <p className="text-[38px] max-md:text-[30px]  md:text-center fraunces text-black font-normal ">Rivaah South Ex</p>
+                        <div className="md:hidden flex items-center text-[#FF9A00] gap-x-2">
+                            <Star fill="#FF9A00" /> <span className="text-[#56544E] font-semibold">4.2</span> <span className="text-[#56544E] font-normal">(2753 Reviews)</span>
+                        </div>
+                    </div>
+                    <img src={storeDump} className="w-14  md:hidden" alt="" />
+                </div>
+
+
+
+
+                <div className="store-details hidden md:grid grid-cols-3 gap-x-20">
+                    <div className="box  shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                        <div className="flex  gap-x-2">
+                            <span className="text-xl font-semibold text-[#954648] fraunces"> <MapPin /></span>
+                            <div>
+                                <div className="flex justify-between">
+                                    <p className="text-[#954648] text-xl font-semibold fraunces "> Address</p>
+                                    <p className="text-[#954648] underline font-bold">View Details</p>
+                                </div>
+                                <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="box  shadow-lg h-fit border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                        <div className="flex  gap-x-2">
+                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Clock /></span>
+                            <div>
+                                <div className="flex justify-start relative  gap-x-5">
+                                    <p className="text-[#954648] font-bold text-xl fraunces "> Timings</p>
+                                    <p className="rounded-full bg-green-200 absolute left-[50%] whitespace-nowrap translate-y-[-10%] text-green-800 font-bold px-4 py-2">Open now</p>
+
+                                </div>
+                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">10:00 AM - 08:00 PM</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="box  shadow-lg h-fit border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                        <div className="flex  gap-x-2">
+                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Phone /></span>
+                            <div>
+                                <div className="flex justify-between">
+                                    <p className="text-[#954648] text-xl font-semibold fraunces "> Other Details</p>
+
+                                </div>
+                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">+91 12345 67890</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div className="box md:hidden   shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                    <div className="flex  gap-x-2">
+                        <span className="text-xl font-semibold text-[#56544E] fraunces"> <StoreIcon /></span>
+                        <div>
+                            <div className="flex justify-between">
+                                <p className="text-[#954648] text-xl font-semibold fraunces "> Store Details</p>
+                                <p className="bg-[#954648] text-white rounded-full p-3 text-[10px] w-12 flex justify-center translate-y-[-10%] items-center h-12  font-bold"><NavigationIcon /></p>
+                            </div>
+                            <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
+                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><PhoneIcon /> +91 12345 67890</p>
+                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:00 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div className="mt-[60px]">
                     <div className="max-md:hidden">
                         <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Store Collections</p>} subHeading={<p className="font-fraunces ">Explore our newly launched collection</p>} />
 
@@ -512,7 +588,7 @@ export default function Dev() {
                                         <div className="z-10 flex justify-end pr-[55px]">
                                             <div className="max-w-[230px]">
                                                 <p className="text-[20px] text-[#2B2A26] font-semibold fraunces text-center leading-7">Your have successfully Booked Your stylist </p>
-                                                <p className="text-[#767469] text-[16px] ibm-plex text-center mt-6 leading-6">Store Team will let you to confirm your visit & will guide you with the store address .</p>
+                                                <p className="text-[#767469]  text-[16px] ibm-plex text-center mt-6 leading-6">Store Team will let you to confirm your visit & will guide you with the store address .</p>
                                             </div>
                                         </div>
                                     </div>
@@ -527,37 +603,37 @@ export default function Dev() {
                 </div>
 
 
-                  <div ref={privateVisitPnael} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+                <div ref={privateVisitPnael} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
                     <div className="z-10 max-w-[590px] h-[440px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
                         <button className="absolute top-4 right-4 " onClick={() => setPrivatePopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                             <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         </button>
-                       
-                            <div className=" p-8 h-full">
+
+                        <div className=" p-8 h-full">
 
 
-                                {stepForm2 === 3 ?
-                                    <div className=" relative flex flex-col justify-center h-full">
-                                        <img className="absolute p-7 " src={coupon} alt="thank you" />
-                                        <div className="z-10 flex justify-end pr-[70px]">
-                                            <div className="max-w-[240px]">
-                                                <p className="text-[24px] text-[#832729] font-semibold fraunces text-center leading-9">🌸 We’re Ready to<br/>Welcome You!</p>
-                                                <p className="text-[#767469] text-[16px] ibm-plex text-center mt-5 leading-6">Your private visit to Tanishq is confirmed. We look forward to welcoming you at your scheduled time for a personalized experience.</p>
-                                            </div>
+                            {stepForm2 === 3 ?
+                                <div className=" relative flex flex-col justify-center h-full">
+                                    <img className="absolute p-7 " src={coupon} alt="thank you" />
+                                    <div className="z-10 flex justify-end pr-[70px]">
+                                        <div className="max-w-[240px]">
+                                            <p className="text-[24px] text-[#832729] font-semibold fraunces text-center leading-9">🌸 We’re Ready to<br />Welcome You!</p>
+                                            <p className="text-[#767469] text-[16px] ibm-plex text-center mt-5 leading-6">Your private visit to Tanishq is confirmed. We look forward to welcoming you at your scheduled time for a personalized experience.</p>
                                         </div>
                                     </div>
-                                    :
-                                    <PrivateVisitForm stepForm2={stepForm2} setStepForm2={setStepForm2} />}
-                           
-                            
+                                </div>
+                                :
+                                <PrivateVisitForm stepForm2={stepForm2} setStepForm2={setStepForm2} />}
+
+
                         </div>
                     </div>
                 </div>
 
 
-                <div className="mt-[60px] relative">
+                <div className="mt-[60px] md:block hidden  relative">
                     <img src={weddingHighlight} className="w-full h-auto" alt="" />
                     <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
                         <p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Introducing Bride’s Dream list!</p>
@@ -575,45 +651,49 @@ export default function Dev() {
                 </div>
 
             </div>
-            <div className="mt-20 relative">
-                <img src={fullBg} className="w-full rounded-md h-full object-cover" alt="" />
-                <div className="max-w-[1200px] mt-10 mx-auto px-4 ">
-                    <div className="translate-y-[-44%]">
-                        <div className="fraunces top-[10%] w-full h-full mb-10">
-                            <h1 className="text-[40px] font-normal text-white fraunces ">Collection Catalogs</h1>
-                            <p className="text-[20px] font-normal max-w-[520px] fraunces text-white max-w-[500px]">Explore Tanishq’s elegant catalog featuring timeless jewelry designs for every occasion and personal style.</p>
-                        </div>
+            <div className="space-y-20 relative">
+                <div className="relative md:block hidden ">
+                    <img src={fullBg} className="w-full absolute top-0 z-0 rounded-md  object-cover" alt="" />
+                    <div className="max-w-[1200px]  mx-auto px-4 ">
+                        <div className="relative pt-[80px]">
+                            <div className="fraunces top-[10%] w-full h-full mb-10">
+                                <h1 className="text-[40px] font-normal text-white fraunces ">Collection Catalogs</h1>
+                                <p className="text-[20px] font-normal max-w-[520px] fraunces text-white max-w-[500px]">Explore Tanishq’s elegant catalog featuring timeless jewelry designs for every occasion and personal style.</p>
+                            </div>
 
-                        <div className="grid  grid-cols-2  gap-4">
-                            {collection.map((item, index) => (
-                                <div className="flex items-center relative justify-center">
-                                    <img src={item.frontImg} alt={item.title} className="w-full h-auto rounded-lg" />
-                                    <div className="absolute bottom-14 left-0 w-full px-12 flex items-center justify-between">
-                                        <div className=" left-10">
-                                            <h3 className="text-3xl fraunces font-normal text-white">{item.title}</h3>
+                            <div className="grid  grid-cols-2  gap-4">
+                                {collection.map((item, index) => (
+                                    <div className="flex items-center relative justify-center">
+                                        <img src={item.frontImg} alt={item.title} className="w-full h-auto rounded-lg" />
+                                        <div className="absolute bottom-14 left-0 w-full px-12 flex items-center justify-between">
+                                            <div className=" left-10">
+                                                <h3 className="text-3xl fraunces font-normal text-white">{item.title}</h3>
+
+                                            </div>
+                                            <div className=" right-10">
+                                                <button
+                                                    className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-4"
+
+                                                >
+                                                    <span className="pr-1 text-[9px] md:text-[12px] font-[500] fraunces">Download Now</span>
+
+                                                </button>
+                                            </div>
 
                                         </div>
-                                        <div className=" right-10">
-                                            <button
-                                                className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-4"
+                                    </div>)
+                                )}
 
-                                            >
-                                                <span className="pr-1 text-[9px] md:text-[12px] font-[500] fraunces">Download Now</span>
-
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                </div>)
-                            )}
-
+                            </div>
                         </div>
+
                     </div>
-
                 </div>
+
                 <div className="mx-5">
                     <TanishqExperience />
                 </div>
+                <Quality />
                 {stylistPopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} setisOpen={setStylistPopup} /></div>}
 
 
