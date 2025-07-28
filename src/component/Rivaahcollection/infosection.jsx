@@ -37,10 +37,11 @@ export default function InfoSection() {
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-3 gap-6">
                         {/* Card 1 */}
-                        <div className="bg-white rounded-[24px] px-[36px] flex flex-col items-start justify-center border-[#F4E3CC] border 
-          relative before:content-[''] before:absolute before:inset-0 before:border before:border-[#F4E3CC] before:mx-[10px] before:rounded-[24px] before:mt-[-1px] before:mb-[-1px]
-             relative after:content-[''] after:absolute after:inset-0 after:border after:border-[#F4E3CC] after:my-[10px] after:rounded-[24px] after:ml-[-0.5px] after:mr-[-1px]">
-                            <h2 className="text-[37px] font-semibold tracking-tight text-[#2B2A26] leading-[45px] font-fraunces">
+                        <div className="relative bg-white rounded-[24px] px-[36px] flex flex-col items-start justify-center border-[#F4E3CC] border z-0
+          relative before:z-0 before:content-['']  before:absolute before:inset-0 before:border before:border-[#F4E3CC] before:mx-[10px] before:rounded-[24px] before:mt-[-1px] before:mb-[-1px]
+             relative after:z-0 after:content-['']  after:absolute after:inset-0 after:border after:border-[#F4E3CC] after:my-[10px] after:rounded-[24px] after:ml-[-0.5px] after:mr-[-1px]">
+                           
+                                <h2 className="z-3 relative text-[37px] font-semibold tracking-tight text-[#2B2A26] leading-[45px] font-fraunces">
                                 Beautiful Hands - An Initiative by Tanishq
                             </h2>
                             <p className="text-[16px] text-[#767469] ibm-plex leading-relaxed mt-4">
@@ -52,6 +53,7 @@ export default function InfoSection() {
                                     style={{ boxShadow: 'inset -1px -1px 4px rgba(131, 39, 40, 0.6), inset 16px 16px 15.9px 4px rgba(73, 10, 12, 0.57)', }}></i>
                             </button>
 
+                          
                         </div>
 
                         {/* Card 2 */}
