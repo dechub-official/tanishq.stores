@@ -47,17 +47,19 @@ import fullBg from "../assets/images/rivaahcollection/fullBg.png";
 import polkiCollection from "../assets/images/rivaahcollection/polkiCollection.png";
 import tarunCollection from "../assets/images/rivaahcollection/tarunCollection.png";
 import dharoharCollection from "../assets/images/rivaahcollection/dharoharCollection.png";
-import TanishqExperience from "../component/weddingStore/tanishqExprience";
+
 import BookAnAppointment from "../component/bookAnAppointment";
 import storeDump from '../assets/images/rivaahcollection/storeDump.png'
-import { Clock, ClockIcon, Locate, MapPin, Navigation, NavigationIcon, Phone, PhoneIcon, Star, StoreIcon } from "lucide-react";
-import Assurance from "../component/assurance";
+import { Clock, ClockIcon, Locate, MapPin, NavigationIcon, Phone, PhoneIcon, Star, StoreIcon } from "lucide-react";
+
 import Quality from "../component/Rivaahcollection/Quality";
 
 import store from '../assets/images/rivaahcollection/tanishq store.png'
 import exchange from '../assets/images/rivaahcollection/tanishq exchange.png'
 
 import dharoharmweb from "../assets/images/rivaahcollection/dharohar collection mweb.png"
+import PetalSwiper from "../component/Swiper/PetalSwiper";
+
 
 export default function Dev() {
 
@@ -335,6 +337,10 @@ export default function Dev() {
 
             </div>
 
+            <div>
+                <PetalSwiper />
+            </div>
+
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
 
                 <div className="flex my-4 justify-between md:justify-center items-center">
@@ -526,7 +532,6 @@ export default function Dev() {
                         <Swiper
                             spaceBetween={13}
                             slidesPerView={2.2}
-
                         >
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah3} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah2} alt="" /></SwiperSlide>
