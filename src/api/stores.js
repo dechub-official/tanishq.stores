@@ -58,6 +58,20 @@ export const bridalbookingstep2 = async (appointmentData) => {
   return response.data;
 };
 
+
+// private visit form submission step 1
+export const privateVisitstep1 = async (appointmentData) => {
+  const response = await apiClient.post('/privateVisitFrom', appointmentData);
+  return response.data;
+};
+
+
+// private visit form submission step 2
+export const privateVisitstep2 = async (appointmentData) => {
+  const response = await apiClient.post('/privateVisitSubmit', appointmentData);
+  return response.data;
+};
+
 // Get reviews
 export const getReviews = async () => {
   const response = await apiClient.get('/reviews');

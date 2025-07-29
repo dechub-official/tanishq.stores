@@ -10,6 +10,8 @@ import {
   getFullReview,
   bridalbookingstep1,
    bridalbookingstep2,
+   privateVisitstep1,
+   privateVisitstep2,
   increaseLikeCount,
   getSoulmateStores,
   getCelesteStores,
@@ -88,6 +90,22 @@ export const useBbridalBookingstep2 = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: bridalbookingstep2,
+  });
+};
+
+// hook for Private Visit form submission step 1
+export const usePrivateVisitstep1 = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: privateVisitstep1,
+  });
+};
+
+// hook for Private Visit form submission step 2
+export const usePrivateVisitstep2 = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: privateVisitstep2,
   });
 };
 

@@ -2,7 +2,7 @@ import { useRef } from 'react'
 
 import Heading from '../heading'
 import divider from "../../assets/images/rivaahcollection/divider.png";
-import videoPlayButtom from "../../assets/images/rivaahcollection/video_blur_play_button.png";
+import VideoBox from '../videoBox'
 
 export default function InfoSection() {
     const videoRef = useRef(null)
@@ -29,6 +29,11 @@ export default function InfoSection() {
         playBtnRef.current.classList.remove('hidden')
     }
 
+
+    const videoPlayButtom = <svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.4697 9.53581C23.1364 11.0754 23.1364 14.9244 20.4697 16.464L6.2649 24.6652C3.59824 26.2048 0.264907 24.2803 0.264907 21.2011L0.264907 4.79875C0.264908 1.71955 3.59824 -0.204951 6.26491 1.33465L20.4697 9.53581Z" fill="white"/>
+</svg>
+
     return (
         <div>
 
@@ -37,23 +42,23 @@ export default function InfoSection() {
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-3 gap-6">
                         {/* Card 1 */}
-                        <div className="relative bg-white rounded-[24px] px-[36px] flex flex-col items-start justify-center border-[#F4E3CC] border z-0
+                        <div className="relative bg-white rounded-[24px] px-[36px] flex flex-col items-start justify-center border-[#F4E3CC] border z-[1] max-lg:py-20
           relative before:z-0 before:content-['']  before:absolute before:inset-0 before:border before:border-[#F4E3CC] before:mx-[10px] before:rounded-[24px] before:mt-[-1px] before:mb-[-1px]
              relative after:z-0 after:content-['']  after:absolute after:inset-0 after:border after:border-[#F4E3CC] after:my-[10px] after:rounded-[24px] after:ml-[-0.5px] after:mr-[-1px]">
-                           
-                                <h2 className="z-3 relative text-[37px] font-semibold tracking-tight text-[#2B2A26] leading-[45px] font-fraunces">
+
+                            <h2 className="z-[2] relative text-[37px] font-semibold tracking-tight text-[#2B2A26] leading-[45px] font-fraunces">
                                 Beautiful Hands - An Initiative by Tanishq
                             </h2>
-                            <p className="text-[16px] text-[#767469] ibm-plex leading-relaxed mt-4">
+                            <p className="z-[2] relative text-[16px] text-[#767469] ibm-plex leading-relaxed mt-4">
                                 Kundan jewelry, an ancient Indian craft, features pure gold and gemstones inlaid with precision. Rooted in royal heritage, each piece tells a story of love and legacy, making it a timeless treasure.
                             </p>
-                            <button className={`text-[10px] mt-10 text-[rgb(255_255_255/52%)] rounded-full bg-[linear-gradient(90.18deg,#832729_0.17%,#631517_99.86%)] border-0 gap-1 md:flex rounded-pill hidden justify-center items-center py-2 pl-6 pr-2`}>
+                            <button className={`z-[2] relative text-[10px] mt-10 text-[rgb(255_255_255/52%)] rounded-full bg-[linear-gradient(90.18deg,#832729_0.17%,#631517_99.86%)] border-0 gap-1 md:flex rounded-pill hidden justify-center items-center py-2 pl-6 pr-2`}>
                                 <span className="pr-1 text-[12px] text-white font-fraunces max-md:text-[11px] font-[500]">Learn More</span>
                                 <i className="bi bi-chevron-right  p-1 rounded-circle bg-[#832729] rounded-full w-8 h-8 flex items-center justify-center"
                                     style={{ boxShadow: 'inset -1px -1px 4px rgba(131, 39, 40, 0.6), inset 16px 16px 15.9px 4px rgba(73, 10, 12, 0.57)', }}></i>
                             </button>
 
-                          
+
                         </div>
 
                         {/* Card 2 */}
@@ -109,26 +114,7 @@ export default function InfoSection() {
 
                         {/* Card 3 - Video */}
                         <div className="relative rounded-[24px] overflow-hidden">
-                            <video
-                                ref={videoRef}
-                                className="    h-[470px] object-cover w-full h-auto"
-                                poster="https://tanishq-gold.vercel.app/assets/images/portrait-video-banner.png"
-                                onClick={handleVideoClick}
-                                onEnded={handleVideoEnd}
-                            >
-                                <source src="https://tanishq-gold.vercel.app/assets/images/video/video.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                            <button
-                                ref={playBtnRef}
-                                onClick={handlePlay}
-                                type="button"
-                                className="absolute inset-0 flex items-center justify-center"
-                            >
-                                <img src={videoPlayButtom} className='w-32' alt="" />
-
-
-                            </button>
+                            <VideoBox height={{height: "530px"}} src="https://tanishq-gold.vercel.app/assets/images/video/video.mp4" thumbnail="https://tanishq-gold.vercel.app/assets/images/portrait-video-banner.png" playBtn={videoPlayButtom} pauseBtn={videoPlayButtom}/>
                         </div>
                     </div>
                 </div>
@@ -151,63 +137,8 @@ export default function InfoSection() {
                     <div className="">
                         {/* Card 1 */}
                         <div className="relative rounded-[24px] overflow-hidden">
-                            <video
-                                ref={videoRef}
-                                className="    h-[370px] object-cover w-full h-auto"
-                                poster="https://tanishq-gold.vercel.app/assets/images/portrait-video-banner.png"
-                                onClick={handleVideoClick}
-                                onEnded={handleVideoEnd}
-                            >
-                                <source src="https://tanishq-gold.vercel.app/assets/images/video/video.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                            <button
-                                ref={playBtnRef}
-                                onClick={handlePlay}
-                                type="button"
-                                className="absolute inset-0 flex items-center justify-center"
-                            >
-                                <svg
-                                    width="102"
-                                    height="102"
-                                    viewBox="0 0 102 102"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <defs>
-                                        <clipPath id="bgblur_0_1_1250_clip_path">
-                                            <circle cx="51" cy="51" r="50" />
-                                        </clipPath>
-                                    </defs>
-
-                                    {/* Blurred background layer */}
-                                    <foreignObject x="-28" y="-28" width="158" height="158">
-                                        <div
-                                            xmlns="http://www.w3.org/1999/xhtml"
-                                            style={{
-                                                backdropFilter: 'blur(14px)',
-                                                WebkitBackdropFilter: 'blur(14px)',
-                                                clipPath: 'url(#bgblur_0_1_1250_clip_path)',
-                                                height: '100%',
-                                                width: '100%',
-                                            }}
-                                        />
-                                    </foreignObject>
-
-                                    {/* Outer circles */}
-                                    <g data-figma-bg-blur-radius="28">
-                                        <circle cx="51" cy="51" r="50" fill="white" fillOpacity="0.1" />
-                                        <circle cx="51" cy="51" r="50.5" stroke="white" strokeOpacity="0.2" />
-                                    </g>
-
-                                    {/* Play arrow */}
-                                    <path
-                                        d="M62.4698 47.5358C65.1365 49.0754 65.1365 52.9244 62.4698 54.464L48.265 62.6652C45.5984 64.2048 42.265 62.2803 42.265 59.2011L42.265 42.7987C42.265 39.7195 45.5984 37.795 48.265 39.3346L62.4698 47.5358Z"
-                                        fill="white"
-                                    />
-                                </svg>
-
-                            </button>
+                            <VideoBox height={{height: "320px"}} src="https://tanishq-gold.vercel.app/assets/images/video/video.mp4" thumbnail="https://tanishq-gold.vercel.app/assets/images/portrait-video-banner.png" playBtn={videoPlayButtom} pauseBtn={videoPlayButtom}/>
+                    
                         </div>
 
                         {/* Card 2 */}
@@ -237,7 +168,13 @@ export default function InfoSection() {
                             <a href='#' className="mt-5 mb-7 flex items-center justify-center gap-5 border border-[#D9BDBE] rounded-full px-6 py-[10px]  text-[16px] font-normal text-[#070202] fraunces">
                                 View product
                                 <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.619047 1L4.61905 5L0.619047 9" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M0.619047 1L4.61905 5L0.619047 9"
+                                        stroke="black"
+                                        strokeWidth="1.25"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
                                 </svg>
 
                             </a>

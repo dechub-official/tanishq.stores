@@ -20,7 +20,7 @@ export default function Assurance() {
           <div className="grid md:mx-28 mx-5 mt-10 md:grid-cols-4 gap-y-10 grid-cols-2 gap-x-10 h-full justify-around">
             <div className="col-span-1 h-full">
               <div className="flex justify-between h-full items-center flex-col">
-                <img src={gr1} alt="" className="w-[80px] md:w-[150px]" />
+                <img src={gr1} alt="" className="w-[80px] md:w-[150px]"/>
                 <p className="text-[#300708] fraunces text-center mt-5 text-[18px] md:text-[20px] font-[600]">
                   Tanishq <br />
                   Exchange

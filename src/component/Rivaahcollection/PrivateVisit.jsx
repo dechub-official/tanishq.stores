@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { usePrivateVisitstep1, usePrivateVisitstep2 } from "../../hooks/useStores";
 
 import logo from "../../assets/images/rivaahcollection/Logo.png";
 
-export default function PricateVisitform({ stepForm2 ,setStepForm2}) {
+export default function PricateVisitform({ stepForm2, setStepForm2 }) {
 
- 
+    const { mutate: privateVisitstep1 } = usePrivateVisitstep1();
+    const { mutate: privateVisitstep2 } = usePrivateVisitstep2();
 
     const [time, setTime] = useState("");
-    const [date, setDate] = useState("");
     const [chooseItem, setChooseItem] = useState("");
 
     const [loading, setLoading] = useState(false);
@@ -23,11 +24,18 @@ export default function PricateVisitform({ stepForm2 ,setStepForm2}) {
         setLoading(true);
         const payload = {
             chooseItem,
-            date,
             time,
         };
-      setStepForm2(2)
-      setLoading(false)
+        privateVisitstep1(payload, {
+            onSuccess: (data) => {
+                setId(data.result);
+                setStepForm2(2)
+                setLoading(false)
+            },
+            onError: (error) => {
+                console.error('Failed to book appointment:', error);
+            }
+        });
     }
 
     function handelsubmitStepTwo() {
@@ -38,8 +46,16 @@ export default function PricateVisitform({ stepForm2 ,setStepForm2}) {
             contact: phone,
             email,
         };
-       setStepForm2(3)
-       setLoading(false)
+        privateVisitstep2(payload, {
+            onSuccess: () => {
+                setStepForm2(3)
+                setLoading(false)
+            },
+            onError: (error) => {
+                console.error('Failed to book appointment:', error);
+
+            }
+        });
     }
 
     return (
@@ -51,7 +67,7 @@ export default function PricateVisitform({ stepForm2 ,setStepForm2}) {
                         <div><h3 className="fraunces leading-[40px] text-[#767469] text-[35px] font-normal">Book Your <br></br><span className="fraunces text-[#070202]">Private Visit</span></h3></div>
                         <div> <img className="w-[100px]" src={logo} alt="tanishq logo" /></div>
                     </div>
-                    <p className="fraunces text-black text-[16px] leading-6">Skip the wait and enjoy a tailored experience — <br/>book your private visit now.</p>
+                    <p className="fraunces text-black text-[16px] leading-6">Skip the wait and enjoy a tailored experience — <br />book your private visit now.</p>
 
                     <div>
                         {/* Row 1 */}
@@ -73,7 +89,7 @@ export default function PricateVisitform({ stepForm2 ,setStepForm2}) {
 
                         {/* Row 2 */}
                         <div className="flex items-center gap-2 flex-wrap mt-5">
-                            
+
                             <span className="text-[18px] text-normal text-[#644117] ibm-plex">Preferred time</span>
                             <div className="relative w-[150px]">
                                 <input

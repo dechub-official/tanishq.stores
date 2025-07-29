@@ -258,8 +258,8 @@ export default function Dev() {
         }
     }, [privatePopup])
     return (
-        <div>
-            <div className="flex  fixed bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
+        <div className="relative">
+            <div className="flex  fixed  bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
                 <button onClick={() => setStylistPopup(true)}
                     className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
@@ -535,7 +535,7 @@ export default function Dev() {
                     </div>
                 </div>
 
-                 <div className="max-md:block hidden mt-[50px]">
+                <div className="max-md:block hidden mt-[50px]">
                     <div className="flex flex-col items-center justify-center ">
                         <img src={divider} className="rotate-[180deg] w-[135px] mb-[-5px]" alt="" />
                         <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Collection Catalogs</p>} />
@@ -550,42 +550,42 @@ export default function Dev() {
                             slidesPerView={1.8}
 
                         >
-                             {collection.map((item, index) => (
-                                 <SwiperSlide>
-                                <div className="flex items-center relative justify-center">
-                                    <img src={dharoharmweb} alt={item.title} className="w-full h-auto rounded-[12px]" />
-                                    <div className="absolute bottom-0 left-0 w-full h-full py-2 px-2 flex flex-col items-center justify-between">
-                                        <div className=" left-10">
-                                            <h3 className="text-[14px] fraunces font-normal text-[#F0DBBC]">{item.title}</h3>
+                            {collection.map((item, index) => (
+                                <SwiperSlide>
+                                    <div className="flex items-center relative justify-center">
+                                        <img src={dharoharmweb} alt={item.title} className="w-full h-auto rounded-[12px]" />
+                                        <div className="absolute bottom-0 left-0 w-full h-full py-2 px-2 flex flex-col items-center justify-between">
+                                            <div className=" left-10">
+                                                <h3 className="text-[14px] fraunces font-normal text-[#F0DBBC]">{item.title}</h3>
 
-                                        </div>
-                                        <div className="flex justify-between right-10 items-center w-full">
-                                            <div className="bg-white p-[5px] rounded-full flex justify-center items-center">
-                                                 <svg width={"8.5px"} height={"7.5px"} fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M4 3.04004V6.04004M4 3.04004C4 2.33997 4 1.98994 3.85467 1.72255C3.72683 1.48735 3.52287 1.29612 3.27199 1.17628C2.98677 1.04004 2.6134 1.04004 1.86667 1.04004H1.53333C1.34665 1.04004 1.25331 1.04004 1.182 1.0741C1.11928 1.10406 1.06829 1.15187 1.03633 1.21067C1 1.27751 1 1.36502 1 1.54004V4.91504C1 5.09007 1 5.17757 1.03633 5.24441C1.06829 5.30323 1.11928 5.35101 1.182 5.38098C1.25331 5.41504 1.34665 5.41504 1.53333 5.41504H2.51556C2.69562 5.41504 2.78565 5.41504 2.87271 5.4296C2.94998 5.44251 3.02537 5.46388 3.0973 5.49335C3.17835 5.52651 3.25326 5.57332 3.40307 5.66698L4 6.04004M4 3.04004C4 2.33997 4 1.98994 4.14533 1.72255C4.27317 1.48735 4.47713 1.29612 4.728 1.17628C5.01323 1.04004 5.3866 1.04004 6.13333 1.04004H6.46667C6.65337 1.04004 6.7467 1.04004 6.818 1.0741C6.88073 1.10406 6.9317 1.15187 6.96367 1.21067C7 1.27751 7 1.36502 7 1.54004V4.91504C7 5.09007 7 5.17757 6.96367 5.24441C6.9317 5.30323 6.88073 5.35101 6.818 5.38098C6.7467 5.41504 6.65337 5.41504 6.46667 5.41504H5.48443C5.30437 5.41504 5.21433 5.41504 5.1273 5.4296C5.05 5.44251 4.97463 5.46388 4.9027 5.49335C4.82167 5.52651 4.74673 5.57332 4.59693 5.66698L4 6.04004"
-      stroke="#832729"
-      strokeWidth="0.3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
                                             </div>
-                                            <button
-                                                className="btn !mb-0 border-0  rounded-pill flex justify-center items-center px-2 !h-[19px]"
+                                            <div className="flex justify-between right-10 items-center w-full">
+                                                <div className="bg-white p-[5px] rounded-full flex justify-center items-center">
+                                                    <svg width={"8.5px"} height={"7.5px"} fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M4 3.04004V6.04004M4 3.04004C4 2.33997 4 1.98994 3.85467 1.72255C3.72683 1.48735 3.52287 1.29612 3.27199 1.17628C2.98677 1.04004 2.6134 1.04004 1.86667 1.04004H1.53333C1.34665 1.04004 1.25331 1.04004 1.182 1.0741C1.11928 1.10406 1.06829 1.15187 1.03633 1.21067C1 1.27751 1 1.36502 1 1.54004V4.91504C1 5.09007 1 5.17757 1.03633 5.24441C1.06829 5.30323 1.11928 5.35101 1.182 5.38098C1.25331 5.41504 1.34665 5.41504 1.53333 5.41504H2.51556C2.69562 5.41504 2.78565 5.41504 2.87271 5.4296C2.94998 5.44251 3.02537 5.46388 3.0973 5.49335C3.17835 5.52651 3.25326 5.57332 3.40307 5.66698L4 6.04004M4 3.04004C4 2.33997 4 1.98994 4.14533 1.72255C4.27317 1.48735 4.47713 1.29612 4.728 1.17628C5.01323 1.04004 5.3866 1.04004 6.13333 1.04004H6.46667C6.65337 1.04004 6.7467 1.04004 6.818 1.0741C6.88073 1.10406 6.9317 1.15187 6.96367 1.21067C7 1.27751 7 1.36502 7 1.54004V4.91504C7 5.09007 7 5.17757 6.96367 5.24441C6.9317 5.30323 6.88073 5.35101 6.818 5.38098C6.7467 5.41504 6.65337 5.41504 6.46667 5.41504H5.48443C5.30437 5.41504 5.21433 5.41504 5.1273 5.4296C5.05 5.44251 4.97463 5.46388 4.9027 5.49335C4.82167 5.52651 4.74673 5.57332 4.59693 5.66698L4 6.04004"
+                                                            stroke="#832729"
+                                                            strokeWidth="0.3"
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        />
+                                                    </svg>
+                                                </div>
+                                                <button
+                                                    className="btn !mb-0 border-0  rounded-pill flex justify-center items-center px-2 !h-[19px]"
 
-                                            >
-                                                <span className="text-[7.5px] pr-[6px] font-[500] fraunces">Download Now</span>
+                                                >
+                                                    <span className="text-[7.5px] pr-[6px] font-[500] fraunces">Download Now</span>
 
-                                            </button>
+                                                </button>
+                                            </div>
+
                                         </div>
-
                                     </div>
-                                </div>
                                 </SwiperSlide>
-                                )
+                            )
                             )}
-                          
+
                         </Swiper>
                     </div>
                 </div>
@@ -594,7 +594,7 @@ export default function Dev() {
                     <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">A jewellery to fit your timeline</p>} subHeading={<p className="font-fraunces ">Tanishq at every stage!</p>} />
 
 
-                    <div className="flex gap-8 mt-[50px]">
+                    <div className="flex max-lg:flex-col gap-8 mt-[50px] justify-center">
                         <div className="relative flex justify-center">
                             <img className="drop-shadow-[18px_8px_29px_rgba(0,0,0,0.05)]" src={wedding} alt="" />
                             <div className="absolute flex gap-3 justify-center items-center flex-col bottom-8 max-w-[400px]">
@@ -629,9 +629,15 @@ export default function Dev() {
 
                 <div ref={meetStylistPanel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
                     <div className="z-10 max-w-[1000px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
-                        <button className="absolute top-4 right-4 " onClick={() => setStylistPopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button className="absolute top-4 right-4 " onClick={() => setStylistPopup(false)}> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
-                            <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636"
+                                stroke="#300708"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
                         </svg>
                         </button>
                         <div className="flex">
@@ -660,9 +666,15 @@ export default function Dev() {
 
                 <div ref={privateVisitPnael} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
                     <div className="z-10 max-w-[590px] h-[440px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
-                        <button className="absolute top-4 right-4 " onClick={() => setPrivatePopup(false)}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button className="absolute top-4 right-4 " onClick={() => setPrivatePopup(false)}> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
-                            <path d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636" stroke="#300708" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636"
+                                stroke="#300708"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
                         </svg>
                         </button>
 
@@ -775,8 +787,7 @@ export default function Dev() {
                                     <h2 className="fraunces text-[28px] lg:text-[60px] font-[400] text-[#300708]">
                                         Tanishq Exchange
                                     </h2>
-                                    <p className="ibm-plex lg:w-[500px] lg:mx-0 mx-10 lg:text-[20px] text-center text-[12px] font-[400] text-[#56544E] lg:text-[#300708]">Every hour over 100 Indians join Tanishq's exchange community to upgrade their old gold at a better value!
-                                    </p>
+                                    <p className="ibm-plex lg:w-[500px] lg:mx-0 mx-10 lg:text-[20px] max-lg:text-center text-[12px] font-[400] text-[#56544E] lg:text-[#300708]">Embrace grace with our timeless jewellery, each piece whispering tales of love, resilience, and enduring bonds</p>
                                 </div>
 
                                 {/* Learn More button - Desktop */}
@@ -820,38 +831,38 @@ export default function Dev() {
                                 </div>
                             </div>
 
-                             {/* Learn More button - Mobile */}
-                        <div
-                            className=" rounded-full lg:hidden hover:!bg-[#832729] mt-10 w-fit cursor-pointer hover:shadow-xl hover:translate-y-[-2%] duration-150 flex items-center justify-between pl-8 pr-3 py-[0.8rem] !text-white"
-                            style={{
-                                background: 'linear-gradient(90.18deg, rgba(131, 39, 41, 0.6) 0.17%, rgba(99, 21, 23, 0.6) 99.86%)',
-                            }}
-                        >
-                            <a href="https://www.tanishq.co.in/exchange?lang=en_IN">
-                                <p className="fraunces font-[300]">Learn More</p>
-                            </a>
+                            {/* Learn More button - Mobile */}
                             <div
-                                className="rounded-full ml-4 font-[600] min-w-[30px] max-w-[30px] bg-[#A76767] flex justify-center text-[15px] items-center min-h-[30px] max-h-[30px] text-white"
+                                className=" rounded-full lg:hidden hover:!bg-[#832729] mt-10 w-fit cursor-pointer hover:shadow-xl hover:translate-y-[-2%] duration-150 flex items-center justify-between pl-8 pr-3 py-[0.8rem] !text-white"
                                 style={{
-                                    boxShadow: '16px 16px 15.9px 4px #6315174F inset',
+                                    background: 'linear-gradient(90.18deg, rgba(131, 39, 41, 0.6) 0.17%, rgba(99, 21, 23, 0.6) 99.86%)',
                                 }}
                             >
-                                <img
-                                    src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/arrow/Arrow right.png"
-                                    className="max-w-[20px] min-w-[20px]"
-                                    alt="Arrow"
-                                />
+                                <a href="https://www.tanishq.co.in/exchange?lang=en_IN">
+                                    <p className="fraunces font-[300]">Learn More</p>
+                                </a>
+                                <div
+                                    className="rounded-full ml-4 font-[600] min-w-[30px] max-w-[30px] bg-[#A76767] flex justify-center text-[15px] items-center min-h-[30px] max-h-[30px] text-white"
+                                    style={{
+                                        boxShadow: '16px 16px 15.9px 4px #6315174F inset',
+                                    }}
+                                >
+                                    <img
+                                        src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/arrow/Arrow right.png"
+                                        className="max-w-[20px] min-w-[20px]"
+                                        alt="Arrow"
+                                    />
+                                </div>
                             </div>
                         </div>
-                        </div>
 
-                       
+
                     </section>
                 </div>
                 <div className="max-lg:pb-20">
-                     <Quality/>
+                    <Quality />
                 </div>
-               
+
                 {stylistPopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} setisOpen={setStylistPopup} /></div>}
 
 
