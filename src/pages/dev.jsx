@@ -337,7 +337,7 @@ export default function Dev() {
 
             </div>
 
-            <div>
+            <div className="md:hidden">
                 <PetalSwiper />
             </div>
 
