@@ -59,6 +59,8 @@ import exchange from '../assets/images/rivaahcollection/tanishq exchange.png'
 
 import dharoharmweb from "../assets/images/rivaahcollection/dharohar collection mweb.png"
 import PetalSwiper from "../component/Swiper/PetalSwiper";
+import BridalSlider from "../component/Swiper/BrideSlider";
+import MakeAStylist from "../component/makeAStylist";
 
 
 export default function Dev() {
@@ -71,6 +73,7 @@ export default function Dev() {
     const [step, setStep] = useState(1);
     const [stepForm2, setStepForm2] = useState(1);
     const [isPlaying, setIsPlaying] = useState(false)
+    const [makeAstylistPopup, setMakeStylistPopup] = useState(false)
 
     const sampleStoreData = {
         activeStore: 0,
@@ -341,6 +344,7 @@ export default function Dev() {
                 <PetalSwiper />
             </div>
 
+
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
 
                 <div className="flex my-4 justify-between md:justify-center items-center">
@@ -411,8 +415,17 @@ export default function Dev() {
                     </div>
 
                 </div>
+                <div className="md:hidden mt-[60px]">
+                    <div className="max-md:flex hidden flex-col items-center justify-center ">
+                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
+                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">Bridal Journey Timeline</p>} />
+                        <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
 
-                <div className="mt-[60px]">
+                    </div>
+                    <BridalSlider />
+                </div>
+
+                <div className="">
                     <div className="max-md:hidden">
                         <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Store Collections</p>} subHeading={<p className="font-fraunces ">Explore our newly launched collection</p>} />
 
@@ -868,7 +881,8 @@ export default function Dev() {
                     <Quality />
                 </div>
 
-                {stylistPopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} setisOpen={setStylistPopup} /></div>}
+                {stylistPopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} title={<><span className="text-[#832729]">Book Your</span> Private Visit</>} setisOpen={setStylistPopup} /></div>}
+                {privatePopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><MakeAStylist {...sampleStoreData} title={<><span className="text-[#832729]">Book Your</span> Private Visit</>} setisOpen={setPrivatePopup} /></div>}
 
 
 

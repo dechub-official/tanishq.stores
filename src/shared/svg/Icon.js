@@ -298,11 +298,15 @@ export function FilterPluseIcon() {
 
 }
 
-export function DropDownIcon({className}) {
+export function DropDownIcon({ className }) {
     return <svg width="14" height="8" className={className} viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1.25903 1.10254L7.15415 7.20562L13.2572 1.31049" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
 
 }
+
+// export function DiamondIcon(){
+
+// }
 
 export { CartIcon, ProfileIcon, WishlistIcon, DiamondIcon, StoreIcon, LogoIcon, RingsIcon, DailywearIcon, TanishqIcon, EarringIcon, GoldIcon, BoxIcon, MobDiamondIcon, CollectionIcon, GIftingIcon, WeddingIcon, CloseIcon }

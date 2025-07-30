@@ -8,7 +8,7 @@ import BookAnAppointmentCity from "./bookAnAppointment/cityMob";
 import StoreAppointmentCard from "./bookAnAppointment/storeAppoinmentCard";
 import { gtmEventHandler } from "../utils/gtmDataLayer";
 
-export default function BookAnAppointment({ activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page = "deepStore" }) {
+export default function BookAnAppointment({ title, activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page = "deepStore" }) {
     // console.log({ activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page });
 
     const [step, setStep] = useState(1)
@@ -348,6 +348,7 @@ export default function BookAnAppointment({ activeStore, setIndividualStoreData,
                 activeStore={activeStore}
                 setStep={setStep}
                 days={days}
+                title={title}
                 weekDays={weekDays}
                 dayInfo={dayInfo}
                 cities={cities}

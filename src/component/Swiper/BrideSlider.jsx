@@ -4,17 +4,17 @@ import { EffectCards, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/pagination';
-import artist from '../../assets/images/rivaahcollection/diamondSlider/artist.png'
+import artist from '../../assets/images/rivaahcollection/brideSliderImages/brideSlider1.png'
 
-export default function MovieNightSlider() {
-    const [activeIndex, setActiveIndex] = useState(0);
+export default function BridalSlider() {
+
 
     const images = [
         artist, artist, artist
     ];
 
     const handleSlideChange = (swiper) => {
-        setActiveIndex(swiper.realIndex);
+
     };
 
     return (
@@ -30,7 +30,7 @@ export default function MovieNightSlider() {
                         onSlideChange={handleSlideChange}
                         cardsEffect={{
                             perSlideOffset: 18,
-                            perSlideRotate: 15,
+                            perSlideRotate: 5,
                             rotate: true,
                             slideShadows: true,
                         }}
@@ -48,19 +48,16 @@ export default function MovieNightSlider() {
                                     alt={`Slide ${index + 1}`}
                                     className="slide-image"
                                 />
+
+
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
             </div>
-            <div className="text-center translate-y-[-30%] mt-6">
-                <div className="border w-fit mx-auto rounded-full border-[#832729]">
-                    <p className="text-black font-semibold ibm-plex px-4 py-2 ">
-                        Private Bridal Viewing Room
-                    </p>
-                </div>
-
-
+            <div>
+                <h2 className='fraunces text-center font-normal text-black text-2xl translate-y-[-10%]'>Wedding</h2>
+                <p className='ibm-plex text-center font-normal text-[#1F242D] text-sm'>Shine on your special day with jewelry that tells your love story. Our Bridal Collection is crafted to make you feel radiant, symbolizing the eternal bond you share.</p>
             </div>
             <div class="swiper-pagination pagination-dots  experienceCarouselPagination"></div>
 
@@ -155,6 +152,6 @@ export default function MovieNightSlider() {
                     }
                 }
             `}</style>
-        </div>
+        </div >
     );
 }
