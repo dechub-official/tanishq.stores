@@ -24,7 +24,7 @@ import rivaah1 from "../assets/images/rivaahcollection/rivaah1.png";
 import rivaah2 from "../assets/images/rivaahcollection/rivaah2.png";
 import rivaah3 from "../assets/images/rivaahcollection/rivaah3.png";
 
-import dharohar from "../assets/images/rivaahcollection/DharoharCollection.png";
+import dharohar from "../assets/images/rivaahcollection/DharoharCollections.png";
 import navraani from "../assets/images/rivaahcollection/NavraaniCollection.png";
 import polki from "../assets/images/rivaahcollection/PolkiCollections.png";
 import tarun from "../assets/images/rivaahcollection/TarunTahilianiCollection.png";
@@ -57,7 +57,7 @@ import Quality from "../component/Rivaahcollection/Quality";
 import store from '../assets/images/rivaahcollection/tanishqStore.png'
 import exchange from '../assets/images/rivaahcollection/tanishqExchange.png'
 
-import dharoharmweb from "../assets/images/rivaahcollection/dharoharCollection mweb.png"
+import dharoharmweb from "../assets/images/rivaahcollection/dharoharCollectionMweb.png"
 import PetalSwiper from "../component/Swiper/PetalSwiper";
 import BridalSlider from "../component/Swiper/BrideSlider";
 import MakeAStylist from "../component/makeAStylist";
