@@ -6,32 +6,32 @@ const baseURL = 'https://stores.tanishq.co.in/stores/tanishq';
 // const baseURL='https://a81d-103-168-164-118.ngrok-free.app/stores/tanishq'
 // const baseURL = 'https://uat-stores.tanishq.co.in/stores/tanishq'; //vpn
 
-const apiRequest = async (method, endpoint,data) => {
+const apiRequest = async (method, endpoint, data) => {
 
 
-    try {
+  try {
 
     let config = {
-      method:  method,
+      method: method,
       maxBodyLength: Infinity,
-      url:baseURL+endpoint,
+      url: baseURL + endpoint,
       data,
-    
-      headers: { 
-        'Accept': 'application/json', 
-       
+
+      headers: {
+        'Accept': 'application/json',
+
       }
     };
- 
-    let result=await axios.request(config)
-   
+
+    let result = await axios.request(config)
+
     return {
       response: true,
       // status: result.status,
       error: null,
       data: result.data,
     };
-   
+
   } catch (error) {
     return {
       response: false,

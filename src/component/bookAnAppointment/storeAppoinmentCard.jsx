@@ -119,15 +119,18 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
         );
     }
 
-    return (
-        <div className="col storeCard !overflow-visible md:!block hidden md:max-w-[550px]">
-            <div className="card h-full border rounded-xl shadow-sm">
-                <div className="flex items-center stag p-3 mb-2">
+    return (<>
+        <div className="col storeCard relative !overflow-visible md:!block hidden md:max-w-[550px]">
+            <div className={`glowing-border absolute -inset-[4px] rounded-xl `}></div>
+            <div className="card-container group h-full relative bg-white rounded-xl shadow-sm">
+
+                <div className="flex items-center rounded-xl stag p-3 mb-2">
                     <p className="mb-0">
                         {/* <img src={festiveStrip} className="md:w-[50%] w-[80%]" alt="" /> */}
                     </p>
                 </div>
-                <div className="m-4">
+                <div className="m-4 relative z-20">
+
                     {typeof (setisOpen) === "function" &&
                         <div className="relative overflow-visible">
                             <svg onClick={() => setisOpen(false)} width="24" height="24" className="top-[-50%] translate-y-[-75%] cursor-pointer absolute z-50 right-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,8 +141,9 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
                     }
                     {step === 1 && (
                         <>
+
                             <h1 className="text-[#832729] md:text-[20px] text-[18px] md:text-left text-center font-fraunces font-bold">
-                                Heading to {storeName ? storeName : "Our Store"}?
+                                Heading torw {storeName ? storeName : "Our Store"}?
                             </h1>
                             <p className="text-black font-fraunces md:text-[16px] text-[14px] md:text-left text-center">
                                 Let us make it smoother and tailored for you. Book an appointment to skip the wait.
@@ -281,6 +285,40 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
                 </div>
             </div>
         </div>
+        <style jsx>{`
+        /* 🔥 Glowing Gradient Border */
+        .glowing-border {
+          border-radius: 0.75rem; /* same as rounded-xl */
+          padding: 12px;
+          background: linear-gradient(
+            90deg,
+            #85591C,
+            #D89946,
+                       #D89946,
+            #85591C
+          );
+          background-size: 400% 400%;
+          animation: glowingBorder 6s linear infinite;
+          z-index: 0;
+          opacity: 1;
+          filter: blur(1px);
+          transition: opacity 0.3s ease;
+        }
+
+
+        @keyframes glowingBorder {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      `}</style>
+    </>
     );
 };
 

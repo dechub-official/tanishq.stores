@@ -12,35 +12,35 @@ import InfoSection from "../component/Rivaahcollection/infosection";
 import MeetStylistform from "../component/Rivaahcollection/meetStylist";
 import PrivateVisitForm from "../component/Rivaahcollection/PrivateVisit"
 
-import desktopbanner from "../assets/images/rivaahcollection/Desktop BAnner.mp4";
+import desktopbanner from "../assets/images/rivaahcollection/DesktopBAnner.mp4";
 
 import divider from "../assets/images/rivaahcollection/divider.png";
 
 import banner from '../assets/images/rivaahcollection/BANNER.png';
 
-import dreamlist from "../assets/images/rivaahcollection/dream list.png";
+import dreamlist from "../assets/images/rivaahcollection/dreamList.png";
 
-import rivaah1 from "../assets/images/rivaahcollection/rivaah 1.png";
-import rivaah2 from "../assets/images/rivaahcollection/rivaah 2.png";
-import rivaah3 from "../assets/images/rivaahcollection/rivaah 3.png";
+import rivaah1 from "../assets/images/rivaahcollection/rivaah1.png";
+import rivaah2 from "../assets/images/rivaahcollection/rivaah2.png";
+import rivaah3 from "../assets/images/rivaahcollection/rivaah3.png";
 
-import dharohar from "../assets/images/rivaahcollection/Dharohar Collection.png";
-import navraani from "../assets/images/rivaahcollection/Navraani Collection.png";
-import polki from "../assets/images/rivaahcollection/Polki Collection.png";
-import tarun from "../assets/images/rivaahcollection/Tarun Tahiliani Collection.png";
+import dharohar from "../assets/images/rivaahcollection/DharoharCollections.png";
+import navraani from "../assets/images/rivaahcollection/NavraaniCollection.png";
+import polki from "../assets/images/rivaahcollection/PolkiCollections.png";
+import tarun from "../assets/images/rivaahcollection/TarunTahilianiCollection.png";
 import arrow from "../assets/images/rivaahcollection/arrow.svg";
 
 
 import styling from "../assets/images/rivaahcollection/styling.png";
 import viewingroom from "../assets/images/rivaahcollection/viewingroom.png";
 import customisation from "../assets/images/rivaahcollection/customisation.png";
-import dedicated from "../assets/images/rivaahcollection/dedicated stylists.png";
+import dedicated from "../assets/images/rivaahcollection/dedicatedStylists.png";
 
 import wedding from "../assets/images/rivaahcollection/wedding.png";
 import mahandi from "../assets/images/rivaahcollection/mehandi.png";
 import haldi from "../assets/images/rivaahcollection/haldi.png";
 
-import bridalstylist from "../assets/images/rivaahcollection/bridal stylist.png";
+import bridalstylist from "../assets/images/rivaahcollection/bridalStylist.png";
 
 import weddingHighlight from "../assets/images/rivaahcollection/weddingHighlight.png";
 import fullBg from "../assets/images/rivaahcollection/fullBg.png";
@@ -54,10 +54,10 @@ import { Clock, ClockIcon, Locate, MapPin, NavigationIcon, Phone, PhoneIcon, Sta
 
 import Quality from "../component/Rivaahcollection/Quality";
 
-import store from '../assets/images/rivaahcollection/tanishq store.png'
-import exchange from '../assets/images/rivaahcollection/tanishq exchange.png'
+import store from '../assets/images/rivaahcollection/tanishqStore.png'
+import exchange from '../assets/images/rivaahcollection/tanishqExchange.png'
 
-import dharoharmweb from "../assets/images/rivaahcollection/dharohar collection mweb.png"
+import dharoharmweb from "../assets/images/rivaahcollection/dharoharCollectionMweb.png"
 import PetalSwiper from "../component/Swiper/PetalSwiper";
 import BridalSlider from "../component/Swiper/BrideSlider";
 import MakeAStylist from "../component/makeAStylist";
