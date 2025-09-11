@@ -119,7 +119,7 @@ export default function CollectionLayout({
         </div>
       )}
 
-      <Marquee />
+      {/* <Marquee /> */}
       {headingContent}
 
       <div className="w-[80%] mx-auto">

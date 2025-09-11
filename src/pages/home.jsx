@@ -138,9 +138,9 @@ export default function Home() {
           })}
         </div>
       </div>
-      <Marquee />
+      {/* <Marquee /> */}
       {/* <Prebook /> */}
-      <div className=" af-bl w-full flex flex-col items-center">
+      <div className=" af-bl mt-4 w-full flex flex-col items-center">
         <Heading heading="Explore our latest collections online even before you walk in!" />
 
 
@@ -162,8 +162,7 @@ export default function Home() {
             }}
             className="mySwiper"
           >
-            {/* { img: cl3, link: 'https://www.tanishq.co.in/festival-of-diamond' }, */}
-            {/* { img: cl1, link: '/store-locator/jewellery-stores/collections/celeste' } */}
+
             {[
               { img: cl3, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
               { img: cl1, link: "https://www.tanishq.co.in/gold" },
@@ -184,10 +183,7 @@ export default function Home() {
               );
             })}
 
-            {/* <SwiperSlide > <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={ring}/> </SwiperSlide>
-        <SwiperSlide > <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={bangle}/></SwiperSlide>
-        <SwiperSlide >  <TanishqService heading={"Buy New Jewellery"} subheading={"It can be any jewellery"} img={chain}/></SwiperSlide>
-         */}
+
           </Swiper>
         </div>
 

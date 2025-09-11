@@ -1,4 +1,4 @@
-import Marquee from "../component/Home/marquee"
+// import Marquee from "../component/Home/marquee"
 import call from '../assets/images/detailed/buttons/call.png'
 import map from '../assets/images/detailed/buttons/map.png'
 import calender from '../assets/images/detailed/buttons/calender.png'
@@ -411,7 +411,7 @@ export default function Detailed() {
 
             <SearchBox />
             {/*  */}
-            <Marquee />
+            {/* <Marquee /> */}
 
 
             <section className="af-bl">

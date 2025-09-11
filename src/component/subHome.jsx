@@ -1,15 +1,15 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { Autoplay } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import bg from '../assets/images/Banner/desktop-strip.gif'
-import mobile_bg from '../assets/images/Banner/mobile-strip.gif'
-import goldbg from '../assets/images/navbar/strip.jpg'
-import kalsh from '../assets/images/navbar/exchange.png'
-import { useState } from 'react'
+// import { Link, useNavigate } from 'react-router-dom'
+// import { Autoplay } from 'swiper/modules'
+// import { Swiper, SwiperSlide } from 'swiper/react'
+// import goldbg from '../assets/images/navbar/strip.jpg'
+// import kalsh from '../assets/images/navbar/exchange.png'
+import bg from '../assets/images/Banner/desktop-strip-2.gif'
+import mobile_bg from '../assets/images/Banner/desktop-strip-2.gif'
+// import { useState } from 'react'
 // import SubHomeexp from '../assets/images/subhomeExpender.png'
 export default function SubHome() {
     // const nav=useNavigate()
-    const [open, setOpen] = useState(true)
+    // const [open, setOpen] = useState(true)
     return <>
         {/* { open&& <div    id="dashBanner"  className="w-full home-top-banner cursor-pointer text-center text-white flex  justify-center items-center   relative"  >
 
@@ -49,8 +49,8 @@ export default function SubHome() {
         {/* <img src={bg} className='font-[600] max-h-[40px] w-full !my-auto' alt="" /> */}
         {/* id="evgExchangeRibbon" */}
         <div id="evgExchangeRibbon" className='home-top-banner cursor-pointer' >
-            <img src={bg} className='max-h-[80px] md:!block hidden min-w-full object-cover' ></img>
-            <img src={mobile_bg} className='max-h-[40px] md:hidden block w-full object-cover' ></img>
+            <img src={bg} alt='strip' className=' md:!block hidden min-w-full object-fill' ></img>
+            <img src={mobile_bg} alt='strip' className='max-h-[40px] md:hidden block w-full object-cover' ></img>
         </div>
 
         {/* <div className="w-full  text-center text-white flex md:hidden justify-center items-center   "  >
