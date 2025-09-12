@@ -289,7 +289,7 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
         /* 🔥 Glowing Gradient Border */
         .glowing-border {
           border-radius: 0.75rem; /* same as rounded-xl */
-          padding: 12px;
+          padding: 6px;
           background: linear-gradient(
             90deg,
             #85591C,
