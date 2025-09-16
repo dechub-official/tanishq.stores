@@ -27,7 +27,7 @@ function App() {
   return (<>
     <QueryClientProvider client={queryClient}>
       <BrowserRouter basename='/'>
-        <SubHome />
+        {/* <SubHome /> */}
         {/* {appPopUp&&<AppPopUp closeAppPopUp={closeAppPopUp}/>} */}
         <NavBar />
         {/* <SubHome/> */}
