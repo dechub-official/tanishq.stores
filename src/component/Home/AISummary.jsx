@@ -10,7 +10,7 @@ export default function AISummary({ cardRef }) {
 
 
   // Use Tanstack Query hooks
-  const { data: reviewsData, isLoading: isReviewsLoading, refetch: getreviewsData } = useReviews();
+  const { data: reviewsData, refetch: getreviewsData } = useReviews();
   const { data: likeData, refetch: getLikeDislike } = useLikeDislikeCount();
   const like = likeData?.result || 0;
   const [text, setText] = useState()
@@ -35,14 +35,14 @@ export default function AISummary({ cardRef }) {
   useEffect(() => {
 
 
-    setText(`${((+likeData?.result.likeCount) - (+likeData?.result.dislikeCount)) || 0} people found this helpful`)
+    setText(`${((+likeData?.result.likeCount)) || 0} people found this helpful`)
 
   }, [likeData]);
 
 
   const updateToInitial = () => {
     setTimeout(() => {
-      setText(`${((+like.likeCount) - (+like.dislikeCount)) || 0} people found this helpful`)
+      setText(`${(+like.likeCount) || 0} people found this helpful`)
     }, 5000)
   }
   const handleLike = async () => {
