@@ -121,7 +121,8 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
 
     return (<>
         <div className="col storeCard relative !overflow-visible md:!block hidden md:max-w-[550px]">
-            <div className={`glowing-border absolute -inset-[4px] rounded-xl `}></div>
+            {/* glowing-border -inset-[4px]*/}
+            <div className={` shadow-xl absolute rounded-xl `}></div>
             <div className="card-container group h-full relative bg-white rounded-xl shadow-sm">
 
                 <div className="flex items-center rounded-xl stag p-3 mb-2">
