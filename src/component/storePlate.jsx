@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function StorePlate({
   data = {
@@ -19,7 +20,7 @@ export default function StorePlate({
   const modifiedOpeningTime = data.storeOpeningTime?.replace(/(\d{1,2}:\d{2})([AP]M)$/, '$1 $2').replace(".", ":");
 
   const [Clicks, setClicks] = useState({ Bookan: 0, getDir: 0 });
-
+  const Navigate = useNavigate()
   const normalizeTimeString = (timeStr) => {
     timeStr = timeStr.replace(/\./g, ":");
     const hasAmPm = timeStr.match(/(AM|PM)$/i);
@@ -114,6 +115,7 @@ export default function StorePlate({
 
   const handleStoreNavigation = (data) => {
     console.log('Store navigation:', data.storeName);
+    Navigate(`/store-locator/jewellery-stores/${data.storeState.toLowerCase().replace(" ", "-")}/${data.storeCity.toLowerCase().replace(" ", "-")}/${data.storeName.toLowerCase().split("- ")[1] ? data.storeName.toLowerCase().split("- ")[1].replace(/ /g, "-").replace(",", "-") : data.storeName.toLowerCase().replace(" ", "-").replace(",", "-")}-${data.storeCode}`)
   };
 
   return (
