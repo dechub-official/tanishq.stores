@@ -144,7 +144,7 @@ const StoreAppointmentCard = ({ step, dayInfo, setisOpen, activeModal, setActive
                         <>
 
                             <h1 className="text-[#832729] md:text-[20px] text-[18px] md:text-left text-center font-fraunces font-bold">
-                                Heading torw {storeName ? storeName : "Our Store"}?
+                                Heading to {storeName ? storeName : "Our Store"}?
                             </h1>
                             <p className="text-black font-fraunces md:text-[16px] text-[14px] md:text-left text-center">
                                 Let us make it smoother and tailored for you. Book an appointment to skip the wait.
