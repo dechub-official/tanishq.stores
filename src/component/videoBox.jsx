@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 
 export default function VideoBox({ height, src, playBtn, thumbnail, pauseBtn }) {
-     const videoRef = useRef(null);
+  const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasEnded, setHasEnded] = useState(false);
 
@@ -41,11 +41,12 @@ export default function VideoBox({ height, src, playBtn, thumbnail, pauseBtn }) 
     };
   }, []);
 
-  const showOverlay = !isPlaying || hasEnded;
+  // const showOverlay = !isPlaying || hasEnded;
+  const showOverlay = false;
 
   return (
     <div className="relative w-full" style={height}>
-      <video ref={videoRef} src={src} className="w-full object-cover" style={height}/>
+      <video ref={videoRef} src={src} className="w-full object-cover" style={height} />
       {showOverlay && (
         <img
           src={thumbnail}
@@ -57,23 +58,23 @@ export default function VideoBox({ height, src, playBtn, thumbnail, pauseBtn }) 
         onClick={handlePlayPause}
         className="absolute inset-0 flex items-center justify-center"
       >
-        {isPlaying ? pauseBtn : 
-      <div className='relative flex justify-center items-center rounded-full overflow-hidden'>
-          <div
-        className='border border-[rgba(255,255,255,0.2)] rounded-full overflow-hidden'
-        style={{
-          backdropFilter: 'blur(10px)',
-          clipPath: 'url(#bgblur_0_265_1352_clip_path)',
-          height: '80px',
-          width: '80px',
-        }}
-      />
-      <div className='absolute'>{playBtn}</div>
-      </div>
-    }
+        {isPlaying ? "" :
+          <div className='relative flex justify-center items-center rounded-full overflow-hidden'>
+            <div
+              className='border border-[rgba(255,255,255,0.2)] rounded-full overflow-hidden'
+              style={{
+                backdropFilter: 'blur(10px)',
+                clipPath: 'url(#bgblur_0_265_1352_clip_path)',
+                height: '80px',
+                width: '80px',
+              }}
+            />
+            <div className='absolute'>{playBtn}</div>
+          </div>
+        }
       </button>
     </div>
   );
 };
 
- 
+

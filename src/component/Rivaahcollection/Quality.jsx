@@ -3,15 +3,15 @@ import gr1 from "../../assets/images/footer/exchange.png";
 import gr2 from "../../assets/images/footer/purity.png";
 import gr3 from "../../assets/images/footer/replacements.png";
 import gr4 from "../../assets/images/footer/maintance.png";
-export default function Quality() {
+export default function Quality({ hideHeading }) {
     return (
         <>
             <div className="box relative m-5">
 
                 <div className="">
-                    <h1 className="text-center text-[#BD7F2A] text-[30px] font-normal  fraunces ">
+                    {!hideHeading && <h1 className="text-center text-[#BD7F2A] text-[30px] font-normal  fraunces ">
                         The Tanishq Assurance
-                    </h1>
+                    </h1>}
                     <p className="text-center text-[#56544E]">
                         Crafted by experts, cherished by you.
                     </p>

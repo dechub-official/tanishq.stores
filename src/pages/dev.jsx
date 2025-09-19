@@ -24,33 +24,31 @@ import rivaah1 from "../assets/images/rivaahcollection/rivaah1.png";
 import rivaah2 from "../assets/images/rivaahcollection/rivaah2.png";
 import rivaah3 from "../assets/images/rivaahcollection/rivaah3.png";
 
-import dharohar from "../assets/images/rivaahcollection/DharoharCollections.png";
-import navraani from "../assets/images/rivaahcollection/NavraaniCollection.png";
-import polki from "../assets/images/rivaahcollection/PolkiCollections.png";
-import tarun from "../assets/images/rivaahcollection/TarunTahilianiCollection.png";
+
 import arrow from "../assets/images/rivaahcollection/arrow.svg";
 
 
-import styling from "../assets/images/rivaahcollection/styling.png";
-import viewingroom from "../assets/images/rivaahcollection/viewingroom.png";
-import customisation from "../assets/images/rivaahcollection/customisation.png";
-import dedicated from "../assets/images/rivaahcollection/dedicatedStylists.png";
+import styling from "../assets/images/rivaahcollection/styling.jpg";
+import viewingroom from "../assets/images/rivaahcollection/viewingroom.jpg";
+import customisation from "../assets/images/rivaahcollection/customisation.jpg";
+import dedicated from "../assets/images/rivaahcollection/dedicatedStylists.jpg";
 
 import wedding from "../assets/images/rivaahcollection/wedding.png";
 import mahandi from "../assets/images/rivaahcollection/mehandi.png";
 import haldi from "../assets/images/rivaahcollection/haldi.png";
 
-import bridalstylist from "../assets/images/rivaahcollection/bridalStylist.png";
+import bridalstylist from "../assets/images/rivaahcollection/bridalStylist.jpg";
 
 import weddingHighlight from "../assets/images/rivaahcollection/weddingHighlight.png";
 import fullBg from "../assets/images/rivaahcollection/fullBg.png";
-import polkiCollection from "../assets/images/rivaahcollection/polkiCollection.png";
-import tarunCollection from "../assets/images/rivaahcollection/tarunCollection.png";
-import dharoharCollection from "../assets/images/rivaahcollection/dharoharCollection.png";
+import polkiCollection from "../assets/images/rivaahcollection/The-Polki-Poetry.jpg";
+import heritageHuesCOllection from "../assets/images/rivaahcollection/Heritage-Hues.jpg";
+import eternalSparkle from "../assets/images/rivaahcollection/Eternal-Sparkle.jpg";
+import theSouthernSplendour from "../assets/images/rivaahcollection/The-Southern-Splendour.jpg";
 
 import BookAnAppointment from "../component/bookAnAppointment";
 import storeDump from '../assets/images/rivaahcollection/storeDump.png'
-import { Clock, ClockIcon, Locate, MapPin, NavigationIcon, Phone, PhoneIcon, Star, StoreIcon } from "lucide-react";
+import { Clock, ClockIcon, MapPin, NavigationIcon, Phone, PhoneIcon, Star, StoreIcon } from "lucide-react";
 
 import Quality from "../component/Rivaahcollection/Quality";
 
@@ -174,6 +172,11 @@ export default function Dev() {
 
 
     const handlePlay = () => {
+        if (isPlaying) {
+            videoRef.current.pause()
+            setIsPlaying(false)
+            return
+        }
         if (videoRef.current) {
             videoRef.current.play()
             setIsPlaying(true)
@@ -187,43 +190,46 @@ export default function Dev() {
     const cardData = [
         {
             frontImg: dedicated,
-            backText: "Rivaah stores provide dedicated bridal stylists who guide each bride with expert advice, cultural insights, and personalized jewellery recommendations.",
-            title: "Dedicated stylists"
+            backText: "With our in-house wedding stylist, you get one-on-one consultations to find bridal jewellry that reflects your roots, rituals and dreams.",
+            title: "Wedding stylist"
         },
         {
             frontImg: viewingroom,
-            backText: "Rivaah stores feature private viewing rooms, offering brides an exclusive, comfortable space for personalized jewellery trials and styling consultations.",
+            backText: "At Rivaah, enjoy private viewing rooms crafted for personalized jewellery trials and sharing moments with your loved ones.",
             title: "Private viewing room"
         },
         {
             frontImg: styling,
-            backText: "Tanishq Rivaah stores offer jewellery customisation, allowing brides to personalise designs that reflect their traditions, style, and story.",
-            title: "Customisation"
+            backText: " With our in-house designer, every heritage piece is reimagined, crafted to tell your story of love and legacy.",
+            title: "In-house-designer"
         },
         {
             frontImg: customisation,
-            backText: "Rivaah stores offer personalized styling consultations, helping brides choose jewelry that reflects their culture, personality, and wedding vision with expert guidance and custom designs.",
-            title: "Styling Consultations"
+            backText: "At Rivaah, we craft jewellery that is uniquely yours— infused with your names, motifs, and cherished memories.",
+            title: "Customization"
         },
+
+
     ]
 
     const collection = [
         {
-            frontImg: tarunCollection,
-            title: "Tarun Tahiliani Collection",
+            frontImg: polkiCollection,
+            title: "The Polki Poetry",
+        },
+        {
+            frontImg: heritageHuesCOllection,
+            title: " Heritage Hues",
 
         },
+
         {
-            frontImg: polkiCollection,
-            title: "Polki Collection",
+            frontImg: theSouthernSplendour,
+            title: " The Southern Splendour",
         },
         {
-            frontImg: tarunCollection,
-            title: "Navraani Collection",
-        },
-        {
-            frontImg: dharoharCollection,
-            title: "Dharohar Collection",
+            frontImg: eternalSparkle,
+            title: " Eternal Sparkle",
         }
     ]
 
@@ -264,7 +270,7 @@ export default function Dev() {
     }, [privatePopup])
     return (
         <div className="relative">
-            <div className="flex  fixed  bottom-0 z-10 w-full bg-[#ffffff5f] py-4 items-center justify-center gap-x-10 ">
+            <div className="flex  fixed  bottom-0 z-50 w-full bg-[#ffffffc0] py-4 items-center justify-center gap-x-10 ">
                 <button onClick={() => setStylistPopup(true)}
                     className="btn !mb-0 border-0  gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
@@ -286,53 +292,55 @@ export default function Dev() {
                         ref={videoRef}
                         className="w-full rounded-lg"
                         src={desktopbanner}
-                        muted
+
                         playsInline
                         onEnded={handleEnded}
                     />
-                    {!isPlaying && (
-                        <button
-                            onClick={handlePlay}
-                            className="absolute inset-0 flex items-center justify-center"
-                        >
-                            {/* Your SVG play button */}
-                            <svg
-                                width="166"
-                                height="166"
-                                viewBox="0 0 166 166"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <foreignObject x="-18" y="-18" width="202" height="202">
-                                    <div
-                                        xmlns="http://www.w3.org/1999/xhtml"
-                                        style={{
-                                            backdropFilter: "blur(9px)",
-                                            clipPath: "url(#bgblur_0_198_1776_clip_path)",
-                                            height: "100%",
-                                            width: "100%",
-                                        }}
+                    <button
+                        onClick={handlePlay}
+                        className="absolute inset-0 flex items-center justify-center"
+                    >
+                        {!isPlaying && (
+                            <>
+                                <svg
+                                    width="166"
+                                    height="166"
+                                    viewBox="0 0 166 166"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <foreignObject x="-18" y="-18" width="202" height="202">
+                                        <div
+                                            xmlns="http://www.w3.org/1999/xhtml"
+                                            style={{
+                                                backdropFilter: "blur(9px)",
+                                                clipPath: "url(#bgblur_0_198_1776_clip_path)",
+                                                height: "100%",
+                                                width: "100%",
+                                            }}
+                                        />
+                                    </foreignObject>
+                                    <g data-figma-bg-blur-radius="18">
+                                        <circle cx="83" cy="83" r="82" fill="white" fillOpacity="0.1" />
+                                        <circle cx="83" cy="83" r="82.5" stroke="white" strokeOpacity="0.2" />
+                                    </g>
+                                    <path
+                                        d="M111.65 83L68.6745 107.812L68.6745 58.1878L111.65 83Z"
+                                        fill="white"
                                     />
-                                </foreignObject>
-                                <g data-figma-bg-blur-radius="18">
-                                    <circle cx="83" cy="83" r="82" fill="white" fillOpacity="0.1" />
-                                    <circle cx="83" cy="83" r="82.5" stroke="white" strokeOpacity="0.2" />
-                                </g>
-                                <path
-                                    d="M111.65 83L68.6745 107.812L68.6745 58.1878L111.65 83Z"
-                                    fill="white"
-                                />
-                                <defs>
-                                    <clipPath
-                                        id="bgblur_0_198_1776_clip_path"
-                                        transform="translate(18 18)"
-                                    >
-                                        <circle cx="83" cy="83" r="82" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </button>
-                    )}
+                                    <defs>
+                                        <clipPath
+                                            id="bgblur_0_198_1776_clip_path"
+                                            transform="translate(18 18)"
+                                        >
+                                            <circle cx="83" cy="83" r="82" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </>
+
+                        )}
+                    </button>
                 </div>
                 <div className="hidden max-md:block relative w-full">
                     <img src={banner} alt="" />
@@ -346,59 +354,6 @@ export default function Dev() {
 
 
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
-
-                <div className="flex my-4 justify-between md:justify-center items-center">
-                    <div>
-                        <p className="text-[38px] max-md:text-[30px]  md:text-center fraunces text-black font-normal ">Rivaah South Ex</p>
-                        <div className="md:hidden flex items-center text-[#FF9A00] gap-x-2">
-                            <Star fill="#FF9A00" /> <span className="text-[#56544E] font-semibold">4.2</span> <span className="text-[#56544E] font-normal">(2753 Reviews)</span>
-                        </div>
-                    </div>
-                    <img src={storeDump} className="w-14  md:hidden" alt="" />
-                </div>
-
-                <div className="store-details hidden md:grid grid-cols-3 gap-x-20">
-                    <div className="box  shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
-                        <div className="flex  gap-x-2">
-                            <span className="text-xl font-semibold text-[#954648] fraunces"> <MapPin /></span>
-                            <div>
-                                <div className="flex justify-between">
-                                    <p className="text-[#954648] text-xl font-semibold fraunces "> Address</p>
-                                    <p className="text-[#954648] underline font-bold">View Details</p>
-                                </div>
-                                <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="box  shadow-lg h-fit border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
-                        <div className="flex  gap-x-2">
-                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Clock /></span>
-                            <div>
-                                <div className="flex justify-start relative  gap-x-5">
-                                    <p className="text-[#954648] font-bold text-xl fraunces "> Timings</p>
-                                    <p className="rounded-full bg-green-200 absolute left-[50%] whitespace-nowrap translate-y-[-10%] text-green-800 font-bold px-4 py-2">Open now</p>
-
-                                </div>
-                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">10:00 AM - 08:00 PM</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="box  shadow-lg h-fit border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
-                        <div className="flex  gap-x-2">
-                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Phone /></span>
-                            <div>
-                                <div className="flex justify-between">
-                                    <p className="text-[#954648] text-xl font-semibold fraunces "> Other Details</p>
-
-                                </div>
-                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">+91 12345 67890</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
 
                 <div className="box md:hidden   shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
                     <div className="flex  gap-x-2">
@@ -427,7 +382,7 @@ export default function Dev() {
 
                 <div className="">
                     <div className="max-md:hidden">
-                        <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Store Collections</p>} subHeading={<p className="font-fraunces ">Explore our newly launched collection</p>} />
+                        <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> Crafted Curations</p>} subHeading={<p className="font-fraunces "> From polkis of Punjab, filigree of Bengal, temple jewellery from south or eternal diamonds, there is a Rivaah for you</p>} />
 
                     </div>
                     <div className="max-md:flex hidden flex-col items-center justify-center ">
@@ -437,41 +392,25 @@ export default function Dev() {
 
                     </div>
                     <div className="grid grid-cols-2 gap-8 max-sm:gap-4 max-sm:gap-4 mt-20 max-md:mt-7 px-[60px] max-md:px-0">
-                        <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={tarun} alt="" />
-                            <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[125px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Tarun Tahiliani Collection</p>} /></div>
-                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
-                        </div>
-                        <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={polki} alt="" />
-                            <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[105px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Polki Collection</p>} /></div>
-                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
-                        </div>
-                        <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={navraani} alt="" />
-                            <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[105px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Navraani Collection</p>} /></div>
-                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
-                        </div>
-                        <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                            <img className="w-full max-md:object-cover max-md:h-[250px]" src={dharohar} alt="" />
-                            <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_rgba(51,_36,_34,_0.65)_81.32%,_#291A18_99.77%)]"></div>
-                            <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[105px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">Dharohar Collection</p>} /></div>
-                            <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-white block underline underline-offset-3">Explore now</p><img className="h-6" src={arrow} alt="" /></a></div>
-                        </div>
-
-
-
+                        {
+                            collection.map((ele, i) => {
+                                return <>
+                                    <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
+                                        <img className="w-full max-md:object-cover max-md:h-[250px]" src={ele.frontImg} alt="" />
+                                        <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_#832729_99.32%,_#291A18_100.77%)]"></div>
+                                        <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[125px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">{ele.title}</p>} /></div>
+                                        {/* <img className="h-6" src={arrow} alt="" /> */}
+                                        <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-black block underline underline-offset-3">Explore now</p></a></div>
+                                    </div>
+                                </>
+                            })
+                        }
 
                     </div>
                 </div>
 
                 <div className="mt-[60px] max-md:hidden">
-                    <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">What makes wedding store unique?</p>} subHeading={<p className="font-fraunces max-md:leading-[18px] max-md:mt-4">We at Tanishq believe a bride deserves her own space to decide</p>} />
-
-
+                    <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">What makes Rivaah wedding lounge unique?</p>} subHeading={<p className="font-fraunces max-md:leading-[18px] max-md:mt-4"> Every moment, thoughtfully crafted to begin your story, under one roof</p>} />
 
                     <div className="mt-10 flip grid grid-cols-4 max-md:grid-cols-2 justify-center gap-9 p-6 max-md:p-0 max-md:gap-4">
                         {cardData.map((card, index) => (
@@ -607,7 +546,7 @@ export default function Dev() {
                         </Swiper>
                     </div>
                 </div>
-
+                {/* 
                 <div className="mt-[50px] block max-md:hidden">
                     <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">A jewellery to fit your timeline</p>} subHeading={<p className="font-fraunces ">Tanishq at every stage!</p>} />
 
@@ -643,11 +582,11 @@ export default function Dev() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div ref={meetStylistPanel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+                <div ref={privateVisitPnael} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
                     <div className="z-10 max-w-[1000px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
-                        <button className="absolute top-4 right-4 " onClick={() => setStylistPopup(false)}> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button className="absolute top-4 right-4 " onClick={() => setPrivatePopup(false)}> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                             <path
                                 d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636"
@@ -682,9 +621,46 @@ export default function Dev() {
                     </div>
                 </div>
 
-                <div ref={privateVisitPnael} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+                <div ref={meetStylistPanel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
+                    <div className="z-10 max-w-[1000px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
+                        <button className="absolute top-4 right-4 " onClick={() => setStylistPopup(false)}> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
+                            <path
+                                d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636"
+                                stroke="#300708"
+                                strokeWidth="1.25"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                        </button>
+                        <div className="flex">
+                            <div className="w-[54%] p-8 ">
+
+
+                                {step === 3 ?
+                                    <div className=" relative flex flex-col justify-center h-full">
+                                        <img className="absolute p-7 " src={coupon} alt="thank you" />
+                                        <div className="z-10 flex justify-end pr-[55px]">
+                                            <div className="max-w-[230px]">
+                                                <p className="text-[20px] text-[#2B2A26] font-semibold fraunces text-center leading-7">Your have successfully Booked Your stylist </p>
+                                                <p className="text-[#767469]  text-[16px] ibm-plex text-center mt-6 leading-6">Store Team will let you to confirm your visit & will guide you with the store address .</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
+                                    <PrivateVisitForm step={step} setStep={setStep} />}
+                            </div>
+                            <div className="w-[46%] ">
+                                <img src={bridalstylist} alt="bridal stylist" className="w-[476px] rounded-[4px]" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* <div ref={meetStylistPanel} className="opacity-0  hidden absolute h-screen w-screen top-0 left-0  md:flex items-center justify-center z-10 after:content-[''] after:absolute after:inset-0 after:z-0 backdrop-blur-md after:bg-white/70 ">
                     <div className="z-10 max-w-[590px] h-[440px] w-full relative top-0 left-0  bg-[#FFFCF7] border border-[#E8C69B] p-2 rounded-[8px] shadow">
-                        <button className="absolute top-4 right-4 " onClick={() => setPrivatePopup(false)}> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button className="absolute top-4 right-4 " onClick={() => setStylistPopup(false)}> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="12" fill="#F6F6F6" />
                             <path
                                 d="M15.3636 9L9 15.3636M9 9L15.3636 15.3636"
@@ -715,7 +691,7 @@ export default function Dev() {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="my-[65px] md:block hidden  relative">
                     <img src={weddingHighlight} className="w-full h-auto" alt="" />
@@ -736,7 +712,7 @@ export default function Dev() {
 
             </div>
 
-            <div className="relative md:block hidden ">
+            {/* <div className="relative md:block hidden ">
                 <img src={fullBg} className="w-full absolute top-0 z-0 rounded-md  object-cover h-[400px]" alt="" />
                 <div className="max-w-[1200px]  mx-auto px-4 ">
                     <div className="relative pt-[80px]">
@@ -772,15 +748,68 @@ export default function Dev() {
                     </div>
 
                 </div>
+            </div> */}
+            <div className="max-w-[1200px] mt-10 mx-auto px-4">
+                <div className="flex my-4 justify-between md:justify-center items-center">
+                    <div>
+                        <p className="text-[38px] max-md:text-[30px]  md:text-center fraunces text-black font-normal ">Rivaah South Ex</p>
+                        <div className="md:hidden flex items-center text-[#FF9A00] gap-x-2">
+                            <Star fill="#FF9A00" /> <span className="text-[#56544E] font-semibold">4.2</span> <span className="text-[#56544E] font-normal">(2753 Reviews)</span>
+                        </div>
+                    </div>
+                    <img src={storeDump} className="w-14  md:hidden" alt="" />
+                </div>
+
+                <div className="store-details hidden md:grid grid-cols-3 gap-x-20">
+                    <div className="box  shadow-lg h-full  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                        <div className="flex  gap-x-2">
+                            <span className="text-xl font-semibold text-[#954648] fraunces"> <MapPin /></span>
+                            <div>
+                                <div className="flex justify-between">
+                                    <p className="text-[#954648] text-xl font-semibold fraunces "> Address</p>
+                                    <p className="text-[#954648] underline font-bold">View Details</p>
+                                </div>
+                                <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="box  shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                        <div className="flex  gap-x-2">
+                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Clock /></span>
+                            <div>
+                                <div className="flex justify-start relative  gap-x-5">
+                                    <p className="text-[#954648] font-bold text-xl fraunces "> Timings</p>
+                                    <p className="rounded-full bg-green-200 absolute left-[50%] whitespace-nowrap translate-y-[-10%] text-green-800 font-bold px-4 py-2">Open now</p>
+
+                                </div>
+                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">10:30 AM - 08:00 PM</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="box  shadow-lg border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                        <div className="flex  gap-x-2">
+                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Phone /></span>
+                            <div>
+                                <div className="flex justify-between">
+                                    <p className="text-[#954648] text-xl font-semibold fraunces ">Contact Details</p>
+
+                                </div>
+                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex"> 011 4034 9241</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
-
-            <div className="relative max-w-[1400px] w-full mx-auto">
+            <div className="relative max-w-[1400px] mt-10 w-full mx-auto">
 
 
                 <div className="mx-5">
-
-                    <section className="mx-2 flex justify-center items-center md:mx-10 relative my-20">
+                    <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">Ways to Shop from Tanishq</p>} />
+                    <section className="mx-2 flex jtustify-center items-center md:mx-10 relative my-5">
                         {/* Background Images */}
                         <img
                             src="https://staticimg.tanishq.co.in/microsite/dailywear/assets-new/images/bg/uniqueBorder.png"
@@ -802,10 +831,11 @@ export default function Dev() {
                                         className="rounded-lg mb-3 lg:w-[120px] lg:mx-0 mx-auto w-[100px]"
                                         alt="Tanishq Promise"
                                     />
+
                                     <h2 className="fraunces text-[28px] lg:text-[60px] font-[400] text-[#300708]">
                                         Tanishq Exchange
                                     </h2>
-                                    <p className="ibm-plex lg:w-[500px] lg:mx-0 mx-10 lg:text-[20px] max-lg:text-center text-[12px] font-[400] text-[#56544E] lg:text-[#300708]">Embrace grace with our timeless jewellery, each piece whispering tales of love, resilience, and enduring bonds</p>
+                                    <p className="ibm-plex lg:w-[500px] lg:mx-0 mx-10 lg:text-[20px] max-lg:text-center text-[12px] font-[400] text-[#56544E] lg:text-[#300708]"> Every hour over 100 Indians join Tanishq's exchange community to upgrade their old gold at a better value!</p>
                                 </div>
 
                                 {/* Learn More button - Desktop */}
@@ -877,8 +907,9 @@ export default function Dev() {
 
                     </section>
                 </div>
+                <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> The Tanishq Assurance</p>} />
                 <div className="max-lg:pb-20">
-                    <Quality />
+                    <Quality hideHeading={true} />
                 </div>
 
                 {stylistPopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} title={<><span className="text-[#832729]">Book Your</span> Private Visit</>} setisOpen={setStylistPopup} /></div>}
@@ -888,22 +919,22 @@ export default function Dev() {
 
             </div>
 
-            <div className="max-md:hidden max-w-[1200px] my-[70px] mx-auto px-4">
+            {/* <div className="max-md:hidden max-w-[1200px] my-[70px] mx-auto px-4">
                 <div className="flex gap-10 rounded-[12px] py-10 px-7 border border-[rgba(18,25,46,0.12)]">
                     <div className="w-[50%]">
                         <img className="rounded-[12px]" src={store} alt="" />
                     </div>
                     <div className="w-[50%] flex flex-col justify-center items-start">
-                        <p className="fraunces text-[30px] text-black leading-[35px] mb-3">Find Your Nearest Tanishq<br /> Store</p>
+                        <p className="fraunces text-[30px] text-black leading-[35px] mb-3">Your Rivaah Wedding Lounge</p>
                         <button style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` btn text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full  border-0 gap-1 md:flex rounded-pill hidden justify-center items-center !h-[53px] pl-7 pr-3`}>
-                            <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[500]">Visit Stores</span>
+                            <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[500]">Visit Now</span>
                             <i className="bi bi-chevron-right  p-1 rounded-circle bg-[#A76767] rounded-full w-10 h-10 flex items-center justify-center"
                                 style={{ boxShadow: ' inset -1px -1px 4px #A76767, inset 16px 16px 15.9px 4px rgba(99, 21, 23, 0.31)', }}></i>
                         </button>
                     </div>
                 </div>
 
-            </div>
+            </div> */}
         </div>
     );
 }

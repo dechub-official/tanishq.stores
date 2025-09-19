@@ -22,7 +22,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
 
   const [id, setId] = useState("");
 
-  function handelsubmit () {
+  function handelsubmit() {
     setLoading(true);
     const payload = {
       chooseItem,
@@ -32,7 +32,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
     bridalbookingstep1(payload, {
       onSuccess: (data) => {
         setId(data.result);
-       
+
         setStep(2)
         setLoading(false);
       },
@@ -42,7 +42,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
     });
   }
 
-  function handelsubmit2 () {
+  function handelsubmit2() {
     setLoading(true);
 
     const payload = {
@@ -51,7 +51,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
       contact: phone,
       email,
     };
- bridalbookingstep2(payload, {
+    bridalbookingstep2(payload, {
       onSuccess: () => {
         setLoading(false);
         setStep(3);
@@ -69,14 +69,16 @@ export default function CustomJewelleryForm({ step, setStep }) {
         <div className="w-[100%] h-[100%] flex flex-col justify-between items-start">
 
           <div className="flex justify-between items-center w-full">
-            <div><h3 className="fraunces leading-[40px] text-[#767469] text-[35px] font-normal">Connect with <br></br><span className="fraunces text-[#070202]">A Bridal Stylist</span></h3></div>
+            <div><h3 className="fraunces leading-[40px] text-[#767469] text-[35px] font-normal">I’d like to meet  <br></br><span className="fraunces text-[#070202]"> a bridal stylist</span></h3></div>
             <div> <img className="w-[100px]" src={logo} alt="tanishq logo" /></div>
           </div>
 
           <div>
             {/* Row 1 */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[18px] text-normal text-[#644117] ibm-plex">I am looking for</span>
+
+
+              <span className="text-[18px] text-normal text-[#644117] ibm-plex">I’d like to explore</span>
               <div className="relative w-60">
                 <select
 
@@ -84,9 +86,12 @@ export default function CustomJewelleryForm({ step, setStep }) {
                   onChange={(e) => setChooseItem(e.target.value)}
                   className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal border border-[rgba(204,173,135,0.7)] rounded-full py-2 px-4 pr-10 focus:outline-none">
                   <option value="Recommendations" selected>Recommendations</option>
-                  <option value="Earrings">Earrings</option>
-                  <option value="Necklace">Necklace </option>
-                  <option value="Best Selling">Best Selling</option>
+                  <option value="Necklaces">Necklaces</option>
+                  <option value="Earrings">Earrings </option>
+                  <option value="Haarams">Haarams </option>
+                  <option value="Finger Rings​">Finger Rings​ </option>
+                  <option value="Trousseau sets​">Trousseau sets​ </option>
+
 
                 </select>
                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b4b3b] w-4 h-4 pointer-events-none" />
@@ -96,7 +101,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
 
             {/* Row 2 */}
             <div className="flex items-center gap-2 flex-wrap mt-6">
-              <span className="text-[18px] text-normal text-[#644117] ibm-plex">for</span>
+              <span className="text-[18px] text-normal text-[#644117] ibm-plex">on</span>
               <div className="relative w-48">
                 <input
                   type="date"
@@ -105,7 +110,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
                   className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal border border-[rgba(204,173,135,0.7)] rounded-full py-2 px-4 focus:outline-none"
                 />
               </div>
-              <span className="text-[18px] text-normal text-[#644117] ibm-plex">within</span>
+              <span className="text-[18px] text-normal text-[#644117] ibm-plex">from</span>
               <div className="relative w-[150px]">
                 <input
                   type="time"
@@ -116,11 +121,12 @@ export default function CustomJewelleryForm({ step, setStep }) {
                 />
 
               </div>
+              <span className="text-[18px] text-normal text-[#644117] ibm-plex">with a bridal stylist.</span>
             </div>
           </div>
 
-          <button onClick={()=>handelsubmit()} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` btn text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full  border-0 gap-1 md:flex rounded-pill hidden justify-center items-center !h-[53px] pl-7 pr-3`}>
-            <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[500]">{!loading ? "Meet the Stylist" : "Submmiting..."}</span>
+          <button onClick={() => handelsubmit()} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` btn text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full  border-0 gap-1 md:flex rounded-pill hidden justify-center items-center !h-[53px] pl-7 pr-3`}>
+            <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[500]">{!loading ? "Submit" : "Submmiting..."}</span>
             <i className="bi bi-chevron-right  p-1 rounded-circle bg-[#A76767] rounded-full w-10 h-10 flex items-center justify-center"
               style={{ boxShadow: ' inset -1px -1px 4px #A76767, inset 16px 16px 15.9px 4px rgba(99, 21, 23, 0.31)', }}></i>
           </button>
@@ -183,7 +189,7 @@ export default function CustomJewelleryForm({ step, setStep }) {
             </div>
           </div>
 
-          <button onClick={()=>handelsubmit2()} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full btn !h-[53px]  border-0 gap-1 md:flex rounded-pill hidden justify-center items-center  pl-7 pr-3`}>
+          <button onClick={() => handelsubmit2()} disabled={loading} style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }} className={` text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full btn !h-[53px]  border-0 gap-1 md:flex rounded-pill hidden justify-center items-center  pl-7 pr-3`}>
             <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[500]">{!loading ? "Book Now" : "Submmiting..."}</span>
             <i className="bi bi-chevron-right  p-1 rounded-circle bg-[#A76767] rounded-full w-10 h-10 flex items-center justify-center"
               style={{ boxShadow: ' inset -1px -1px 4px #A76767, inset 16px 16px 15.9px 4px rgba(99, 21, 23, 0.31)', }}></i>
