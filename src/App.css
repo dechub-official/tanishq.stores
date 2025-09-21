@@ -420,6 +420,10 @@ ul {
   clip-path: none;
 }
 
+.gold-ribbon {
+  background: linear-gradient(90deg, #F3E3CB 0%, #D59D4E 100%);
+
+}
 
 @media (max-width: 750px) {
   .swiper-container {

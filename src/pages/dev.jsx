@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import coupon from "../assets/images/rivaahcollection/coupon.png";
-
+import mobileBanner from '../assets/images/rivaahcollection/mainBannerMweb.png'
 import InfoSection from "../component/Rivaahcollection/infosection";
 import MeetStylistform from "../component/Rivaahcollection/meetStylist";
 import PrivateVisitForm from "../component/Rivaahcollection/PrivateVisit"
@@ -342,35 +342,41 @@ export default function Dev() {
                         )}
                     </button>
                 </div>
-                <div className="hidden max-md:block relative w-full">
-                    <img src={banner} alt="" />
+                <div className="hidden max-md:block relative w-full ">
+                    <img src={mobileBanner} alt="" />
                 </div>
+                {/* <div className="hidden max-md:block relative w-full">
+                    <img src={banner} alt="" />
+                </div> */}
 
             </div>
 
-            <div className="md:hidden">
+            {/* <div className="md:hidden">
                 <PetalSwiper />
-            </div>
+            </div> */}
 
 
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
 
-                <div className="box md:hidden   shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
-                    <div className="flex  gap-x-2">
+                <div className="box md:hidden    rounded-3xl py-6">
+                    <div className="flex w-full items-center px-4 gold-ribbon rounded-md ">
                         <span className="text-xl font-semibold text-[#56544E] fraunces"> <StoreIcon /></span>
-                        <div>
-                            <div className="flex justify-between">
-                                <p className="text-[#954648] text-xl font-semibold fraunces "> Store Details</p>
-                                <p className="bg-[#954648] text-white rounded-full p-3 text-[10px] w-12 flex justify-center translate-y-[-10%] items-center h-12  font-bold"><NavigationIcon /></p>
-                            </div>
-                            <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
-                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><PhoneIcon /> +91 12345 67890</p>
-                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:00 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p>
+                        <div className="flex w-full py-4 ml-4 items-center justify-between">
+                            <p className="text-[#56544E] text-2xl font-semibold fraunces "> Store Details</p>
+                            <p className="bg-[#954648] text-white rounded-full p-3 text-[10px] w-12 flex justify-center  items-center h-12  font-bold"><NavigationIcon /></p>
                         </div>
                     </div>
 
+                    <div className="px-5">
+
+                        <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
+                        <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><PhoneIcon />011 4034 9241</p>
+                        <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p>
+                    </div>
+
+
                 </div>
-                <div className="md:hidden mt-[60px]">
+                {/* <div className="md:hidden mt-[60px]">
                     <div className="max-md:flex hidden flex-col items-center justify-center ">
                         <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
                         <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">Bridal Journey Timeline</p>} />
@@ -378,9 +384,34 @@ export default function Dev() {
 
                     </div>
                     <BridalSlider />
+                </div> */}
+                <div className="md:hidden block">
+
+                    <div className="max-md:flex hidden flex-col items-center justify-center ">
+                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
+                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">What Makes Rivaah Unique For  You</p>} />
+                        <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
+
+                    </div>
+                    <div className="grid grid-cols-2 gap-8 max-sm:gap-4 max-sm:gap-4 mt-20 max-md:mt-7 px-[60px] max-md:px-0">
+                        {
+                            cardData.map((ele, i) => {
+                                return <>
+                                    <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
+                                        <img className="w-full max-md:object-cover max-md:h-[180px]" src={ele.frontImg} alt="" />
+                                        <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_#832729_99.32%,_#291A18_100.77%)]"></div>
+                                        <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[125px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">{ele.title}</p>} /></div>
+                                        {/* <img className="h-6" src={arrow} alt="" /> */}
+                                        <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-black block underline underline-offset-3">Explore now</p></a></div>
+                                    </div>
+                                </>
+                            })
+                        }
+
+                    </div>
                 </div>
 
-                <div className="">
+                <div className="mt-[60px]">
                     <div className="max-md:hidden">
                         <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> Crafted Curations</p>} subHeading={<p className="font-fraunces "> From polkis of Punjab, filigree of Bengal, temple jewellery from south or eternal diamonds, there is a Rivaah for you</p>} />
 
@@ -408,6 +439,8 @@ export default function Dev() {
 
                     </div>
                 </div>
+
+
 
                 <div className="mt-[60px] max-md:hidden">
                     <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">What makes Rivaah wedding lounge unique?</p>} subHeading={<p className="font-fraunces max-md:leading-[18px] max-md:mt-4"> Every moment, thoughtfully crafted to begin your story, under one roof</p>} />
