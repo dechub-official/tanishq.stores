@@ -386,7 +386,7 @@ export default function Dev() {
                                 <div>
                                     <div className="flex justify-between">
                                         <p className="text-[#954648] text-xl font-semibold fraunces "> Address</p>
-                                        <p className="text-[#954648] underline font-bold">View Details</p>
+                                        {/* <p className="text-[#954648] underline font-bold">View Details</p> */}
                                     </div>
                                     <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
                                 </div>
@@ -399,7 +399,7 @@ export default function Dev() {
                                 <div>
                                     <div className="flex justify-start relative  gap-x-5">
                                         <p className="text-[#954648] font-bold text-xl fraunces "> Timings</p>
-                                        <p className="rounded-full bg-green-200 absolute left-[50%] whitespace-nowrap translate-y-[-10%] text-green-800 font-bold px-4 py-2">Open now</p>
+                                        {/* <p className="rounded-full bg-green-200 absolute left-[50%] whitespace-nowrap translate-y-[-10%] text-green-800 font-bold px-4 py-2">Open now</p> */}
 
                                     </div>
                                     <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">10:30 AM - 08:00 PM</p>
@@ -434,7 +434,7 @@ export default function Dev() {
 
                             <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
                             <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><PhoneIcon />011 4034 9241</p>
-                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p>
+                            {/* <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p> */}
                         </div>
                     </div>
 
