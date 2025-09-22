@@ -8,6 +8,7 @@ import 'swiper/css';
 
 import coupon from "../assets/images/rivaahcollection/coupon.png";
 import mobileBanner from '../assets/images/rivaahcollection/mainBannerMweb.png'
+import Banner from '../assets/images/rivaahcollection/mainBannerweb.png'
 import InfoSection from "../component/Rivaahcollection/infosection";
 import MeetStylistform from "../component/Rivaahcollection/meetStylist";
 import PrivateVisitForm from "../component/Rivaahcollection/PrivateVisit"
@@ -35,10 +36,6 @@ import bridalstylist from "../assets/images/rivaahcollection/bridalStylist.jpg";
 import weddingHighlight from "../assets/images/rivaahcollection/weddingHighlight.png";
 import MweddingHighlight from "../assets/images/rivaahcollection/MweddingHighlight.png";
 
-import polkiCollection from "../assets/images/rivaahcollection/The-Polki-Poetry.jpg";
-import heritageHuesCOllection from "../assets/images/rivaahcollection/Heritage-Hues.jpg";
-import eternalSparkle from "../assets/images/rivaahcollection/Eternal-Sparkle.jpg";
-import theSouthernSplendour from "../assets/images/rivaahcollection/The-Southern-Splendour.jpg";
 
 import mobPolkiCollection from "../assets/images/rivaahcollection/crafted/polki.png";
 import mobHeritageHuesCOllection from "../assets/images/rivaahcollection/crafted/heritage_hues.png";
@@ -51,15 +48,13 @@ import DEternalSparkle from "../assets/images/rivaahcollection/crafted/etrnalD.p
 import DTheSouthernSplendour from "../assets/images/rivaahcollection/crafted/southernD.png";
 
 import BookAnAppointment from "../component/bookAnAppointment";
-import storeDump from '../assets/images/rivaahcollection/storeDump.png'
-import { Clock, ClockIcon, MapPin, NavigationIcon, Phone, PhoneIcon, Star, StoreIcon } from "lucide-react";
+
+import { Clock, ClockIcon, MapPin, NavigationIcon, Phone, PhoneIcon, StoreIcon } from "lucide-react";
 
 import Quality from "../component/Rivaahcollection/Quality";
 
-import store from '../assets/images/rivaahcollection/tanishqStore.png'
 import exchange from '../assets/images/rivaahcollection/tanishqExchange.png'
 
-import dharoharmweb from "../assets/images/rivaahcollection/dharoharCollectionMweb.png"
 
 import MakeAStylist from "../component/makeAStylist";
 import { Link } from "react-router-dom";
@@ -73,9 +68,9 @@ export default function Dev() {
     const [stylistPopup, setStylistPopup] = useState(false)
     const [privatePopup, setPrivatePopup] = useState(false)
     const [step, setStep] = useState(1);
-    const [stepForm2, setStepForm2] = useState(1);
+
     const [isPlaying, setIsPlaying] = useState(false)
-    const [makeAstylistPopup, setMakeStylistPopup] = useState(false)
+
 
     const sampleStoreData = {
         activeStore: 0,
@@ -301,7 +296,8 @@ export default function Dev() {
             </div>
             <div>
                 <div className="block max-md:hidden relative w-full ">
-                    <video
+                    <img src={Banner} alt="" />
+                    {/* <video
                         ref={videoRef}
                         className="w-full rounded-lg"
                         src={desktopbanner}
@@ -353,7 +349,7 @@ export default function Dev() {
                             </>
 
                         )}
-                    </button>
+                    </button> */}
                 </div>
                 <div className="hidden max-md:block relative w-full ">
                     <img src={mobileBanner} alt="" />
@@ -864,7 +860,7 @@ export default function Dev() {
 
 
                 <div className="mx-5">
-                    <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">Ways to Shop from Tanishq</p>} />
+                    {/* <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">Ways to Shop from Tanishq</p>} /> */}
                     <section className="mx-2 flex jtustify-center items-center md:mx-10 relative my-5">
                         {/* Background Images */}
                         <img
@@ -963,9 +959,9 @@ export default function Dev() {
 
                     </section>
                 </div>
-                <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> The Tanishq Assurance</p>} />
+                {/* <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces  font-normal"> The Tanishq Assurance</p>} /> */}
                 <div className="max-lg:pb-20">
-                    <Quality hideHeading={true} />
+                    <Quality />
                 </div>
 
                 {stylistPopup && <div className={`fixed left-0 w-full top-0  z-[90]  min-h-full `}><BookAnAppointment {...sampleStoreData} title={<><span className="text-[#832729]">Book Your</span> Private Visit</>} setisOpen={setStylistPopup} /></div>}

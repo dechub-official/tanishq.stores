@@ -6,13 +6,17 @@ import ConfirmedAppointment from "./bookAnAppointment/confirmedAppoinment";
 import FormSection from "./bookAnAppointment/form";
 import { CalendarHeart, Clock1, GemIcon } from "lucide-react";
 import ringImage from '../assets/images/rivaahcollection/makeStylistProducts/rings.png'
-
+import necklessImage from '../assets/images/rivaahcollection/makeStylistProducts/neckless.png'
+import longNeckless from '../assets/images/rivaahcollection/makeStylistProducts/longNeckless.png'
+import bangales from '../assets/images/rivaahcollection/makeStylistProducts/Bangale.png'
 
 export default function MakeAStylist({ title, isOpen, setisOpen }) {
     // console.log({ activeStore, setIndividualStoreData, openingTime, cities, closingTime, isOpen, setisOpen, storeCode, storeName, page });
 
     const [step, setStep] = useState(1)
-
+    const currDate = new Date()
+    const day = currDate.getDay()
+    const [dayInfo, setDayInfo] = useState({ formattedDate: new Date() })
     const [progress, setProgress] = useState(false);
     const [formData, setFormData] = useState({})
 
@@ -24,8 +28,28 @@ export default function MakeAStylist({ title, isOpen, setisOpen }) {
     useEffect(() => {
         setStep(1)
     }, [])
+    const getNextSevenDays = () => {
+        const days = [];
+        const today = new Date();
 
-
+        for (let i = 0; i < 7; i++) {
+            const nextDay = new Date(today);
+            nextDay.setDate(today.getDate() + i);
+            const formattedDate = nextDay.toLocaleDateString("en-US", {
+                month: "short",
+                day: "2-digit",
+            });
+            days.push(formattedDate);
+        }
+        return days;
+    };
+    const days = getNextSevenDays()
+    const handleDate = (i) => {
+        const formattedDate = new Date()
+        formattedDate.setDate(days[i].split(" ")[1])
+        setDayInfo({ day: weekDays[(day + i) % 7], date: days[i], activeIndex: i, formattedDate })
+        console.log(days[i], formattedDate);
+    }
 
 
     const handelStep = (step) => {
@@ -69,6 +93,7 @@ export default function MakeAStylist({ title, isOpen, setisOpen }) {
             },
             onError: (error) => {
                 console.error('Failed to book appointment:', error);
+                setStep(3)
                 setProgress(false)
             }
         });
@@ -98,17 +123,20 @@ export default function MakeAStylist({ title, isOpen, setisOpen }) {
                         <p className="text-[#969288] px-4 font-fraunces mb-5 mt-2 text-[14px]  font-normal">Make your bridal experience smoother and truly yours. Book a bridal stylist and avoid the wait.</p>
                         <p className="text-[#56544E] px-4 ibm-plex font-semibold text-lg font-fraunces flex gap-x-2"><GemIcon /> Your Jewellery Interest</p>
 
-                        <div className="flex my-4 justify-around">
+                        <div className="flex my-4 overflow-x-scroll gap-x-5 justify-around">
                             <img src={ringImage} className="w-28" alt="" />
-                            <img src={ringImage} className="w-28" alt="" />
-                            <img src={ringImage} className="w-28" alt="" />
-
+                            <img src={longNeckless} className="w-28" alt="" />
+                            <img src={bangales} className="w-28" alt="" />
+                            <img src={necklessImage} className="w-28" alt="" />
 
                         </div>
                         <div className="grid grid-cols-2 gap-x-10 px-4  mt-10 justify-between">
                             <div className="w-full">
                                 <p className="ibm-plex text-[#56544E] text-base flex gap-x-2 mb-1 ml-2 font-medium"> <CalendarHeart /> Wedding Date</p>
-                                <input type="date" className="px-4 w-full rounded-full border border-[#969288] py-4" name="" id="" />
+                                <input type="date" onChange={(e) => {
+
+                                    setDayInfo({ day: null, date: null, activeIndex: 0, formattedDate: null })
+                                }} className="px-4 w-full rounded-full border border-[#969288] py-4" name="" id="" />
                             </div>
                             <div className="w-full">
                                 <p className="ibm-plex  text-[#56544E] text-base flex gap-x-2 mb-1 ml-2 font-medium"> <Clock1 /> Preferred Time</p>
@@ -138,7 +166,7 @@ export default function MakeAStylist({ title, isOpen, setisOpen }) {
                 {
                     step == 3 &&
                     <ConfirmedAppointment
-                        // dayInfo={dayInfo}
+                        dayInfo={dayInfo}
                         weekDays={weekDays}
                     // activeDivision={timeDivisions[activeDivision].division}
                     />

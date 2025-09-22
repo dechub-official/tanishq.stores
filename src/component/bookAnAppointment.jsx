@@ -245,6 +245,7 @@ export default function BookAnAppointment({ title, activeStore, setIndividualSto
                 setProgress(false)
             },
             onError: (error) => {
+                setStep(3)
                 console.error('Failed to book appointment:', error);
                 setProgress(false)
             }
