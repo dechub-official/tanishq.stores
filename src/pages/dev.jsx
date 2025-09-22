@@ -45,6 +45,11 @@ import mobHeritageHuesCOllection from "../assets/images/rivaahcollection/crafted
 import mobEternalSparkle from "../assets/images/rivaahcollection/crafted/etrnal.png";
 import mobTheSouthernSplendour from "../assets/images/rivaahcollection/crafted/southern.png";
 
+import DPolkiCollection from "../assets/images/rivaahcollection/crafted/polkiD.png";
+import DHeritageHuesCOllection from "../assets/images/rivaahcollection/crafted/heritage_huesD.png";
+import DEternalSparkle from "../assets/images/rivaahcollection/crafted/etrnalD.png";
+import DTheSouthernSplendour from "../assets/images/rivaahcollection/crafted/southernD.png";
+
 import BookAnAppointment from "../component/bookAnAppointment";
 import storeDump from '../assets/images/rivaahcollection/storeDump.png'
 import { Clock, ClockIcon, MapPin, NavigationIcon, Phone, PhoneIcon, Star, StoreIcon } from "lucide-react";
@@ -57,6 +62,7 @@ import exchange from '../assets/images/rivaahcollection/tanishqExchange.png'
 import dharoharmweb from "../assets/images/rivaahcollection/dharoharCollectionMweb.png"
 
 import MakeAStylist from "../component/makeAStylist";
+import { Link } from "react-router-dom";
 
 
 export default function Dev() {
@@ -187,52 +193,57 @@ export default function Dev() {
     }
     const cardData = [
         {
-            frontImg: dedicated,
-            backText: "With our in-house wedding stylist, you get one-on-one consultations to find bridal jewellry that reflects your roots, rituals and dreams.",
-            title: "Wedding stylist"
-        },
-        {
-            frontImg: viewingroom,
-            backText: "At Rivaah, enjoy private viewing rooms crafted for personalized jewellery trials and sharing moments with your loved ones.",
-            title: "Private viewing room"
+            frontImg: customisation,
+            backText: "At Rivaah, we craft jewellery that is uniquely yours— infused with your names, motifs, and cherished memories.",
+            title: "Jewellery Customization"
         },
         {
             frontImg: styling,
             backText: " With our in-house designer, every heritage piece is reimagined, crafted to tell your story of love and legacy.",
-            title: "In-house-designer"
+            title: "In House Designer"
         },
         {
-            frontImg: customisation,
-            backText: "At Rivaah, we craft jewellery that is uniquely yours— infused with your names, motifs, and cherished memories.",
-            title: "Customization"
+            frontImg: viewingroom,
+            backText: "At Rivaah, enjoy private viewing rooms crafted for personalized jewellery trials and sharing moments with your loved ones.",
+            title: "Private Viewing Room"
         },
+        {
+            frontImg: dedicated,
+            backText: "With our in-house wedding stylist, you get one-on-one consultations to find bridal jewellry that reflects your roots, rituals and dreams.",
+            title: "Dedicated Stylist"
+        },
+
+
+
 
 
     ]
 
     const collection = [
         {
-            frontImg: polkiCollection,
-            mobileImg: mobPolkiCollection,
-            title: "The Polki Poetry",
+            frontImg: DEternalSparkle,
+            mobileImg: mobEternalSparkle,
+            title: " Eternal Sparkle",
         },
         {
-            frontImg: heritageHuesCOllection,
+            frontImg: DHeritageHuesCOllection,
             mobileImg: mobHeritageHuesCOllection,
             title: " Heritage Hues",
 
         },
+        {
+            frontImg: DPolkiCollection,
+            mobileImg: mobPolkiCollection,
+            title: "The Polki Poetry",
+        },
+
 
         {
-            frontImg: theSouthernSplendour,
+            frontImg: DTheSouthernSplendour,
             mobileImg: mobTheSouthernSplendour,
             title: " The Southern Splendour",
         },
-        {
-            frontImg: eternalSparkle,
-            mobileImg: mobEternalSparkle,
-            title: " Eternal Sparkle",
-        }
+
     ]
 
     useGSAP(function () {
@@ -358,24 +369,78 @@ export default function Dev() {
             </div> */}
 
 
-            <div className="max-w-[1200px] mt-10 mx-auto px-4">
+            <div className="max-w-[1200px] mx-auto px-4">
 
-                <div className="box md:hidden    rounded-3xl py-6">
-                    <div className="flex w-full items-center px-4 gold-ribbon rounded-md ">
-                        <span className="text-xl font-semibold text-[#56544E] fraunces"> <StoreIcon /></span>
-                        <div className="flex w-full py-4 ml-4 items-center justify-between">
-                            <p className="text-[#56544E] text-2xl font-semibold fraunces "> Store Details</p>
-                            <p className="bg-[#954648] text-white rounded-full p-3 text-[10px] w-12 flex justify-center  items-center h-12  font-bold"><NavigationIcon /></p>
+                <div className="box     rounded-3xl pb-6">
+                    <div className="mx-auto py-5 mb-10">
+                        <p className="text-[#56544E] text-center text-2xl md:text-[36px] mb-2  font-semibold fraunces ">Shop from Rivaah South Ex Store</p>
+                        <p className="text-[#56544E] text-center text-base flex justify-center items-center font-base  ">
+                            <svg width="14" height="13" className="mr-2" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.6787 0.533895C6.82444 0.291713 7.17556 0.291713 7.3213 0.533895L9.2222 3.69253C9.27456 3.77954 9.35997 3.84159 9.45889 3.8645L13.0503 4.69629C13.3257 4.76006 13.4342 5.09399 13.2489 5.30744L10.8323 8.09137C10.7657 8.16806 10.7331 8.26846 10.7419 8.36962L11.0606 12.0423C11.0851 12.3239 10.801 12.5303 10.5407 12.42L7.14628 10.982C7.05278 10.9424 6.94722 10.9424 6.85372 10.982L3.45926 12.42C3.199 12.5303 2.91494 12.3239 2.93938 12.0423L3.25812 8.36962C3.2669 8.26846 3.23428 8.16806 3.16771 8.09137L0.751081 5.30744C0.56579 5.09399 0.674289 4.76006 0.949657 4.69629L4.54111 3.8645C4.64004 3.84159 4.72544 3.77954 4.7778 3.69253L6.6787 0.533895Z" fill="#85591C" />
+                            </svg>
+                            <b>4.2</b> (2765 Reviews)</p>
+                    </div>
+
+
+
+                    <div className="store-details hidden md:grid grid-cols-3 gap-x-20">
+                        <div className="box  shadow-lg h-full  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                            <div className="flex  gap-x-2">
+                                <span className="text-xl font-semibold text-[#954648] fraunces"> <MapPin /></span>
+                                <div>
+                                    <div className="flex justify-between">
+                                        <p className="text-[#954648] text-xl font-semibold fraunces "> Address</p>
+                                        <p className="text-[#954648] underline font-bold">View Details</p>
+                                    </div>
+                                    <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="box  shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                            <div className="flex  gap-x-2">
+                                <span className="text-xl font-semibold text-[#954648] fraunces"> <Clock /></span>
+                                <div>
+                                    <div className="flex justify-start relative  gap-x-5">
+                                        <p className="text-[#954648] font-bold text-xl fraunces "> Timings</p>
+                                        <p className="rounded-full bg-green-200 absolute left-[50%] whitespace-nowrap translate-y-[-10%] text-green-800 font-bold px-4 py-2">Open now</p>
+
+                                    </div>
+                                    <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">10:30 AM - 08:00 PM</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div className="box  shadow-lg border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
+                            <div className="flex  gap-x-2">
+                                <span className="text-xl font-semibold text-[#954648] fraunces"> <Phone /></span>
+                                <div>
+                                    <div className="flex justify-between">
+                                        <p className="text-[#954648] text-xl font-semibold fraunces ">Contact Details</p>
+
+                                    </div>
+                                    <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex"> 011 4034 9241</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+                    <div className="md:hidden">
+                        <div className="flex w-full items-center px-4 gold-ribbon rounded-md ">
+                            <span className="text-xl font-semibold text-[#56544E] fraunces"> <StoreIcon /></span>
+                            <div className="flex w-full py-4 ml-4 items-center justify-between">
+                                <p className="text-[#56544E] text-2xl font-semibold fraunces "> Store Details</p>
+                                <p className="bg-[#954648] text-white rounded-full p-3 text-[10px] w-12 flex justify-center  items-center h-12  font-bold"><NavigationIcon /></p>
+                            </div>
+                        </div>
 
-                    <div className="px-5">
+                        <div className="px-5">
 
-                        <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
-                        <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><PhoneIcon />011 4034 9241</p>
-                        <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p>
+                            <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
+                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><PhoneIcon />011 4034 9241</p>
+                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p>
+                        </div>
                     </div>
-
 
                 </div>
                 {/* <div className="md:hidden mt-[60px]">
@@ -391,7 +456,7 @@ export default function Dev() {
 
                     <div className="max-md:flex hidden flex-col items-center justify-center ">
                         <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
-                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">What Makes Rivaah Unique For  You</p>} />
+                        <Heading heading={<p className="text-[38px] max-md:text-[25px] fraunces text-black font-normal">What Makes Rivaah Unique For  You</p>} />
                         <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
 
                     </div>
@@ -413,40 +478,11 @@ export default function Dev() {
                     </div>
                 </div>
 
-                <div className=" mt-[60px]">
-                    <div className="max-md:hidden">
-                        <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> Crafted Curations</p>} subHeading={<p className="font-fraunces "> From polkis of Punjab, filigree of Bengal, temple jewellery from south or eternal diamonds, there is a Rivaah for you</p>} />
-
-                    </div>
-                    <div className="max-md:flex hidden flex-col items-center justify-center ">
-                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
-                        <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold">Choose Your collection</p>} />
-                        <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
-
-                    </div>
-                    <div className="grid grid-cols-2 gap-8 max-sm:gap-4 max-sm:gap-4 mt-20 max-md:mt-7 px-[60px] max-md:px-0">
-                        {
-                            collection.map((ele, i) => {
-                                return <>
-                                    <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                                        <img className="w-full md:hidden  max-md:object-cover max-md:h-[250px]" src={ele.mobileImg} alt="" />
-                                        <img className="w-full md:block hidden  max-md:object-cover max-md:h-[250px]" src={ele.frontImg} alt="" />
-                                        <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_#832729_99.32%,_#291A18_100.77%)]"></div>
-                                        <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[125px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">{ele.title}</p>} /></div>
-                                        {/* <img className="h-6" src={arrow} alt="" /> */}
-                                        <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-black block underline underline-offset-3">Explore now</p></a></div>
-                                    </div>
-                                </>
-                            })
-                        }
-
-                    </div>
-                </div>
 
 
 
                 <div className="mt-[60px] max-md:hidden">
-                    <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">What makes Rivaah wedding lounge unique?</p>} subHeading={<p className="font-fraunces max-md:leading-[18px] max-md:mt-4"> Every moment, thoughtfully crafted to begin your story, under one roof</p>} />
+                    <Heading heading={<p className="text-[38px] max-md:text-[30px] max-md:leading-[32px] fraunces text-black font-normal">What makes wedding store unique?</p>} subHeading={<p className="font-fraunces max-md:leading-[18px] max-md:mt-4"> We at Tanishq believe a bride deserves her own space to decide</p>} />
 
                     <div className="mt-10 flip grid grid-cols-4 max-md:grid-cols-2 justify-center gap-9 p-6 max-md:p-0 max-md:gap-4">
                         {cardData.map((card, index) => (
@@ -489,10 +525,42 @@ export default function Dev() {
 
                 </div>
 
-                <div className="mt-[60px]">
-                    <InfoSection />
+                <div className=" mt-[60px]">
+                    {/* <div className="max-md:hidden">
+                        <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> Crafted Curations</p>} subHeading={<p className="font-fraunces "> From polkis of Punjab, filigree of Bengal, temple jewellery from south or eternal diamonds, there is a Rivaah for you</p>} />
+
+                    </div> */}
+                    <div className="flex  flex-col items-center justify-center ">
+                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
+                        <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> Store Collections</p>} subHeading={<p className="font-fraunces "> Polkis of Punjab, Bengal’s filigree, South’s temple jewellery, and eternal diamonds, all await you at the Rivaah store</p>} />
+
+                        <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
+
+                    </div>
+                    <div className="grid grid-cols-2 gap-8 max-sm:gap-4 max-sm:gap-4 mt-20 max-md:mt-7 px-[60px] max-md:px-0">
+                        {
+                            collection.map((ele, i) => {
+                                return <>
+                                    <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
+                                        <img className="w-full md:hidden  max-md:object-cover max-md:h-[250px]" src={ele.mobileImg} alt="" />
+                                        <img className="w-full md:block hidden  max-md:object-cover max-md:h-[250px]" src={ele.frontImg} alt="" />
+                                        <div class="md:hidden bottom-0 absolute inset-0 bg-[linear-gradient(to_bottom,rgba(51,36,34,0)_60%,rgba(51,36,34,0.65)_104%,#291a18_150%)]"></div>
+                                        <div className="md:hidden absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[125px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">{ele.title}</p>} /></div>
+                                        {/* <img className="h-6" src={arrow} alt="" /> */}
+                                        {/* <div className="max-md:hidden absolute top-3 right-4 "><a href="#" className="flex items-center"><p className="text-[20px] mr-2 font-normal fraunces text-black block underline underline-offset-3">Explore now</p></a></div> */}
+                                    </div>
+                                </>
+                            })
+                        }
+
+                    </div>
                 </div>
-                <div className="max-md:block relative hidden">
+
+
+                {/* <div className="mt-[60px]">
+                    <InfoSection />
+                </div> */}
+                <div className="max-md:block mt-[60px] relative hidden">
 
                     <div className="max-md:flex hidden flex-col items-center justify-center ">
                         <div className="absolute top-0">
@@ -500,7 +568,10 @@ export default function Dev() {
                         </div>
 
                         <img src={MweddingHighlight} alt="" />
-                        <button class="btn border-0 absolute bottom-3 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8" fdprocessedid="zs2ow8"><span class="pr-1 text-[14px] md:text-lg font-[500] fraunces">Create Your Dream List</span><i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i></button>
+                        <Link to="https://www.tanishq.co.in/thejoyofdressing?lang=en_IN#"
+                            class="btn border-0 absolute bottom-3 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
+
+                        >  <span class="pr-1 text-[14px] md:text-lg font-[500] fraunces">Browse Collection</span><i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i></Link>
                     </div>
                     <div className="container mx-auto px-0"></div>
 
@@ -737,13 +808,13 @@ export default function Dev() {
 
                     </div>
 
-                    <button
+                    <Link to="https://www.tanishq.co.in/thejoyofdressing?lang=en_IN#"
                         className="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
                     >
                         <span className="pr-1 text-[9px] md:text-lg font-[500]">Make Yours Now</span>
                         <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
-                    </button>
+                    </Link>
                 </div>
 
             </div>
@@ -787,60 +858,7 @@ export default function Dev() {
 
                 </div>
             </div> */}
-            <div className="max-w-[1200px] mt-10 mx-auto px-4">
-                {/* <div className="flex my-4 justify-between md:justify-center items-center">
-                    <div>
-                        <p className="text-[38px] max-md:text-[30px]  md:text-center fraunces text-black font-normal ">Rivaah South Ex</p>
-                        <div className="md:hidden flex items-center text-[#FF9A00] gap-x-2">
-                            <Star fill="#FF9A00" /> <span className="text-[#56544E] font-semibold">4.2</span> <span className="text-[#56544E] font-normal">(2753 Reviews)</span>
-                        </div>
-                    </div>
-                    <img src={storeDump} className="w-14  md:hidden" alt="" />
-                </div> */}
 
-                <div className="store-details hidden md:grid grid-cols-3 gap-x-20">
-                    <div className="box  shadow-lg h-full  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
-                        <div className="flex  gap-x-2">
-                            <span className="text-xl font-semibold text-[#954648] fraunces"> <MapPin /></span>
-                            <div>
-                                <div className="flex justify-between">
-                                    <p className="text-[#954648] text-xl font-semibold fraunces "> Address</p>
-                                    <p className="text-[#954648] underline font-bold">View Details</p>
-                                </div>
-                                <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="box  shadow-lg  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
-                        <div className="flex  gap-x-2">
-                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Clock /></span>
-                            <div>
-                                <div className="flex justify-start relative  gap-x-5">
-                                    <p className="text-[#954648] font-bold text-xl fraunces "> Timings</p>
-                                    <p className="rounded-full bg-green-200 absolute left-[50%] whitespace-nowrap translate-y-[-10%] text-green-800 font-bold px-4 py-2">Open now</p>
-
-                                </div>
-                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex">10:30 AM - 08:00 PM</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div className="box  shadow-lg border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
-                        <div className="flex  gap-x-2">
-                            <span className="text-xl font-semibold text-[#954648] fraunces"> <Phone /></span>
-                            <div>
-                                <div className="flex justify-between">
-                                    <p className="text-[#954648] text-xl font-semibold fraunces ">Contact Details</p>
-
-                                </div>
-                                <p className="text-[#56544E] mt-5 text-lg font-bold ibm-plex"> 011 4034 9241</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
 
             <div className="relative max-w-[1400px] mt-10 w-full mx-auto">
 
