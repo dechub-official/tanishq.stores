@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import { useRef, useState } from "react"
 import Heading from "../component/heading";
 import { useGSAP } from '@gsap/react';
 import gsap from "gsap";
@@ -16,7 +16,7 @@ import desktopbanner from "../assets/images/rivaahcollection/DesktopBAnner.mp4";
 
 import divider from "../assets/images/rivaahcollection/divider.png";
 
-import banner from '../assets/images/rivaahcollection/BANNER.png';
+
 
 import dreamlist from "../assets/images/rivaahcollection/dreamList.png";
 
@@ -24,27 +24,26 @@ import rivaah1 from "../assets/images/rivaahcollection/rivaah1.png";
 import rivaah2 from "../assets/images/rivaahcollection/rivaah2.png";
 import rivaah3 from "../assets/images/rivaahcollection/rivaah3.png";
 
-
-import arrow from "../assets/images/rivaahcollection/arrow.svg";
-
-
 import styling from "../assets/images/rivaahcollection/styling.jpg";
 import viewingroom from "../assets/images/rivaahcollection/viewingroom.jpg";
 import customisation from "../assets/images/rivaahcollection/customisation.jpg";
 import dedicated from "../assets/images/rivaahcollection/dedicatedStylists.jpg";
 
-import wedding from "../assets/images/rivaahcollection/wedding.png";
-import mahandi from "../assets/images/rivaahcollection/mehandi.png";
-import haldi from "../assets/images/rivaahcollection/haldi.png";
 
 import bridalstylist from "../assets/images/rivaahcollection/bridalStylist.jpg";
 
 import weddingHighlight from "../assets/images/rivaahcollection/weddingHighlight.png";
-import fullBg from "../assets/images/rivaahcollection/fullBg.png";
+import MweddingHighlight from "../assets/images/rivaahcollection/MweddingHighlight.png";
+
 import polkiCollection from "../assets/images/rivaahcollection/The-Polki-Poetry.jpg";
 import heritageHuesCOllection from "../assets/images/rivaahcollection/Heritage-Hues.jpg";
 import eternalSparkle from "../assets/images/rivaahcollection/Eternal-Sparkle.jpg";
 import theSouthernSplendour from "../assets/images/rivaahcollection/The-Southern-Splendour.jpg";
+
+import mobPolkiCollection from "../assets/images/rivaahcollection/crafted/polki.png";
+import mobHeritageHuesCOllection from "../assets/images/rivaahcollection/crafted/heritage_hues.png";
+import mobEternalSparkle from "../assets/images/rivaahcollection/crafted/etrnal.png";
+import mobTheSouthernSplendour from "../assets/images/rivaahcollection/crafted/southern.png";
 
 import BookAnAppointment from "../component/bookAnAppointment";
 import storeDump from '../assets/images/rivaahcollection/storeDump.png'
@@ -56,8 +55,7 @@ import store from '../assets/images/rivaahcollection/tanishqStore.png'
 import exchange from '../assets/images/rivaahcollection/tanishqExchange.png'
 
 import dharoharmweb from "../assets/images/rivaahcollection/dharoharCollectionMweb.png"
-import PetalSwiper from "../component/Swiper/PetalSwiper";
-import BridalSlider from "../component/Swiper/BrideSlider";
+
 import MakeAStylist from "../component/makeAStylist";
 
 
@@ -215,20 +213,24 @@ export default function Dev() {
     const collection = [
         {
             frontImg: polkiCollection,
+            mobileImg: mobPolkiCollection,
             title: "The Polki Poetry",
         },
         {
             frontImg: heritageHuesCOllection,
+            mobileImg: mobHeritageHuesCOllection,
             title: " Heritage Hues",
 
         },
 
         {
             frontImg: theSouthernSplendour,
+            mobileImg: mobTheSouthernSplendour,
             title: " The Southern Splendour",
         },
         {
             frontImg: eternalSparkle,
+            mobileImg: mobEternalSparkle,
             title: " Eternal Sparkle",
         }
     ]
@@ -411,7 +413,7 @@ export default function Dev() {
                     </div>
                 </div>
 
-                <div className="mt-[60px]">
+                <div className=" mt-[60px]">
                     <div className="max-md:hidden">
                         <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal"> Crafted Curations</p>} subHeading={<p className="font-fraunces "> From polkis of Punjab, filigree of Bengal, temple jewellery from south or eternal diamonds, there is a Rivaah for you</p>} />
 
@@ -427,7 +429,8 @@ export default function Dev() {
                             collection.map((ele, i) => {
                                 return <>
                                     <div className="relative overflow-hidden rounded-[24px] max-sm:rounded-[15px] flex flex-col items-center">
-                                        <img className="w-full max-md:object-cover max-md:h-[250px]" src={ele.frontImg} alt="" />
+                                        <img className="w-full md:hidden  max-md:object-cover max-md:h-[250px]" src={ele.mobileImg} alt="" />
+                                        <img className="w-full md:block hidden  max-md:object-cover max-md:h-[250px]" src={ele.frontImg} alt="" />
                                         <div class=" bottom-0 absolute inset-0 bg-[linear-gradient(179.73deg,_rgba(51,_36,_34,_0)_63.28%,_#832729_99.32%,_#291A18_100.77%)]"></div>
                                         <div className="absolute bottom-6 max-md:bottom-2"><Heading heading={<p className="text-4xl max-md:max-w-[125px] max-md:text-[16px] max-md:leading-6 font-normal fraunces text-white max-md:text-3xl">{ele.title}</p>} /></div>
                                         {/* <img className="h-6" src={arrow} alt="" /> */}
@@ -489,22 +492,20 @@ export default function Dev() {
                 <div className="mt-[60px]">
                     <InfoSection />
                 </div>
+                <div className="max-md:block relative hidden">
 
-                <div className="max-md:block hidden">
-                    <div style={{ boxShadow: "0px -4px 40px rgba(0, 0, 0, 0.06)" }} className="border border-[##FFFFFF] bg-[#FFFFFF] rounded-[18px] p-5">
-                        <div className="max-md:flex hidden flex-col items-center justify-center ">
-
-                            <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Introducing Bride’s Dream list</p>} />
-                            <p className='ibm-plex text-[#56544E] text-center mt-[-10px] mb-5'>Let’s check which ornaments pair best with each outfit, based on regional preferences and traditional styles.</p>
-
-                            <img src={dreamlist} alt="" />
-                            <button class="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8" fdprocessedid="zs2ow8"><span class="pr-1 text-[14px] md:text-lg font-[500] fraunces">Create Your Dream List</span><i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i></button>
+                    <div className="max-md:flex hidden flex-col items-center justify-center ">
+                        <div className="absolute top-0">
+                            <Heading heading={<p className="text-[25px]  fraunces text-[#631517] font-semibold"> Crafted Curations</p>} subHeading={<p className="font-fraunces px-5"> Explore Rivaah catalog featuring timeless jewelry designs for every occasion and personal style.</p>} />
                         </div>
-                        <div className="container mx-auto px-0"></div>
-                    </div>
-                </div>
 
-                <div className="max-md:block hidden mt-[50px]">
+                        <img src={MweddingHighlight} alt="" />
+                        <button class="btn border-0 absolute bottom-3 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8" fdprocessedid="zs2ow8"><span class="pr-1 text-[14px] md:text-lg font-[500] fraunces">Create Your Dream List</span><i class="bi bi-chevron-right ic-btn p-2 rounded-circle"></i></button>
+                    </div>
+                    <div className="container mx-auto px-0"></div>
+
+                </div>
+                {/* <div className="max-md:block hidden mt-[50px]">
                     <div className="flex flex-col items-center justify-center ">
                         <img src={divider} className="rotate-[180deg] w-[135px] mb-[-5px]" alt="" />
                         <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Rivaah Spotlights</p>} />
@@ -523,9 +524,9 @@ export default function Dev() {
                             <SwiperSlide><img className="rounded-[14px]" src={rivaah1} alt="" /></SwiperSlide>
                         </Swiper>
                     </div>
-                </div>
+                </div> */}
 
-                <div className="max-md:block hidden mt-[50px]">
+                {/* <div className="max-md:block hidden mt-[50px]">
                     <div className="flex flex-col items-center justify-center ">
                         <img src={divider} className="rotate-[180deg] w-[135px] mb-[-5px]" alt="" />
                         <Heading heading={<p className="text-[38px] max-md:text-[27px] fraunces text-[#56544E] font-semibold leading-[35px]">Collection Catalogs</p>} />
@@ -578,7 +579,7 @@ export default function Dev() {
 
                         </Swiper>
                     </div>
-                </div>
+                </div> */}
                 {/* 
                 <div className="mt-[50px] block max-md:hidden">
                     <Heading heading={<p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">A jewellery to fit your timeline</p>} subHeading={<p className="font-fraunces ">Tanishq at every stage!</p>} />
@@ -725,25 +726,29 @@ export default function Dev() {
                         </div>
                     </div>
                 </div> */}
+            </div>
+            <div className="my-[65px] md:block hidden  relative">
+                <img src={weddingHighlight} className="w-full h-auto" alt="" />
+                <div className="absolute top-0 left-0 w-full h-full flex  items-center justify-around px-10">
+                    <div className="">
+                        <p className="text-[38px] max-md:text-[30px] fraunces text-[#631517] font-normal">Collection Catalog</p>
 
-                <div className="my-[65px] md:block hidden  relative">
-                    <img src={weddingHighlight} className="w-full h-auto" alt="" />
-                    <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
-                        <p className="text-[38px] max-md:text-[30px] fraunces text-black font-normal">Introducing Bride’s Dream list!</p>
+                        <p className="fraunces text-2xl text-[#00000070]">Create your own jewellery board,<br /> share with family and friends!</p>
 
-                        <p className="fraunces text-2xl text-[#00000070]">Create your own jewellery board, share with family and friends!</p>
-                        <button
-                            className="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
-
-                        >
-                            <span className="pr-1 text-[9px] md:text-lg font-[500]">Make Yours Now</span>
-                            <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
-                        </button>
                     </div>
 
+                    <button
+                        className="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
+
+                    >
+                        <span className="pr-1 text-[9px] md:text-lg font-[500]">Make Yours Now</span>
+                        <i className="bi bi-chevron-right ic-btn p-2 rounded-circle"></i>
+                    </button>
                 </div>
 
             </div>
+
+
 
             {/* <div className="relative md:block hidden ">
                 <img src={fullBg} className="w-full absolute top-0 z-0 rounded-md  object-cover h-[400px]" alt="" />
@@ -783,7 +788,7 @@ export default function Dev() {
                 </div>
             </div> */}
             <div className="max-w-[1200px] mt-10 mx-auto px-4">
-                <div className="flex my-4 justify-between md:justify-center items-center">
+                {/* <div className="flex my-4 justify-between md:justify-center items-center">
                     <div>
                         <p className="text-[38px] max-md:text-[30px]  md:text-center fraunces text-black font-normal ">Rivaah South Ex</p>
                         <div className="md:hidden flex items-center text-[#FF9A00] gap-x-2">
@@ -791,7 +796,7 @@ export default function Dev() {
                         </div>
                     </div>
                     <img src={storeDump} className="w-14  md:hidden" alt="" />
-                </div>
+                </div> */}
 
                 <div className="store-details hidden md:grid grid-cols-3 gap-x-20">
                     <div className="box  shadow-lg h-full  border-2 border-[#FFF2E0] rounded-3xl py-6 px-6">
