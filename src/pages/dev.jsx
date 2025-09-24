@@ -7,7 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 import coupon from "../assets/images/rivaahcollection/coupon.png";
-import mobileBanner from '../assets/images/rivaahcollection/mainBannerMweb.png'
+import mobileBanner from '../assets/images/rivaahcollection/mainBannerMweb.webp'
+import storeicon from '../assets/images/rivaahcollection/storeicon.svg'
+import callicon from '../assets/images/rivaahcollection/callicon.svg'
+import timeicon from '../assets/images/rivaahcollection/timeicon.svg'
+import storelocicon from '../assets/images/rivaahcollection/storelocicon.svg'
+import locationicon from '../assets/images/rivaahcollection/locationicon.svg'
 import Banner from '../assets/images/rivaahcollection/mainBannerweb.png'
 import InfoSection from "../component/Rivaahcollection/infosection";
 import MeetStylistform from "../component/Rivaahcollection/meetStylist";
@@ -369,7 +374,7 @@ export default function Dev() {
 
                 <div className="box     rounded-3xl pb-6">
                     <div className="mx-auto py-5 mb-10">
-                        <p className="text-[#56544E] text-center text-2xl md:text-[36px] mb-2  font-semibold fraunces ">Shop from Rivaah South Ex Store</p>
+                        <p className="text-[#56544E] mt-0 md:mt-5 text-center text-2xl md:text-[36px] mb-2  font-medium fraunces ">Shop from Rivaah South Ex Store</p>
                         <p className="text-[#56544E] text-center text-base flex justify-center items-center font-base  ">
                             <svg width="14" height="13" className="mr-2" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.6787 0.533895C6.82444 0.291713 7.17556 0.291713 7.3213 0.533895L9.2222 3.69253C9.27456 3.77954 9.35997 3.84159 9.45889 3.8645L13.0503 4.69629C13.3257 4.76006 13.4342 5.09399 13.2489 5.30744L10.8323 8.09137C10.7657 8.16806 10.7331 8.26846 10.7419 8.36962L11.0606 12.0423C11.0851 12.3239 10.801 12.5303 10.5407 12.42L7.14628 10.982C7.05278 10.9424 6.94722 10.9424 6.85372 10.982L3.45926 12.42C3.199 12.5303 2.91494 12.3239 2.93938 12.0423L3.25812 8.36962C3.2669 8.26846 3.23428 8.16806 3.16771 8.09137L0.751081 5.30744C0.56579 5.09399 0.674289 4.76006 0.949657 4.69629L4.54111 3.8645C4.64004 3.84159 4.72544 3.77954 4.7778 3.69253L6.6787 0.533895Z" fill="#85591C" />
@@ -422,19 +427,27 @@ export default function Dev() {
                         </div>
                     </div>
                     <div className="md:hidden">
-                        <div className="flex w-full items-center px-4 gold-ribbon rounded-md ">
-                            <span className="text-xl font-semibold text-[#56544E] fraunces"> <StoreIcon /></span>
-                            <div className="flex w-full py-4 ml-4 items-center justify-between">
+                        <div className="flex w-full items-center px-5 gold-ribbon rounded-[12px] ">
+                            <span className="text-xl font-semibold text-[#56544E] fraunces"> <img src={storeicon} className="w-[20px]" alt="Store Icon" /></span>
+                            <div className="flex w-full py-3 ml-4 items-center justify-between">
                                 <p className="text-[#56544E] text-2xl font-semibold fraunces "> Store Details</p>
-                                <p className="bg-[#954648] text-white rounded-full p-3 text-[10px] w-12 flex justify-center  items-center h-12  font-bold"><NavigationIcon /></p>
+                                
+                                    <img src={storelocicon} alt="" />
+                                
                             </div>
                         </div>
 
                         <div className="px-5">
 
-                            <p className="text-[#56544E] mt-5 text-lg font-normal ibm-plex">F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
-                            <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><PhoneIcon />011 4034 9241</p>
-                            {/* <p className="text-[#56544E] mt-5 text-lg flex gap-x-3 font-semibold ibm-plex"><ClockIcon /> 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-sm translate-y-[-10%] text-green-800 font-bold px-2 py-2">Open now</p></p> */}
+                            <p className="text-[#56544E] mt-5 text-lg font-normal gap-4 ibm-plex flex items-start">
+                                <img src={locationicon} className="min-w-[18px] pt-1 inline-block " alt="Location Icon" />
+                                F-44 ,South Ex Part -1, Near Metro station Gate no -1,	New Delhi 	110049</p>
+                            <p className="text-[#56544E] mt-3 text-lg flex gap-4 font-normal ibm-plex">
+                                <img src={callicon} className="min-w-[18px] inline-block " alt="Call Icon" />
+                                011 4034 9241</p>
+                            <p className="text-[#56544E] mt-3 text-lg flex gap-[12px] font-normal ibm-plex items-center">
+                                <img src={timeicon} className="min-w-[20px] inline-block " alt="time icon" />
+                                 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-[14px]  text-green-800 font-bold px-[11px] py-[2px]">Open now</p></p>
                         </div>
                     </div>
 
@@ -448,12 +461,12 @@ export default function Dev() {
                     </div>
                     <BridalSlider />
                 </div> */}
-                <div className="md:hidden block">
+                <div className="md:hidden block mt-5">
 
                     <div className="max-md:flex hidden flex-col items-center justify-center ">
-                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-15px]" alt="" />
-                        <Heading heading={<p className="text-[38px] max-md:text-[25px] fraunces text-black font-normal">What Makes Rivaah Unique For  You</p>} />
-                        <img src={divider} className="w-[135px] mt-[-15px]" alt="" />
+                        <img src={divider} className="rotate-[180deg] w-[135px] mb-[-10px]" alt="" />
+                        <Heading heading={<p className="text-[38px] max-md:text-[25px] max-md:max-w-[250px] max-md:leading-[32px] fraunces text-[#56544E] font-normal">What Makes Rivaah Unique For  You</p>} />
+                        <img src={divider} className="w-[135px] mt-[-5px]" alt="" />
 
                     </div>
                     <div className="grid grid-cols-2 gap-8 max-sm:gap-4 max-sm:gap-4 mt-20 max-md:mt-7 px-[60px] max-md:px-0">
