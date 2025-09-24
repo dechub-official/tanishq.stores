@@ -431,9 +431,9 @@ export default function Dev() {
                             <span className="text-xl font-semibold text-[#56544E] fraunces"> <img src={storeicon} className="w-[20px]" alt="Store Icon" /></span>
                             <div className="flex w-full py-3 ml-4 items-center justify-between">
                                 <p className="text-[#56544E] text-2xl font-semibold fraunces "> Store Details</p>
-                                
-                                    <img src={storelocicon} alt="" />
-                                
+
+                                <img src={storelocicon} alt="" />
+
                             </div>
                         </div>
 
@@ -447,7 +447,9 @@ export default function Dev() {
                                 011 4034 9241</p>
                             <p className="text-[#56544E] mt-3 text-lg flex gap-[12px] font-normal ibm-plex items-center">
                                 <img src={timeicon} className="min-w-[20px] inline-block " alt="time icon" />
-                                 10:30 AM - 08:00 PM     <p className="rounded-full bg-green-200  whitespace-nowrap text-[14px]  text-green-800 font-bold px-[11px] py-[2px]">Open now</p></p>
+                                10:30 AM - 08:00 PM
+                                {/* <p className="rounded-full bg-green-200  whitespace-nowrap text-[14px]  text-green-800 font-bold px-[11px] py-[2px]">Open now</p> */}
+                            </p>
                         </div>
                     </div>
 
@@ -813,7 +815,7 @@ export default function Dev() {
                     <div className="">
                         <p className="text-[38px] max-md:text-[30px] fraunces text-[#631517] font-normal">Collection Catalog</p>
 
-                        <p className="fraunces text-2xl text-[#00000070]">Create your own jewellery board,<br /> share with family and friends!</p>
+                        <p className="fraunces text-2xl text-[#00000070]">Explore Rivaah catalog featuring timeless jewelry <br /> designs for every occasion and personal style.</p>
 
                     </div>
 
