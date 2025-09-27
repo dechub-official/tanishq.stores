@@ -21,7 +21,7 @@ export default function Banner({ name, cardRef }) {
                 {/* <img src={DiwaliBannerImg} className="md:!block hidden" alt="" /> */}
                 <img src={MobileBanner} className="md:hidden block" alt="" />
                 {/* <img src={DiwaliMobileBanner} className="md:hidden block" alt="" /> */}
-                <div className="md:w-[50%] top-[30%] md:top-[60%] md:left-[-4%] md:transform-none w-full  absolute flex flex-col items-center justify-center">
+                <div className="md:w-[50%] top-[30%] md:top-[60%] md:left-[-5%] md:transform-none w-full  absolute flex flex-col items-center justify-center">
 
                     <p className=" text-[18px]   text-black  italic  font-serif  text-center font-[400] max-w-[250px]">Welcome to {name}</p>
                     {/* <div className='my-3 text-black md:hidden block min-w-[250px] border-t-[0.5px] border-black  bg-black'></div> */}
