@@ -819,7 +819,7 @@ export default function Dev() {
 
                     </div>
 
-                    <Link to="https://www.tanishq.co.in/thejoyofdressing?lang=en_IN#"
+                    <Link to="/rivaah-catalog"
                         className="btn border-0 mt-10 gap-1 rounded-pill flex justify-center items-center px-6 py-8"
 
                     >
