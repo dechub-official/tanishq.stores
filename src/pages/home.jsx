@@ -6,7 +6,7 @@ import PopularCity from "../component/Home/popularCityBox";
 import PopularCityDetail from "../assets/popularCities/data";
 import Marquee from "../component/Home/marquee";
 import LatestCollection from "../component/Home/latestCollection";
-import cl3 from "../assets/images/latestCollection/elva.gif";
+import cl3 from "../assets/images/latestCollection/lordbloom.png";
 import cl1 from "../assets/images/latestCollection/kundanstories.png";
 import cl2 from "../assets/images/latestCollection/image3.png";
 
@@ -164,10 +164,10 @@ export default function Home() {
           >
 
             {[
-              { img: cl3, link: "https://www.tanishq.co.in/shop/elan?lang=en_IN" },
-              { img: cl1, link: "https://www.tanishq.co.in/gold" },
+              { img: cl3, link: "https://www.tanishq.co.in/shop/floral-bloom?lang=en_IN" },
+              { img: cl1, link: "https://www.tanishq.co.in/mriganka?lang=en_IN" },
               { img: cl2, link: "https://www.tanishq.co.in/exchange" },
-              { img: cl1, link: "https://www.tanishq.co.in/gold" },
+              { img: cl1, link: "https://www.tanishq.co.in/mriganka?lang=en_IN" },
             ].map((data, i) => {
               if (i == 3 && window.screen.width > 767) return;
               return (
