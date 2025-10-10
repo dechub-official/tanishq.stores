@@ -37,7 +37,7 @@ function App() {
 
   return (
     <>
-      {/* <FestivalCountdown events={events} /> */}
+      <FestivalCountdown events={events} />
       <QueryClientProvider client={queryClient}>
         <BrowserRouter basename='/'>
           <NavBar />
