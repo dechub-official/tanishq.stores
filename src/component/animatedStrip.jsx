@@ -15,16 +15,16 @@ const FestiveBanner = ({ messages = [], offerLink, onClose }) => {
         if (onClose) onClose();
     };
 
-    const handleBannerClick = () => {
-        if (offerLink) document.location = offerLink;
-    };
+    // const handleBannerClick = () => {
+    //     if (offerLink) document.location = offerLink;
+    // };
 
     if (!isVisible || !messages || messages.length === 0) {
         return null;
     }
 
     return (
-        <div className="plp-banner-section fixed " onClick={handleBannerClick}>
+        <div className="plp-banner-section fixed ">
             {/* <button className="banner-close-btn" onClick={handleClose}>
                 <img src="https://staticimg.tanishq.co.in/plp-topbar/sos/close.svg" alt="Close" />
             </button> */}
