@@ -102,7 +102,7 @@ function App() {
 
       <QueryClientProvider client={queryClient}>
         <BrowserRouter basename='/'>
-          <Link href="https://www.tanishq.co.in/shop/diwali-jewellery?lang=en_IN" > <FestiveBanner messages={bannerMessages} /></Link>
+          <Link to="https://www.tanishq.co.in/shop/diwali-jewellery?lang=en_IN" > <FestiveBanner messages={bannerMessages} /></Link>
           <NavBar />
           <Routing />
           <Footer />
