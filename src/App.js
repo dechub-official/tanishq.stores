@@ -16,43 +16,43 @@ function App() {
       name: "Shubh Muhurat",
       start: new Date(2025, 9, 18, 7, 30, 0),   // Oct 18, 2025 - 07:30 AM
       end: new Date(2025, 9, 18, 13, 29, 59),   // Oct 18, 2025 - 01:29 PM
-      messages: ["Shubh Muhurat has started!"],
+      messages: ["Shubh Muhurat has started"],
     },
     {
       name: "Laabh Muhurat (Afternoon)",
       start: new Date(2025, 9, 18, 13, 30, 0),  // 01:30 PM
       end: new Date(2025, 9, 18, 14, 59, 59),   // 02:59 PM
-      messages: ["Laabh Muhurat has started!"],
+      messages: ["Laabh Muhurat has started"],
     },
     {
       name: "Amrut Muhurat (Evening)",
       start: new Date(2025, 9, 18, 15, 0, 0),   // 03:00 PM
       end: new Date(2025, 9, 18, 17, 59, 59),   // 05:59 PM
-      messages: ["Amrut Muhurat has begun!"],
+      messages: ["Amrut Muhurat has begun"],
     },
     {
       name: "Laabh Muhurat (Evening)",
       start: new Date(2025, 9, 18, 18, 0, 0),   // 06:00 PM
       end: new Date(2025, 9, 18, 20, 59, 59),   // 08:59 PM
-      messages: ["Laabh Muhurat has started!"],
+      messages: ["Laabh Muhurat has started"],
     },
     {
       name: "Shubh Muhurat (Night)",
       start: new Date(2025, 9, 18, 21, 0, 0),   // 09:00 PM
       end: new Date(2025, 9, 18, 22, 29, 59),   // 10:29 PM
-      messages: ["Shubh Muhurat has started!"],
+      messages: ["Shubh Muhurat has started"],
     },
     {
       name: "Amrut Muhurat (Late Night)",
       start: new Date(2025, 9, 18, 22, 30, 0),  // 10:30 PM
       end: new Date(2025, 9, 19, 0, 0, 0),      // 12:00 AM (midnight)
-      messages: ["Amrut Muhurat has begun!"],
+      messages: ["Amrut Muhurat has begun"],
     },
     {
       name: "Festive Offer",
       start: new Date(2025, 9, 17, 0, 1, 0),    // Oct 19, 2025 - 12:01 AM
       end: new Date(2025, 9, 18, 7, 29, 59),   // Oct 19, 2025 - 11:59 PM
-      messages: ["Festive offer is Live!"],
+      messages: ["Festive offer is Live"],
     },
   ]
     , []);
