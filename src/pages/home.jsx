@@ -96,7 +96,7 @@ export default function Home() {
           <Heading
             heading={"Welcome to Tanishq!"}
             subHeading={
-              "Shop from a wide range of exquisite designs for all occasions. All backed by the Trust of TATA"
+              "Celebrate this Diwali with exquisite jewellery crafted for every occasion"
             }
           />
         </div>
