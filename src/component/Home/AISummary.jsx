@@ -175,7 +175,7 @@ export default function AISummary({ cardRef }) {
 
               </div>
               <span className="text-[#56544ebf]">
-                <span className="text-[#56544e5a]">|</span>  {text}
+                <span className="text-[#56544e5a]">|</span>  1L + people found this helpful
               </span>
             </div>
           </p>

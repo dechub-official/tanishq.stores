@@ -1,0 +1,111 @@
+.diya-img {
+    width: 25px;
+}
+
+.plp-banner-section {
+
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    background-image: url(https://staticimg.tanishq.co.in/plp-topbar/dt-24/dt-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.plp-banner-section .banner-close-btn {
+    position: absolute;
+    z-index: 6;
+    align-items: center;
+    display: flex;
+    right: 10px;
+    height: 100%;
+    top: 0;
+    background: none;
+    border: none;
+    padding: 0 10px;
+}
+
+.countdown-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: 400;
+    color: #ffffff;
+    transition: all 0.5s ease-in-out;
+}
+
+.countdown-text {
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    font-family: "Fraunces", serif;
+    margin: 0;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.cracker-img-left {
+    position: absolute;
+    right: 0;
+    top: -45%;
+    width: 280px;
+}
+
+.cracker-img-right {
+    position: absolute;
+    left: 0;
+    top: -45%;
+    width: 280px;
+}
+
+.vertical-swiper {
+    height: 24px;
+    overflow: hidden;
+}
+
+.vertical-swiper .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width:768px) {
+    .diya-img {
+        width: 35px;
+    }
+
+    .plp-banner-section {
+        height: 35px;
+    }
+
+    .countdown-container {
+        gap: 10px;
+    }
+
+    .countdown-text {
+        font-size: 12px;
+    }
+
+    .cracker-img-left {
+        left: -20px;
+    }
+
+    .cracker-img-right {
+        right: -20px;
+    }
+}

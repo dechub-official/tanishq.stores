@@ -19,7 +19,7 @@ import { gtmEventHandler } from '../utils/gtmDataLayer'
 export default function NavBar() {
 
   const loc = useLocation()
- 
+
   const [qrExpand, setQrExpand] = useState(false)
   if (loc.pathname == "/app-moduleeb61394" || localStorage.getItem("nav-hide")) {
     localStorage.setItem("nav-hide", true)
@@ -38,8 +38,10 @@ export default function NavBar() {
     }
   }
   const VisitOutside = (url) => {
-    gtmEventHandler({'event':'header_click',
-      'headerLink':url})
+    gtmEventHandler({
+      'event': 'header_click',
+      'headerLink': url
+    })
     const newWindow = window.open(url, 'noopener,noreferrer');
     if (newWindow) newWindow.opener = null;
 
@@ -48,7 +50,7 @@ export default function NavBar() {
 
     {/* Sticky Header */}
     {/* font-fraunces sticky */}
-    <div className="af-bl font-fraunces bg-white sticky shadow-sm top-[-2px] max-w-[100%] z-[500] " >
+    <div className="af-bl font-fraunces mt-8 bg-white sticky shadow-sm top-[18px] max-w-[100%] z-[500] " >
       {/* <SubHome/> */}
 
       {/* bg-[#F2E9E9] */}
@@ -83,7 +85,7 @@ export default function NavBar() {
 
 
           </div>
-          <div className=" cursor-pointer "  onClick={()=>{VisitOutside("https://tanishq.co.in/#home")}}>
+          <div className=" cursor-pointer " onClick={() => { VisitOutside("https://tanishq.co.in/#home") }}>
             <LogoIcon width={60} height={60} />
             {/* <img src={logo} className=' w-[80px]' alt="" onClick={() => VisitOutside("https://www.tanishq.co.in/")} /> */}
           </div>
