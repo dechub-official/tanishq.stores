@@ -3,7 +3,7 @@ import './App.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import NavBar from './component/navbar';
 import Footer from './component/footer';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import Routing from './Routing';
 import FestiveBanner from './component/animatedStrip';
 
@@ -98,10 +98,11 @@ function App() {
 
   return (
     <>
-      <Link href="https://www.tanishq.co.in/shop/diwali-jewellery?lang=en_IN" > <FestiveBanner messages={bannerMessages} /></Link>
+
 
       <QueryClientProvider client={queryClient}>
         <BrowserRouter basename='/'>
+          <Link href="https://www.tanishq.co.in/shop/diwali-jewellery?lang=en_IN" > <FestiveBanner messages={bannerMessages} /></Link>
           <NavBar />
           <Routing />
           <Footer />
