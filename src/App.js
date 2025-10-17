@@ -98,7 +98,7 @@ function App() {
 
   return (
     <>
-      <FestiveBanner messages={bannerMessages} />
+      <Link href="https://www.tanishq.co.in/shop/diwali-jewellery?lang=en_IN" > <FestiveBanner messages={bannerMessages} /></Link>
 
       <QueryClientProvider client={queryClient}>
         <BrowserRouter basename='/'>
