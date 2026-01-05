@@ -95,9 +95,6 @@ export default function Home() {
         <div className="flex flex-col items-center">
           <Heading
             heading={"Welcome to Tanishq!"}
-            subHeading={
-              "Celebrate this Diwali with exquisite jewellery crafted for every occasion"
-            }
           />
         </div>
       </div>

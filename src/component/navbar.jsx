@@ -50,11 +50,11 @@ export default function NavBar() {
 
     {/* Sticky Header */}
     {/* font-fraunces sticky */}
-    <div className="af-bl font-fraunces mt-8 bg-white sticky shadow-sm top-[18px] max-w-[100%] z-[500] " >
+    <div className="af-bl font-fraunces mt-0 bg-white sticky shadow-sm top-0 max-w-[100%] z-[500] " >
       {/* <SubHome/> */}
 
       {/* bg-[#F2E9E9] */}
-      <div className="w-full flex justify-between md:px-20 px-2  py-5 ">
+      <div className="w-full flex justify-between md:px-20 px-2  md:py-5 py-3 ">
 
         <div className="w-[40%] max-w-[8rem] justify-between   items-center flex">
           <div className="lg:hidden block">
