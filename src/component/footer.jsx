@@ -189,7 +189,7 @@ export default function Footer() {
                                     </p>
                                 </div>
                                 <div className="bank flex gap-x-10 items-center  justify-between ">
-                                    <p className='text-white cursor-pointer whitespace-nowrap font-lignpht text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/terms-and-conditions.html?lang=en_IN")}>Terms & Conditions</p>
+                                    <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/terms-and-conditions.html?lang=en_IN")}>Terms & Conditions</p>
                                     <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/privacy-policy.html?lang=en_IN")}> Privacy Policy </p>
 
                                     <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/disclaimer.html?lang=en_IN")}> Disclaimer </p>
