@@ -185,11 +185,11 @@ export default function Footer() {
                             <div className=' flex justify-center flex-wrap py-3 w-fit md:gap-x-10 gap-y-5 items-center'>
 
                                 <div>
-                                    <p className='md:text-[14px] text-[11px] whitespace-nowrap text-left text-white font-[500]'>© 2025 Titan Company Limited. All Rights Reserved.
+                                    <p className='md:text-[14px] text-[11px] whitespace-nowrap text-left text-white font-[500]'>© 2026 Titan Company Limited. All Rights Reserved.
                                     </p>
                                 </div>
                                 <div className="bank flex gap-x-10 items-center  justify-between ">
-                                    <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/terms-and-conditions.html?lang=en_IN")}>Terms & Conditions</p>
+                                    <p className='text-white cursor-pointer whitespace-nowrap font-lignpht text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/terms-and-conditions.html?lang=en_IN")}>Terms & Conditions</p>
                                     <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/privacy-policy.html?lang=en_IN")}> Privacy Policy </p>
 
                                     <p className='text-white cursor-pointer whitespace-nowrap font-light text-[13px] md:text-[14px]' onClick={() => VisitOutside("https://www.tanishq.co.in/disclaimer.html?lang=en_IN")}> Disclaimer </p>
