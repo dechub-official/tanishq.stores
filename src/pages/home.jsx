@@ -1,14 +1,17 @@
 import Heading from "../component/heading";
 import SearchBox from "../component/search";
 import Prebook from "../component/Prebook";
+import { Link } from "react-router-dom";
 
 import PopularCity from "../component/Home/popularCityBox";
 import PopularCityDetail from "../assets/popularCities/data";
 import Marquee from "../component/Home/marquee";
 import LatestCollection from "../component/Home/latestCollection";
-import cl3 from "../assets/images/latestCollection/lordbloom.png";
-import cl1 from "../assets/images/latestCollection/kundanstories.png";
-import cl2 from "../assets/images/latestCollection/image3.png";
+// import cl3 from "../assets/images/latestCollection/lordbloom.png";
+// import cl1 from "../assets/images/latestCollection/kundanstories.png";
+// import cl2 from "../assets/images/latestCollection/image3.png";
+import hbanner from "../assets/images/Banner/home-banner.jpg";
+import hbannerm from "../assets/images/Banner/home-banner-mobile.png";
 
 import SuggestArtical from "../component/Home/suggestedArticles";
 import { Helmet } from "react-helmet";
@@ -137,51 +140,15 @@ export default function Home() {
       </div>
       {/* <Marquee /> */}
       {/* <Prebook /> */}
-      <div className=" af-bl mt-4 w-full flex flex-col items-center">
+      <div className=" af-bl mt-4 max-md:mt-7 w-full flex flex-col items-center">
         <Heading heading="Explore our latest collections online even before you walk in!" />
 
 
-        <div className="flex flex-col items-center  justify-around w-[80%] my-6">
-          <Swiper
-            slidesPerView={2}
-            spaceBetween={30}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-              infinite: true,
-            }}
-            loop={true}
-            loopFillGroupWithBlank={true}
-            modules={[Autoplay]}
-            breakpoints={{
-              768: { slidesPerView: 3, autoplay: true },
-              0: { slidesPerView: 2, slidesPerGroup: 1 },
-            }}
-            className="mySwiper"
-          >
-
-            {[
-              { img: cl3, link: "https://www.tanishq.co.in/shop/floral-bloom?lang=en_IN" },
-              { img: cl1, link: "https://www.tanishq.co.in/mriganka?lang=en_IN" },
-              { img: cl2, link: "https://www.tanishq.co.in/exchange" },
-              { img: cl1, link: "https://www.tanishq.co.in/mriganka?lang=en_IN" },
-            ].map((data, i) => {
-              if (i == 3 && window.screen.width > 767) return;
-              return (
-                <SwiperSlide>
-                  {" "}
-                  <LatestCollection
-                    key={i}
-                    img={data.img}
-                    link={data.link}
-                    name={data.name}
-                  />{" "}
-                </SwiperSlide>
-              );
-            })}
-
-
-          </Swiper>
+        <div className="flex flex-col items-center  justify-around w-[80%] max-md:w-full max-md:p-[15px] my-6 max-md:mt-[0] max-md:mb-6">
+          <Link to="https://www.tanishq.co.in/shop/diamond?lang=en_IN" target="_blank">
+          <img src={hbanner} alt="latest collection banner" className="max-md:hidden w-full h-auto rounded-[25px] max-md:rounded-[10px] shadow-lg"/>
+          <img src={hbannerm} alt="latest collection banner" className="md:hidden w-full h-auto rounded-[10px] shadow-lg"/>
+          </Link>
         </div>
 
         <Assurance />
