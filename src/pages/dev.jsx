@@ -3,6 +3,7 @@ import Heading from "../component/heading";
 import { useGSAP } from '@gsap/react';
 import gsap from "gsap";
 import axios from "axios";
+import { apiClient } from "../api/client";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -98,11 +99,24 @@ export default function Dev() {
         setWaitlistError("")
         
         try {
-            const response = await axios.post('http://localhost:8080/stores/tanishq/waitingListSubmit', {
-                name: waitlistName,
-                contact: waitlistContact,
-                email: waitlistEmail
-            })
+            // Allow testing with form-encoded body if REACT_APP_WAITLIST_USE_FORM=true
+            const useForm = process.env.REACT_APP_WAITLIST_USE_FORM === 'true';
+            let response;
+            if (useForm) {
+                const params = new URLSearchParams();
+                params.append('name', waitlistName);
+                params.append('contact', waitlistContact);
+                params.append('email', waitlistEmail);
+                response = await apiClient.post('/waitingListSubmit', params.toString(), {
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                });
+            } else {
+                response = await apiClient.post('/waitingListSubmit', {
+                    name: waitlistName,
+                    contact: waitlistContact,
+                    email: waitlistEmail,
+                });
+            }
             
             if (response.data.status === "success") {
                 // Reset form and hide it on success
@@ -116,7 +130,9 @@ export default function Dev() {
             }
         } catch (error) {
             console.error('Failed to submit waiting list:', error)
-            setWaitlistError("Something went wrong. Please try again.")
+            // Prefer backend-provided message when available
+            const backendMsg = error?.response?.data?.message || error?.response?.data?.error || error?.message;
+            setWaitlistError(backendMsg || "Something went wrong. Please try again.")
         } finally {
             setWaitlistLoading(false)
         }

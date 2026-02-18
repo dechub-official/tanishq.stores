@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-const baseURL = 'https://stores.tanishq.co.in/stores/tanishq';
-// const baseURL = 'https://localhost:8129/stores/tanishq';   //local
-// const baseURL='https://a81d-103-168-164-118.ngrok-free.app/stores/tanishq'
-// const baseURL = 'https://uat-stores.tanishq.co.in/stores/tanishq'; //vpn
+// Allow overriding the API base URL through an environment variable for local/dev testing.
+// Example .env.development: REACT_APP_API_BASE_URL=http://localhost:8080/stores/tanishq
+const defaultBase = 'https://stores.tanishq.co.in/stores/tanishq';
+const baseURL = process.env.REACT_APP_API_BASE_URL || defaultBase;
 
 export const apiClient = axios.create({
   baseURL,
   headers: {
-    'Accept': 'application/json',
+    Accept: 'application/json',
   },
 });
 
@@ -16,7 +16,6 @@ export const apiClient = axios.create({
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    // Handle errors here
     return Promise.reject(error);
   }
-); 
+);
