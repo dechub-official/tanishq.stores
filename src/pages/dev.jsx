@@ -92,6 +92,7 @@ export default function Dev() {
     const [waitlistEmail, setWaitlistEmail] = useState("")
     const [waitlistLoading, setWaitlistLoading] = useState(false)
     const [waitlistError, setWaitlistError] = useState("")
+    const { mutateAsync: submitWaitlist } = useWaitlistSubmit();
 
     // Submit waiting list form
     const handleWaitlistSubmit = async () => {
@@ -103,25 +104,17 @@ export default function Dev() {
         setWaitlistLoading(true)
         setWaitlistError("")
 
-try {
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 800));
+        try {
+            const payload = { name: waitlistName, contact: waitlistContact, email: waitlistEmail };
+            const response = await submitWaitlist(payload);
 
-    // Fake success response
-    const response = { data: { status: "success" } };
-
-    if (response.data.status === "success") {
-        setWaitlistName("");
-        setWaitlistContact("");
-        setWaitlistEmail("");
-        handleBookNowClick(window.innerWidth < 768);
-    } else {
-        setWaitlistError("Submission failed");
-    }
-}
- catch (error) {
+            // Treat no-error response as success. Adjust according to your backend shape.
+            setWaitlistName("");
+            setWaitlistContact("");
+            setWaitlistEmail("");
+            handleBookNowClick(window.innerWidth < 768);
+        } catch (error) {
             console.error('Failed to submit waiting list:', error)
-            // Prefer backend-provided message when available
             const backendMsg = error?.response?.data?.message || error?.response?.data?.error || error?.message;
             setWaitlistError(backendMsg || "Something went wrong. Please try again.")
         } finally {

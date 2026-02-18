@@ -12,6 +12,7 @@ import {
    bridalbookingstep2,
    privateVisitstep1,
    privateVisitstep2,
+  waitingListSubmit,
   increaseLikeCount,
   getSoulmateStores,
   getCelesteStores,
@@ -106,6 +107,17 @@ export const usePrivateVisitstep2 = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: privateVisitstep2,
+  });
+};
+
+// hook for waiting list submission
+export const useWaitlistSubmit = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: waitingListSubmit,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['waitlist'] });
+    },
   });
 };
 

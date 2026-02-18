@@ -72,6 +72,12 @@ export const privateVisitstep2 = async (appointmentData) => {
   return response.data;
 };
 
+// waiting list form submission
+export const waitingListSubmit = async (payload) => {
+  const response = await apiClient.post('/waitingListSubmit', payload);
+  return response.data;
+};
+
 // Get reviews
 export const getReviews = async () => {
   const response = await apiClient.get('/reviews');
