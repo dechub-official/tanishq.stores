@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 import Heading from "../component/heading";
 import { useGSAP } from '@gsap/react';
 import gsap from "gsap";
+import axios from "axios";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -78,6 +79,48 @@ export default function Dev() {
 
     const [isPlaying, setIsPlaying] = useState(false)
     const [showWaitlistForm, setShowWaitlistForm] = useState(false)
+
+    // Waiting list form state
+    const [waitlistName, setWaitlistName] = useState("")
+    const [waitlistContact, setWaitlistContact] = useState("")
+    const [waitlistEmail, setWaitlistEmail] = useState("")
+    const [waitlistLoading, setWaitlistLoading] = useState(false)
+    const [waitlistError, setWaitlistError] = useState("")
+
+    // Submit waiting list form
+    const handleWaitlistSubmit = async () => {
+        if (!waitlistName || !waitlistContact || !waitlistEmail) {
+            setWaitlistError("Please fill in all fields")
+            return
+        }
+        
+        setWaitlistLoading(true)
+        setWaitlistError("")
+        
+        try {
+            const response = await axios.post('http://localhost:8080/stores/tanishq/waitingListSubmit', {
+                name: waitlistName,
+                contact: waitlistContact,
+                email: waitlistEmail
+            })
+            
+            if (response.data.status === "success") {
+                // Reset form and hide it on success
+                setWaitlistName("")
+                setWaitlistContact("")
+                setWaitlistEmail("")
+                setShowWaitlistForm(false)
+                alert("Successfully joined the waiting list!")
+            } else {
+                setWaitlistError(response.data.message || "Submission failed")
+            }
+        } catch (error) {
+            console.error('Failed to submit waiting list:', error)
+            setWaitlistError("Something went wrong. Please try again.")
+        } finally {
+            setWaitlistLoading(false)
+        }
+    }
 
 
     const sampleStoreData = {
@@ -419,12 +462,15 @@ export default function Dev() {
                                             </button>
                                         ) : (
                                             <div className="space-y-3">
+                                                {waitlistError && <p className="text-red-500 text-[12px] text-center">{waitlistError}</p>}
                                                 <div className="space-y-1">
                                                     <label className="text-[12px] text-[#644117] font-[500] block" style={{marginBottom: '-12px', marginLeft: '5px'}}>My name is</label>
                                                     <input
                                                         type="text"
                                                         placeholder="Type Your Name" style={{ padding: '0 16px', height: '40px'}}
                                                         className="w-full bg-white text-[#644117] text-[13px] font-normal border border-[#D4BAAA] rounded-full py-2.5 px-4 placeholder-[#C8A89A] focus:outline-none focus:border-[#A76767]"
+                                                        value={waitlistName}
+                                                        onChange={(e) => setWaitlistName(e.target.value)}
                                                     />
                                                 </div>
                                                 <div className="space-y-1">
@@ -433,6 +479,8 @@ export default function Dev() {
                                                         type="tel"
                                                         placeholder="Share Your Phone Number" style={{border: '1px solid rgba(204, 173, 135, 0.7)',  padding: '0 8px', height: '40px' }}
                                                         className="w-full bg-white text-[#644117] text-[12px] font-normal border border-[#D4BAAA] rounded-full py-2.5 px-4 placeholder-[#C8A89A] focus:outline-none focus:border-[#A76767]"
+                                                        value={waitlistContact}
+                                                        onChange={(e) => setWaitlistContact(e.target.value)}
                                                     />
                                                 </div>
                                                 <div className="space-y-1">
@@ -441,13 +489,17 @@ export default function Dev() {
                                                         type="email"
                                                         placeholder="Share e-mail" style={{ padding: '0 16px', height: '40px'}}
                                                         className="w-full bg-white text-[#644117] text-[12px] font-normal border border-[#D4BAAA] rounded-full py-1 px-4 placeholder-[#C8A89A] focus:outline-none focus:border-[#A76767]"
+                                                        value={waitlistEmail}
+                                                        onChange={(e) => setWaitlistEmail(e.target.value)}
                                                     />
                                                 </div>
                                                 <button
                                                     type="button"
+                                                    onClick={handleWaitlistSubmit}
+                                                    disabled={waitlistLoading}
                                                     className="w-full btn border-0 rounded-full bg-gradient-to-r from-[#A85C63] to-[#8B4A50] text-white flex items-center justify-center gap-2 py-2.5 font-[500] text-[13px] mt-2" style={{marginBottom:'-40px'}}
                                                 >
-                                                    <span>Book Now</span>
+                                                    <span>{waitlistLoading ? 'Submitting...' : 'Book Now'}</span>
                                                     <i className="bi bi-chevron-right"></i>
                                                 </button>
                                             </div>
@@ -468,6 +520,7 @@ export default function Dev() {
                                     {showWaitlistForm ? (
                                         <div className="bg-[#FFF9F1] bg-opacity-90 rounded-[24px] px-10 py-8 shadow-[0_12px_24px_rgba(0,0,0,0.1)]" style={{padding: '85px', marginBottom: '25px', marginRight: '205px', background: 'transparent', boxShadow: 'none'}}>
                                             <div className="space-y-4">
+                                                {waitlistError && <p className="text-red-500 text-[14px] text-center">{waitlistError}</p>}
                                                 <div className="flex items-center gap-4">
                                                     <span className="text-[18px] text-[#644117] ibm-plex" style={{fontFamily: 'IBM Plex Sans', fontSize: '24px', fontWeight: '400', lineHeight: '300%', letterSpacing: '-2%'}}>My name is</span>
                                                     <div className="relative w-[270px]">
@@ -475,6 +528,8 @@ export default function Dev() {
                                                             type="text"
                                                             placeholder="Type Your Name" style={{fontSize: '19px'}}
                                                             className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal border border-[rgba(204,173,135,0.7)] rounded-full py-2 px-4 focus:outline-none"
+                                                            value={waitlistName}
+                                                            onChange={(e) => setWaitlistName(e.target.value)}
                                                         />
                                                     </div>
                                                 </div>
@@ -485,6 +540,8 @@ export default function Dev() {
                                                             type="tel"
                                                             placeholder="Share Your Phone Number" style={{fontSize: '19px', padding: '12px', border: '1px solid rgba(204, 173, 135, 0.7)' }}
                                                             className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal rounded-full py-2 px-4 focus:outline-none"
+                                                            value={waitlistContact}
+                                                            onChange={(e) => setWaitlistContact(e.target.value)}
                                                         />
                                                     </div>
                                                 </div>
@@ -495,15 +552,19 @@ export default function Dev() {
                                                             type="email"
                                                             placeholder="Share e-mail" style={{fontSize: '19px'}}
                                                             className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal border border-[rgba(204,173,135,0.7)] rounded-full py-2 px-4 focus:outline-none"
+                                                            value={waitlistEmail}
+                                                            onChange={(e) => setWaitlistEmail(e.target.value)}
                                                         />
                                                     </div>
                                                 </div>
                                                 <button
                                                     type="button"
+                                                    onClick={handleWaitlistSubmit}
+                                                    disabled={waitlistLoading}
                                                     style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }}
                                                     className="text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full btn !h-[53px] border-0 gap-1 md:flex rounded-pill justify-center items-center pl-7 pr-3"
                                                 >
-                                                    <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[200]" style={{fontSize: '17px'}}>Book Now</span>
+                                                    <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[200]" style={{fontSize: '17px'}}>{waitlistLoading ? 'Submitting...' : 'Book Now'}</span>
                                                     <i
                                                         className="bi bi-chevron-right p-1 rounded-circle bg-[#A76767] rounded-full w-10 h-10 flex items-center justify-center"
                                                         style={{ boxShadow: "inset -1px -1px 4px #A76767, inset 16px 16px 15.9px 4px rgba(99, 21, 23, 0.31)" }}
