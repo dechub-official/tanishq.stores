@@ -2,11 +2,13 @@ import { useRef, useState } from "react"
 import Heading from "../component/heading";
 import { useGSAP } from '@gsap/react';
 import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import axios from "axios";
 import { apiClient } from "../api/client";
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { Clock, ClockIcon, MapPin, NavigationIcon, Phone, PhoneIcon, StoreIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import coupon from "../assets/images/rivaahcollection/booked.png";
 import couponMweb from "../assets/images/rivaahcollection/booked_mweb.png";
@@ -17,63 +19,49 @@ import timeicon from '../assets/images/rivaahcollection/timeicon.svg'
 import storelocicon from '../assets/images/rivaahcollection/storelocicon.svg'
 import locationicon from '../assets/images/rivaahcollection/locationicon.svg'
 import Banner from '../assets/images/rivaahcollection/mainBannerweb.jpg'
-import InfoSection from "../component/Rivaahcollection/infosection";
-import MeetStylistform from "../component/Rivaahcollection/meetStylist";
-import PrivateVisitForm from "../component/Rivaahcollection/PrivateVisit"
-
 import desktopbanner from "../assets/images/rivaahcollection/DesktopBAnner.mp4";
-
 import divider from "../assets/images/rivaahcollection/divider.png";
-
-
-
 import dreamlist from "../assets/images/rivaahcollection/dreamList.png";
-
 import rivaah1 from "../assets/images/rivaahcollection/rivaah1.png";
 import rivaah2 from "../assets/images/rivaahcollection/rivaah2.png";
 import rivaah3 from "../assets/images/rivaahcollection/rivaah3.png";
-
 import styling from "../assets/images/rivaahcollection/styling.jpg";
 import viewingroom from "../assets/images/rivaahcollection/viewingroom.jpg";
 import customisation from "../assets/images/rivaahcollection/customisation.jpg";
 import dedicated from "../assets/images/rivaahcollection/dedicatedStylists.jpg";
-
-
 import bridalstylist from "../assets/images/rivaahcollection/bridalStylist.jpg";
-
 import weddingHighlight from "../assets/images/rivaahcollection/weddingHighlight.png";
 import MweddingHighlight from "../assets/images/rivaahcollection/MweddingHighlight.png";
-
-
 import mobPolkiCollection from "../assets/images/rivaahcollection/crafted/polki.png";
 import mobHeritageHuesCOllection from "../assets/images/rivaahcollection/crafted/heritage_hues.png";
 import mobEternalSparkle from "../assets/images/rivaahcollection/crafted/etrnal.png";
 import mobTheSouthernSplendour from "../assets/images/rivaahcollection/crafted/southern.png";
-
 import DPolkiCollection from "../assets/images/rivaahcollection/crafted/polkiD.png";
 import DHeritageHuesCOllection from "../assets/images/rivaahcollection/crafted/heritage_huesD.png";
 import DEternalSparkle from "../assets/images/rivaahcollection/crafted/etrnalD.png";
 import DTheSouthernSplendour from "../assets/images/rivaahcollection/crafted/southernD.png";
-
-import BookAnAppointment from "../component/bookAnAppointment";
-
-import { Clock, ClockIcon, MapPin, NavigationIcon, Phone, PhoneIcon, StoreIcon } from "lucide-react";
-
-import Quality from "../component/Rivaahcollection/Quality";
-
 import exchange from '../assets/images/rivaahcollection/tanishqExchange.png'
-
-
-import MakeAStylist from "../component/makeAStylist";
 import MeetTheStylist from "../assets/images/rivaahcollection/Meet_the_stylist.jpg"
 import MeetTheStylistMWeb from "../assets/images/rivaahcollection/Meet_the_stylist_mweb.jpg"
-import { Link } from "react-router-dom";
+
+import InfoSection from "../component/Rivaahcollection/infosection";
+import MeetStylistform from "../component/Rivaahcollection/meetStylist";
+import PrivateVisitForm from "../component/Rivaahcollection/PrivateVisit"
+import BookAnAppointment from "../component/bookAnAppointment";
+import Quality from "../component/Rivaahcollection/Quality";
+import MakeAStylist from "../component/makeAStylist";
+import { useWaitlistSubmit } from "../hooks/useStores";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 
 export default function Dev() {
 
     const videoRef = useRef(null)
     const meetStylistPanel = useRef(null)
+    const meetTheStylistMobileRef = useRef(null)
+    const meetTheStylistDesktopRef = useRef(null)
+    const masterclassSection = useRef(null)
     const privateVisitPnael = useRef(null)
     const [stylistPopup, setStylistPopup] = useState(false)
     const [privatePopup, setPrivatePopup] = useState(false)
@@ -262,6 +250,26 @@ export default function Dev() {
         setIsPlaying(false)
         videoRef.current.currentTime = 0 // optional: reset video to start
     }
+
+    const handleBannerClick = () => {
+        const isMobile = window.innerWidth < 768
+        const targetRef = isMobile ? meetTheStylistMobileRef : meetTheStylistDesktopRef
+        
+        if (targetRef.current) {
+            gsap.to(window, {
+                duration: 1.2,
+                scrollTo: {
+                    y: targetRef.current,
+                    offsetY: 100
+                },
+                ease: "power2.inOut",
+                onComplete: () => {
+                    setShowWaitlistForm(true)
+                }
+            })
+        }
+    }
+
     const cardData = [
         {
             frontImg: customisation,
@@ -371,7 +379,7 @@ export default function Dev() {
                 </button>
             </div>
             <div>
-                <div className="block max-md:hidden relative w-full ">
+                <div className="block max-md:hidden relative w-full cursor-pointer" onClick={handleBannerClick}>
                     <img src={Banner} alt="" />
                     {/* <video
                         ref={videoRef}
@@ -427,7 +435,7 @@ export default function Dev() {
                         )}
                     </button> */}
                 </div>
-                <div className="hidden max-md:block relative w-full ">
+                <div className="hidden max-md:block relative w-full cursor-pointer" onClick={handleBannerClick}>
                     <img src={mobileBanner} alt="" />
                 </div>
                 {/* <div className="hidden max-md:block relative w-full">
@@ -448,7 +456,7 @@ export default function Dev() {
                         <div className="block relative w-full mb-6 md:mb-[40px]">
 
                             {/* Mobile Version */}
-                            <div className="md:hidden relative w-full">
+                            <div ref={meetTheStylistMobileRef} className="md:hidden relative w-full">
                                 {!showCoupon && (
                                     <img
                                         src={MeetTheStylistMWeb}
@@ -563,7 +571,7 @@ export default function Dev() {
                             </div>
 
                             {/* Desktop Version */}
-                            <div className="hidden md:block relative w-full md:w-[140%] md:-ml-[240px]">
+                            <div ref={meetTheStylistDesktopRef} className="hidden md:block relative w-full md:w-[140%] md:-ml-[240px]">
                                 <img
                                     src={MeetTheStylist}
                                     alt="Meet the stylist"
@@ -627,7 +635,7 @@ export default function Dev() {
                                             </div>
                                         </div>
                                     ) : !showCoupon ? (
-                                        <div className="text-right" style={{ marginRight: '23pc', marginTop: '143px' }}>
+                                        <div ref={masterclassSection} className="text-right" style={{ marginRight: '23pc', marginTop: '143px' }}>
                                             <p className="fraunces" style={{ fontFamily: 'fraunces', fontSize: '40px', fontWeight: '400', lineHeight: '108%', letterSpacing: '-2%', color: '#767469' }}>
                                                 Bridal Stylist Masterclass
                                             </p>
