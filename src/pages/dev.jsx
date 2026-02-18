@@ -8,7 +8,8 @@ import { apiClient } from "../api/client";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import coupon from "../assets/images/rivaahcollection/coupon.png";
+import coupon from "../assets/images/rivaahcollection/booked.png";
+import couponMweb from "../assets/images/rivaahcollection/booked_mweb.png";
 import mobileBanner from '../assets/images/rivaahcollection/mainBannerMweb.webp'
 import storeicon from '../assets/images/rivaahcollection/storeicon.svg'
 import callicon from '../assets/images/rivaahcollection/callicon.svg'
@@ -80,6 +81,10 @@ export default function Dev() {
 
     const [isPlaying, setIsPlaying] = useState(false)
     const [showWaitlistForm, setShowWaitlistForm] = useState(false)
+    const [showCoupon, setShowCoupon] = useState(false)
+    const [isMobileCoupon, setIsMobileCoupon] = useState(false)
+    const mobileCouponRef = useRef(null)
+    const desktopCouponRef = useRef(null)
 
     // Waiting list form state
     const [waitlistName, setWaitlistName] = useState("")
@@ -343,6 +348,40 @@ export default function Dev() {
             })
         }
     }, [privatePopup])
+
+    useGSAP(function () {
+        if (showCoupon) {
+            const couponRef = isMobileCoupon ? mobileCouponRef : desktopCouponRef
+            if (couponRef.current) {
+                gsap.fromTo(couponRef.current,
+                    {
+                        rotationY: 0
+                    },
+                    {
+                        rotationY: 360,
+                        transformOrigin: "center center",
+                        duration: 0.8,
+                        ease: "power2.inOut"
+                    }
+                )
+            }
+        }
+    }, [showCoupon, isMobileCoupon])
+
+    const handleBookNowClick = (isMobile = false) => {
+        // Simulate API call - replace with actual API call
+        // await api.bookAppointment(...)
+
+        // First hide the form
+        setShowWaitlistForm(false)
+
+        // Set which coupon to show (mobile or desktop)
+        setIsMobileCoupon(isMobile)
+
+        // Show the coupon - animation will trigger via useGSAP
+        setShowCoupon(true)
+    }
+
     return (
         <div className="relative">
             <div className="flex  fixed  bottom-0 z-50 w-full bg-[#ffffffc0] py-4 items-center justify-center gap-x-10 ">
@@ -434,41 +473,70 @@ export default function Dev() {
 
             <div className="max-w-[1200px] mx-auto px-4">
 
-                        <div className="box rounded-3xl pb-6">
+                <div className="box rounded-3xl pb-6">
                     <div className="mx-auto py-5 mb-10">
                         <div className="block relative w-full mb-6 md:mb-[40px]">
-                            
+
                             {/* Mobile Version */}
                             <div className="md:hidden relative w-full">
-                                <img
-                                    src={MeetTheStylistMWeb}
-                                    alt="Meet the stylist"
-                                    className="w-full object-cover rounded-lg"
-                                />
-                                
+                                {!showCoupon && (
+                                    <img
+                                        src={MeetTheStylistMWeb}
+                                        alt="Meet the stylist"
+                                        className="w-full object-cover rounded-lg"
+                                    />
+                                )}
+
+                                {showCoupon && (
+                                    <div
+                                        style={{
+                                            perspective: '1000px',
+                                            width: '100%',
+                                            height: 'auto'
+                                        }}
+                                    >
+                                        <div
+                                            ref={mobileCouponRef}
+                                            className="flex items-center justify-center rounded-lg overflow-hidden w-full"
+                                            style={{
+                                                transformStyle: 'preserve-3d',
+                                                backfaceVisibility: 'hidden'
+                                            }}
+                                        >
+                                            <img
+                                                src={couponMweb}
+                                                alt="Coupon"
+                                                className="w-full h-auto rounded-lg"
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+
                                 {/* Mobile Text Content */}
                                 <div className="absolute bottom-6 left-4 right-4">
-                                <div className="bg-white bg-opacity-90 rounded-2xl p-4 shadow-lg" style={{    width: '201px',
-    background: 'transparent',
-    marginLeft: '152px',
-    lineHeight: '50px', marginBottom: '20px',boxShadow: 'none'}}>
-                                        {!showWaitlistForm && (
+                                    <div className="bg-white bg-opacity-90 rounded-2xl p-4 shadow-lg" style={{
+                                        width: '201px',
+                                        background: 'transparent',
+                                        marginLeft: '152px',
+                                        lineHeight: '50px', marginBottom: '20px', boxShadow: 'none'
+                                    }}>
+                                        {!showWaitlistForm && !showCoupon && (
                                             <>
-                                                <p className="fraunces text-[14px] leading-[24px] font-[400] text-[#767469] mb-1" style={{fontSize:'20px'}}>
+                                                <p className="fraunces text-[14px] leading-[24px] font-[400] text-[#767469] mb-1" style={{ fontSize: '20px' }}>
                                                     Bridal Stylist Masterclass
                                                 </p>
-                                                <p className="fraunces text-[14px] leading-[24px] font-[400] text-[#070202] mb-2" style={{fontSize:'20px'}}>
+                                                <p className="fraunces text-[14px] leading-[24px] font-[400] text-[#070202] mb-2" style={{ fontSize: '20px' }}>
                                                     with Celebrity Stylist Tanya Gharvi
                                                 </p>
-                                                <div className="flex items-center gap-2 text-[12px] mb-3" style={{fontSize:'12px'}}>
+                                                <div className="flex items-center gap-2 text-[12px] mb-3" style={{ fontSize: '12px' }}>
                                                     <span className="text-[#924E4E] font-[300]">20th February</span>
                                                     <span className="h-3 w-px bg-[#C8A89A]" />
                                                     <span className="text-[#56544E] font-[300]">3 PM Onwards</span>
                                                 </div>
                                             </>
                                         )}
-                                        
-                                        {!showWaitlistForm ? (
+
+                                        {!showWaitlistForm && !showCoupon ? (
                                             <button
                                                 onClick={() => setShowWaitlistForm(true)}
                                                 className="w-full btn border-0 rounded-full bg-gradient-to-r from-[rgba(131,39,41,0.9)] to-[rgba(99,21,23,0.9)] text-white flex items-center justify-center gap-2 py-2"
@@ -476,34 +544,34 @@ export default function Dev() {
                                                 <span className="text-[12px] font-[400]">Join The Waiting List</span>
                                                 <i className="bi bi-chevron-right bg-[#A76767] rounded-full w-5 h-5 flex items-center justify-center text-[10px]"></i>
                                             </button>
-                                        ) : (
+                                        ) : !showCoupon ? (
                                             <div className="space-y-3">
                                                 {waitlistError && <p className="text-red-500 text-[12px] text-center">{waitlistError}</p>}
                                                 <div className="space-y-1">
-                                                    <label className="text-[12px] text-[#644117] font-[500] block" style={{marginBottom: '-12px', marginLeft: '5px'}}>My name is</label>
+                                                    <label className="text-[12px] text-[#644117] font-[500] block" style={{ marginBottom: '-12px', marginLeft: '5px' }}>My name is</label>
                                                     <input
                                                         type="text"
-                                                        placeholder="Type Your Name" style={{ padding: '0 16px', height: '40px'}}
+                                                        placeholder="Type Your Name" style={{ padding: '0 16px', height: '40px' }}
                                                         className="w-full bg-white text-[#644117] text-[13px] font-normal border border-[#D4BAAA] rounded-full py-2.5 px-4 placeholder-[#C8A89A] focus:outline-none focus:border-[#A76767]"
                                                         value={waitlistName}
                                                         onChange={(e) => setWaitlistName(e.target.value)}
                                                     />
                                                 </div>
                                                 <div className="space-y-1">
-                                                    <label className="text-[12px] text-[#644117] font-[500] block" style={{marginBottom: '-12px', marginLeft: '5px'}}>Contact Number</label>
+                                                    <label className="text-[12px] text-[#644117] font-[500] block" style={{ marginBottom: '-12px', marginLeft: '5px' }}>Contact Number</label>
                                                     <input
                                                         type="tel"
-                                                        placeholder="Share Your Phone Number" style={{border: '1px solid rgba(204, 173, 135, 0.7)',  padding: '0 8px', height: '40px' }}
+                                                        placeholder="Share Your Phone Number" style={{ border: '1px solid rgba(204, 173, 135, 0.7)', padding: '0 8px', height: '40px' }}
                                                         className="w-full bg-white text-[#644117] text-[12px] font-normal border border-[#D4BAAA] rounded-full py-2.5 px-4 placeholder-[#C8A89A] focus:outline-none focus:border-[#A76767]"
                                                         value={waitlistContact}
                                                         onChange={(e) => setWaitlistContact(e.target.value)}
                                                     />
                                                 </div>
                                                 <div className="space-y-1">
-                                                    <label className="text-[12px] text-[#644117] font-[500] block" style={{marginBottom: '-12px', marginLeft: '5px'}}>E-mail</label>
+                                                    <label className="text-[12px] text-[#644117] font-[500] block" style={{ marginBottom: '-12px', marginLeft: '5px' }}>E-mail</label>
                                                     <input
                                                         type="email"
-                                                        placeholder="Share e-mail" style={{ padding: '0 16px', height: '40px'}}
+                                                        placeholder="Share e-mail" style={{ padding: '0 16px', height: '40px' }}
                                                         className="w-full bg-white text-[#644117] text-[12px] font-normal border border-[#D4BAAA] rounded-full py-1 px-4 placeholder-[#C8A89A] focus:outline-none focus:border-[#A76767]"
                                                         value={waitlistEmail}
                                                         onChange={(e) => setWaitlistEmail(e.target.value)}
@@ -511,38 +579,37 @@ export default function Dev() {
                                                 </div>
                                                 <button
                                                     type="button"
-                                                    onClick={handleWaitlistSubmit}
-                                                    disabled={waitlistLoading}
-                                                    className="w-full btn border-0 rounded-full bg-gradient-to-r from-[#A85C63] to-[#8B4A50] text-white flex items-center justify-center gap-2 py-2.5 font-[500] text-[13px] mt-2" style={{marginBottom:'-40px'}}
+                                                    onClick={() => handleBookNowClick(true)}
+                                                    className="w-full btn border-0 rounded-full bg-gradient-to-r from-[#A85C63] to-[#8B4A50] text-white flex items-center justify-center gap-2 py-2.5 font-[500] text-[13px] mt-2" style={{ marginBottom: '-40px' }}
                                                 >
                                                     <span>{waitlistLoading ? 'Submitting...' : 'Book Now'}</span>
                                                     <i className="bi bi-chevron-right"></i>
                                                 </button>
                                             </div>
-                                        )}
+                                        ) : null}
                                     </div>
                                 </div>
                             </div>
 
                             {/* Desktop Version */}
-                            <div className="hidden md:block relative w-full md:w-[129%] md:-ml-[171px]">
+                            <div className="hidden md:block relative w-full md:w-[140%] md:-ml-[240px]">
                                 <img
                                     src={MeetTheStylist}
                                     alt="Meet the stylist"
                                     className="w-full"
                                 />
-                                
+
                                 <div className="absolute inset-y-0 right-12 items-center">
                                     {showWaitlistForm ? (
-                                        <div className="bg-[#FFF9F1] bg-opacity-90 rounded-[24px] px-10 py-8 shadow-[0_12px_24px_rgba(0,0,0,0.1)]" style={{padding: '85px', marginBottom: '25px', marginRight: '205px', background: 'transparent', boxShadow: 'none'}}>
+                                        <div className="bg-[#FFF9F1] bg-opacity-90 rounded-[24px] px-10 py-8 shadow-[0_12px_24px_rgba(0,0,0,0.1)]" style={{ padding: '85px', marginBottom: '25px', marginRight: '205px', background: 'transparent', boxShadow: 'none' }}>
                                             <div className="space-y-4">
                                                 {waitlistError && <p className="text-red-500 text-[14px] text-center">{waitlistError}</p>}
                                                 <div className="flex items-center gap-4">
-                                                    <span className="text-[18px] text-[#644117] ibm-plex" style={{fontFamily: 'IBM Plex Sans', fontSize: '24px', fontWeight: '400', lineHeight: '300%', letterSpacing: '-2%'}}>My name is</span>
+                                                    <span className="text-[18px] text-[#644117] ibm-plex" style={{ fontFamily: 'IBM Plex Sans', fontSize: '24px', fontWeight: '400', lineHeight: '300%', letterSpacing: '-2%' }}>My name is</span>
                                                     <div className="relative w-[270px]">
                                                         <input
                                                             type="text"
-                                                            placeholder="Type Your Name" style={{fontSize: '19px'}}
+                                                            placeholder="Type Your Name" style={{ fontSize: '19px' }}
                                                             className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal border border-[rgba(204,173,135,0.7)] rounded-full py-2 px-4 focus:outline-none"
                                                             value={waitlistName}
                                                             onChange={(e) => setWaitlistName(e.target.value)}
@@ -550,11 +617,11 @@ export default function Dev() {
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center gap-4">
-                                                    <span className="text-[18px] text-[#644117] ibm-plex" style={{fontFamily: 'IBM Plex Sans', fontSize: '24px', fontWeight: '400', lineHeight: '300%', letterSpacing: '-2%'}}>Conatct Number</span>
+                                                    <span className="text-[18px] text-[#644117] ibm-plex" style={{ fontFamily: 'IBM Plex Sans', fontSize: '24px', fontWeight: '400', lineHeight: '300%', letterSpacing: '-2%' }}>Conatct Number</span>
                                                     <div className="relative w-[260px]">
                                                         <input
                                                             type="tel"
-                                                            placeholder="Share Your Phone Number" style={{fontSize: '19px', padding: '12px', border: '1px solid rgba(204, 173, 135, 0.7)' }}
+                                                            placeholder="Share Your Phone Number" style={{ fontSize: '19px', padding: '12px', border: '1px solid rgba(204, 173, 135, 0.7)' }}
                                                             className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal rounded-full py-2 px-4 focus:outline-none"
                                                             value={waitlistContact}
                                                             onChange={(e) => setWaitlistContact(e.target.value)}
@@ -562,11 +629,11 @@ export default function Dev() {
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center gap-4">
-                                                    <span className="text-[18px] text-[#644117] ibm-plex" style={{fontFamily: 'IBM Plex Sans', fontSize: '24px', fontWeight: '400', lineHeight: '300%', letterSpacing: '-2%'}}>E-mail</span>
+                                                    <span className="text-[18px] text-[#644117] ibm-plex" style={{ fontFamily: 'IBM Plex Sans', fontSize: '24px', fontWeight: '400', lineHeight: '300%', letterSpacing: '-2%' }}>E-mail</span>
                                                     <div className="relative w-[220px]">
                                                         <input
                                                             type="email"
-                                                            placeholder="Share e-mail" style={{fontSize: '19px'}}
+                                                            placeholder="Share e-mail" style={{ fontSize: '19px' }}
                                                             className="appearance-none w-full bg-white text-[#969288] fraunces text-[17px] font-normal border border-[rgba(204,173,135,0.7)] rounded-full py-2 px-4 focus:outline-none"
                                                             value={waitlistEmail}
                                                             onChange={(e) => setWaitlistEmail(e.target.value)}
@@ -575,12 +642,11 @@ export default function Dev() {
                                                 </div>
                                                 <button
                                                     type="button"
-                                                    onClick={handleWaitlistSubmit}
-                                                    disabled={waitlistLoading}
+                                                    onClick={() => handleBookNowClick(false)}
                                                     style={{ filter: "drop-shadow(4px 4px 8.9px rgba(60, 0, 0, 0.25))" }}
                                                     className="text-[12px] mt-[10px] !mb-0 text-[rgb(255_255_255/52%)] rounded-full btn !h-[53px] border-0 gap-1 md:flex rounded-pill justify-center items-center pl-7 pr-3"
                                                 >
-                                                    <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[200]" style={{fontSize: '17px'}}>{waitlistLoading ? 'Submitting...' : 'Book Now'}</span>
+                                                    <span className="pr-1 text-[16px] text-white font-fraunces max-md:text-[11px] font-[200]" style={{ fontSize: '17px' }}>Book Now</span>
                                                     <i
                                                         className="bi bi-chevron-right p-1 rounded-circle bg-[#A76767] rounded-full w-10 h-10 flex items-center justify-center"
                                                         style={{ boxShadow: "inset -1px -1px 4px #A76767, inset 16px 16px 15.9px 4px rgba(99, 21, 23, 0.31)" }}
@@ -588,24 +654,55 @@ export default function Dev() {
                                                 </button>
                                             </div>
                                         </div>
-                                    ) : (
-                                        <div className="text-right" style={{marginRight: '20pc', marginTop: '112px'}}>
-                                            <p className="fraunces" style={{fontFamily: 'fraunces', fontSize: '40px', fontWeight: '400', lineHeight: '108%', letterSpacing: '-2%', color: '#767469'}}>
+                                    ) : !showCoupon ? (
+                                        <div className="text-right" style={{ marginRight: '23pc', marginTop: '143px' }}>
+                                            <p className="fraunces" style={{ fontFamily: 'fraunces', fontSize: '40px', fontWeight: '400', lineHeight: '108%', letterSpacing: '-2%', color: '#767469' }}>
                                                 Bridal Stylist Masterclass
                                             </p>
-                                            <p className="fraunces" style={{fontFamily: 'fraunces', fontSize: '40px', fontWeight: '400', lineHeight: '160%', letterSpacing: '-2%', color: '#070202', marginRight: '-170px'}}>
+                                            <p className="fraunces" style={{ fontFamily: 'fraunces', fontSize: '40px', fontWeight: '400', lineHeight: '160%', letterSpacing: '-2%', color: '#070202', marginRight: '-170px' }}>
                                                 with Celebrity Stylist Tanya Gharvi
                                             </p>
-                                            <div className="mt-4 flex items-center justify-end gap-4 fraunces" style={{marginRight: '-14px'}}>
-                                                <span style={{fontFamily: 'fraunces', fontSize: '34px', fontWeight: '300', lineHeight: '128%', letterSpacing: '-2%', color: '#924E4E'}}>20th February</span>
+                                            <div className="mt-4 flex items-center justify-end gap-4 fraunces" style={{ marginRight: '-14px' }}>
+                                                <span style={{ fontFamily: 'fraunces', fontSize: '34px', fontWeight: '300', lineHeight: '128%', letterSpacing: '-2%', color: '#924E4E' }}>20th February</span>
                                                 <span className="h-4 w-px bg-[#C8A89A]" />
-                                                <span style={{fontFamily: 'fraunces', fontSize: '34px', fontWeight: '300', lineHeight: '128%', letterSpacing: '-2%', color: '#56544E'}}>3 PM Onwards</span>
+                                                <span style={{ fontFamily: 'fraunces', fontSize: '34px', fontWeight: '300', lineHeight: '128%', letterSpacing: '-2%', color: '#56544E' }}>3 PM Onwards</span>
+                                            </div>
+                                        </div>
+                                    ) : null}
+
+                                    {showCoupon && (
+                                        <div
+                                            style={{
+                                                perspective: '1000px',
+                                                width: '580px',
+                                                height: 'auto',
+                                                position: 'absolute',
+                                                right: '220px',
+                                                top: '50%',
+                                                transform: 'translateY(-50%)',
+                                                width: '540px',
+                                                marginLeft: '-340px'
+                                            }}
+                                        >
+                                            <div
+                                                ref={desktopCouponRef}
+                                                className="flex items-center justify-center overflow-hidden w-full h-full rounded-lg"
+                                                style={{
+                                                    transformStyle: 'preserve-3d',
+                                                    backfaceVisibility: 'hidden'
+                                                }}
+                                            >
+                                                <img
+                                                    src={coupon}
+                                                    alt="Coupon"
+                                                    className="w-full h-full object-contain rounded-lg"
+                                                />
                                             </div>
                                         </div>
                                     )}
                                 </div>
-                                
-                                {!showWaitlistForm && (
+
+                                {!showWaitlistForm && !showCoupon && (
                                     <button
                                         onClick={() => setShowWaitlistForm(true)}
                                         className="hidden md:flex absolute left-1/2 -translate-x-1/2 btn border-0 gap-1 rounded-pill justify-center items-center !text-white md:bottom-[80px] md:ml-[90px] md:px-6 md:py-9"
@@ -621,12 +718,14 @@ export default function Dev() {
                                 )}
                             </div>
                         </div>
-                        <p className="text-[#56544E] mt-0 md:mt-5 text-center text-2xl md:text-[36px] mb-2  font-medium fraunces ">Shop from Rivaah South Ex Store</p>
-                        <p className="text-[#56544E] text-center text-base flex justify-center items-center font-base  ">
-                            <svg width="14" height="13" className="mr-2" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6.6787 0.533895C6.82444 0.291713 7.17556 0.291713 7.3213 0.533895L9.2222 3.69253C9.27456 3.77954 9.35997 3.84159 9.45889 3.8645L13.0503 4.69629C13.3257 4.76006 13.4342 5.09399 13.2489 5.30744L10.8323 8.09137C10.7657 8.16806 10.7331 8.26846 10.7419 8.36962L11.0606 12.0423C11.0851 12.3239 10.801 12.5303 10.5407 12.42L7.14628 10.982C7.05278 10.9424 6.94722 10.9424 6.85372 10.982L3.45926 12.42C3.199 12.5303 2.91494 12.3239 2.93938 12.0423L3.25812 8.36962C3.2669 8.26846 3.23428 8.16806 3.16771 8.09137L0.751081 5.30744C0.56579 5.09399 0.674289 4.76006 0.949657 4.69629L4.54111 3.8645C4.64004 3.84159 4.72544 3.77954 4.7778 3.69253L6.6787 0.533895Z" fill="#85591C" />
-                            </svg>
-                            <b>5.0</b> (574 Reviews)</p>
+                        <div>
+                            <p className="text-[#56544E] mt-0 md:mt-5 text-center text-2xl md:text-[36px] mb-2  font-medium fraunces ">Shop from Rivaah South Ex Store</p>
+                            <p className="text-[#56544E] text-center text-base flex justify-center items-center font-base  ">
+                                <svg width="14" height="13" className="mr-2" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.6787 0.533895C6.82444 0.291713 7.17556 0.291713 7.3213 0.533895L9.2222 3.69253C9.27456 3.77954 9.35997 3.84159 9.45889 3.8645L13.0503 4.69629C13.3257 4.76006 13.4342 5.09399 13.2489 5.30744L10.8323 8.09137C10.7657 8.16806 10.7331 8.26846 10.7419 8.36962L11.0606 12.0423C11.0851 12.3239 10.801 12.5303 10.5407 12.42L7.14628 10.982C7.05278 10.9424 6.94722 10.9424 6.85372 10.982L3.45926 12.42C3.199 12.5303 2.91494 12.3239 2.93938 12.0423L3.25812 8.36962C3.2669 8.26846 3.23428 8.16806 3.16771 8.09137L0.751081 5.30744C0.56579 5.09399 0.674289 4.76006 0.949657 4.69629L4.54111 3.8645C4.64004 3.84159 4.72544 3.77954 4.7778 3.69253L6.6787 0.533895Z" fill="#85591C" />
+                                </svg>
+                                <b>5.0</b> (574 Reviews)</p>
+                        </div>
                     </div>
 
 
@@ -966,7 +1065,7 @@ export default function Dev() {
 
                                 {step === 3 ?
                                     <div className=" relative flex flex-col justify-center h-full">
-                                        <img className="absolute p-7 " src={coupon} alt="thank you" />
+                                        <img className="absolute p-7 w-[320px]" src={coupon} alt="thank you" />
                                         <div className="z-10 flex justify-end pr-[55px]">
                                             <div className="max-w-[230px]">
                                                 <p className="text-[20px] text-[#2B2A26] font-semibold fraunces text-center leading-7">Your have successfully Booked Your stylist </p>
@@ -1003,7 +1102,7 @@ export default function Dev() {
 
                                 {step === 3 ?
                                     <div className=" relative flex flex-col justify-center h-full">
-                                        <img className="absolute p-7 " src={coupon} alt="thank you" />
+                                        <img className="absolute p-7 w-[320px]" src={coupon} alt="thank you" />
                                         <div className="z-10 flex justify-end pr-[55px]">
                                             <div className="max-w-[230px]">
                                                 <p className="text-[20px] text-[#2B2A26] font-semibold fraunces text-center leading-7">Your have successfully Booked Your stylist </p>
